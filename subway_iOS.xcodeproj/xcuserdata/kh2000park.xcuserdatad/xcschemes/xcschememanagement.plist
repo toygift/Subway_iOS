@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>subway_iOS_prod.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9154274620B14A0300C6E12A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9154275A20B14A0700C6E12A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9154276520B14A0700C6E12A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
