@@ -33,7 +33,7 @@ class Tab1ViewController: UIViewController {
                         print("실패")
                     }
                 }
-                    // 로그인 에러
+                    // 로그인 에러//
                 else {
                     print("Error login: \(error!)")
                 }
