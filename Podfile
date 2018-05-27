@@ -9,7 +9,9 @@ target 'subway_iOS' do
 
  pod 'Alamofire', '~> 4.7'
  pod 'SwiftyJSON', '~> 4.0'
-
+ pod 'FacebookCore'
+ pod 'FacebookLogin'
+ pod 'FacebookShare'
 
   target 'subway_iOSTests' do
     inherit! :search_paths
