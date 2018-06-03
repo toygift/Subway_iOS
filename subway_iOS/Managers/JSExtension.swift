@@ -55,4 +55,11 @@ struct FbLogin: APIRequest {
     var method: HTTPMethod = .post
     var parameters: Parameters
 }
+struct KaLogin: APIRequest {
+    typealias T = User
+    let api = "user"
+    let router = "kakao-login"
+    var method: HTTPMethod = .post
+    var parameters: Parameters
+}
 

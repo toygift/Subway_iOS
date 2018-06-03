@@ -20,13 +20,14 @@ class Tab1ViewController: UIViewController {
             if s.isOpen() {
                 s.close()
             }
-            s.open(completionHandler: { (error) in
+            s.open(completionHandler: { [weak self] (error) in
                 // 에러가 없으면
                 if error == nil {
                     print("노 에러")
                     // 로그인 성공
                     if s.isOpen() {
-                        print("성공")
+                        print("성공",s.token.accessToken)
+                        self?.requestKaLogin(accessToken: s.token.accessToken)
                     }
                         // 로그인 실패
                     else{
@@ -83,5 +84,10 @@ class Tab1ViewController: UIViewController {
             print(response)
         }
     }
-    
+    fileprivate func requestKaLogin(accessToken : String){
+        let kaLogin = KaLogin(method: .post, parameters: ["access_token":accessToken])
+        kaLogin.requestAPI { (response) in
+            print("kakao",response)
+        }
+    }
 }

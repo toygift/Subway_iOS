@@ -35,7 +35,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Bolts
     - FacebookCore
@@ -59,4 +59,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a1cb463e9e778b9111458793c77e5a2d88719bd7
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0

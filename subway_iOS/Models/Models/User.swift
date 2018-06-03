@@ -12,10 +12,11 @@ struct User: Codable {
     let uid: Int?
     let name: String?
     let email: String?
-    
+    let date: String?
     enum CodingKeys: String, CodingKey {
         case uid = "id"
         case name = "username"
         case email = "email"
+        case date = "date_joined"
     }
 }
