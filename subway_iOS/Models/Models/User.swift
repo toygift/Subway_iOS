@@ -20,3 +20,13 @@ struct User: Codable {
         case date = "date_joined"
     }
 }
+
+struct LoginResponse : Codable {
+    let token : String?
+    let user : User?
+    enum CodingKeys: String, CodingKey {
+        case token = "token"
+        case user = "user"
+    }
+}
+

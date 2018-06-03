@@ -13,7 +13,7 @@
         <!--tab1-->
         <scene sceneID="nGa-Xs-SPb">
             <objects>
-                <viewController id="OlI-PI-Qex" customClass="Tab1ViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OlI-PI-Qex" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uoL-ui-NTk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,22 +25,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1d2-wi-qVy">
-                                <rect key="frame" x="136" y="389" width="106" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="facebook Login"/>
-                                <connections>
-                                    <action selector="fbLogin:" destination="OlI-PI-Qex" eventType="touchUpInside" id="GBo-or-Axq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pa-tx-5yU">
-                                <rect key="frame" x="173" y="435" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="카톡"/>
-                                <connections>
-                                    <action selector="kaLogin:" destination="OlI-PI-Qex" eventType="touchUpInside" id="1LJ-Zw-lmW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mYO-R7-wkv"/>

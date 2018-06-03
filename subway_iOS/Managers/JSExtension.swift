@@ -17,9 +17,9 @@ protocol APIRequest {
     associatedtype T: Decodable
 }
 extension APIRequest {
-    var domain: String { return "http://subway-eb.ap-northeast-2.elasticbeanstalk.com" }
+    
     func requestAPI(completionHandler: @escaping (DataResponse<T>) -> Void) {
-        let url = "\(domain)/\(api)/\(router)/"
+        let url = "\(serviceID)/\(api)/\(router)/"
         //Alamofire.request(url).responseDecodable(completionHandler: completionHandler)
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
@@ -49,14 +49,14 @@ extension DataRequest {
 //
 
 struct FbLogin: APIRequest {
-    typealias T = User
+    typealias T = LoginResponse
     let api = "user"
     let router = "facebook-login"
     var method: HTTPMethod = .post
     var parameters: Parameters
 }
 struct KaLogin: APIRequest {
-    typealias T = User
+    typealias T = LoginResponse
     let api = "user"
     let router = "kakao-login"
     var method: HTTPMethod = .post

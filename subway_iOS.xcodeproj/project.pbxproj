@@ -12,6 +12,9 @@
 		3F87D9DF20BA7A100098542F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DE20BA7A100098542F /* User.swift */; };
 		3F87D9E220BA7C9A0098542F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
+		9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9151307A20C3B5E600DEE0B2 /* Auth.storyboard */; };
+		9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */; };
+		9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307E20C3B81B00DEE0B2 /* TokenAuth.swift */; };
 		9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154274A20B14A0300C6E12A /* AppDelegate.swift */; };
 		9154275020B14A0300C6E12A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154274E20B14A0300C6E12A /* Main.storyboard */; };
 		9154275220B14A0700C6E12A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9154275120B14A0700C6E12A /* Assets.xcassets */; };
@@ -21,7 +24,7 @@
 		9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154277820B14D6800C6E12A /* Tab1.storyboard */; };
 		9154277C20B14DA000C6E12A /* Tab2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154277A20B14DA000C6E12A /* Tab2.storyboard */; };
 		9154277E20B14E0600C6E12A /* Tab3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154277D20B14E0600C6E12A /* Tab3.storyboard */; };
-		9154278120B14F7300C6E12A /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154278020B14F7300C6E12A /* Tab1ViewController.swift */; };
+		9154278120B14F7300C6E12A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154278020B14F7300C6E12A /* LoginViewController.swift */; };
 		9154278320B14F9200C6E12A /* Tab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154278220B14F9200C6E12A /* Tab2ViewController.swift */; };
 		9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154278420B14F9C00C6E12A /* Tab3ViewController.swift */; };
 		D92722EE36136A5C7C6ACD29 /* Pods_subway_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */; };
@@ -60,6 +63,10 @@
 		75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8061AEFAE137EF763ADE84C3 /* Pods-subway_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSTests/Pods-subway_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9151307A20C3B5E600DEE0B2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
+		9151307E20C3B81B00DEE0B2 /* TokenAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAuth.swift; sourceTree = "<group>"; };
+		9151308120C3BDEE00DEE0B2 /* subway_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = subway_iOS.entitlements; sourceTree = "<group>"; };
 		9154274720B14A0300C6E12A /* subway_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = subway_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9154274A20B14A0300C6E12A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9154274F20B14A0300C6E12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,7 +82,7 @@
 		9154277820B14D6800C6E12A /* Tab1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab1.storyboard; sourceTree = "<group>"; };
 		9154277B20B14DA000C6E12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = subway_iOS/Base.lproj/Tab2.storyboard; sourceTree = "<group>"; };
 		9154277D20B14E0600C6E12A /* Tab3.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tab3.storyboard; sourceTree = "<group>"; };
-		9154278020B14F7300C6E12A /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
+		9154278020B14F7300C6E12A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9154278220B14F9200C6E12A /* Tab2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab2ViewController.swift; sourceTree = "<group>"; };
 		9154278420B14F9C00C6E12A /* Tab3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +119,7 @@
 		3F3C1C9020C3980A0072CA12 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9151307E20C3B81B00DEE0B2 /* TokenAuth.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 		9154274920B14A0300C6E12A /* subway_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				9151308120C3BDEE00DEE0B2 /* subway_iOS.entitlements */,
 				3F87D9DB20BA6B360098542F /* Managers */,
 				3F87D9E020BA7AAE0098542F /* Models */,
 				3F3C1C9020C3980A0072CA12 /* Utils */,
@@ -202,9 +211,10 @@
 		9154277F20B14F5D00C6E12A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9154278020B14F7300C6E12A /* Tab1ViewController.swift */,
+				9154278020B14F7300C6E12A /* LoginViewController.swift */,
 				9154278220B14F9200C6E12A /* Tab2ViewController.swift */,
 				9154278420B14F9C00C6E12A /* Tab3ViewController.swift */,
+				9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 				9154277D20B14E0600C6E12A /* Tab3.storyboard */,
 				9154274E20B14A0300C6E12A /* Main.storyboard */,
 				9154275320B14A0700C6E12A /* LaunchScreen.storyboard */,
+				9151307A20C3B5E600DEE0B2 /* Auth.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -318,6 +329,11 @@
 					9154274620B14A0300C6E12A = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					9154275A20B14A0700C6E12A = {
 						CreatedOnToolsVersion = 9.3;
@@ -360,6 +376,7 @@
 				9154275220B14A0700C6E12A /* Assets.xcassets in Resources */,
 				9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */,
 				9154275020B14A0300C6E12A /* Main.storyboard in Resources */,
+				9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,8 +492,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9154278120B14F7300C6E12A /* Tab1ViewController.swift in Sources */,
+				9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */,
+				9154278120B14F7300C6E12A /* LoginViewController.swift in Sources */,
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
+				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
@@ -666,8 +685,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FNEH2787UY;
+				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -714,8 +734,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FNEH2787UY;
+				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
