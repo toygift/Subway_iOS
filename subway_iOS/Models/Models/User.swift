@@ -14,8 +14,8 @@ struct User: Codable {
     let email: String?
     
     enum CodingKeys: String, CodingKey {
-        case uid = "uid"
-        case name = "name"
+        case uid = "id"
+        case name = "username"
         case email = "email"
     }
 }

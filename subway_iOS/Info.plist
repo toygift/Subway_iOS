@@ -2,7 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>subway-eb.ap-northeast-2.elasticbeanstalk.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<false/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>KAKAO_APP_KEY</key>
 	<string>a58a812cf108e18628d63f822a3e4b1f</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -50,9 +64,9 @@
 		<string>fb-messenger-share-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
-        <string>kakaoa58a812cf108e18628d63f822a3e4b1f</string>
-        <string>kakaokompassauth</string>
-        <string>storykompassauth</string>
+		<string>kakaoa58a812cf108e18628d63f822a3e4b1f</string>
+		<string>kakaokompassauth</string>
+		<string>storykompassauth</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -46,7 +46,7 @@ class Tab1ViewController: UIViewController {
     }
     @IBAction func fbLogin(_ sender:UIButton) {
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.email], viewController: self) { (result) in
+        loginManager.logIn(readPermissions: [.email], viewController: self) { [weak self] (result) in
             switch result {
             case .failed(let error):
                 print(error)
@@ -57,7 +57,7 @@ class Tab1ViewController: UIViewController {
                 print(grantedPermissions)
                 print(declinedPermissions)
                 print("token",accessToken.authenticationToken)
-                
+                self?.requestFBLogin(accessToken: accessToken.authenticationToken)
             }
         }
     }
@@ -76,4 +76,12 @@ class Tab1ViewController: UIViewController {
             print(currentBuild)
         }
     }
+    
+    fileprivate func requestFBLogin(accessToken : String){
+        let fbLogin = FbLogin(method: .post, parameters: ["access_token":accessToken])
+        fbLogin.requestAPI { (response) in
+            print(response)
+        }
+    }
+    
 }
