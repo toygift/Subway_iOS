@@ -18,15 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tab1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvT-SD-vF2">
-                                <rect key="frame" x="166" y="323" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Hb-8l-Eal">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Hb-8l-Eal" firstAttribute="top" secondItem="mYO-R7-wkv" secondAttribute="top" id="Vvm-FQ-Ev3"/>
+                            <constraint firstItem="2Hb-8l-Eal" firstAttribute="trailing" secondItem="mYO-R7-wkv" secondAttribute="trailing" id="hld-XQ-rRc"/>
+                            <constraint firstItem="mYO-R7-wkv" firstAttribute="bottom" secondItem="2Hb-8l-Eal" secondAttribute="bottom" id="smW-KL-1Ap"/>
+                            <constraint firstItem="2Hb-8l-Eal" firstAttribute="leading" secondItem="mYO-R7-wkv" secondAttribute="leading" id="xv5-Wv-f7k"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mYO-R7-wkv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="tab1" id="Pzf-bv-1uW"/>
