@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--tab1-->
+        <!--Login View Controller-->
         <scene sceneID="3vc-ln-VHe">
             <objects>
                 <viewController id="HVn-sF-5D8" customClass="LoginViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,39 +19,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tab1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mp-cw-No8">
-                                <rect key="frame" x="166" y="323" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-h9-5xa">
-                                <rect key="frame" x="136" y="389" width="106" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="facebook Login"/>
-                                <connections>
-                                    <action selector="fbLogin:" destination="HVn-sF-5D8" eventType="touchUpInside" id="3rQ-Gv-k7F"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-T3-EgE">
-                                <rect key="frame" x="173" y="435" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="카톡"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-T3-EgE">
+                                <rect key="frame" x="72.5" y="431" width="230" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GlE-33-ZCT"/>
+                                    <constraint firstAttribute="width" constant="230" id="Q5d-qY-GWU"/>
+                                </constraints>
+                                <state key="normal" image="kakaoTalk"/>
                                 <connections>
                                     <action selector="kaLogin:" destination="HVn-sF-5D8" eventType="touchUpInside" id="IAE-VS-6I6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34A-1v-ic6">
+                                <rect key="frame" x="94" y="478" width="187" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="Z8b-Dw-poq"/>
+                                    <constraint firstAttribute="height" constant="24" id="dYr-Dw-wkD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="skip to create an account" image="iconSkipGrey">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sandwichBg1" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-LD-1yJ">
+                                <rect key="frame" x="0.0" y="537" width="375" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Uby-LD-1yJ" secondAttribute="height" multiplier="75:26" id="Ljk-ZO-WmB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subwayCi" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-1P-8Mt">
+                                <rect key="frame" x="62.5" y="120" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dgT-V0-aty"/>
+                                    <constraint firstAttribute="width" constant="250" id="iii-ek-0ca"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-h9-5xa">
+                                <rect key="frame" x="72.5" y="381" width="230" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qdz-py-1vq"/>
+                                    <constraint firstAttribute="width" constant="230" id="nTj-vy-gpb"/>
+                                </constraints>
+                                <state key="normal" image="facebook"/>
+                                <connections>
+                                    <action selector="fbLogin:" destination="HVn-sF-5D8" eventType="touchUpInside" id="3rQ-Gv-k7F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wcW-T3-EgE" firstAttribute="top" secondItem="t7F-h9-5xa" secondAttribute="bottom" constant="10" id="0Ad-Mk-5Rt"/>
+                            <constraint firstItem="Uby-LD-1yJ" firstAttribute="top" secondItem="34A-1v-ic6" secondAttribute="bottom" constant="35" id="7nm-45-d8K"/>
+                            <constraint firstItem="Yp4-1P-8Mt" firstAttribute="top" secondItem="dG0-FW-rqj" secondAttribute="top" constant="100" id="Ag9-9f-1Re"/>
+                            <constraint firstItem="34A-1v-ic6" firstAttribute="centerX" secondItem="vaT-Uf-xqa" secondAttribute="centerX" id="BX8-ce-BSW"/>
+                            <constraint firstItem="Uby-LD-1yJ" firstAttribute="leading" secondItem="dG0-FW-rqj" secondAttribute="leading" id="GfE-wW-Sxg"/>
+                            <constraint firstItem="Yp4-1P-8Mt" firstAttribute="centerX" secondItem="vaT-Uf-xqa" secondAttribute="centerX" id="Iss-U1-iYR"/>
+                            <constraint firstItem="Uby-LD-1yJ" firstAttribute="trailing" secondItem="dG0-FW-rqj" secondAttribute="trailing" id="MG9-0w-hbo"/>
+                            <constraint firstItem="34A-1v-ic6" firstAttribute="top" secondItem="wcW-T3-EgE" secondAttribute="bottom" constant="7" id="gs8-Qe-OXg"/>
+                            <constraint firstItem="t7F-h9-5xa" firstAttribute="centerX" secondItem="vaT-Uf-xqa" secondAttribute="centerX" id="hhU-Ue-vEb"/>
+                            <constraint firstItem="Uby-LD-1yJ" firstAttribute="bottom" secondItem="dG0-FW-rqj" secondAttribute="bottom" id="nY8-xO-N5l"/>
+                            <constraint firstItem="wcW-T3-EgE" firstAttribute="centerX" secondItem="vaT-Uf-xqa" secondAttribute="centerX" id="ugp-9H-4qS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dG0-FW-rqj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="tab1" id="f02-Mk-8ZR"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Us-3c-z5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147" y="-103"/>
+            <point key="canvasLocation" x="-148" y="-103.89805097451276"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebook" width="234" height="44"/>
+        <image name="iconSkipGrey" width="24" height="24"/>
+        <image name="kakaoTalk" width="234" height="44"/>
+        <image name="sandwichBg1" width="375" height="130"/>
+        <image name="subwayCi" width="254" height="53"/>
+    </resources>
 </document>
