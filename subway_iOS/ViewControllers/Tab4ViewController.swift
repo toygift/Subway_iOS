@@ -9,10 +9,16 @@
 import UIKit
 
 class Tab4ViewController: UIViewController {
-
+    
+    @IBAction func logout(_ sender: UIButton) {
+        TokenAuth().delete(serviceName, account: TokenAuth.SERVER_TOKEN)
+        goToAuth()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("TAB4")
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +37,12 @@ class Tab4ViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    fileprivate func goToAuth(){
+        let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = vc
+        }
+    }
+    
 }
