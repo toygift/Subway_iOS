@@ -67,7 +67,7 @@ struct Ranking: Codable {
     let id: Int?
     let name: Name?
     let inventor: Inventor?
-    let sandwich: Sandwich?
+    let sandwich: Sandwich
     let bread: Bread?
     let vegetables: [Vegetables]?
     

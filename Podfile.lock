@@ -25,6 +25,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.32.0):
     - FBSDKCoreKit (~> 4.32.0)
+  - Kingfisher (4.8.0)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - Kingfisher (~> 4.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -44,6 +46,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - Kingfisher
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -55,8 +58,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 55d7f2ac45d9c4b9b6119f4e43900fe84b9b7b1b
   FBSDKLoginKit: 32ac05c2a59952c363c2e85aafa8f73ba93bcbad
   FBSDKShareKit: 658780d0d108b8ad590a54afb5ac1427bdc8de28
+  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: a1cb463e9e778b9111458793c77e5a2d88719bd7
+PODFILE CHECKSUM: 98f136c93f921f3549258803ef25d7e98af20241
 
 COCOAPODS: 1.5.3

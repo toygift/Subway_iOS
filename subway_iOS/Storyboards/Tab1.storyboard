@@ -56,18 +56,17 @@
                                                     <rect key="frame" x="315" y="270" width="60" height="4"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LNv-Qq-iYl">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LNv-Qq-iYl">
                                                     <rect key="frame" x="143" y="281" width="223" height="28"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0p-Dd-93V">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0p-Dd-93V">
                                                             <rect key="frame" x="0.0" y="0.0" width="157" height="28"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCz-6U-F8W">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCz-6U-F8W">
                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="28"/>
                                                                     <state key="normal" image="iconHeartLine"/>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1132명이 좋아해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLa-xB-rJB">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1132명이 좋아해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLa-xB-rJB">
                                                                     <rect key="frame" x="24" y="0.0" width="133" height="28"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -75,11 +74,11 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="139-H4-ARJ">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="139-H4-ARJ">
                                                             <rect key="frame" x="162" y="0.0" width="28" height="28"/>
                                                             <state key="normal" image="iconSave"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-eK-MNd">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-eK-MNd">
                                                             <rect key="frame" x="195" y="0.0" width="28" height="28"/>
                                                             <state key="normal" image="iconShare"/>
                                                         </button>
@@ -88,7 +87,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="l09-Dt-7W7" firstAttribute="top" secondItem="PPd-0W-bMf" secondAttribute="bottom" constant="-26.5" id="35B-84-rDR"/>
+                                                <constraint firstAttribute="trailing" secondItem="LNv-Qq-iYl" secondAttribute="trailing" constant="9" id="IpA-cd-6hp"/>
                                                 <constraint firstItem="PPd-0W-bMf" firstAttribute="top" secondItem="hFJ-df-qVh" secondAttribute="top" constant="29" id="MA1-8q-LGi"/>
+                                                <constraint firstAttribute="bottom" secondItem="LNv-Qq-iYl" secondAttribute="bottom" constant="190.5" id="Rtn-Ex-iDY"/>
+                                                <constraint firstItem="LNv-Qq-iYl" firstAttribute="top" secondItem="l09-Dt-7W7" secondAttribute="bottom" constant="7" id="dRT-0Q-70L"/>
+                                                <constraint firstItem="LNv-Qq-iYl" firstAttribute="leading" secondItem="hFJ-df-qVh" secondAttribute="leading" constant="143" id="fl5-FP-l7C"/>
                                                 <constraint firstItem="l09-Dt-7W7" firstAttribute="leading" secondItem="PPd-0W-bMf" secondAttribute="leading" constant="20" id="i16-bO-9Fl"/>
                                                 <constraint firstAttribute="trailing" secondItem="PPd-0W-bMf" secondAttribute="trailing" id="p7Q-cq-cmc"/>
                                                 <constraint firstItem="l09-Dt-7W7" firstAttribute="trailing" secondItem="PPd-0W-bMf" secondAttribute="trailing" constant="20" id="tK1-j8-RKR"/>
@@ -156,6 +159,9 @@
                     <tabBarItem key="tabBarItem" title="tab1" id="Pzf-bv-1uW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2000"/>
+                    <connections>
+                        <outlet property="tableView" destination="2Hb-8l-Eal" id="nBY-M4-1Wg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3U-Ex-dGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
