@@ -12,8 +12,16 @@ class Tab1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let token = TokenAuth().load(serviceName, account: TokenAuth.SERVER_TOKEN) {
+            let getRanking = GetRanking(method: .get, parameters: ["Authorization":token])
+            getRanking.requestAPI { [weak self] (response) in
+                print(response)
+            }
+        }
+//        let kkk: String!
+//        if let ddd = TokenAuth().load(serviceName, account: TokenAuth.SERVER_TOKEN) {
+//            kkk = ddd
+//        }
     }
 
     override func didReceiveMemoryWarning() {

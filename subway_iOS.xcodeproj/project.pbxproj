@@ -13,6 +13,7 @@
 		3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DC20BA6B410098542F /* JSExtension.swift */; };
 		3F87D9DF20BA7A100098542F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DE20BA7A100098542F /* User.swift */; };
 		3F87D9E220BA7C9A0098542F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */; };
+		3FD9811920DF637000BE3509 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9811820DF637000BE3509 /* Ranking.swift */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
 		91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */; };
 		9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9151307A20C3B5E600DEE0B2 /* Auth.storyboard */; };
@@ -63,6 +64,7 @@
 		3F87D9DE20BA7A100098542F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = subway_iOS/Models/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		3F87D9E320BA7F4D0098542F /* subway_iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "subway_iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		3FD9811820DF637000BE3509 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		48C95255AF1E27553BDF8E69 /* Pods-subway_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		580B303F9C7F5F6C238E51FC /* Pods-subway_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				3F87D9DE20BA7A100098542F /* User.swift */,
+				3FD9811820DF637000BE3509 /* Ranking.swift */,
 			);
 			name = Models;
 			path = Models/Models;
@@ -510,6 +513,7 @@
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
 				3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */,
+				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,

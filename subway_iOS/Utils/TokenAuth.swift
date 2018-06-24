@@ -11,7 +11,7 @@ import Security
 import SwiftyJSON
 import Alamofire
 
-let serviceID = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com"
+let serviceURL = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com"
 let serviceName = "com.teamsubway.subway-iOS"
 
 class TokenAuth {
@@ -72,7 +72,7 @@ class TokenAuth {
     }
     
     func getAuthHeaders() -> HTTPHeaders? {
-        if let accessToken = self.load(serviceID, account: "accessToken") {
+        if let accessToken = self.load(serviceURL, account: "accessToken") {
             return ["Authorization" : "token \(accessToken)"] as HTTPHeaders
         } else {
             return nil
