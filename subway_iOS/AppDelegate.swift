@@ -21,10 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
-        
+        if TokenAuth().load(serviceName, account: TokenAuth.SERVER_TOKEN) == nil {
+            window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
+        } else {
+            window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        }
         
         return true
     }
