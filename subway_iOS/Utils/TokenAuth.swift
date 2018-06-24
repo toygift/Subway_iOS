@@ -68,8 +68,10 @@ class TokenAuth {
         
         let status = SecItemDelete(keyChainQuery)
         assert(status == noErr, "토큰삭제실패")
-        NSLog("status=\(status)")
+        print("status=\(status)")
     }
+    
+    
     
     func getAuthHeaders() -> HTTPHeaders? {
         if let accessToken = self.load(serviceURL, account: "accessToken") {

@@ -9,7 +9,7 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
-// TODO: -
+
 class LoginViewController: UIViewController {
 
     @IBAction func kaLogin(_ sender: UIButton) {
@@ -23,24 +23,24 @@ class LoginViewController: UIViewController {
             s.open(completionHandler: { [weak self] (error) in
                 // 에러가 없으면
                 if error == nil {
-                    print("노 에러")
                     // 로그인 성공
                     if s.isOpen() {
                         print("성공",s.token.accessToken)
                         self?.requestKaLogin(accessToken: s.token.accessToken)
                     }
-                        // 로그인 실패
+                    
+                    // 로그인 실패
                     else{
                         print("실패")
                     }
                 }
-                    // 로그인 에러//
+                // 로그인 에러//
                 else {
                     print("Error login: \(error!)")
                 }
             })
         }
-            // 세션 생성 실패
+        // 세션 생성 실패
         else {
             print("Something wrong")
         }
@@ -62,39 +62,48 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func skip(_ sender : UIButton) {
+        goToMain()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("tab1")
-        
-        
-        
-//        if let infoDic = Bundle.main.infoDictionary {
-//            let currentBuildSetting = infoDic["CURRENT_BUILD_SETTING"] as! String
-//            print(currentBuildSetting)
-//        }
         
         if let currentBuild = Bundle.main.object(forInfoDictionaryKey: "CurrentBuildSetting") as? String {
             print(currentBuild)
         }
     }
     
+    /**
+     * 서버에 로그인 후 토큰 조회 - facebook
+     */
     fileprivate func requestFBLogin(accessToken : String){
         let fbLogin = FbLogin(method: .post, parameters: ["access_token":accessToken])
         fbLogin.requestAPI { [weak self] (response) in
-            print(response)
             if let result = response.result.value, let token = result.token {
                 TokenAuth().save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
                 self?.goToMain()
             }
         }
     }
+    
+    /**
+     * 서버에 로그인 후 토큰 조회 - kakao
+     */
     fileprivate func requestKaLogin(accessToken : String){
         let kaLogin = KaLogin(method: .post, parameters: ["access_token":accessToken])
-        kaLogin.requestAPI { (response) in
-            print("kakao",response)
+        kaLogin.requestAPI { [weak self] (response) in
+            if let result = response.result.value, let token = result.token {
+                TokenAuth().save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
+                self?.goToMain()
+            }
         }
     }
     
+    /**
+     * Main storyboard로 넘어감.. 기존의 viewcontrollers 삭제
+     */
     fileprivate func goToMain(){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
