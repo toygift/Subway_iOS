@@ -11,7 +11,7 @@ import UIKit
 class Tab4ViewController: UIViewController {
     
     @IBAction func logout(_ sender: UIButton) {
-        TokenAuth().delete(serviceName, account: TokenAuth.SERVER_TOKEN)
+        TokenAuth.delete(serviceName, account: TokenAuth.SERVER_TOKEN)
         goToAuth()
     }
     

@@ -9,8 +9,8 @@
 import Foundation
 
 struct Name: Codable {
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -18,9 +18,9 @@ struct Name: Codable {
     }
 }
 struct Inventor: Codable {
-    let id: Int
-    let username: String
-    let email: String
+    let id: Int?
+    let username: String?
+    let email: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -29,9 +29,9 @@ struct Inventor: Codable {
     }
 }
 struct Sandwich: Codable {
-    let id: Int
-    let name: String
-    let image: String
+    let id: Int?
+    let name: String?
+    let image: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -40,9 +40,9 @@ struct Sandwich: Codable {
     }
 }
 struct Bread: Codable {
-    let id: Int
-    let name: String
-    let image: String
+    let id: Int?
+    let name: String?
+    let image: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -51,10 +51,10 @@ struct Bread: Codable {
     }
 }
 struct Vegetables: Codable {
-    let id: Int
-    let name: String
-    let quantity: String
-    let image: String
+    let id: Int?
+    let name: String?
+    let quantity: String?
+    let image: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -64,12 +64,12 @@ struct Vegetables: Codable {
     }
 }
 struct Ranking: Codable {
-    let id: Int
-    let name: Name
-    let inventor: Inventor
-    let sandwich: Sandwich
-    let bread: Bread
-    let vegetables: Vegetables
+    let id: Int?
+    let name: Name?
+    let inventor: Inventor?
+    let sandwich: Sandwich?
+    let bread: Bread?
+    let vegetables: [Vegetables]?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -78,5 +78,19 @@ struct Ranking: Codable {
         case sandwich = "sandwich"
         case bread = "bread"
         case vegetables = "vegetables"
+    }
+}
+struct Rankings: Codable {
+    let count: Int?
+    let next: String?
+    let previous: String?
+    let results: [Ranking]?
+    
+    enum CodingKeys: String, CodingKey {
+        case count = "count"
+        case results = "results"
+        case next = "next"
+        case previous = "previous"
+        
     }
 }

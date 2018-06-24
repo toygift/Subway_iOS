@@ -12,10 +12,15 @@ class Tab1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let token = TokenAuth().load(serviceName, account: TokenAuth.SERVER_TOKEN) {
-            let getRanking = GetRanking(method: .get, parameters: ["Authorization":token])
-            getRanking.requestAPI { [weak self] (response) in
-                print(response)
+        print("토큰입니당당당",TokenAuth.getAuthHeaders())
+        let getRankings = GetRanking(method: .get, parameters: [:])
+        getRankings.requestAPI { [weak self] (response) in
+
+            switch response.result {
+            case .success(let value):
+                print("가나다라마",value)
+            case .failure(let error):
+                print("아아아아아아",error)
             }
         }
 //        let kkk: String!

@@ -61,7 +61,7 @@ struct KaLogin: APIRequest {
     var parameters: Parameters
 }
 struct GetRanking: APIRequest {
-    typealias T = Ranking
+    typealias T = Rankings
     let api = "recipe"
     var method: HTTPMethod = .get
     var parameters: Parameters

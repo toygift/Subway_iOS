@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
         let fbLogin = FbLogin(method: .post, parameters: ["access_token":accessToken])
         fbLogin.requestAPI { [weak self] (response) in
             if let result = response.result.value, let token = result.token {
-                TokenAuth().save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
+                TokenAuth.save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
                 self?.goToMain()
             }
         }
@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
         let kaLogin = KaLogin(method: .post, parameters: ["access_token":accessToken])
         kaLogin.requestAPI { [weak self] (response) in
             if let result = response.result.value, let token = result.token {
-                TokenAuth().save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
+                TokenAuth.save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
                 self?.goToMain()
             }
         }
