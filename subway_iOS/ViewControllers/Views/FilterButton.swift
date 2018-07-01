@@ -8,16 +8,22 @@
 
 import UIKit
 
+protocol FilterButtonClickDelegate {
+    func click(position : Int)
+}
+
 class FilterButton: UIButton {
+    
+    var delegate : FilterButtonClickDelegate?
     
     var clicked : Bool = false {
         willSet {
             if newValue {
                 setTitleColor(UIColor.white, for: .normal)
-                setBackgroundImage(#imageLiteral(resourceName: "boxSelectedArrangment"), for: .normal)
+                backgroundColor = UIColor.yellowForEnabledFilter
             } else {
                 setTitleColor(UIColor.grayForDisabledFilter, for: .normal)
-                setBackgroundImage(nil, for: .normal)
+                backgroundColor = UIColor.clear
             }
         }
     }
@@ -38,6 +44,7 @@ class FilterButton: UIButton {
     
     fileprivate func setup() {
         addTarget(self, action: #selector(toggleView), for: .touchUpInside)
+        layer.cornerRadius = 15
     }
     
     deinit {

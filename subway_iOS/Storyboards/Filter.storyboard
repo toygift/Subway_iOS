@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,72 +24,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NZ-iU-rvy">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QKK-xI-rWT">
                                 <rect key="frame" x="20" y="113" width="335" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpg-OD-Fhd" customClass="FilterButton" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="랭킹 높은 순">
-                                            <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcK-v5-60X" customClass="FilterButton" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="84.5" y="0.0" width="80.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="하트 많은 순">
-                                            <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1g-dl-Fq8" customClass="FilterButton" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="169" y="0.0" width="80.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="저장 많은 순">
-                                            <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihK-C1-oZt" customClass="FilterButton" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="253.5" y="0.0" width="80.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="최신 등록 순">
-                                            <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1NA-ck-SY8"/>
-                                    <constraint firstItem="FcK-v5-60X" firstAttribute="leading" secondItem="Fpg-OD-Fhd" secondAttribute="trailing" constant="4" id="4gB-mW-tMg"/>
-                                    <constraint firstItem="s1g-dl-Fq8" firstAttribute="top" secondItem="9NZ-iU-rvy" secondAttribute="top" id="8od-GF-4XK"/>
-                                    <constraint firstItem="Fpg-OD-Fhd" firstAttribute="height" secondItem="9NZ-iU-rvy" secondAttribute="height" id="CpR-oc-nys"/>
-                                    <constraint firstItem="FcK-v5-60X" firstAttribute="width" secondItem="Fpg-OD-Fhd" secondAttribute="width" id="DkA-sf-h7L"/>
-                                    <constraint firstItem="s1g-dl-Fq8" firstAttribute="height" secondItem="Fpg-OD-Fhd" secondAttribute="height" id="KtI-dW-A8k"/>
-                                    <constraint firstItem="Fpg-OD-Fhd" firstAttribute="width" secondItem="9NZ-iU-rvy" secondAttribute="width" multiplier="0.24" id="NEI-Gz-ZrJ"/>
-                                    <constraint firstItem="FcK-v5-60X" firstAttribute="top" secondItem="9NZ-iU-rvy" secondAttribute="top" id="NW6-Xf-pXw"/>
-                                    <constraint firstItem="ihK-C1-oZt" firstAttribute="width" secondItem="Fpg-OD-Fhd" secondAttribute="width" id="TEe-tT-tVH"/>
-                                    <constraint firstItem="ihK-C1-oZt" firstAttribute="top" secondItem="9NZ-iU-rvy" secondAttribute="top" id="VSq-iF-tA2"/>
-                                    <constraint firstItem="FcK-v5-60X" firstAttribute="height" secondItem="Fpg-OD-Fhd" secondAttribute="height" id="Vo8-G9-V5v"/>
-                                    <constraint firstItem="ihK-C1-oZt" firstAttribute="height" secondItem="Fpg-OD-Fhd" secondAttribute="height" id="Y79-xR-6oi"/>
-                                    <constraint firstItem="Fpg-OD-Fhd" firstAttribute="leading" secondItem="9NZ-iU-rvy" secondAttribute="leading" id="ZCc-GW-n22"/>
-                                    <constraint firstItem="s1g-dl-Fq8" firstAttribute="leading" secondItem="FcK-v5-60X" secondAttribute="trailing" constant="4" id="gdh-NQ-gxh"/>
-                                    <constraint firstItem="ihK-C1-oZt" firstAttribute="leading" secondItem="s1g-dl-Fq8" secondAttribute="trailing" constant="4" id="ka4-L1-Wkp"/>
-                                    <constraint firstItem="Fpg-OD-Fhd" firstAttribute="top" secondItem="9NZ-iU-rvy" secondAttribute="top" id="oGP-Et-Pzy"/>
-                                    <constraint firstItem="s1g-dl-Fq8" firstAttribute="width" secondItem="Fpg-OD-Fhd" secondAttribute="width" id="qxb-7F-S9D"/>
+                                    <constraint firstAttribute="height" constant="30" id="iJf-Qy-Ik0"/>
                                 </constraints>
-                            </view>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yje-T1-Y3Q">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XCQ-aH-Myj">
+                                        <rect key="frame" x="0.0" y="-10" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9NZ-iU-rvy" secondAttribute="trailing" constant="20" id="2u5-mZ-DAs"/>
                             <constraint firstItem="Xeg-wF-542" firstAttribute="top" secondItem="mg6-3s-oEi" secondAttribute="top" constant="20" id="8VL-MZ-sle"/>
-                            <constraint firstItem="9NZ-iU-rvy" firstAttribute="leading" secondItem="mg6-3s-oEi" secondAttribute="leading" constant="20" id="Mm9-Ho-JBx"/>
+                            <constraint firstItem="QKK-xI-rWT" firstAttribute="leading" secondItem="mg6-3s-oEi" secondAttribute="leading" constant="20" id="C2a-Va-7YO"/>
+                            <constraint firstItem="mg6-3s-oEi" firstAttribute="trailing" secondItem="QKK-xI-rWT" secondAttribute="trailing" constant="20" id="Ocd-zC-Yzd"/>
                             <constraint firstItem="Xeg-wF-542" firstAttribute="leading" secondItem="mg6-3s-oEi" secondAttribute="leading" constant="20" id="TIi-sI-KCC"/>
                             <constraint firstItem="mg6-3s-oEi" firstAttribute="trailing" secondItem="Xeg-wF-542" secondAttribute="trailing" constant="20" id="ZPN-gv-4Xe"/>
-                            <constraint firstItem="9NZ-iU-rvy" firstAttribute="top" secondItem="Xeg-wF-542" secondAttribute="bottom" constant="8" id="l5k-jD-VLY"/>
+                            <constraint firstItem="QKK-xI-rWT" firstAttribute="top" secondItem="Xeg-wF-542" secondAttribute="bottom" constant="8" id="a8M-O5-h1p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mg6-3s-oEi"/>
                     </view>
@@ -102,11 +67,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="sortHeartBtn" destination="FcK-v5-60X" id="qWv-ss-agy"/>
-                        <outlet property="sortLastRegisteredBtn" destination="ihK-C1-oZt" id="0fc-eB-mur"/>
-                        <outlet property="sortRanking" destination="Fpg-OD-Fhd" id="ATb-6A-6MQ"/>
-                        <outlet property="sortRankingBtn" destination="Fpg-OD-Fhd" id="wgr-0c-D7i"/>
-                        <outlet property="sortSaveBtn" destination="s1g-dl-Fq8" id="WAy-F8-UyS"/>
+                        <outlet property="sortCollectionView" destination="QKK-xI-rWT" id="BER-cE-wdr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ld7-1L-m0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
