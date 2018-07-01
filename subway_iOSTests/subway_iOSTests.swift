@@ -26,6 +26,31 @@ class subway_iOSTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testAPI(){
+        let promise = expectation(description : "status code : 200")
+        
+        let url = URL(string : "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/recipe/")!
+        var request = URLRequest(url: url)
+        //request.addValue("Token4fc45b17143710f9f22352358a9b6c4d8fc69ffd", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            print(response)
+            
+            if error != nil {
+                print(error ?? "error occurred while parsing error object")
+                return
+            }
+            
+            
+            
+            
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

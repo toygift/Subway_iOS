@@ -745,6 +745,7 @@
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MBM4TGHFP;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
