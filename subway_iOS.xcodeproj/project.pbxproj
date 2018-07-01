@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F3C1C9420C3983B0072CA12 /* tempsss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1C9320C3983B0072CA12 /* tempsss.swift */; };
 		3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50483920D6201800DAB8D8 /* RankingOddCell.swift */; };
 		3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */; };
 		3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DC20BA6B410098542F /* JSExtension.swift */; };
 		3F87D9DF20BA7A100098542F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DE20BA7A100098542F /* User.swift */; };
 		3F87D9E220BA7C9A0098542F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
+		911EAE3F20E88004002E132F /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EAE3E20E88004002E132F /* Filter.storyboard */; };
+		911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE4020E8839E002E132F /* FilterViewController.swift */; };
+		911EAE4320E89073002E132F /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE4220E89073002E132F /* FilterButton.swift */; };
+		911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE4420E89479002E132F /* UIColorExtension.swift */; };
 		91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */; };
 		9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9151307A20C3B5E600DEE0B2 /* Auth.storyboard */; };
 		9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */; };
@@ -56,7 +59,6 @@
 		0C328E1A9A0F31E5A451FB01 /* Pods-subway_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSTests/Pods-subway_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1C905BD16FA9D53082379202 /* Pods-subway_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		324B9E762B29CD8ECE9B00C2 /* Pods-subway_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3F3C1C9320C3983B0072CA12 /* tempsss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempsss.swift; sourceTree = "<group>"; };
 		3F50483920D6201800DAB8D8 /* RankingOddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingOddCell.swift; sourceTree = "<group>"; };
 		3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEvenCell.swift; sourceTree = "<group>"; };
 		3F87D9DC20BA6B410098542F /* JSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSExtension.swift; sourceTree = "<group>"; };
@@ -69,6 +71,10 @@
 		75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8061AEFAE137EF763ADE84C3 /* Pods-subway_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSTests/Pods-subway_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		911EAE3E20E88004002E132F /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
+		911EAE4020E8839E002E132F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		911EAE4220E89073002E132F /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		911EAE4420E89479002E132F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab4ViewController.swift; sourceTree = "<group>"; };
 		9151307A20C3B5E600DEE0B2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				9151307E20C3B81B00DEE0B2 /* TokenAuth.swift */,
+				911EAE4420E89479002E132F /* UIColorExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -135,9 +142,9 @@
 		3F3C1C9220C3982F0072CA12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3F3C1C9320C3983B0072CA12 /* tempsss.swift */,
 				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
 				3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */,
+				911EAE4220E89073002E132F /* FilterButton.swift */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -226,6 +233,7 @@
 				9154278220B14F9200C6E12A /* Tab2ViewController.swift */,
 				9154278420B14F9C00C6E12A /* Tab3ViewController.swift */,
 				91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */,
+				911EAE4020E8839E002E132F /* FilterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				916C23B920DF521700ECD746 /* Tab2.storyboard */,
 				9154277D20B14E0600C6E12A /* Tab3.storyboard */,
 				916C23B720DF505200ECD746 /* Tab4.storyboard */,
+				911EAE3E20E88004002E132F /* Filter.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -384,6 +393,7 @@
 			files = (
 				9154277E20B14E0600C6E12A /* Tab3.storyboard in Resources */,
 				916C23B820DF505200ECD746 /* Tab4.storyboard in Resources */,
+				911EAE3F20E88004002E132F /* Filter.storyboard in Resources */,
 				9154275520B14A0700C6E12A /* LaunchScreen.storyboard in Resources */,
 				9154275220B14A0700C6E12A /* Assets.xcassets in Resources */,
 				9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */,
@@ -506,17 +516,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */,
+				911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */,
 				9154278120B14F7300C6E12A /* LoginViewController.swift in Sources */,
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
 				3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
+				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,
 				9154278320B14F9200C6E12A /* Tab2ViewController.swift in Sources */,
-				3F3C1C9420C3983B0072CA12 /* tempsss.swift in Sources */,
+				911EAE4320E89073002E132F /* FilterButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

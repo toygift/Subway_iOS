@@ -10,6 +10,11 @@ import UIKit
 
 class Tab3ViewController: UIViewController {
 
+    @IBAction func showFilter(_ sender: UIButton) {
+        if let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateInitialViewController() {
+            present(vc, animated: true, completion: nil)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("tab3")
