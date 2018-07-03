@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ksW-yJ-if3" customClass="FilterProductCell" customModule="subway_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spicyItalianAvocado" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-iF-Z5v">
+                        <rect key="frame" x="0.0" y="10" width="154" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bDF-iF-Z5v" secondAttribute="height" multiplier="110:50" id="VQX-S3-0rJ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZS-rp-jzj">
+                        <rect key="frame" x="15" y="85" width="124" height="54"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="0.80392156862745101" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="UZS-rp-jzj" firstAttribute="top" secondItem="bDF-iF-Z5v" secondAttribute="bottom" constant="5" id="3UU-9W-Pch"/>
+                <constraint firstItem="bDF-iF-Z5v" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" id="FYo-iw-Rf2"/>
+                <constraint firstItem="bDF-iF-Z5v" firstAttribute="top" secondItem="ksW-yJ-if3" secondAttribute="top" constant="10" id="YLD-Vy-8Kf"/>
+                <constraint firstAttribute="trailing" secondItem="bDF-iF-Z5v" secondAttribute="trailing" id="f0Z-MV-q9F"/>
+                <constraint firstItem="UZS-rp-jzj" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" constant="15" id="fTK-4W-efr"/>
+                <constraint firstAttribute="trailing" secondItem="UZS-rp-jzj" secondAttribute="trailing" constant="15" id="oNN-49-bGa"/>
+                <constraint firstAttribute="bottom" secondItem="UZS-rp-jzj" secondAttribute="bottom" constant="15" id="t98-3C-c2J"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="GDN-kN-wME"/>
+            <size key="customSize" width="194" height="204"/>
+            <connections>
+                <outlet property="productImageView" destination="bDF-iF-Z5v" id="d68-jk-tQS"/>
+                <outlet property="productLabel" destination="UZS-rp-jzj" id="e83-4t-Zco"/>
+            </connections>
+            <point key="canvasLocation" x="79" y="62"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="spicyItalianAvocado" width="110" height="50"/>
+    </resources>
+</document>
