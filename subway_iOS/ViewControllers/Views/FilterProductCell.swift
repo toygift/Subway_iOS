@@ -10,6 +10,20 @@ import UIKit
 
 class FilterProductCell: UICollectionViewCell {
     
+    var data : FilterProduct? {
+        didSet {
+            if let d = data {
+                productImageView.image = d.image
+                productLabel.text = d.name
+            }
+        }
+    }
+    
+    override func awakeFromNib() {
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
+    }
+    
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
 }

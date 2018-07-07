@@ -20,16 +20,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spicyItalianAvocado" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-iF-Z5v">
-                        <rect key="frame" x="0.0" y="10" width="154" height="70"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_spicyItalianAvocado" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-iF-Z5v">
+                        <rect key="frame" x="0.0" y="5" width="154" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="bDF-iF-Z5v" secondAttribute="height" multiplier="110:50" id="VQX-S3-0rJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZS-rp-jzj">
-                        <rect key="frame" x="15" y="85" width="124" height="54"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZS-rp-jzj">
+                        <rect key="frame" x="5" y="80" width="144" height="69"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -38,11 +38,11 @@
             <constraints>
                 <constraint firstItem="UZS-rp-jzj" firstAttribute="top" secondItem="bDF-iF-Z5v" secondAttribute="bottom" constant="5" id="3UU-9W-Pch"/>
                 <constraint firstItem="bDF-iF-Z5v" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" id="FYo-iw-Rf2"/>
-                <constraint firstItem="bDF-iF-Z5v" firstAttribute="top" secondItem="ksW-yJ-if3" secondAttribute="top" constant="10" id="YLD-Vy-8Kf"/>
+                <constraint firstItem="bDF-iF-Z5v" firstAttribute="top" secondItem="ksW-yJ-if3" secondAttribute="top" constant="5" id="YLD-Vy-8Kf"/>
                 <constraint firstAttribute="trailing" secondItem="bDF-iF-Z5v" secondAttribute="trailing" id="f0Z-MV-q9F"/>
-                <constraint firstItem="UZS-rp-jzj" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" constant="15" id="fTK-4W-efr"/>
-                <constraint firstAttribute="trailing" secondItem="UZS-rp-jzj" secondAttribute="trailing" constant="15" id="oNN-49-bGa"/>
-                <constraint firstAttribute="bottom" secondItem="UZS-rp-jzj" secondAttribute="bottom" constant="15" id="t98-3C-c2J"/>
+                <constraint firstItem="UZS-rp-jzj" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" constant="5" id="fTK-4W-efr"/>
+                <constraint firstAttribute="trailing" secondItem="UZS-rp-jzj" secondAttribute="trailing" constant="5" id="oNN-49-bGa"/>
+                <constraint firstAttribute="bottom" secondItem="UZS-rp-jzj" secondAttribute="bottom" constant="5" id="t98-3C-c2J"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="GDN-kN-wME"/>
             <size key="customSize" width="194" height="204"/>
@@ -54,6 +54,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="spicyItalianAvocado" width="110" height="50"/>
+        <image name="product_spicyItalianAvocado" width="110" height="50"/>
     </resources>
 </document>

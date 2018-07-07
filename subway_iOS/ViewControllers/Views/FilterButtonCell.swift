@@ -18,23 +18,31 @@ class Filter {
     }
 }
 
-
 class FilterButtonCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var shadow: UIView!
+    
+    var shadowLayer: CAShapeLayer!
+    
     var clicked = false {
         willSet {
             if newValue {
                 label.textColor = UIColor.white
                 label.backgroundColor = UIColor.yellowForEnabledFilter
+                shadow.backgroundColor = UIColor.grayForShadow
             } else {
                 label.textColor = UIColor.grayForDisabledFilter
                 label.backgroundColor = UIColor.clear
+                shadow.backgroundColor = UIColor.clear
             }
         }
     }
     
     override func awakeFromNib() {
         label.layer.cornerRadius = 15
-        label.layer.masksToBounds = true
+        label.clipsToBounds = true
+        
+        shadow.layer.cornerRadius = 15
     }
+    
 }

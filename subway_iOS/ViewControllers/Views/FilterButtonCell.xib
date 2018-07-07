@@ -19,8 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="180" height="57"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1C4-f9-iBU">
+                        <rect key="frame" x="1" y="1" width="178" height="56"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="랭킹 많은 순" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oS-sU-Tsj">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="57"/>
+                        <rect key="frame" x="0.0" y="0.0" width="178" height="56"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -29,15 +33,20 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="9oS-sU-Tsj" secondAttribute="trailing" id="Nsa-Pp-LgV"/>
+                <constraint firstAttribute="bottom" secondItem="1C4-f9-iBU" secondAttribute="bottom" id="E5k-IQ-3Jf"/>
+                <constraint firstAttribute="trailing" secondItem="1C4-f9-iBU" secondAttribute="trailing" constant="1" id="FXT-yg-rgv"/>
+                <constraint firstAttribute="trailing" secondItem="9oS-sU-Tsj" secondAttribute="trailing" constant="2" id="Nsa-Pp-LgV"/>
                 <constraint firstItem="9oS-sU-Tsj" firstAttribute="top" secondItem="4BS-dk-fEO" secondAttribute="top" id="ZVo-qK-9tl"/>
-                <constraint firstAttribute="bottom" secondItem="9oS-sU-Tsj" secondAttribute="bottom" id="mWD-2V-U3X"/>
+                <constraint firstItem="1C4-f9-iBU" firstAttribute="leading" secondItem="4BS-dk-fEO" secondAttribute="leading" constant="1" id="elQ-nF-rPE"/>
+                <constraint firstAttribute="bottom" secondItem="9oS-sU-Tsj" secondAttribute="bottom" constant="1" id="mWD-2V-U3X"/>
                 <constraint firstItem="9oS-sU-Tsj" firstAttribute="leading" secondItem="4BS-dk-fEO" secondAttribute="leading" id="sZm-gE-dfA"/>
+                <constraint firstItem="1C4-f9-iBU" firstAttribute="top" secondItem="4BS-dk-fEO" secondAttribute="top" constant="1" id="smK-7U-Hk5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="WVl-Au-n9e"/>
             <size key="customSize" width="180" height="57"/>
             <connections>
                 <outlet property="label" destination="9oS-sU-Tsj" id="sg2-uX-uY7"/>
+                <outlet property="shadow" destination="1C4-f9-iBU" id="3ie-pT-Wub"/>
             </connections>
             <point key="canvasLocation" x="44" y="152.5"/>
         </collectionViewCell>

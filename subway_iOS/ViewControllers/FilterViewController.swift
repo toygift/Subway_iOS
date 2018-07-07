@@ -36,9 +36,45 @@ class FilterViewController: UIViewController {
                     Filter(name: "프리미엄", clicked: false),
                     Filter(name: "아침메뉴", clicked: false)]
     
+    var product = [FilterProduct(image: #imageLiteral(resourceName: "product_spicyItalianAvocado"), name: "스파이시\n이탈리안 아보카도"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_turkeyBaconAvocado"), name: "터키 베이컨\n아보카도"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_veggieAvocado"), name: "베지 아보카도"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_pulledPork"), name: "풀드포크"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_eggMayo"), name: "에그마요"),
+                   
+                   FilterProduct(image: #imageLiteral(resourceName: "product_italianBMT"), name: "이탈리안\n비엠티"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_bLT"), name: "비엘티"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_meatball"), name: "미트볼"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_ham"), name: "햄"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_tuna"), name: "참치"),
+                   
+                   FilterProduct(image: #imageLiteral(resourceName: "product_rotisserieChicken"), name: "로티세리\n치킨"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_roastedChicken"), name: "로스트 치킨"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_roastedBeef"), name: "로스트 비프"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_subwayClub"), name: "써브웨이\n클럽"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_turkey"), name: "터키"),
+                   
+                   FilterProduct(image: #imageLiteral(resourceName: "product_veggieDelite"), name: "베지"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_steakCheese"), name: "스테이크 & 치즈"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_chickenBaconRanch"), name: "치킨 베이컨 랜치"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_subwayMelt"), name: "써브웨이 멜트"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_subwayMelt"), name: "써브웨이 멜트"),
+                   
+                   FilterProduct(image: #imageLiteral(resourceName: "product_turkeyBacon"), name: "터키 베이컨"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_spicyItalian"), name: "스파이시 이탈리안"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_chickenTeriyaki"), name: "치킨 데리야끼"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_blackForestHamEggCheese"), name: "블랙 포레스트햄 & 에그 치즈"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_westernEggCheese"), name: "웨스턴 에그 & 치즈"),
+                   
+                   FilterProduct(image: #imageLiteral(resourceName: "product_baconEggCheese"), name: "베이컨 에그 & 치즈"),
+                   FilterProduct(image: #imageLiteral(resourceName: "product_steakEggCheese"), name: "스테이크 에그 & 치즈"),
+                   ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
     }
 
     fileprivate func setupViews(){
@@ -72,7 +108,7 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
             return cell
         } else if collectionView == productCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: filterProductCell, for: indexPath) as! FilterProductCell
-            
+            cell.data = product[indexPath.item]
             cell.tag = indexPath.item
             return cell
         }
@@ -85,14 +121,14 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
         } else if collectionView == categoryCollectionView {
             return category.count
         } else if collectionView == productCollectionView {
-            return 20
+            return product.count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == sortCollectionView {
-            let width = (view.frame.width-20-20)/4
+            let width = (view.frame.width-20-20-6)/4
             return CGSize(width: width, height: 30)
         } else if collectionView == categoryCollectionView{
             let width = category[indexPath.item].name.count * 10 + 35
@@ -105,8 +141,9 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        if collectionView == productCollectionView {
+        if collectionView == sortCollectionView {
+            return 2
+        } else if collectionView == productCollectionView {
             return 15
         }
         return 0
