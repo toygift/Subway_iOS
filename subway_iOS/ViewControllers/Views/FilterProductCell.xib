@@ -20,6 +20,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nux-L5-a85">
+                        <rect key="frame" x="2" y="2" width="150.5" height="150.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNc-m9-jfl">
+                        <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_spicyItalianAvocado" translatesAutoresizingMaskIntoConstraints="NO" id="bDF-iF-Z5v">
                         <rect key="frame" x="0.0" y="5" width="154" height="70"/>
                         <constraints>
@@ -34,21 +42,31 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="0.80392156862745101" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="UZS-rp-jzj" firstAttribute="top" secondItem="bDF-iF-Z5v" secondAttribute="bottom" constant="5" id="3UU-9W-Pch"/>
+                <constraint firstAttribute="trailing" secondItem="yNc-m9-jfl" secondAttribute="trailing" constant="2" id="AKy-qY-Mgd"/>
                 <constraint firstItem="bDF-iF-Z5v" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" id="FYo-iw-Rf2"/>
+                <constraint firstAttribute="trailing" secondItem="Nux-L5-a85" secondAttribute="trailing" constant="1.5" id="VXB-OB-4di"/>
+                <constraint firstItem="Nux-L5-a85" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" constant="2" id="Veg-9C-Dsw"/>
                 <constraint firstItem="bDF-iF-Z5v" firstAttribute="top" secondItem="ksW-yJ-if3" secondAttribute="top" constant="5" id="YLD-Vy-8Kf"/>
                 <constraint firstAttribute="trailing" secondItem="bDF-iF-Z5v" secondAttribute="trailing" id="f0Z-MV-q9F"/>
+                <constraint firstItem="Nux-L5-a85" firstAttribute="top" secondItem="ksW-yJ-if3" secondAttribute="top" constant="2" id="f5k-9x-fXn"/>
                 <constraint firstItem="UZS-rp-jzj" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" constant="5" id="fTK-4W-efr"/>
+                <constraint firstAttribute="bottom" secondItem="yNc-m9-jfl" secondAttribute="bottom" constant="2" id="gK3-gi-YE9"/>
+                <constraint firstItem="yNc-m9-jfl" firstAttribute="top" secondItem="ksW-yJ-if3" secondAttribute="top" id="kL3-Vs-T5D"/>
                 <constraint firstAttribute="trailing" secondItem="UZS-rp-jzj" secondAttribute="trailing" constant="5" id="oNN-49-bGa"/>
+                <constraint firstAttribute="bottom" secondItem="Nux-L5-a85" secondAttribute="bottom" constant="1.5" id="pT8-c6-Ts5"/>
                 <constraint firstAttribute="bottom" secondItem="UZS-rp-jzj" secondAttribute="bottom" constant="5" id="t98-3C-c2J"/>
+                <constraint firstItem="yNc-m9-jfl" firstAttribute="leading" secondItem="ksW-yJ-if3" secondAttribute="leading" id="wBL-Tu-NKT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="GDN-kN-wME"/>
             <size key="customSize" width="194" height="204"/>
             <connections>
                 <outlet property="productImageView" destination="bDF-iF-Z5v" id="d68-jk-tQS"/>
                 <outlet property="productLabel" destination="UZS-rp-jzj" id="e83-4t-Zco"/>
+                <outlet property="shadow" destination="Nux-L5-a85" id="5FC-e6-Tj5"/>
+                <outlet property="yellowBackground" destination="yNc-m9-jfl" id="9GV-cu-8h0"/>
             </connections>
             <point key="canvasLocation" x="79" y="62"/>
         </collectionViewCell>
