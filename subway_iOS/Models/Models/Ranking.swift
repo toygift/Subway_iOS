@@ -20,18 +20,18 @@ struct Name: Codable {
 struct Inventor: Codable {
     let id: Int?
     let username: String?
-    let email: String?
+//    let email: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case username = "username"
-        case email = "email"
+//        case email = "email"
     }
 }
 struct Sandwich: Codable {
     let id: Int?
     let name: String?
-    let image: String?
+    let image: String
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

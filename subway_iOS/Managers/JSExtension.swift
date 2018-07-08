@@ -19,6 +19,7 @@ extension APIRequest {
     
     func requestAPI(completionHandler: @escaping (DataResponse<T>) -> Void) {
         let url = "\(serviceURL)/\(api)/"
+        print("ff",url)
         //Alamofire.request(url).responseDecodable(completionHandler: completionHandler)
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
@@ -62,7 +63,7 @@ struct KaLogin: APIRequest {
 }
 struct GetRanking: APIRequest {
     typealias T = Rankings
-    let api = "recipe"
+    let api = "recipe/name"
     var method: HTTPMethod = .get
     var parameters: Parameters
 }

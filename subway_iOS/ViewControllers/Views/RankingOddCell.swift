@@ -18,7 +18,8 @@ class RankingOddCell: UITableViewCell {
     @IBOutlet weak var mainBookmarkButton: UIButton!
     @IBOutlet weak var mainShareButton: UIButton!
     func setData(_ data: Ranking) {
-        let url = URL(string: data.sandwich.image!)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
+        
+        let url = URL(string: data.sandwich.image)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
         self.mainImageView.kf.setImage(with: url)
         self.mainTitleLabel.text = data.name?.name
     }

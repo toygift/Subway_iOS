@@ -26,7 +26,8 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
-
+            print("response",response.result.value)
+            print("response",response)
             if let result = response.result.value, let list = result.results {
                 self?.rankingList = list
             }

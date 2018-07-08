@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OlI-PI-Qex">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S1L-rp-SKu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--tab1-->
+        <!--Tab1 View Controller-->
         <scene sceneID="nGa-Xs-SPb">
             <objects>
                 <viewController id="OlI-PI-Qex" customClass="Tab1ViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Hb-8l-Eal">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1931"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1887"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="odd" rowHeight="500" id="ydJ-8b-ukv" customClass="RankingOddCell" customModule="subway_iOS" customModuleProvider="target">
@@ -84,6 +84,11 @@
                                                         </button>
                                                     </subviews>
                                                 </stackView>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-J8-ZHe">
+                                                    <rect key="frame" x="42" y="317" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </tableView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="l09-Dt-7W7" firstAttribute="top" secondItem="PPd-0W-bMf" secondAttribute="bottom" constant="-26.5" id="35B-84-rDR"/>
@@ -156,7 +161,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mYO-R7-wkv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="tab1" id="Pzf-bv-1uW"/>
+                    <navigationItem key="navigationItem" id="iPO-jG-tNT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2000"/>
                     <connections>
@@ -165,7 +170,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3U-Ex-dGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="-103.44827586206897"/>
+            <point key="canvasLocation" x="791.20000000000005" y="-103.44827586206897"/>
+        </scene>
+        <!--tab1-->
+        <scene sceneID="O2e-0F-7oo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S1L-rp-SKu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="tab1" id="Pzf-bv-1uW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcA-wZ-L8D">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OlI-PI-Qex" kind="relationship" relationship="rootViewController" id="Q5K-yV-ZjP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jP4-29-yeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="-103.89805097451276"/>
         </scene>
     </scenes>
     <resources>
