@@ -11,7 +11,6 @@ import Alamofire
 
 protocol APIRequest {
     var api: String { get }
-    var router: String { get }
     var method : HTTPMethod { get set }
     var parameters : Parameters { get set }
     associatedtype T: Decodable
@@ -19,7 +18,7 @@ protocol APIRequest {
 extension APIRequest {
     
     func requestAPI(completionHandler: @escaping (DataResponse<T>) -> Void) {
-        let url = "\(serviceID)/\(api)/\(router)/"
+        let url = "\(serviceURL)/\(api)/"
         //Alamofire.request(url).responseDecodable(completionHandler: completionHandler)
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
@@ -49,17 +48,21 @@ extension DataRequest {
 //
 
 struct FbLogin: APIRequest {
+
     typealias T = LoginResponse
-    let api = "user"
-    let router = "facebook-login"
+    let api = "user/facebook-login"
     var method: HTTPMethod = .post
     var parameters: Parameters
 }
 struct KaLogin: APIRequest {
     typealias T = LoginResponse
-    let api = "user"
-    let router = "kakao-login"
+    let api = "user/kakao-login"
     var method: HTTPMethod = .post
     var parameters: Parameters
 }
-
+struct GetRanking: APIRequest {
+    typealias T = Rankings
+    let api = "recipe"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}

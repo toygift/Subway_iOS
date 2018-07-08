@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RankingOddCell: UITableViewCell {
 
@@ -16,15 +17,15 @@ class RankingOddCell: UITableViewCell {
     @IBOutlet weak var mainLikeButton: UIButton!
     @IBOutlet weak var mainBookmarkButton: UIButton!
     @IBOutlet weak var mainShareButton: UIButton!
+    func setData(_ data: Ranking) {
+        let url = URL(string: data.sandwich.image!)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
+        self.mainImageView.kf.setImage(with: url)
+        self.mainTitleLabel.text = data.name?.name
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

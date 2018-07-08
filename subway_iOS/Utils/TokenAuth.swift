@@ -11,7 +11,7 @@ import Security
 import SwiftyJSON
 import Alamofire
 
-let serviceID = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com"
+let serviceURL = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com"
 let serviceName = "com.teamsubway.subway-iOS"
 
 class TokenAuth {
@@ -20,7 +20,7 @@ class TokenAuth {
     //
     static let SERVER_TOKEN = "server_token"
     
-    func save(_ service: String, account: String, value: String) {
+    static func save(_ service: String, account: String, value: String) {
         let keyChainQuery: NSDictionary = [
             kSecClass : kSecClassGenericPassword,
             kSecAttrService : service,
@@ -36,7 +36,7 @@ class TokenAuth {
     // MARK: Load
     //
     //
-    func load(_ service: String, account: String) -> String? {
+    static func load(_ service: String, account: String) -> String? {
         
         let keyChainQuery: NSDictionary = [
             kSecClass : kSecClassGenericPassword,
@@ -60,7 +60,7 @@ class TokenAuth {
     // MARK: Delete
     //
     //
-    func delete(_ service: String, account: String) {
+    static func delete(_ service: String, account: String) {
         let keyChainQuery : NSDictionary = [
             kSecClass : kSecClassGenericPassword,
             kSecAttrService : service,
@@ -73,9 +73,11 @@ class TokenAuth {
     
     
     
-    func getAuthHeaders() -> HTTPHeaders? {
-        if let accessToken = self.load(serviceID, account: "accessToken") {
-            return ["Authorization" : "token \(accessToken)"] as HTTPHeaders
+    static func getAuthHeaders() -> HTTPHeaders? {
+        if let accessToken = self.load(serviceName, account: SERVER_TOKEN) {
+            print("토큰",accessToken)
+            print("Token \(accessToken)")
+            return ["Authorization" : "Token\(accessToken)"] as HTTPHeaders
         } else {
             return nil
         }

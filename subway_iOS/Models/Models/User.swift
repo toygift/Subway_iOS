@@ -13,6 +13,7 @@ struct User: Codable {
     let name: String?
     let email: String?
     let date: String?
+    
     enum CodingKeys: String, CodingKey {
         case uid = "id"
         case name = "username"
