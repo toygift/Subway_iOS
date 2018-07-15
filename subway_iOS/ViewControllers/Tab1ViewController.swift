@@ -14,11 +14,11 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
         didSet {
             self.tableView.delegate = self
             self.tableView.dataSource = self
+            
             self.tableView.reloadData()
         }
     }
     @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,7 +44,9 @@ extension Tab1ViewController {
         return rankingList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
+//        cell?.setData(self.rankingList[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? IngredientCell
         cell?.setData(self.rankingList[indexPath.row])
         return cell!
     }
