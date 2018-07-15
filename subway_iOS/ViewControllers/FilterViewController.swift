@@ -154,6 +154,9 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
             toggleSort(tag: indexPath.item)
         } else if collectionView == categoryCollectionView {
             toggleCategory(tag: indexPath.item)
+        } else if collectionView == productCollectionView {
+            product[indexPath.item].clicked = !product[indexPath.item].clicked
+            productCollectionView.reloadItems(at: [indexPath])
         }
     }
     

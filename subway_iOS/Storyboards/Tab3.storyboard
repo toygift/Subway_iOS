@@ -33,6 +33,14 @@
                                     <action selector="showFilter:" destination="SRv-2F-jO2" eventType="touchUpInside" id="bw1-QA-CRq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agm-VM-1Ty">
+                                <rect key="frame" x="129" y="456" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="검색 호출 임시 버튼"/>
+                                <connections>
+                                    <action selector="showSearch:" destination="SRv-2F-jO2" eventType="touchUpInside" id="otC-ax-AAn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Dwz-Qd-rcO"/>
@@ -42,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXE-ID-K0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="627"/>
+            <point key="canvasLocation" x="1060" y="626.53673163418296"/>
         </scene>
     </scenes>
 </document>

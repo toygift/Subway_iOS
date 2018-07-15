@@ -11,4 +11,12 @@ import Foundation
 struct FilterProduct {
     var image : UIImage?
     var name : String?
+    var clicked : Bool = false
+    
+    init(image: UIImage, name: String) {
+        self.image = image
+        self.name = name
+        self.clicked = false
+    }
+    
 }

@@ -15,6 +15,13 @@ class Tab3ViewController: UIViewController {
             present(vc, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func showSearch(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController")
+        present(vc, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("tab3")
