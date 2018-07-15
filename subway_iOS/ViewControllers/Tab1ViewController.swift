@@ -41,11 +41,11 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
                     var aa = [Bread]()
                     aa.append(data.bread)
                     aa.append(data.cheese)
-                    aa.append(contentsOf: data.sandwich.mainIngredient)
-                    aa.append(contentsOf: data.vegetables)
-                    aa.append(contentsOf: data.toppings)
+//                    aa.append(contentsOf: data.sandwich.mainIngredient)
+//                    aa.append(contentsOf: data.vegetables)
+//                    aa.append(contentsOf: data.toppings)
                     aa.append(data.toasting)
-                    aa.append(contentsOf: data.sauces)
+//                    aa.append(contentsOf: data.sauces)
                     
                     self?.ingredientList.append(aa)
                 }
@@ -69,7 +69,6 @@ extension Tab1ViewController {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? IngredientCell
         cell?.setData(self.rankingList[indexPath.row])
-        let test = self.rankingList[indexPath.row]
         cell?.inggg = self.ingredientList
         print("가너ㅏ더",self.ingredientList[indexPath.row])
         return cell!

@@ -103,33 +103,39 @@
                                             <outlet property="mainTitleLabel" destination="yAF-QS-dsw" id="XTP-Sx-CBK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detail" rowHeight="174" id="wdO-cz-Wpw" userLabel="detail" customClass="IngredientCell" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="365" width="375" height="174"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detail" rowHeight="355" id="wdO-cz-Wpw" userLabel="detail" customClass="IngredientCell" customModule="subway_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="365" width="375" height="355"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wdO-cz-Wpw" id="Gj7-4d-9se">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="173.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="354.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6r-Jz-pGW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="173.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="354.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="354.5" id="iXW-IE-iNQ"/>
+                                                    </constraints>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="146" id="d1W-PG-rWq">
-                                                            <rect key="frame" x="0.0" y="28" width="375" height="146"/>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewDetail" rowHeight="326" id="d1W-PG-rWq" customClass="IngredientTabCell" customModule="subway_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="28" width="375" height="326"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d1W-PG-rWq" id="Cjk-m4-Q3z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="145.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="325.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="테이블" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqH-0N-d27">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gIy-CB-21V">
-                                                                        <rect key="frame" x="0.0" y="21" width="375" height="124.5"/>
+                                                                        <rect key="frame" x="0.0" y="125" width="375" height="200"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="200" id="BSb-lT-iho"/>
+                                                                        </constraints>
                                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="irq-nT-Twh">
                                                                             <size key="itemSize" width="50" height="50"/>
                                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -176,12 +182,16 @@
                                                                     <constraint firstItem="gqH-0N-d27" firstAttribute="leading" secondItem="Cjk-m4-Q3z" secondAttribute="leading" id="Fee-O4-t8b"/>
                                                                     <constraint firstAttribute="trailing" secondItem="gIy-CB-21V" secondAttribute="trailing" id="MeO-fZ-FN9"/>
                                                                     <constraint firstItem="gIy-CB-21V" firstAttribute="leading" secondItem="Cjk-m4-Q3z" secondAttribute="leading" id="VPP-TV-jRv"/>
-                                                                    <constraint firstItem="gIy-CB-21V" firstAttribute="top" secondItem="gqH-0N-d27" secondAttribute="bottom" id="ZQk-7W-5ci"/>
+                                                                    <constraint firstItem="gIy-CB-21V" firstAttribute="top" secondItem="gqH-0N-d27" secondAttribute="bottom" constant="104.5" id="ZNv-UG-nbz"/>
                                                                     <constraint firstAttribute="trailing" secondItem="gqH-0N-d27" secondAttribute="trailing" id="hb6-6g-ohH"/>
                                                                     <constraint firstAttribute="bottom" secondItem="gIy-CB-21V" secondAttribute="bottom" id="lIs-hG-GAq"/>
                                                                     <constraint firstItem="gqH-0N-d27" firstAttribute="top" secondItem="Cjk-m4-Q3z" secondAttribute="top" id="w58-w2-4EV"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="collectionView" destination="gIy-CB-21V" id="7eT-kd-wMP"/>
+                                                                <outlet property="titleLabel" destination="gqH-0N-d27" id="jHG-3w-lz0"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
@@ -194,13 +204,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ingredientCollectionView" destination="gIy-CB-21V" id="hBX-GX-QWJ"/>
-                                            <outlet property="ingredientLabel" destination="gqH-0N-d27" id="X05-07-TiG"/>
                                             <outlet property="ingredientTableView" destination="g6r-Jz-pGW" id="WLa-KX-eoc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="even" rowHeight="300" id="aOS-s5-QrV" customClass="RankingEvenCell" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="539" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="720" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aOS-s5-QrV" id="YE0-Ve-CvJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
