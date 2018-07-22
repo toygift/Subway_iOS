@@ -19,6 +19,7 @@ extension APIRequest {
     
     func requestAPI(completionHandler: @escaping (DataResponse<T>) -> Void) {
         let url = "\(serviceURL)/\(api)/"
+        print("ff",url)
         //Alamofire.request(url).responseDecodable(completionHandler: completionHandler)
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }

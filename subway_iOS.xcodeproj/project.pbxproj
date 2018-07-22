@@ -12,6 +12,10 @@
 		3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DC20BA6B410098542F /* JSExtension.swift */; };
 		3F87D9DF20BA7A100098542F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DE20BA7A100098542F /* User.swift */; };
 		3F87D9E220BA7C9A0098542F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */; };
+		3F89A95420F1CA0E0005ABA8 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A95220F1CA0E0005ABA8 /* IngredientCell.swift */; };
+		3F89A95520F1CA0E0005ABA8 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */; };
+		3F89A95820F1CB5D0005ABA8 /* IngredientCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */; };
+		3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */; };
 		3FD9811920DF637000BE3509 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9811820DF637000BE3509 /* Ranking.swift */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
 		911EAE3F20E88004002E132F /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EAE3E20E88004002E132F /* Filter.storyboard */; };
@@ -73,6 +77,10 @@
 		3F87D9DE20BA7A100098542F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = subway_iOS/Models/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		3F87D9E320BA7F4D0098542F /* subway_iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "subway_iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F89A95220F1CA0E0005ABA8 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
+		3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionCell.swift; sourceTree = "<group>"; };
+		3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionCell.xib; sourceTree = "<group>"; };
 		3FD9811820DF637000BE3509 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		48C95255AF1E27553BDF8E69 /* Pods-subway_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		580B303F9C7F5F6C238E51FC /* Pods-subway_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +174,10 @@
 				911EAE4C20EA7A5D002E132F /* FilterProductCell.swift */,
 				911EAE5820F1EABE002E132F /* SearchedWordCell.swift */,
 				911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */,
+				3F89A95220F1CA0E0005ABA8 /* IngredientCell.swift */,
+				3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */,
+				3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */,
+				3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -419,7 +431,9 @@
 				911EAE4720E898C6002E132F /* FilterButtonCell.xib in Resources */,
 				916C23B820DF505200ECD746 /* Tab4.storyboard in Resources */,
 				911EAE4B20EA7A3C002E132F /* FilterProductCell.xib in Resources */,
+				3F89A95520F1CA0E0005ABA8 /* IngredientCell.xib in Resources */,
 				911EAE3F20E88004002E132F /* Filter.storyboard in Resources */,
+				3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */,
 				9154275520B14A0700C6E12A /* LaunchScreen.storyboard in Resources */,
 				9154275220B14A0700C6E12A /* Assets.xcassets in Resources */,
 				9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */,
@@ -545,8 +559,10 @@
 			files = (
 				9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */,
 				911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */,
+				3F89A95420F1CA0E0005ABA8 /* IngredientCell.swift in Sources */,
 				9154278120B14F7300C6E12A /* LoginViewController.swift in Sources */,
 				911EAE5720F1DD5F002E132F /* SearchViewController.swift in Sources */,
+				3F89A95820F1CB5D0005ABA8 /* IngredientCollectionCell.swift in Sources */,
 				911EAE4D20EA7A5D002E132F /* FilterProductCell.swift in Sources */,
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
 				911EAE4F20EBBE3F002E132F /* FilterProduct.swift in Sources */,
@@ -741,13 +757,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9MBM4TGHFP;
+				DEVELOPMENT_TEAM = FNEH2787UY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = subway_iOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -787,14 +806,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9MBM4TGHFP;
+				DEVELOPMENT_TEAM = FNEH2787UY;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = subway_iOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -834,7 +856,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				INFOPLIST_FILE = subway_iOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.teamsubway.subway-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -852,7 +878,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				INFOPLIST_FILE = subway_iOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.teamsubway.subway-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -869,7 +899,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				INFOPLIST_FILE = subway_iOSUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.teamsubway.subway-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -886,7 +920,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				INFOPLIST_FILE = subway_iOSUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.teamsubway.subway-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
