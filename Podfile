@@ -13,6 +13,8 @@ target 'subway_iOS' do
  pod 'FacebookLogin'
  pod 'FacebookShare'
  pod 'Kingfisher', '~> 4.0'
+ pod ‘RealmSwift’
+
   target 'subway_iOSTests' do
     inherit! :search_paths
     # Pods for testing

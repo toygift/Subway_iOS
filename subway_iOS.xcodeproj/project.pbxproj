@@ -18,6 +18,7 @@
 		3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */; };
 		3FD9811920DF637000BE3509 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9811820DF637000BE3509 /* Ranking.swift */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
+		910B93042104391C002DF782 /* RecentSearchWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B93032104391C002DF782 /* RecentSearchWord.swift */; };
 		911EAE3F20E88004002E132F /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EAE3E20E88004002E132F /* Filter.storyboard */; };
 		911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE4020E8839E002E132F /* FilterViewController.swift */; };
 		911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE4420E89479002E132F /* UIColorExtension.swift */; };
@@ -88,6 +89,7 @@
 		75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8061AEFAE137EF763ADE84C3 /* Pods-subway_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSTests/Pods-subway_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		910B93032104391C002DF782 /* RecentSearchWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchWord.swift; sourceTree = "<group>"; };
 		911EAE3E20E88004002E132F /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		911EAE4020E8839E002E132F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		911EAE4420E89479002E132F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				3F87D9DE20BA7A100098542F /* User.swift */,
 				911EAE4E20EBBE3F002E132F /* FilterProduct.swift */,
 				3FD9811820DF637000BE3509 /* Ranking.swift */,
+				910B93032104391C002DF782 /* RecentSearchWord.swift */,
 			);
 			name = Models;
 			path = Models/Models;
@@ -530,6 +533,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -543,6 +548,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +566,7 @@
 			files = (
 				9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */,
 				911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */,
+				910B93042104391C002DF782 /* RecentSearchWord.swift in Sources */,
 				3F89A95420F1CA0E0005ABA8 /* IngredientCell.swift in Sources */,
 				9154278120B14F7300C6E12A /* LoginViewController.swift in Sources */,
 				911EAE5720F1DD5F002E132F /* SearchViewController.swift in Sources */,
@@ -757,7 +765,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FNEH2787UY;
+				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -806,7 +814,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FNEH2787UY;
+				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchViewController: UIViewController {
     
@@ -24,6 +25,9 @@ class SearchViewController: UIViewController {
         "lorem ipsum dolor sit amet consectetur asdlkj asdlfkjasdf"
     ]
     
+    var searchedWords = [RecentSearchWord]()
+    
+    
     let lineSpacing : CGFloat = 5
     let collectionViewLeftInset : CGFloat = 20
     let cellPadding : CGFloat = 50 // X button 과 나머지 inset
@@ -36,6 +40,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        fetchRecentSearchWords()
     }
     
     fileprivate func setupViews(){
@@ -52,12 +57,22 @@ class SearchViewController: UIViewController {
         
         searchedWordCollectionView.delegate = self
         searchedWordCollectionView.dataSource = self
+        
+        textField.delegate = self
+    }
+
+    fileprivate func fetchRecentSearchWords(){
+        let realm = try! Realm()
+        for w in realm.objects(RecentSearchWord.self) {
+            searchedWords.append(w)
+        }
         searchedWordCollectionView.reloadData()
     }
 
-
 }
 
+
+// MARK: - collectionview implementation
 extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,7 +81,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchedWordCell", for: indexPath) as! SearchedWordCell
-        cell.data = dummyData[indexPath.item]
+        cell.data = searchedWords[indexPath.item].word //dummyData[indexPath.item]
         if originYCache != cell.frame.origin.y { // 새로운 row로 진입했을 때
             originXCache = collectionViewLeftInset
             cell.frame.origin.x = collectionViewLeftInset
@@ -115,8 +130,9 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     
     @objc fileprivate func deleteItem(sender : UIButton){
         print(sender.tag)
-        dummyData.remove(at: sender.tag)
-        searchedWordCollectionView.reloadData()
+        // TODO: - hello world
+        //dummyData.remove(at: sender.tag)
+        //searchedWordCollectionView.reloadData()
     }
     
     fileprivate func getRowCount(page : Int) -> Int{
@@ -126,8 +142,8 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         let viewWidth = view.frame.width
         var maxXCache : CGFloat = collectionViewLeftInset
         
-        for item in dummyData {
-            let width = NSString(string: item).size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17)]).width + cellPadding
+        for item in searchedWords {
+            let width = NSString(string: item.word).size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17)]).width + cellPadding
             maxXCache += width + lineSpacing
             
             if maxXCache + collectionViewLeftInset > viewWidth {
@@ -143,6 +159,19 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         return viewCount
     }
     
-    
-    
 }
+
+// MARK: - textfield implementation
+extension SearchViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ tf: UITextField) -> Bool {
+        
+        if tf == textField {
+            
+            
+            
+            
+        }
+        return true
+    }
+}
+
