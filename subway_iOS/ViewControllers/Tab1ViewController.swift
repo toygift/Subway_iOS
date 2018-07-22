@@ -36,25 +36,19 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let result = response.result.value?.results {
                 print("ranking",result)
                 self?.rankingList = result
-                for (_,data) in ((self?.rankingList)?.enumerated())! {
-                    print("da",data)
-                    var aa = [Bread]()
-                    aa.append(data.bread)
-                    aa.append(data.cheese)
-//                    aa.append(contentsOf: data.sandwich.mainIngredient)
-//                    aa.append(contentsOf: data.vegetables)
-//                    aa.append(contentsOf: data.toppings)
-                    aa.append(data.toasting)
-//                    aa.append(contentsOf: data.sauces)
-                    
-                    self?.ingredientList.append(aa)
-                }
                 
-                print("123123123",self?.ingredientList)
-//                for i in result.enumerated() {
-//                    self?.ingredientList.append(i.sandwich.mainIngredient)
-//                    self?.ingredientList.append(i.sauces)
-//                    self?.ingredientList.append(i.vegetables)
+//                for (_,data) in ((self?.rankingList)?.enumerated())! {
+//                    print("da",data)
+//                    var aa = [Bread]()
+//                    aa.append(data.bread)
+//                    aa.append(data.cheese)
+////                    aa.append(contentsOf: data.sandwich.mainIngredient)
+////                    aa.append(contentsOf: data.vegetables)
+////                    aa.append(contentsOf: data.toppings)
+//                    aa.append(data.toasting)
+////                    aa.append(contentsOf: data.sauces)
+//
+//                    self?.ingredientList.append(aa)
 //                }
             }
         }
@@ -66,11 +60,9 @@ extension Tab1ViewController {
         return self.rankingList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? IngredientCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? RankingOddCell
         cell?.setData(self.rankingList[indexPath.row])
-        cell?.inggg = self.ingredientList
-        print("가너ㅏ더",self.ingredientList[indexPath.row])
         return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
