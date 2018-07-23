@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50483920D6201800DAB8D8 /* RankingOddCell.swift */; };
-		3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */; };
 		3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DC20BA6B410098542F /* JSExtension.swift */; };
 		3F87D9DF20BA7A100098542F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DE20BA7A100098542F /* User.swift */; };
 		3F87D9E220BA7C9A0098542F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */; };
@@ -17,6 +16,7 @@
 		3F89A95820F1CB5D0005ABA8 /* IngredientCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */; };
 		3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */; };
 		3FD9811920DF637000BE3509 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9811820DF637000BE3509 /* Ranking.swift */; };
+		3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
 		911EAE3F20E88004002E132F /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EAE3E20E88004002E132F /* Filter.storyboard */; };
 		911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE4020E8839E002E132F /* FilterViewController.swift */; };
@@ -69,7 +69,6 @@
 		1C905BD16FA9D53082379202 /* Pods-subway_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		324B9E762B29CD8ECE9B00C2 /* Pods-subway_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3F50483920D6201800DAB8D8 /* RankingOddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingOddCell.swift; sourceTree = "<group>"; };
-		3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEvenCell.swift; sourceTree = "<group>"; };
 		3F87D9DC20BA6B410098542F /* JSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSExtension.swift; sourceTree = "<group>"; };
 		3F87D9DE20BA7A100098542F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = subway_iOS/Models/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionCell.swift; sourceTree = "<group>"; };
 		3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionCell.xib; sourceTree = "<group>"; };
 		3FD9811820DF637000BE3509 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEvenCell.swift; sourceTree = "<group>"; };
 		48C95255AF1E27553BDF8E69 /* Pods-subway_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		580B303F9C7F5F6C238E51FC /* Pods-subway_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
-				3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */,
+				3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */,
 				911EAE4620E898C6002E132F /* FilterButtonCell.xib */,
 				911EAE4820E89B56002E132F /* FilterButtonCell.swift */,
 				911EAE4A20EA7A3C002E132F /* FilterProductCell.xib */,
@@ -557,12 +557,12 @@
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
 				911EAE4F20EBBE3F002E132F /* FilterProduct.swift in Sources */,
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
-				3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */,
 				911EAE4920E89B56002E132F /* FilterButtonCell.swift in Sources */,
 				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
 				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
+				3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,

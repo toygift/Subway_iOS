@@ -11,7 +11,6 @@ import UIKit
 class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
     var rankingList = [Ranking]() {
         didSet {
             self.tableView.delegate = self
@@ -39,13 +38,27 @@ extension Tab1ViewController {
         return self.rankingList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? RankingOddCell
-        cell?.setData(self.rankingList[indexPath.row])
-        return cell!
+        print("아이디아이디",self.rankingList[indexPath.row].id)
+        if self.rankingList[indexPath.row].id % 2 == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "even", for: indexPath) as! RankingEvenCell
+            cell.setData(self.rankingList[indexPath.row])
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as! RankingOddCell
+            cell.setData(self.rankingList[indexPath.row])
+            return cell
+            
+        }
+        
+        
+        
+        
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 여기에서 ingredient tableview hidden  true/false 해야함
+        
+        print("didselect")
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension

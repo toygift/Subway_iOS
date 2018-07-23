@@ -9,9 +9,10 @@
 import UIKit
 import Kingfisher
 
+
 // MARK: - 메인 테이블뷰 셀
 class RankingOddCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
-
+   
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainNumberLabel: UILabel!
@@ -29,7 +30,7 @@ class RankingOddCell: UITableViewCell, UITableViewDelegate, UITableViewDataSourc
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         self.isTableViewHidden = false
 //        self.ingreTableView.rowHeight = UITableViewAutomaticDimension
 //        self.ingreTableView.estimatedRowHeight = UITableViewAutomaticDimension
