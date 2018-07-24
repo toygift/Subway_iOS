@@ -38,27 +38,33 @@ extension Tab1ViewController {
         return self.rankingList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("아이디아이디",self.rankingList[indexPath.row].id)
         if self.rankingList[indexPath.row].id % 2 == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "even", for: indexPath) as! RankingEvenCell
+            print("even")
             cell.setData(self.rankingList[indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as! RankingOddCell
             cell.setData(self.rankingList[indexPath.row])
+            print("odd")
             return cell
-            
         }
-        
-        
-        
-        
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 여기에서 ingredient tableview hidden  true/false 해야함
-        
-        print("didselect")
+        var hiddenValue1 = true
+        var hiddenValue2 = true
+        if self.rankingList[indexPath.row].id % 2 == 0 {
+            let cell = tableView.cellForRow(at: indexPath) as! RankingEvenCell
+            cell.isTableViewHidden = hiddenValue1
+            hiddenValue1 = !hiddenValue1
+        } else {
+            let cell = tableView.cellForRow(at: indexPath) as! RankingOddCell
+            cell.isTableViewHidden = hiddenValue2
+            hiddenValue2 = !hiddenValue2
+        }
+           self.tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension

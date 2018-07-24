@@ -69,7 +69,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailIngCell" rowHeight="133" id="eVx-fK-wNn" customClass="RankingOddCellDetail" customModule="subway_iOS" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewOddCell" rowHeight="133" id="eVx-fK-wNn" customClass="RankingOddCellDetail" customModule="subway_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVx-fK-wNn" id="3r3-ju-IDj">
@@ -89,7 +89,7 @@
                                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="detailIngCollCell" id="rfC-bD-fb3" customClass="RankingOddCollectionCell" customModule="subway_iOS" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="detailIngCollCellOdd" id="rfC-bD-fb3" customClass="RankingOddCollectionCell" customModule="subway_iOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="4.5" width="108" height="85"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -144,6 +144,10 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" red="0.98030656576156616" green="0.98044699430465698" blue="0.98027580976486206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <connections>
+                                                                <outlet property="collectionView" destination="gtD-PH-PEs" id="NaN-do-XzM"/>
+                                                                <outlet property="titleLabel" destination="bZy-f9-viq" id="VRR-jS-nXh"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
@@ -199,7 +203,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="tableViewHeightCon" destination="JTS-ST-J8y" id="hHV-q2-Vln"/>
+                                            <outlet property="ingreTableView" destination="7H7-Hz-Uzu" id="7HX-sj-qyY"/>
+                                            <outlet property="mainBookmarkButton" destination="IUx-JI-sMi" id="9Bg-HR-YNl"/>
+                                            <outlet property="mainImageView" destination="PPd-0W-bMf" id="LDL-4A-Dax"/>
+                                            <outlet property="mainLikeButton" destination="leE-E7-U9l" id="YSr-HF-jSA"/>
+                                            <outlet property="mainNumberLabel" destination="iPC-QZ-5w8" id="cby-QZ-c6s"/>
+                                            <outlet property="mainShareButton" destination="qLO-rn-yTp" id="qNA-51-RAT"/>
+                                            <outlet property="mainTitleLabel" destination="yAF-QS-dsw" id="QWq-uo-77X"/>
+                                            <outlet property="tableViewHeightCon" destination="JTS-ST-J8y" id="rW3-eu-1jP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="even" rowHeight="1358" id="584-Fa-U3A" customClass="RankingEvenCell" customModule="subway_iOS" customModuleProvider="target">
@@ -210,7 +221,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle4Copy8" translatesAutoresizingMaskIntoConstraints="NO" id="gFd-b9-Adg">
-                                                    <rect key="frame" x="20" y="170" width="355" height="104"/>
+                                                    <rect key="frame" x="-20" y="170" width="355" height="104"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_chickenBaconRanch" translatesAutoresizingMaskIntoConstraints="NO" id="w5b-uJ-WnR">
                                                     <rect key="frame" x="0.0" y="29" width="355" height="168"/>
@@ -219,16 +230,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BTS가 팬들에게 사주고 싶은 B.L.T" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjp-EH-r1c">
-                                                    <rect key="frame" x="69" y="189" width="213" height="72"/>
+                                                    <rect key="frame" x="15" y="189" width="213" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
-                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OI-AV-3m9">
-                                                    <rect key="frame" x="283" y="189" width="84" height="72"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="80"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -248,7 +252,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailIngCell" rowHeight="133" id="vea-72-7sY" customClass="RankingEvenCellDetail" customModule="subway_iOS" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewEvenCell" rowHeight="133" id="vea-72-7sY" customClass="RankingEvenCellDetail" customModule="subway_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vea-72-7sY" id="6eJ-0q-75z">
@@ -323,6 +327,10 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" red="0.98030656579999997" green="0.98044699430000004" blue="0.98027580979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <connections>
+                                                                <outlet property="collectionView" destination="rhA-P0-lAM" id="VP0-jG-7ma"/>
+                                                                <outlet property="titleLabel" destination="aVZ-6n-qR6" id="CpX-cF-Rcd"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
@@ -360,6 +368,13 @@
                                                         </button>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OI-AV-3m9">
+                                                    <rect key="frame" x="236" y="189" width="84" height="72"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="80"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1wn-B0-hpG" firstAttribute="leading" secondItem="Qwj-fc-g6Q" secondAttribute="leading" constant="92" id="CxG-b1-CH3"/>
@@ -367,16 +382,26 @@
                                                 <constraint firstAttribute="trailing" secondItem="1wn-B0-hpG" secondAttribute="trailing" id="Hrt-t1-dsZ"/>
                                                 <constraint firstItem="1wn-B0-hpG" firstAttribute="top" secondItem="Rih-18-9a8" secondAttribute="bottom" constant="5" id="JZp-0j-mZH"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rih-18-9a8" secondAttribute="trailing" id="P9r-u3-82p"/>
-                                                <constraint firstItem="gFd-b9-Adg" firstAttribute="trailing" secondItem="w5b-uJ-WnR" secondAttribute="trailing" constant="20" id="T0i-rs-Req"/>
+                                                <constraint firstItem="gFd-b9-Adg" firstAttribute="trailing" secondItem="w5b-uJ-WnR" secondAttribute="trailing" constant="-20" id="T0i-rs-Req"/>
                                                 <constraint firstItem="gFd-b9-Adg" firstAttribute="top" secondItem="w5b-uJ-WnR" secondAttribute="bottom" constant="-26.5" id="UBl-tc-7ag"/>
                                                 <constraint firstItem="Rih-18-9a8" firstAttribute="top" secondItem="gFd-b9-Adg" secondAttribute="bottom" constant="6" id="V79-kC-HIA"/>
                                                 <constraint firstItem="w5b-uJ-WnR" firstAttribute="leading" secondItem="Qwj-fc-g6Q" secondAttribute="leading" id="aFm-XB-O8t"/>
                                                 <constraint firstAttribute="bottom" secondItem="1wn-B0-hpG" secondAttribute="bottom" constant="20" id="aXq-RP-raP"/>
-                                                <constraint firstItem="gFd-b9-Adg" firstAttribute="leading" secondItem="w5b-uJ-WnR" secondAttribute="leading" constant="20" id="bx6-mj-QrO"/>
+                                                <constraint firstItem="gFd-b9-Adg" firstAttribute="leading" secondItem="w5b-uJ-WnR" secondAttribute="leading" constant="-20" id="bx6-mj-QrO"/>
                                                 <constraint firstItem="Rih-18-9a8" firstAttribute="leading" secondItem="Qwj-fc-g6Q" secondAttribute="leading" id="ezZ-rp-aJj"/>
                                                 <constraint firstItem="w5b-uJ-WnR" firstAttribute="top" secondItem="Qwj-fc-g6Q" secondAttribute="top" constant="29" id="gDK-Tg-ite"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ingreTableView" destination="Rih-18-9a8" id="hyD-wo-yCe"/>
+                                            <outlet property="mainBookmarkButton" destination="tUM-qz-hwo" id="SIo-Ay-Y1W"/>
+                                            <outlet property="mainImageView" destination="w5b-uJ-WnR" id="aA9-t5-uNY"/>
+                                            <outlet property="mainLikeButton" destination="Pbc-Rr-D3e" id="ixb-QF-MQ0"/>
+                                            <outlet property="mainNumberLabel" destination="3OI-AV-3m9" id="iqc-qO-Wim"/>
+                                            <outlet property="mainShareButton" destination="NJL-nq-tuI" id="Yqd-73-lrg"/>
+                                            <outlet property="mainTitleLabel" destination="Hjp-EH-r1c" id="Jpg-lV-Cl1"/>
+                                            <outlet property="tableViewHeightCon" destination="gQG-pi-y3B" id="5us-iQ-Quv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

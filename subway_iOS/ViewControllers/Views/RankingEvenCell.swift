@@ -29,7 +29,7 @@ class RankingEvenCell: UITableViewCell, UITableViewDelegate, UITableViewDataSour
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.isTableViewHidden = false
+        
         //        self.ingreTableView.rowHeight = UITableViewAutomaticDimension
         //        self.ingreTableView.estimatedRowHeight = UITableViewAutomaticDimension
         
@@ -39,11 +39,11 @@ class RankingEvenCell: UITableViewCell, UITableViewDelegate, UITableViewDataSour
         didSet {
             if isTableViewHidden == true {
                 self.tableViewHeightCon.constant = 0
-                self.ingreTableView.isHidden = true
+//                self.ingreTableView.isHidden = isTableViewHidden
                 //                self.ingreTableView.alpha = 0
             } else {
                 self.tableViewHeightCon.constant = 1024.5
-                self.ingreTableView.isHidden = false
+//                self.ingreTableView.isHidden = isTableViewHidden
             }
         }
     }
@@ -52,6 +52,7 @@ class RankingEvenCell: UITableViewCell, UITableViewDelegate, UITableViewDataSour
         let url = URL(string: data.sandwich.imageRight)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
         self.mainImageView.kf.setImage(with: url)
         self.mainTitleLabel.text = data.name.name
+        self.mainNumberLabel.text = String(data.id)
         
         self.ingrediendData.append(data.sandwich.mainIngredient)
         self.ingrediendData.append([data.bread])
@@ -76,7 +77,7 @@ extension RankingEvenCell {
         return self.ingrediendData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailIngCell", for: indexPath) as! RankingEvenCellDetail
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewEvenCell", for: indexPath) as! RankingEvenCellDetail
         cell.setData(ingrediendData[indexPath.row], title: self.ingrediendTitle[indexPath.row])
         return cell
     }
@@ -114,7 +115,7 @@ extension RankingEvenCellDetail {
         return self.collDataCell.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "evenColCell", for: indexPath) as! RankingEvenCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailIngCollCell", for: indexPath) as! RankingEvenCollectionCell
         cell.setData(self.collDataCell[indexPath.item])
         return cell
     }
