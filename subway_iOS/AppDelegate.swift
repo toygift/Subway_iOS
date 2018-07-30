@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let token = TokenAuth.load(serviceName, account: TokenAuth.SERVER_TOKEN)
-        print("TOKEN", token)
+        
         if TokenAuth.load(serviceName, account: TokenAuth.SERVER_TOKEN) == nil {
             window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
         } else {
