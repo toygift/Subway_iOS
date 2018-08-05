@@ -42,22 +42,22 @@ struct Ranking: Codable {
 struct Bread: Codable {
     let id: Int
     let name, image, image3X: String
-    let quantity: Quantity?
+    let quantity: String?
     
     enum CodingKeys: String, CodingKey {
         case id, name, image
         case image3X = "image3x"
-        case quantity
+        case quantity = "quantity"
     }
 }
 
-enum Quantity: String, Codable {
-    case no = "NO"
-    case the1_Slice = "1_slice"
-    case the2_Slice = "2_slice"
-    case the4_Slice = "4_slice"
-    case the5_Slice = "5_slice"
-}
+//enum Quantity: String, Codable {
+//    case no = "NO"
+//    case the1_Slice = "1_slice"
+//    case the2_Slice = "2_slice"
+//    case the4_Slice = "4_slice"
+//    case the5_Slice = "5_slice"
+//}
 
 struct Inventor: Codable {
     let id: Int

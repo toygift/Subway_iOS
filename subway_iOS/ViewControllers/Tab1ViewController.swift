@@ -10,6 +10,7 @@ import UIKit
 
 class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     var rankingList = [Ranking]() {
         didSet {
             self.tableView.delegate = self
@@ -17,48 +18,19 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
         }
     }
-    var ingredientList = [[Bread]]() {
-        didSet {
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
-            self.tableView.reloadData()
-        }
-    }
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 44//200
         
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
             if let result = response.result.value?.results {
-                print("ranking",result)
                 self?.rankingList = result
-                for (_,data) in ((self?.rankingList)?.enumerated())! {
-                    print("da",data)
-                    var aa = [Bread]()
-                    aa.append(data.bread)
-                    aa.append(data.cheese)
-//                    aa.append(contentsOf: data.sandwich.mainIngredient)
-//                    aa.append(contentsOf: data.vegetables)
-//                    aa.append(contentsOf: data.toppings)
-                    aa.append(data.toasting)
-//                    aa.append(contentsOf: data.sauces)
-                    
-                    self?.ingredientList.append(aa)
-                }
-                
-                print("123123123",self?.ingredientList)
-//                for i in result.enumerated() {
-//                    self?.ingredientList.append(i.sandwich.mainIngredient)
-//                    self?.ingredientList.append(i.sauces)
-//                    self?.ingredientList.append(i.vegetables)
-//                }
             }
         }
-     
     }
 }
 extension Tab1ViewController {
@@ -66,14 +38,48 @@ extension Tab1ViewController {
         return self.rankingList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? IngredientCell
-        cell?.setData(self.rankingList[indexPath.row])
-        cell?.inggg = self.ingredientList
-        print("가너ㅏ더",self.ingredientList[indexPath.row])
-        return cell!
+//        if self.rankingList[indexPath.row].id % 2 == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "even", for: indexPath) as! RankingEvenCell
+//            print("even")
+//            cell.setData(self.rankingList[indexPath.row])
+//            return cell
+//        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as! RankingOddCell
+        
+        cell.frame = tableView.bounds
+        cell.layoutIfNeeded()
+        cell.setData(self.rankingList[indexPath.row])
+        cell.collectionView.reloadData()
+        
+        cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
+            print("odd")
+            return cell
+//        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didselect")
+        // 여기에서 ingredient tableview hidden  true/false 해야함
+//        var hiddenValue1 = true
+//        var hiddenValue2 = true
+//        if self.rankingList[indexPath.row].id % 2 == 0 {
+//            let cell = tableView.cellForRow(at: indexPath) as! RankingEvenCell
+//            cell.isTableViewHidden = hiddenValue1
+//            hiddenValue1 = !hiddenValue1
+//        } else {
+//            let cell = tableView.cellForRow(at: indexPath) as! RankingOddCell
+//            cell.isTableViewHidden = hiddenValue2
+//            hiddenValue2 = !hiddenValue2
+//        }
+//        let cell = tableView.cellForRow(at: indexPath) as! RankingOddCell
+//        cell.collectionView.isHidden = true
+//        cell.oddheight.constant = 0
+        
+//           self.tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
 }

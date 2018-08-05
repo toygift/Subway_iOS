@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50483920D6201800DAB8D8 /* RankingOddCell.swift */; };
-		3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */; };
 		3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DC20BA6B410098542F /* JSExtension.swift */; };
 		3F87D9DF20BA7A100098542F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87D9DE20BA7A100098542F /* User.swift */; };
 		3F87D9E220BA7C9A0098542F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */; };
@@ -16,7 +15,9 @@
 		3F89A95520F1CA0E0005ABA8 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */; };
 		3F89A95820F1CB5D0005ABA8 /* IngredientCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */; };
 		3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */; };
+		3F95350B210E060A00FDE107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F95350A210E060A00FDE107 /* Assets.xcassets */; };
 		3FD9811920DF637000BE3509 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9811820DF637000BE3509 /* Ranking.swift */; };
+		3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
 		910B93042104391C002DF782 /* RecentSearchWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B93032104391C002DF782 /* RecentSearchWord.swift */; };
 		911EAE3F20E88004002E132F /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EAE3E20E88004002E132F /* Filter.storyboard */; };
@@ -36,7 +37,6 @@
 		9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307E20C3B81B00DEE0B2 /* TokenAuth.swift */; };
 		9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154274A20B14A0300C6E12A /* AppDelegate.swift */; };
 		9154275020B14A0300C6E12A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154274E20B14A0300C6E12A /* Main.storyboard */; };
-		9154275220B14A0700C6E12A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9154275120B14A0700C6E12A /* Assets.xcassets */; };
 		9154275520B14A0700C6E12A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154275320B14A0700C6E12A /* LaunchScreen.storyboard */; };
 		9154276020B14A0700C6E12A /* subway_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154275F20B14A0700C6E12A /* subway_iOSTests.swift */; };
 		9154276B20B14A0700C6E12A /* subway_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154276A20B14A0700C6E12A /* subway_iOSUITests.swift */; };
@@ -73,7 +73,6 @@
 		1C905BD16FA9D53082379202 /* Pods-subway_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		324B9E762B29CD8ECE9B00C2 /* Pods-subway_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3F50483920D6201800DAB8D8 /* RankingOddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingOddCell.swift; sourceTree = "<group>"; };
-		3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEvenCell.swift; sourceTree = "<group>"; };
 		3F87D9DC20BA6B410098542F /* JSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSExtension.swift; sourceTree = "<group>"; };
 		3F87D9DE20BA7A100098542F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = subway_iOS/Models/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		3F87D9E120BA7C9A0098542F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
@@ -82,7 +81,9 @@
 		3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
 		3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionCell.swift; sourceTree = "<group>"; };
 		3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionCell.xib; sourceTree = "<group>"; };
+		3F95350A210E060A00FDE107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD9811820DF637000BE3509 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEvenCell.swift; sourceTree = "<group>"; };
 		48C95255AF1E27553BDF8E69 /* Pods-subway_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		580B303F9C7F5F6C238E51FC /* Pods-subway_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOSUITests/Pods-subway_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subway_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +110,6 @@
 		9154274720B14A0300C6E12A /* subway_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = subway_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9154274A20B14A0300C6E12A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9154274F20B14A0300C6E12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9154275120B14A0700C6E12A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9154275420B14A0700C6E12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9154275620B14A0700C6E12A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9154275B20B14A0700C6E12A /* subway_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = subway_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
-				3F50483B20D6203000DAB8D8 /* RankingEvenCell.swift */,
+				3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */,
 				911EAE4620E898C6002E132F /* FilterButtonCell.xib */,
 				911EAE4820E89B56002E132F /* FilterButtonCell.swift */,
 				911EAE4A20EA7A3C002E132F /* FilterProductCell.xib */,
@@ -238,7 +238,7 @@
 				9154277F20B14F5D00C6E12A /* ViewControllers */,
 				9154278620B14FCB00C6E12A /* Storyboards */,
 				9154274A20B14A0300C6E12A /* AppDelegate.swift */,
-				9154275120B14A0700C6E12A /* Assets.xcassets */,
+				3F95350A210E060A00FDE107 /* Assets.xcassets */,
 				9154275620B14A0700C6E12A /* Info.plist */,
 				3F87D9E320BA7F4D0098542F /* subway_iOS-Bridging-Header.h */,
 			);
@@ -436,9 +436,9 @@
 				911EAE4B20EA7A3C002E132F /* FilterProductCell.xib in Resources */,
 				3F89A95520F1CA0E0005ABA8 /* IngredientCell.xib in Resources */,
 				911EAE3F20E88004002E132F /* Filter.storyboard in Resources */,
+				3F95350B210E060A00FDE107 /* Assets.xcassets in Resources */,
 				3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */,
 				9154275520B14A0700C6E12A /* LaunchScreen.storyboard in Resources */,
-				9154275220B14A0700C6E12A /* Assets.xcassets in Resources */,
 				9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */,
 				9154275020B14A0300C6E12A /* Main.storyboard in Resources */,
 				9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */,
@@ -575,12 +575,12 @@
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
 				911EAE4F20EBBE3F002E132F /* FilterProduct.swift in Sources */,
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
-				3F50483C20D6203000DAB8D8 /* RankingEvenCell.swift in Sources */,
 				911EAE4920E89B56002E132F /* FilterButtonCell.swift in Sources */,
 				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
 				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
+				3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
 				911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */,
