@@ -22,6 +22,7 @@ class FilterProductCell: UICollectionViewCell {
     }
     
     fileprivate func updateUI(){
+
         guard let d = data else {
             fatalError("no data set")
         }

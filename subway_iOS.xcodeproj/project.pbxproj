@@ -31,6 +31,8 @@
 		911EAE5720F1DD5F002E132F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE5620F1DD5F002E132F /* SearchViewController.swift */; };
 		911EAE5920F1EABE002E132F /* SearchedWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE5820F1EABE002E132F /* SearchedWordCell.swift */; };
 		911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */; };
+		913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913725B12116BA12000B1D95 /* RecipeStepCell.xib */; };
+		913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913725B32116BA7A000B1D95 /* RecipeStepCell.swift */; };
 		91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */; };
 		9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9151307A20C3B5E600DEE0B2 /* Auth.storyboard */; };
 		9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */; };
@@ -102,6 +104,8 @@
 		911EAE5620F1DD5F002E132F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		911EAE5820F1EABE002E132F /* SearchedWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedWordCell.swift; sourceTree = "<group>"; };
 		911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBtnSection.swift; sourceTree = "<group>"; };
+		913725B12116BA12000B1D95 /* RecipeStepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStepCell.xib; sourceTree = "<group>"; };
+		913725B32116BA7A000B1D95 /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
 		91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab4ViewController.swift; sourceTree = "<group>"; };
 		9151307A20C3B5E600DEE0B2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
@@ -168,18 +172,20 @@
 		3F3C1C9220C3982F0072CA12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
-				3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */,
-				911EAE4620E898C6002E132F /* FilterButtonCell.xib */,
 				911EAE4820E89B56002E132F /* FilterButtonCell.swift */,
-				911EAE4A20EA7A3C002E132F /* FilterProductCell.xib */,
+				911EAE4620E898C6002E132F /* FilterButtonCell.xib */,
 				911EAE4C20EA7A5D002E132F /* FilterProductCell.swift */,
-				911EAE5820F1EABE002E132F /* SearchedWordCell.swift */,
-				911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */,
+				911EAE4A20EA7A3C002E132F /* FilterProductCell.xib */,
 				3F89A95220F1CA0E0005ABA8 /* IngredientCell.swift */,
 				3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */,
 				3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */,
 				3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */,
+				911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */,
+				3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */,
+				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
+				913725B32116BA7A000B1D95 /* RecipeStepCell.swift */,
+				913725B12116BA12000B1D95 /* RecipeStepCell.xib */,
+				911EAE5820F1EABE002E132F /* SearchedWordCell.swift */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -431,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9154277E20B14E0600C6E12A /* Tab3.storyboard in Resources */,
+				913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */,
 				911EAE4720E898C6002E132F /* FilterButtonCell.xib in Resources */,
 				916C23B820DF505200ECD746 /* Tab4.storyboard in Resources */,
 				911EAE4B20EA7A3C002E132F /* FilterProductCell.xib in Resources */,
@@ -583,6 +590,7 @@
 				3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
+				913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */,
 				911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */,
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,
 				911EAE5920F1EABE002E132F /* SearchedWordCell.swift in Sources */,
