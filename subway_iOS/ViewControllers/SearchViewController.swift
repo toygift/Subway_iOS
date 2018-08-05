@@ -166,10 +166,11 @@ extension SearchViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ tf: UITextField) -> Bool {
         
         if tf == textField {
-            
-            
-            
-            
+            if let empty = tf.text?.isEmpty, !empty, let q = tf.text {
+                print("Q: ", q)
+            }
+            tf.resignFirstResponder()
+            return false
         }
         return true
     }
