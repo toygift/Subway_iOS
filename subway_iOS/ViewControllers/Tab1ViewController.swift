@@ -23,7 +23,7 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 44//200
+        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension//44//200
         
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
@@ -44,22 +44,30 @@ extension Tab1ViewController {
 //            cell.setData(self.rankingList[indexPath.row])
 //            return cell
 //        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as! RankingOddCell
-        
-        cell.frame = tableView.bounds
-        cell.layoutIfNeeded()
-        cell.setData(self.rankingList[indexPath.row])
-        cell.collectionView.reloadData()
-        
-        cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
+        if  let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell {
+            
+            cell.frame = tableView.bounds
+            cell.layoutIfNeeded()
+            cell.setData(self.rankingList[indexPath.row])
+            cell.collectionView.reloadData()
+            
+//            cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
             print("odd")
             return cell
+
+            
+        }
+        return UITableViewCell()
 //        }
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didselect")
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? RankingOddCell {
+            cell.collectionView.isHidden = true
+        }
         // 여기에서 ingredient tableview hidden  true/false 해야함
 //        var hiddenValue1 = true
 //        var hiddenValue2 = true

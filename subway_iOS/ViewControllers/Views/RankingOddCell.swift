@@ -14,6 +14,7 @@ import Kingfisher
 class RankingOddCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var oddheight: NSLayoutConstraint!
     
+    @IBOutlet weak var collectionViewBottom: NSLayoutConstraint!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainNumberLabel: UILabel!
