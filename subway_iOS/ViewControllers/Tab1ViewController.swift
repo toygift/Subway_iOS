@@ -41,21 +41,31 @@ extension Tab1ViewController {
 //        if self.rankingList[indexPath.row].id % 2 == 0 {
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "even", for: indexPath) as! RankingEvenCell
 //            print("even")
-//            cell.setData(self.rankingList[indexPath.row])
+////            cell.setData(self.rankingList[indexPath.row])
+////            return cell
+////        } else {
+//        if  let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell {
+//
+////            cell.frame = tableView.bounds
+////            cell.layoutIfNeeded()
+////            cell.setData(self.rankingList[indexPath.row])
+////            cell.collectionView.reloadData()
+//
+////            cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
+//            print("odd")
 //            return cell
-//        } else {
-        if  let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as? RankingOddCell {
+//
+//
+//        } else
+        
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "rankingdetail", for: indexPath) as? RankingOddCellDetail {
             
-            cell.frame = tableView.bounds
-            cell.layoutIfNeeded()
-            cell.setData(self.rankingList[indexPath.row])
-            cell.collectionView.reloadData()
-            
-//            cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
-            print("odd")
-            return cell
+                cell.frame = tableView.bounds
+                cell.layoutIfNeeded()
+                cell.setData(self.rankingList[indexPath.row])
+                cell.collectionView.reloadData()
 
-            
+                return cell
         }
         return UITableViewCell()
 //        }
@@ -66,7 +76,16 @@ extension Tab1ViewController {
         print("didselect")
         
         if let cell = tableView.cellForRow(at: indexPath) as? RankingOddCell {
-            cell.collectionView.isHidden = true
+//            cell.collectionView.isHidden = true
+        }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "rankingdetail", for: indexPath) as? RankingOddCellDetail {
+            
+            cell.frame = tableView.bounds
+            cell.layoutIfNeeded()
+            cell.setData(self.rankingList[indexPath.row])
+            cell.collectionView.reloadData()
+            
+            return cell
         }
         // 여기에서 ingredient tableview hidden  true/false 해야함
 //        var hiddenValue1 = true

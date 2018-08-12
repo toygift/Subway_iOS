@@ -11,9 +11,8 @@ import Kingfisher
 
 
 // MARK: - 메인 테이블뷰 셀
-class RankingOddCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class RankingOddCell: UITableViewCell {
     @IBOutlet weak var oddheight: NSLayoutConstraint!
-    
     @IBOutlet weak var collectionViewBottom: NSLayoutConstraint!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -21,42 +20,36 @@ class RankingOddCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var mainLikeButton: UIButton!
     @IBOutlet weak var mainBookmarkButton: UIButton!
     @IBOutlet weak var mainShareButton: UIButton!
+    
+}
+
+class RankingOddCellDetail: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var ingrediendTitle = ["메인 재료","빵 선택", "치즈 선택","추가 선택", "토스팅 여부","야채 선택","소스 선택"]
-    
     var ingrediendData = [[Bread]]() {
         didSet {
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
-//            self.collectionView.setContentOffset(collectionView.contentOffset, animated:false)
+            //            self.collectionView.setContentOffset(collectionView.contentOffset, animated:false)
             self.collectionView.reloadData()
         }
     }
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-////        self.collectionView.frame = CGRect(x: 0.0, y: 0.0, width: targetSize.width, height: )//CGRect(0, 0, targetSize.width, CGFloat(MAXFLOAT));
-////        self.collectionView.layoutIfNeeded()
-////        return self.collectionView.collectionViewLayout.collectionViewContentSize
-//        self.collectionView.frame = CGRect(x: 0, y: 0, width: targetSize.width, height: 70)
-//        self.collectionView.layoutIfNeeded()
-//
-//        return self.collectionView.collectionViewLayout.collectionViewContentSize
-//    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        let flow = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
-//        flow?.minimumInteritemSpacing = 10
-//        flow?.estimatedItemSize = CGSize(width: 1, height: 1)
+        //        let flow = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        //        flow?.minimumInteritemSpacing = 10
+        //        flow?.estimatedItemSize = CGSize(width: 1, height: 1)
         self.collectionView?.isScrollEnabled = false
         
     }
     
     func setData(_ data: Ranking) {
-//        let url = URL(string: data.sandwich.imageRight)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
-//        self.mainImageView.kf.setImage(with: url)
-//        self.mainTitleLabel.text = data.name.name
-//        self.mainNumberLabel.text = String(data.id)
-//
+        //        let url = URL(string: data.sandwich.imageRight)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
+        //        self.mainImageView.kf.setImage(with: url)
+        //        self.mainTitleLabel.text = data.name.name
+        //        self.mainNumberLabel.text = String(data.id)
+        //
         var ingredientTemp = [[Bread]]()
         ingredientTemp.append(data.sandwich.mainIngredient)
         ingredientTemp.append([data.bread])
@@ -67,19 +60,20 @@ class RankingOddCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
         ingredientTemp.append(data.sauces)
         self.ingrediendData = ingredientTemp
         self.collectionView.reloadData()
-//        self.contentView.setNeedsLayout()
+        //        self.contentView.setNeedsLayout()
         
         self.layoutIfNeeded()
     }
     
     @IBOutlet weak var tableViewHeightCon: NSLayoutConstraint!
     override func prepareForReuse() {
-    //        self.ingreTableView.delegate = nil
-    //        self.ingreTableView.dataSource = nil
+        //        self.ingreTableView.delegate = nil
+        //        self.ingreTableView.dataSource = nil
         self.ingrediendData.removeAll()
     }
+    
 }
-extension RankingOddCell {
+extension RankingOddCellDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.ingrediendData.count
     }
@@ -88,6 +82,7 @@ extension RankingOddCell {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailIngCollCellOdd", for: indexPath) as! RankingOddCollectionCell
+        print("",self.ingrediendData[indexPath.section][indexPath.item])
         cell.setData(self.ingrediendData[indexPath.section][indexPath.item])
         return cell
     }
