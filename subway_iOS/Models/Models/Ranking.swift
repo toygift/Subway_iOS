@@ -75,6 +75,7 @@ struct Sandwich: Codable {
     let image3XRight: String
     let mainIngredient: [Bread]
     let category: [Category]
+    let serving_size, calories, sugars, protein, saturated_fat ,sodium, ordering_num: Int
     
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -83,12 +84,22 @@ struct Sandwich: Codable {
         case imageRight = "image_right"
         case image3XRight = "image3x_right"
         case mainIngredient = "main_ingredient"
-        case category
+        case category = "category"
+        case serving_size = "serving_size"
+        case calories = "calories"
+        case sugars = "sugars"
+        case protein = "protein"
+        case saturated_fat = "saturated_fat"
+        case sodium = "sodium"
+        case ordering_num = "ordering_num"
     }
 }
 
 struct Category: Codable {
     let name: String
+    enum CodingKeys: String, CodingKey {
+        case name
+    }
 }
 
 // MARK: Encode/decode helpers
