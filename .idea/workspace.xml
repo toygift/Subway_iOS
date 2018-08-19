@@ -1,312 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29310b27-61d4-4c5a-8cf0-0c821edc8ae8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Headers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/KakaoOpenSDK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOAccessTokenInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOAgeAuthQueryStringBuilder.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOAppFriend.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOBaseContext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOChat.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOChatContext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOError.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOFriend.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOFriendContext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOFriendOperation.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOHTTPMethod.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOImages.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOLoginButton.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOPushTokenInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSession.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+AgeAuthAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+AppFriendAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+FriendAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+PushAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+StoryAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+TalkAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+TokenAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask+UserManagementAPI.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOSessionTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStorageImageInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryActorInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryCommentInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryLikeInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryLinkInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryMyStoryImageInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryMyStoryInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryPostInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOStoryProfile.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOTalkMessageSending.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOTalkProfile.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOToken.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOUser.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOUserInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOUserMe.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KOUtils.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KakaoOpenSDK.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KakaoPushMessageObject.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KakaoPushMessagePropertyForApns.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/KakaoPushMessagePropertyForGcm.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Headers/NSDictionary+SafeValue.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/A/Resources/KakaoOpenSDK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KakaoOpenSDK.framework/Versions/Current" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tab4.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcodeproj/xcuserdata/kh2000park.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-57x57@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-57x57@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-72x72@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-72x72@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-Small-50x50@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/Icon-Small-50x50@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/bLT380KcalCopy2.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/bLT380KcalCopy2.imageset/bLT380KcalCopy2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/bLT380KcalCopy2.imageset/bLT380KcalCopy2@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/bLT380KcalCopy2.imageset/bLT380KcalCopy2@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxEmpty2.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxEmpty2.imageset/boxEmpty2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxEmpty2.imageset/boxEmpty2@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxEmpty2.imageset/boxEmpty2@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxSelectedArrangment.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxSelectedArrangment.imageset/boxSelectedArrangment.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxSelectedArrangment.imageset/boxSelectedArrangment@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/boxSelectedArrangment.imageset/boxSelectedArrangment@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/chevronDown.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/chevronDown.imageset/chevronDown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/chevronDown.imageset/chevronDown@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/chevronDown.imageset/chevronDown@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/facebook.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/facebook.imageset/facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/facebook.imageset/facebook@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/facebook.imageset/facebook@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconHeartLine.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconHeartLine.imageset/iconHeartLine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconHeartLine.imageset/iconHeartLine@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconHeartLine.imageset/iconHeartLine@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSave.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSave.imageset/iconSave.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSave.imageset/iconSave@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSave.imageset/iconSave@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSearchGrey.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSearchGrey.imageset/iconSearchGrey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSearchGrey.imageset/iconSearchGrey@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSearchGrey.imageset/iconSearchGrey@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconShare.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconShare.imageset/iconShare.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconShare.imageset/iconShare@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconShare.imageset/iconShare@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSkipGrey.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSkipGrey.imageset/iconSkipGrey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSkipGrey.imageset/iconSkipGrey@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconSkipGrey.imageset/iconSkipGrey@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconX.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconX.imageset/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconX.imageset/x@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/iconX.imageset/x@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/kakaoTalk.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/kakaoTalk.imageset/kakaoTalk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/kakaoTalk.imageset/kakaoTalk@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/kakaoTalk.imageset/kakaoTalk@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_bLT.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_bLT.imageset/bLT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_bLT.imageset/bLT@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_bLT.imageset/bLT@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_baconEggCheese.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_baconEggCheese.imageset/baconEggCheese.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_baconEggCheese.imageset/baconEggCheese@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_baconEggCheese.imageset/baconEggCheese@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_blackForestHamEggCheese.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_blackForestHamEggCheese.imageset/blackForestHamEggCheese.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_blackForestHamEggCheese.imageset/blackForestHamEggCheese@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_blackForestHamEggCheese.imageset/blackForestHamEggCheese@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenBaconRanch.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenBaconRanch.imageset/chickenBaconRanch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenBaconRanch.imageset/chickenBaconRanch@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenBaconRanch.imageset/chickenTeriyaki@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenTeriyaki.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenTeriyaki.imageset/product_chickenTeriyaki.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenTeriyaki.imageset/product_chickenTeriyaki@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_chickenTeriyaki.imageset/product_chickenTeriyaki@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_eggMayo.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_eggMayo.imageset/product_eggMayo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_eggMayo.imageset/product_eggMayo@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_eggMayo.imageset/product_eggMayo@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_ham.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_ham.imageset/product_ham.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_ham.imageset/product_ham@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_ham.imageset/product_ham@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_italianBMT.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_italianBMT.imageset/product_italianBMT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_italianBMT.imageset/product_italianBMT@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_italianBMT.imageset/product_italianBMT@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_meatball.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_meatball.imageset/product_meatball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_meatball.imageset/product_meatball@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_meatball.imageset/product_meatball@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_pulledPork.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_pulledPork.imageset/pulledPork.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_pulledPork.imageset/pulledPork@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_pulledPork.imageset/pulledPork@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedBeef.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedBeef.imageset/roastedBeef.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedBeef.imageset/roastedBeef@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedBeef.imageset/roastedBeef@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedChicken.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedChicken.imageset/roastedChicken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedChicken.imageset/roastedChicken@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_roastedChicken.imageset/rotisserieChicken@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_rotisserieChicken.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_rotisserieChicken.imageset/product_rotisserieChicken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_rotisserieChicken.imageset/product_rotisserieChicken@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_rotisserieChicken.imageset/product_rotisserieChicken@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalian.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalian.imageset/product_spicyItalian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalian.imageset/product_spicyItalian@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalian.imageset/product_spicyItalian@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalianAvocado.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalianAvocado.imageset/spicyItalianAvocado.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalianAvocado.imageset/spicyItalianAvocado@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_spicyItalianAvocado.imageset/spicyItalianAvocado@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakCheese.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakCheese.imageset/product_steakCheese.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakCheese.imageset/product_steakCheese@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakCheese.imageset/product_steakCheese@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakEggCheese.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakEggCheese.imageset/product_steakEggCheese.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakEggCheese.imageset/product_steakEggCheese@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_steakEggCheese.imageset/product_steakEggCheese@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayClub.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayClub.imageset/product_subwayClub.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayClub.imageset/product_subwayClub@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayClub.imageset/product_subwayClub@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayMelt.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayMelt.imageset/product_subwayMelt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayMelt.imageset/product_subwayMelt@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_subwayMelt.imageset/product_subwayMelt@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_tuna.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_tuna.imageset/product_tuna.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_tuna.imageset/product_tuna@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_tuna.imageset/product_tuna@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkey.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkey.imageset/product_turkey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkey.imageset/product_turkey@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkey.imageset/product_turkey@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBacon.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBacon.imageset/product_turkeyBacon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBacon.imageset/product_turkeyBacon@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBacon.imageset/product_turkeyBacon@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBaconAvocado.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBaconAvocado.imageset/product_turkeyBaconAvocado.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBaconAvocado.imageset/product_turkeyBaconAvocado@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_turkeyBaconAvocado.imageset/product_turkeyBaconAvocado@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieAvocado.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieAvocado.imageset/product_veggieAvocado.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieAvocado.imageset/product_veggieAvocado@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieAvocado.imageset/product_veggieAvocado@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieDelite.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieDelite.imageset/product_veggieDelite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieDelite.imageset/product_veggieDelite@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_veggieDelite.imageset/product_veggieDelite@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_westernEggCheese.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_westernEggCheese.imageset/product_westernEggCheese.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_westernEggCheese.imageset/product_westernEggCheese@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/product_westernEggCheese.imageset/product_westernEggCheese@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy2.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy2.imageset/rectangle4Copy2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy2.imageset/rectangle4Copy2@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy2.imageset/rectangle4Copy2@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy8.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy8.imageset/rectangle4Copy8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy8.imageset/rectangle4Copy8@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/rectangle4Copy8.imageset/rectangle4Copy8@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/sandwichBg1.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/sandwichBg1.imageset/sandwichBg1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/sandwichBg1.imageset/sandwichBg1@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/sandwichBg1.imageset/sandwichBg1@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayCi.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayCi.imageset/subwayCi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayCi.imageset/subwayCi@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayCi.imageset/subwayCi@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayClub.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayClub.imageset/subwayClub.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayClub.imageset/subwayClub@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Assets.xcassets/subwayClub.imageset/subwayClub@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Managers/JSExtension.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Models/Models/FilterProduct.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Models/Models/Ranking.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Models/Models/RecentSearchWord.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Models/Models/User.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Auth.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Filter.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Tab1.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Tab2.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Tab3.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Storyboards/Tab4.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Utils/TokenAuth.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Utils/UIColorExtension.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Utils/temp2.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/FilterViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/LoginViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/SearchViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Tab1ViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Tab2ViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Tab3ViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Tab4ViewController.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/FilterButtonCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/FilterButtonCell.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/FilterProductCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/FilterProductCell.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/IngredientCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/IngredientCell.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/IngredientCollectionCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/IngredientCollectionCell.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/MoreBtnSection.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/RankingEvenCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/RankingOddCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/SearchedWordCell.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/ViewControllers/Views/tempsss.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/Views/V/temp.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/subway_iOS-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOS/subway_iOS.entitlements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOSTests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOSTests/subway_iOSTests.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOSUITests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subway_iOSUITests/subway_iOSUITests.swift" beforeDir="false" />
-    </list>
+    <list default="true" id="29310b27-61d4-4c5a-8cf0-0c821edc8ae8" name="Default Changelist" comment="" />
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/subway_iOS-fpzzehsczcbaywdblxsvgjejacvh/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -314,6 +9,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_f96f2b88675f7c89f82e095d26f0f72b252da4a5" />
   <component name="FUSProjectUsageTrigger">
     <session id="-892728476">
       <usages-collector id="statistics.lifecycle.project">
@@ -353,18 +49,18 @@
       <usages-collector id="statistics.appcode.reveal" />
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.checkout.local" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/subway_iOS/ViewControllers/Tab2ViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state relative-caret-position="108">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -501,11 +197,12 @@
       <option name="presentableId" value="Default" />
       <updated>1534649254127</updated>
       <workItem from="1534649261581" duration="2290000" />
+      <workItem from="1534655818393" duration="236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2310000" />
+    <option name="totallyTimeSpent" value="2480000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,7 +216,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.17932148" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.18174475" />
       <window_info id="Structure" order="1" sideWeight="0.50136983" side_tool="true" weight="0.24555735" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -530,7 +227,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49919224" visible="true" weight="0.5561644" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49919224" visible="true" weight="0.7041096" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080776" side_tool="true" weight="0.5561644" />
@@ -588,8 +285,8 @@
     <entry file="file://$PROJECT_DIR$/subway_iOS/Utils/UIScrollViewExtension.swift" />
     <entry file="file://$PROJECT_DIR$/subway_iOS/ViewControllers/Tab2ViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        <state relative-caret-position="108">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
