@@ -50,6 +50,7 @@
 		916C23B820DF505200ECD746 /* Tab4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916C23B720DF505200ECD746 /* Tab4.storyboard */; };
 		916C23BA20DF521700ECD746 /* Tab2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916C23B920DF521700ECD746 /* Tab2.storyboard */; };
 		D92722EE36136A5C7C6ACD29 /* Pods_subway_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */; };
+		E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */; };
 		EEACFA45274BAFF53DCCE87D /* Pods_subway_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		9154278420B14F9C00C6E12A /* Tab3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3ViewController.swift; sourceTree = "<group>"; };
 		916C23B720DF505200ECD746 /* Tab4.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab4.storyboard; sourceTree = "<group>"; };
 		916C23B920DF521700ECD746 /* Tab2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab2.storyboard; sourceTree = "<group>"; };
+		E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				9151307E20C3B81B00DEE0B2 /* TokenAuth.swift */,
 				911EAE4420E89479002E132F /* UIColorExtension.swift */,
+				E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,
 				911EAE5920F1EABE002E132F /* SearchedWordCell.swift in Sources */,
 				9154278320B14F9200C6E12A /* Tab2ViewController.swift in Sources */,
+				E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

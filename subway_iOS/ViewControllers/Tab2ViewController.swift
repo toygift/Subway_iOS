@@ -47,11 +47,14 @@ class Tab2ViewController: UIViewController {
             i = i + 1
         }
         scrollView.contentSize = CGSize(width: innerScrollFrame.origin.x+innerScrollFrame.size.width, height: scrollView.bounds.size.height)
+
+        scrollView.delegate = self
     }
     
     
 }
 
+// MARK: - CollectionView delegation
 extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeStepCell.cellId, for: indexPath) as! RecipeStepCell
@@ -85,4 +88,15 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
+}
+
+// MARK: - ScrollView Delegation
+extension Tab2ViewController : UIScrollViewDelegate {
+   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+       let currentPage = scrollView.currentPage
+       // Do something with your page update
+       print("scrollViewDidEndDecelerating: \(currentPage)")
+       stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
+    }
+
 }
