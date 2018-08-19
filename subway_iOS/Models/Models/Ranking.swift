@@ -48,7 +48,7 @@ struct Bread: Codable {
     let id: Int
     let name, image, image3X: String
     let quantity: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, name, image
         case image3X = "image3x"
@@ -74,7 +74,7 @@ struct Sandwich: Codable {
     let category: [Category]
     let servingSize, calories, sugars, protein: Int
     let saturatedFat, sodium, orderingNum: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case id, name
         case imageLeft = "image_left"
@@ -99,14 +99,14 @@ struct Category: Codable {
 
 class JSONNull: Codable {
     public init() {}
-    
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
             throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()
@@ -122,7 +122,7 @@ class JSONNull: Codable {
 //    let count: Int
 //    let next, previous: JSONNull?
 //    let results: [Ranking]
-//    
+//
 //}
 //
 //struct Ranking: Codable {
@@ -137,7 +137,7 @@ class JSONNull: Codable {
 //    let authUserLikeState, authUserBookmarkState: String
 //    let likeCount, bookmarkCount, likeBookmarkCount: Int
 //    let createdDate: String
-//    
+//
 //    enum CodingKeys: String, CodingKey {
 //        case id, name, sandwich, bread, toppings, cheese, toasting, vegetables, sauces, inventor
 //        case authUserLikeState = "auth_user_like_state"
@@ -153,7 +153,7 @@ class JSONNull: Codable {
 //    let id: Int
 //    let name, image, image3X: String
 //    let quantity: Quantity?
-//    
+//
 //    enum CodingKeys: String, CodingKey {
 //        case id, name, image
 //        case image3X = "image3x"
@@ -186,7 +186,7 @@ class JSONNull: Codable {
 //    let mainIngredient: [Bread]
 //    let category: [Category]
 //    let serving_size, calories, sugars, protein, saturated_fat ,sodium, ordering_num: Int
-//    
+//
 //    enum CodingKeys: String, CodingKey {
 //        case id, name
 //        case imageLeft = "image_left"
@@ -216,14 +216,14 @@ class JSONNull: Codable {
 //
 //class JSONNull: Codable {
 //    public init() {}
-//    
+//
 //    public required init(from decoder: Decoder) throws {
 //        let container = try decoder.singleValueContainer()
 //        if !container.decodeNil() {
 //            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
 //        }
 //    }
-//    
+//
 //    public func encode(to encoder: Encoder) throws {
 //        var container = encoder.singleValueContainer()
 //        try container.encodeNil()
