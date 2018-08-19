@@ -35,13 +35,33 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHQ-Oe-Ssf">
                                 <rect key="frame" x="0.0" y="114" width="375" height="504"/>
                             </scrollView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="629-LL-11Z">
+                                <rect key="frame" x="157" y="109.5" width="60" height="4"/>
+                                <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="999" constant="60" id="7Jo-ai-0Yq"/>
+                                    <constraint firstAttribute="height" constant="4" id="eoi-GT-2eb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyd-g4-V3G" userLabel="Divider">
+                                <rect key="frame" x="0.0" y="113.5" width="375" height="0.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="y2h-WD-yjG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lyd-g4-V3G" firstAttribute="leading" secondItem="Oml-Ip-dDr" secondAttribute="leading" id="6uF-UB-h2r"/>
+                            <constraint firstItem="629-LL-11Z" firstAttribute="centerX" secondItem="Pby-nG-oq6" secondAttribute="centerX" id="I5g-YD-6ea"/>
+                            <constraint firstItem="lyd-g4-V3G" firstAttribute="top" secondItem="629-LL-11Z" secondAttribute="bottom" id="K1A-ti-nf5"/>
                             <constraint firstItem="Oml-Ip-dDr" firstAttribute="trailing" secondItem="qHQ-Oe-Ssf" secondAttribute="trailing" id="OQg-hZ-q8z"/>
                             <constraint firstItem="qHQ-Oe-Ssf" firstAttribute="leading" secondItem="Oml-Ip-dDr" secondAttribute="leading" id="S6t-QL-12H"/>
+                            <constraint firstItem="Oml-Ip-dDr" firstAttribute="trailing" secondItem="lyd-g4-V3G" secondAttribute="trailing" id="WZX-AO-emT"/>
                             <constraint firstItem="Oml-Ip-dDr" firstAttribute="bottom" secondItem="qHQ-Oe-Ssf" secondAttribute="bottom" id="Yxn-fp-52d"/>
                             <constraint firstItem="fpl-eD-Y0j" firstAttribute="trailing" secondItem="Oml-Ip-dDr" secondAttribute="trailing" id="c1H-jZ-pMy"/>
+                            <constraint firstItem="qHQ-Oe-Ssf" firstAttribute="top" secondItem="lyd-g4-V3G" secondAttribute="bottom" id="iOP-UA-uIw"/>
                             <constraint firstItem="fpl-eD-Y0j" firstAttribute="leading" secondItem="Oml-Ip-dDr" secondAttribute="leading" id="jwt-Yu-a3F"/>
                             <constraint firstItem="fpl-eD-Y0j" firstAttribute="top" secondItem="Oml-Ip-dDr" secondAttribute="top" id="pj2-Zi-EVO"/>
                             <constraint firstItem="qHQ-Oe-Ssf" firstAttribute="top" secondItem="fpl-eD-Y0j" secondAttribute="bottom" id="rns-yn-WuX"/>
@@ -54,6 +74,8 @@
                     <connections>
                         <outlet property="scrollView" destination="qHQ-Oe-Ssf" id="HZ0-h1-7UK"/>
                         <outlet property="stepCollectionView" destination="fpl-eD-Y0j" id="T4U-3b-JQ9"/>
+                        <outlet property="tabLiner" destination="629-LL-11Z" id="9e0-Pb-NHV"/>
+                        <outlet property="tabLinerWidth" destination="7Jo-ai-0Yq" id="4yx-iF-aaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ve5-bb-1zU" userLabel="First Responder" sceneMemberID="firstResponder"/>

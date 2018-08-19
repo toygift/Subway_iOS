@@ -13,15 +13,30 @@ class Tab2ViewController: UIViewController {
     @IBOutlet weak var stepCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var tabLiner: UIView!
+    @IBOutlet weak var tabLinerWidth: NSLayoutConstraint!
     
     let steps = ["", "샌드위치", "빵", "추가토핑", "치즈", "토스팅", "야채", "소스", "이름이름", ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         setupCollectionView()
         setupScrollView()
     }
 
+    fileprivate func setupViews(){
+        
+        // tabliner corner radius 설정
+        let path = UIBezierPath(roundedRect:tabLiner.bounds,
+                                byRoundingCorners:[.topRight, .topLeft],
+                                cornerRadii: CGSize(width: 8, height:  8))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        tabLiner.layer.mask = maskLayer
+    }
+    
+    
     fileprivate func setupCollectionView(){
         stepCollectionView.register(UINib(nibName: "RecipeStepCell", bundle: nil), forCellWithReuseIdentifier: RecipeStepCell.cellId)
         stepCollectionView.delegate = self
@@ -51,7 +66,6 @@ class Tab2ViewController: UIViewController {
         scrollView.delegate = self
     }
     
-    
 }
 
 // MARK: - CollectionView delegation
@@ -68,13 +82,7 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width : CGFloat = 0
-        let labelWidth = CGFloat(steps[indexPath.item].count * 10 + 35)
-        if steps[indexPath.item].count == 0 {
-            width = (view.frame.width - 95) / 2
-        } else {
-            width = labelWidth
-        }
+        let width = getLabelWidth(strLength: steps[indexPath.item].count)
         return CGSize(width: width, height: 50)
     }
     
@@ -85,18 +93,33 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             let rect = CGRect(x: CGFloat(indexPath.item - 1) * view.frame.width, y: 0, width: view.frame.width, height: scrollView.frame.height)
             scrollView.scrollRectToVisible(rect, animated: true)
+            
+            // TODO: - debug this!!
+            tabLinerWidth.constant = getLabelWidth(strLength: steps[indexPath.item].count)
         }
+    }
+    
+    fileprivate func getLabelWidth(strLength : Int) -> CGFloat{
+        var width : CGFloat = 0
+        let labelWidth = CGFloat(strLength * 10 + 35)
+        if strLength == 0 {
+            width = (view.frame.width - 95) / 2
+        } else {
+            width = labelWidth
+        }
+        return width
     }
     
 }
 
 // MARK: - ScrollView Delegation
 extension Tab2ViewController : UIScrollViewDelegate {
-   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-       let currentPage = scrollView.currentPage
-       // Do something with your page update
-       print("scrollViewDidEndDecelerating: \(currentPage)")
-       stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let currentPage = scrollView.currentPage
+        // Do something with your page update
+        print("scrollViewDidEndDecelerating: \(currentPage)")
+        stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
+        tabLinerWidth.constant = getLabelWidth(strLength: steps[currentPage].count)
     }
 
 }
