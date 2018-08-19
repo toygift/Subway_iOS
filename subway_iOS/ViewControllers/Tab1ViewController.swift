@@ -13,7 +13,17 @@ class Tab1ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 //    var rankingList = [Ranking]() {
     
+    @IBAction func searchBar(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController")
+        present(vc, animated: true, completion: nil)
+    }
     
+    
+    @IBAction func filter(_ sender: UIBarButtonItem) {
+        if let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateInitialViewController() {
+            present(vc, animated: true, completion: nil)
+        }
+    }
     
     var rankingList: [[String:Any]] = [[String:Any]]() {
         didSet {
@@ -77,16 +87,30 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "odds", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
-            cell.setData(self.rankingList[indexPath.section])
-            return cell
+            let id = self.rankingList[indexPath.section]["name"] as! Name
+            if id.id % 2 == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "evens", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
+                cell.setData(self.rankingList[indexPath.section], type: "evens")
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "odds", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
+                cell.setData(self.rankingList[indexPath.section], type: "odds")
+                return cell
+            }
+            
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "opened", for: indexPath) as? RankingOddDetailCell else { return UITableViewCell() }
             guard let ing = self.rankingList[indexPath.section]["main"] as? [[Bread]] else { return UITableViewCell() }
             
             cell.frame = tableView.bounds
             cell.layoutIfNeeded()
-            cell.setData(ing)
+            let id = self.rankingList[indexPath.section]["name"] as! Name
+            if id.id % 2 == 0 {
+                cell.setData(ing, type: "evens")
+            } else {
+                cell.setData(ing, type: "odds")
+            }
+            
             cell.collectionView.reloadData()
             cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
             return cell

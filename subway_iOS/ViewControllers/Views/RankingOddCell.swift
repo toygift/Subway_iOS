@@ -16,6 +16,7 @@ class RankingOddCell: UITableViewCell {
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainNumberLabel: UILabel!
     
+    
     @IBOutlet weak var mainLikeButton: UIButton!
     @IBOutlet weak var mainBookmarkButton: UIButton!
     @IBOutlet weak var mainShareButton: UIButton!
@@ -26,18 +27,24 @@ class RankingOddCell: UITableViewCell {
 
     }
     
-    func setData(_ data: [String:Any]) {
+    func setData(_ data: [String:Any], type: String) {
         let aa = data["image"] as! Sandwich
         let name = data["name"] as! Name
         print(name)
-        self.mainImageView.kf.setImage(with: URL(string: aa.imageFull))
+        if type == "evens" {
+            self.mainImageView.kf.setImage(with: URL(string: aa.image3XLeft))
+        } else {
+            self.mainImageView.kf.setImage(with: URL(string: aa.image3XRight))
+        }
+        
         self.mainTitleLabel.text = name.name
         self.mainNumberLabel.text = String(name.id)
     }
 }
 class RankingOddDetailCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var left: NSLayoutConstraint!
+    @IBOutlet weak var right: NSLayoutConstraint!
     
     @IBOutlet weak var collHeight: NSLayoutConstraint!
     var ingrediendTitle = ["메인 재료","빵 선택", "치즈 선택","추가 선택", "토스팅 여부","야채 선택","소스 선택"]
@@ -49,8 +56,15 @@ class RankingOddDetailCell: UITableViewCell {
         }
     }
     
-    func setData(_ data: [[Bread]]) {
+    func setData(_ data: [[Bread]], type: String) {
         self.ingrediendData = data
+        if type == "odds" {
+//            self.left.constant = 20
+//            self.right.constant = 0
+        } else {
+//            self.right.constant = 20
+//            self.left.constant = 0
+        }
     }
 }
 extension RankingOddDetailCell: UICollectionViewDelegate, UICollectionViewDataSource {

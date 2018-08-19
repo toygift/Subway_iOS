@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--tab3-->
+        <!--저장된레시피-->
         <scene sceneID="Pfl-3Q-pFd">
             <objects>
                 <viewController id="SRv-2F-jO2" customClass="Tab3ViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Dwz-Qd-rcO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="tab3" id="0kT-Ax-aP4"/>
+                    <tabBarItem key="tabBarItem" title="저장된레시피" image="book" selectedImage="iconLibraryColour" id="Bwg-ej-Qdi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXE-ID-K0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,4 +53,8 @@
             <point key="canvasLocation" x="1060" y="626.53673163418296"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book" width="24" height="24"/>
+        <image name="iconLibraryColour" width="18" height="22"/>
+    </resources>
 </document>

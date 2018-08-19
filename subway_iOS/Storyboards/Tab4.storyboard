@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--tab4-->
+        <!--메뉴-->
         <scene sceneID="msD-50-4z5">
             <objects>
                 <viewController id="XOB-Cv-frO" customClass="Tab4ViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tCi-o9-ypv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="tab4" id="uKN-dU-vpz"/>
+                    <tabBarItem key="tabBarItem" title="메뉴" image="menu" selectedImage="iconMenuColour" id="uKN-dU-vpz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2w-if-lmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -45,4 +45,8 @@
             <point key="canvasLocation" x="401" y="243"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconMenuColour" width="24" height="18"/>
+        <image name="menu" width="24" height="24"/>
+    </resources>
 </document>
