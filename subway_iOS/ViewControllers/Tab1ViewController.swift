@@ -32,17 +32,19 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let result = response.result.value?.results {
                 self?.rankingList = result
                 for (i,data) in result.enumerated() {
-                    var ingri = [[Bread]]()
-                    ingri.append(data.sandwich.mainIngredient)
-                    ingri.append([data.bread])
-                    ingri.append(data.toppings)
-                    ingri.append([data.cheese])
-                    ingri.append([data.toasting])
-                    ingri.append(data.vegetables)
-                    ingri.append(data.sauces)
+                    var ingri = [[[Bread]]]()
+                    ingri.append([data.sandwich.mainIngredient])
+                    ingri.append([[data.bread]])
+                    ingri.append([data.toppings])
+                    ingri.append([[data.cheese]])
+                    ingri.append([[data.toasting]])
+                    ingri.append([data.vegetables])
+                    ingri.append([data.sauces])
                     self?.aa["ing"] = ingri
                 }
                 print("count",self?.aa["ing"])
+                let aa = self?.aa["ing"] as! [[[Bread]]]
+                print("오잉",aa.count)
             }
         }
     }
