@@ -9,6 +9,8 @@
 import UIKit
 
 class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var bread: [[[Bread]]] = [[[Bread]]]()
+
     
     @IBOutlet weak var tableView: UITableView!
     var rankingList = [Ranking]() {
@@ -18,7 +20,7 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
         }
     }
-    
+    var test = [[[Bread]]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,19 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
         getRankings.requestAPI { [weak self] (response) in
             if let result = response.result.value?.results {
                 self?.rankingList = result
+                for (i,data) in result.enumerated() {
+                    var ingri = [[Bread]]()
+                    ingri.append(data.sandwich.mainIngredient)
+                    ingri.append([data.bread])
+                    ingri.append(data.toppings)
+                    ingri.append([data.cheese])
+                    ingri.append([data.toasting])
+                    ingri.append(data.vegetables)
+                    ingri.append(data.sauces)
+                    print("123",ingri.count)
+                    self.test.append(ingri)
+                }
+                
             }
         }
     }
