@@ -41,7 +41,7 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
                     ingri.append(data.vegetables)
                     ingri.append(data.sauces)
                     print("123",ingri.count)
-                    self.test.append(ingri)
+                    self?.test.append(ingri)
                 }
                 
             }

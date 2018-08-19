@@ -7,7 +7,7 @@
 		<key>subway_iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>15</integer>
 		</dict>
 		<key>subway_iOS_prod.xcscheme</key>
 		<dict>
@@ -20,17 +20,17 @@
 		<key>9154274620B14A0300C6E12A</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>9154275A20B14A0700C6E12A</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>9154276520B14A0700C6E12A</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>
