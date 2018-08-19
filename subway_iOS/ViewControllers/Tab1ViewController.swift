@@ -9,7 +9,9 @@
 import UIKit
 
 class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var bread = [[Bread]]()
+    var bread: [[[Bread]]] = [[[Bread]]]()
+    var aa: [String:Any] = [:]
+    
     @IBOutlet weak var tableView: UITableView!
     var rankingList = [Ranking]() {
         didSet {
@@ -28,22 +30,21 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
             if let result = response.result.value?.results {
-                print("result",result)
                 self?.rankingList = result
                 for (i,data) in result.enumerated() {
-                    print("asdfasd",data)
-                    self?.bread[i].append(contentsOf: data.sandwich.mainIngredient)
-                    print(data.sandwich.mainIngredient)
-                    self?.bread[i].append(contentsOf: [data.bread])
-                    self?.bread[i].append(contentsOf: data.toppings)
-                    self?.bread[i].append(contentsOf: [data.cheese])
-                    self?.bread[i].append(contentsOf: [data.toasting])
-                    self?.bread[i].append(contentsOf: data.vegetables)
-                    self?.bread[i].append(contentsOf: data.sauces)
+                    var ingri = [[Bread]]()
+                    ingri.append(data.sandwich.mainIngredient)
+                    ingri.append([data.bread])
+                    ingri.append(data.toppings)
+                    ingri.append([data.cheese])
+                    ingri.append([data.toasting])
+                    ingri.append(data.vegetables)
+                    ingri.append(data.sauces)
+                    self?.aa["ing"] = ingri
                 }
+                print("count",self?.aa["ing"])
             }
         }
-        print("11122233",self.bread)
     }
 }
 extension Tab1ViewController {
