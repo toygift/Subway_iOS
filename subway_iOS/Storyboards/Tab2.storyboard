@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p7t-w5-PFV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xvP-Rw-6Ue">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,31 +10,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--tab2-->
+        <!--레시피 만들기-->
         <scene sceneID="XP1-8w-1eb">
             <objects>
-                <viewController id="p7t-w5-PFV" sceneMemberID="viewController">
+                <viewController id="p7t-w5-PFV" customClass="Tab2ViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pby-nG-oq6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tab2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCH-3A-rTf">
-                                <rect key="frame" x="166" y="323" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fpl-eD-Y0j">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u5d-37-V4w"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gfc-Ve-3EN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHQ-Oe-Ssf">
+                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Oml-Ip-dDr" firstAttribute="trailing" secondItem="qHQ-Oe-Ssf" secondAttribute="trailing" id="OQg-hZ-q8z"/>
+                            <constraint firstItem="qHQ-Oe-Ssf" firstAttribute="leading" secondItem="Oml-Ip-dDr" secondAttribute="leading" id="S6t-QL-12H"/>
+                            <constraint firstItem="Oml-Ip-dDr" firstAttribute="bottom" secondItem="qHQ-Oe-Ssf" secondAttribute="bottom" id="Yxn-fp-52d"/>
+                            <constraint firstItem="fpl-eD-Y0j" firstAttribute="trailing" secondItem="Oml-Ip-dDr" secondAttribute="trailing" id="c1H-jZ-pMy"/>
+                            <constraint firstItem="fpl-eD-Y0j" firstAttribute="leading" secondItem="Oml-Ip-dDr" secondAttribute="leading" id="jwt-Yu-a3F"/>
+                            <constraint firstItem="fpl-eD-Y0j" firstAttribute="top" secondItem="Oml-Ip-dDr" secondAttribute="top" id="pj2-Zi-EVO"/>
+                            <constraint firstItem="qHQ-Oe-Ssf" firstAttribute="top" secondItem="fpl-eD-Y0j" secondAttribute="bottom" id="rns-yn-WuX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Oml-Ip-dDr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="tab2" id="qsr-7p-WdO"/>
+                    <navigationItem key="navigationItem" title="레시피 만들기" id="Rey-zC-cjG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="scrollView" destination="qHQ-Oe-Ssf" id="HZ0-h1-7UK"/>
+                        <outlet property="stepCollectionView" destination="fpl-eD-Y0j" id="T4U-3b-JQ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ve5-bb-1zU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="167"/>
+            <point key="canvasLocation" x="1152.8" y="166.8665667166417"/>
+        </scene>
+        <!--tab2-->
+        <scene sceneID="Ubn-L7-TgF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xvP-Rw-6Ue" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="tab2" id="qsr-7p-WdO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4JW-xY-zIN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p7t-w5-PFV" kind="relationship" relationship="rootViewController" id="UEe-Vb-rV2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fB-Ok-Lra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213.59999999999999" y="166.8665667166417"/>
         </scene>
     </scenes>
 </document>

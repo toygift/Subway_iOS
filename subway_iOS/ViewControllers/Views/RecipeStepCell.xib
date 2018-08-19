@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeStepCell" id="DWD-Jb-HGI" customClass="RecipeStepCell" customModule="subway_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NT-R5-SQG">
+                        <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hk-QQ-vga">
+                                <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5hk-QQ-vga" firstAttribute="top" secondItem="5NT-R5-SQG" secondAttribute="top" id="DMq-Cg-WJA"/>
+                            <constraint firstItem="5hk-QQ-vga" firstAttribute="leading" secondItem="5NT-R5-SQG" secondAttribute="leading" id="Nb3-1q-omA"/>
+                            <constraint firstAttribute="bottom" secondItem="5hk-QQ-vga" secondAttribute="bottom" id="bqd-Mh-Vtw"/>
+                            <constraint firstAttribute="trailing" secondItem="5hk-QQ-vga" secondAttribute="trailing" id="gul-wN-DnM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="5NT-R5-SQG" firstAttribute="top" secondItem="DWD-Jb-HGI" secondAttribute="top" id="6Bo-eP-Qsk"/>
+                <constraint firstItem="5NT-R5-SQG" firstAttribute="leading" secondItem="DWD-Jb-HGI" secondAttribute="leading" id="II2-HY-Aot"/>
+                <constraint firstAttribute="trailing" secondItem="5NT-R5-SQG" secondAttribute="trailing" id="fR8-r2-A7V"/>
+                <constraint firstAttribute="bottom" secondItem="5NT-R5-SQG" secondAttribute="bottom" id="w2c-3m-MKc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="XK8-RN-vat"/>
+            <size key="customSize" width="129" height="50"/>
+            <connections>
+                <outlet property="label" destination="5hk-QQ-vga" id="S7D-oc-rGj"/>
+                <outlet property="leadingConstraint" destination="Nb3-1q-omA" id="fzq-05-ajg"/>
+                <outlet property="trailingConstraint" destination="gul-wN-DnM" id="A7J-gw-4lH"/>
+            </connections>
+            <point key="canvasLocation" x="131.5" y="178"/>
+        </collectionViewCell>
+    </objects>
+</document>
