@@ -8,31 +8,33 @@
 
 import UIKit
 
-class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Tab1ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var rankingList = [Ranking]() {
+//    var rankingList = [Ranking]() {
+    
+    
+    
+    var rankingList: [[String:Any]] = [[String:Any]]() {
         didSet {
             self.tableView.delegate = self
             self.tableView.dataSource = self
-            self.tableView.reloadData()
         }
     }
     
-    var test = [[[Bread]]]()
-    var ttt: [[String:Any]] = [[String:Any]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
-        
-        
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
             if let result = response.result.value?.results {
-                self?.rankingList = result
+//                result.map({ (ranking) in
+//                    ranking.sandwich.mainIngredient
+//                })
                 for data in result {
                     var ingri = [[Bread]]()
                     var name: Name!
@@ -44,63 +46,69 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
                     ingri.append([data.toasting])
                     ingri.append(data.vegetables)
                     ingri.append(data.sauces)
+                    print(data.sandwich.mainIngredient.count)
+                    print(data.toppings.count)
+                    print(data.vegetables.count)
+                    print(data.sauces.count)
                     name = data.name
                     image = data.sandwich
                     let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
-                    self?.ttt.append(tt)
+                    self?.rankingList.append(tt)
                 }
-                
+                self?.tableView.reloadData()
             }
         }
     }
 }
-extension Tab1ViewController {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("ttt",self.rankingList.count)
+//        print("ranking",self.rankingList.count)
         return self.rankingList.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if self.rankingList[indexPath.row].id % 2 == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "even", for: indexPath) as! RankingEvenCell
-//            print("even")
-//            cell.setData(self.rankingList[indexPath.row])
-//            return cell
-//        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "odd", for: indexPath) as! RankingOddCell
-        
-        cell.frame = tableView.bounds
-        cell.layoutIfNeeded()
-        cell.setData(self.ttt[indexPath.row])
-        cell.collectionView.reloadData()
-        
-        cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
-            print("odd")
-            return cell
-//        }
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        guard let isOpened = self.rankingList[section]["isOpened"] as? Bool else { return 1 }
+        if isOpened == true {
+            return 2
+        } else {
+            return 1
+        }
     }
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "odds", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
+            cell.setData(self.rankingList[indexPath.section])
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "opened", for: indexPath) as? RankingOddDetailCell else { return UITableViewCell() }
+            guard let ing = self.rankingList[indexPath.section]["main"] as? [[Bread]] else { return UITableViewCell() }
+            
+            cell.frame = tableView.bounds
+            cell.layoutIfNeeded()
+            cell.setData(ing)
+            cell.collectionView.reloadData()
+            cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
+            return cell
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didselect")
-        // 여기에서 ingredient tableview hidden  true/false 해야함
-//        var hiddenValue1 = true
-//        var hiddenValue2 = true
-//        if self.rankingList[indexPath.row].id % 2 == 0 {
-//            let cell = tableView.cellForRow(at: indexPath) as! RankingEvenCell
-//            cell.isTableViewHidden = hiddenValue1
-//            hiddenValue1 = !hiddenValue1
-//        } else {
-//            let cell = tableView.cellForRow(at: indexPath) as! RankingOddCell
-//            cell.isTableViewHidden = hiddenValue2
-//            hiddenValue2 = !hiddenValue2
-//        }
-//        let cell = tableView.cellForRow(at: indexPath) as! RankingOddCell
-//        cell.collectionView.isHidden = true
-//        cell.oddheight.constant = 0
-        
-//           self.tableView.reloadData()
+        guard let isOpened = self.rankingList[indexPath.section]["isOpened"] as? Bool else { return  }
+        if indexPath.row == 0 {
+            if isOpened == true {
+                self.rankingList[indexPath.section]["isOpened"] = false
+                let section = IndexSet.init(integer: indexPath.section)
+                self.tableView.reloadSections(section, with: .automatic)
+            } else {
+                self.rankingList[indexPath.section]["isOpened"] = true
+                let section = IndexSet.init(integer: indexPath.section)
+                self.tableView.reloadSections(section, with: .automatic)
+            }
+        }
+        //        self.tableView.layoutIfNeeded()
+        //        self.tableView.layoutSubviews()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-    
 }

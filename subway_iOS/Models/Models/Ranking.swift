@@ -12,8 +12,6 @@ import Foundation
 //
 //   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
-import Foundation
-
 struct Rankings: Codable {
     let count: Int
     let next, previous: JSONNull?
@@ -48,11 +46,11 @@ struct Bread: Codable {
     let id: Int
     let name, image, image3X: String
     let quantity: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, image
         case image3X = "image3x"
-        case quantity = "quantity"
+        case quantity
     }
 }
 
@@ -68,15 +66,17 @@ struct Name: Codable {
 
 struct Sandwich: Codable {
     let id: Int
-    let name, imageLeft, image3XLeft, imageRight: String
-    let image3XRight: String
+    let name, imageFull, image3XFull, imageLeft: String
+    let image3XLeft, imageRight, image3XRight: String
     let mainIngredient: [Bread]
     let category: [Category]
     let servingSize, calories, sugars, protein: Int
     let saturatedFat, sodium, orderingNum: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
+        case imageFull = "image_full"
+        case image3XFull = "image3x_full"
         case imageLeft = "image_left"
         case image3XLeft = "image3x_left"
         case imageRight = "image_right"
@@ -99,19 +99,125 @@ struct Category: Codable {
 
 class JSONNull: Codable {
     public init() {}
-
+    
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
             throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
-
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()
     }
 }
+
+
+//struct Rankings: Codable {
+//    let count: Int
+//    let next, previous: JSONNull?
+//    let results: [Ranking]
+//}
+//
+//struct Ranking: Codable {
+//    let id: Int
+//    let name: Name
+//    let sandwich: Sandwich
+//    let bread: Bread
+//    let toppings: [Bread]
+//    let cheese, toasting: Bread
+//    let vegetables, sauces: [Bread]
+//    let inventor: Inventor
+//    let authUserLikeState, authUserBookmarkState: String
+//    let likeCount, bookmarkCount, likeBookmarkCount: Int
+//    let createdDate: String
+//    let imageFull: String
+//    let image3xFull: String
+//
+//
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, name, sandwich, bread, toppings, cheese, toasting, vegetables, sauces, inventor
+//        case authUserLikeState = "auth_user_like_state"
+//        case authUserBookmarkState = "auth_user_bookmark_state"
+//        case likeCount = "like_count"
+//        case bookmarkCount = "bookmark_count"
+//        case likeBookmarkCount = "like_bookmark_count"
+//        case createdDate = "created_date"
+//        case imageFull = "image_full"
+//        case image3xFull = "image3x_full"
+//    }
+//}
+//
+//struct Bread: Codable {
+//    let id: Int
+//    let name, image, image3X: String
+//    let quantity: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, name, image
+//        case image3X = "image3x"
+//        case quantity = "quantity"
+//    }
+//}
+//
+//struct Inventor: Codable {
+//    let id: Int
+//    let username: String
+//}
+//
+//struct Name: Codable {
+//    let id: Int
+//    let name: String
+//}
+//
+//struct Sandwich: Codable {
+//    let id: Int
+//    let name, imageLeft, image3XLeft, imageRight: String
+//    let image3XRight: String
+//    let mainIngredient: [Bread]
+//    let category: [Category]
+//    let servingSize, calories, sugars, protein: Int
+//    let saturatedFat, sodium, orderingNum: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, name
+//        case imageLeft = "image_left"
+//        case image3XLeft = "image3x_left"
+//        case imageRight = "image_right"
+//        case image3XRight = "image3x_right"
+//        case mainIngredient = "main_ingredient"
+//        case category
+//        case servingSize = "serving_size"
+//        case calories, sugars, protein
+//        case saturatedFat = "saturated_fat"
+//        case sodium
+//        case orderingNum = "ordering_num"
+//    }
+//}
+//
+//struct Category: Codable {
+//    let name: String
+//}
+//
+//// MARK: Encode/decode helpers
+//
+//class JSONNull: Codable {
+//    public init() {}
+//
+//    public required init(from decoder: Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        if !container.decodeNil() {
+//            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+//        }
+//    }
+//
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        try container.encodeNil()
+//    }
+//}
 
 
 
