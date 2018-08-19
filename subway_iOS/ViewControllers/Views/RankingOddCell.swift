@@ -31,15 +31,6 @@ class RankingOddCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
             self.collectionView.reloadData()
         }
     }
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-////        self.collectionView.frame = CGRect(x: 0.0, y: 0.0, width: targetSize.width, height: )//CGRect(0, 0, targetSize.width, CGFloat(MAXFLOAT));
-////        self.collectionView.layoutIfNeeded()
-////        return self.collectionView.collectionViewLayout.collectionViewContentSize
-//        self.collectionView.frame = CGRect(x: 0, y: 0, width: targetSize.width, height: 70)
-//        self.collectionView.layoutIfNeeded()
-//
-//        return self.collectionView.collectionViewLayout.collectionViewContentSize
-//    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -50,25 +41,17 @@ class RankingOddCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
         
     }
     
-    func setData(_ data: Ranking) {
-//        let url = URL(string: data.sandwich.imageRight)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
-//        self.mainImageView.kf.setImage(with: url)
-//        self.mainTitleLabel.text = data.name.name
-//        self.mainNumberLabel.text = String(data.id)
-//
-        var ingredientTemp = [[Bread]]()
-        ingredientTemp.append(data.sandwich.mainIngredient)
-        ingredientTemp.append([data.bread])
-        ingredientTemp.append([data.cheese])
-        ingredientTemp.append(data.toppings)
-        ingredientTemp.append([data.toasting])
-        ingredientTemp.append(data.vegetables)
-        ingredientTemp.append(data.sauces)
-        self.ingrediendData = ingredientTemp
-        self.collectionView.reloadData()
-//        self.contentView.setNeedsLayout()
+    func setData(_ data: [String:Any]) {
+
+        let aa = data["image"] as! Sandwich
+        let name = data["name"] as! Name
+        self.mainImageView.kf.setImage(with: URL(string: aa.image3XRight))
+        self.mainTitleLabel.text = name.name
+        self.mainNumberLabel.text = String(name.id)
+//        self.collectionView.reloadData()
+
         
-        self.layoutIfNeeded()
+//        self.layoutIfNeeded()
     }
     
     @IBOutlet weak var tableViewHeightCon: NSLayoutConstraint!

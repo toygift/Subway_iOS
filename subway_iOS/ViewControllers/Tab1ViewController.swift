@@ -35,8 +35,8 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self?.rankingList = result
                 for data in result {
                     var ingri = [[Bread]]()
-                    var name = [Name]()
-                    var image = [String]()
+                    var name: Name!
+                    var image: Sandwich!
                     ingri.append(data.sandwich.mainIngredient)
                     ingri.append([data.bread])
                     ingri.append(data.toppings)
@@ -44,15 +44,12 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
                     ingri.append([data.toasting])
                     ingri.append(data.vegetables)
                     ingri.append(data.sauces)
-                    name.append(data.name)
-                    image.append(data.sandwich.imageLeft)
-                    image.append(data.sandwich.imageRight)
-                    image.append(data.sandwich.image3XLeft)
-                    image.append(data.sandwich.image3XRight)
-                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image]
+                    name = data.name
+                    image = data.sandwich
+                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
                     self?.ttt.append(tt)
                 }
-                print("tttttttttt",self?.ttt[0]["main"])
+                
             }
         }
     }
@@ -72,7 +69,7 @@ extension Tab1ViewController {
         
         cell.frame = tableView.bounds
         cell.layoutIfNeeded()
-        cell.setData(self.rankingList[indexPath.row])
+        cell.setData(self.ttt[indexPath.row])
         cell.collectionView.reloadData()
         
         cell.oddheight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
