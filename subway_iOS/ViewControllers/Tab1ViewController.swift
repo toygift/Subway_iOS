@@ -9,9 +9,7 @@
 import UIKit
 
 class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var bread: [[[Bread]]] = [[[Bread]]]()
 
-    
     @IBOutlet weak var tableView: UITableView!
     var rankingList = [Ranking]() {
         didSet {
@@ -20,19 +18,25 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
         }
     }
+    
     var test = [[[Bread]]]()
+    var ttt: [[String:Any]] = [[String:Any]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 44//200
+        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        
+        
         
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
             if let result = response.result.value?.results {
                 self?.rankingList = result
-                for (i,data) in result.enumerated() {
+                for data in result {
                     var ingri = [[Bread]]()
+                    var name = [Name]()
+                    var image = [String]()
                     ingri.append(data.sandwich.mainIngredient)
                     ingri.append([data.bread])
                     ingri.append(data.toppings)
@@ -40,10 +44,15 @@ class Tab1ViewController: UIViewController, UITableViewDelegate, UITableViewData
                     ingri.append([data.toasting])
                     ingri.append(data.vegetables)
                     ingri.append(data.sauces)
-                    print("123",ingri.count)
-                    self?.test.append(ingri)
+                    name.append(data.name)
+                    image.append(data.sandwich.imageLeft)
+                    image.append(data.sandwich.imageRight)
+                    image.append(data.sandwich.image3XLeft)
+                    image.append(data.sandwich.image3XRight)
+                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image]
+                    self?.ttt.append(tt)
                 }
-                
+                print("tttttttttt",self?.ttt[0]["main"])
             }
         }
     }
