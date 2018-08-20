@@ -18,14 +18,16 @@ class Tab2ViewController: UIViewController {
     
     let steps = ["", "샌드위치", "빵", "추가토핑", "치즈", "토스팅", "야채", "소스", "이름이름", ""]
     
+    let step1Sandwich = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
         setupCollectionView()
         setupScrollView()
     }
 
-    fileprivate func setupViews(){
+    // MARK: - 현재 안 쓰고 있음.. tabLiner.bounds에 따라서 BezierPath가 정해지는데 width constant만 바꾸면 path가 왔다갔다하는 상황이 있기 때문에 이건 좀 봐야됨..
+    fileprivate func roundTabLiner(){
         
         // tabliner corner radius 설정
         let path = UIBezierPath(roundedRect:tabLiner.bounds,
@@ -51,10 +53,17 @@ class Tab2ViewController: UIViewController {
         var innerScrollFrame = scrollView.bounds
         var i = 0
         for item in realSteps {
-            let label = UILabel(frame: innerScrollFrame)
-            label.text = item
-            label.textAlignment = .center
-            scrollView.addSubview(label)
+            
+            // TODO: - 여기서부터 각 단계별로 뷰 그리기
+            if i == 0 {
+                step1Sandwich.frame = innerScrollFrame
+                scrollView.addSubview(step1Sandwich)
+            } else {
+                let label = UILabel(frame: innerScrollFrame)
+                label.text = item
+                label.textAlignment = .center
+                scrollView.addSubview(label)
+            }
             
             if i < realSteps.count-1{
                 innerScrollFrame.origin.x = innerScrollFrame.origin.x + innerScrollFrame.size.width
@@ -94,8 +103,7 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let rect = CGRect(x: CGFloat(indexPath.item - 1) * view.frame.width, y: 0, width: view.frame.width, height: scrollView.frame.height)
             scrollView.scrollRectToVisible(rect, animated: true)
             
-            // TODO: - debug this!!
-            tabLinerWidth.constant = getLabelWidth(strLength: steps[indexPath.item].count)
+            refreshTabLiner(strLength: steps[indexPath.item].count)
         }
     }
     
@@ -110,16 +118,20 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return width
     }
     
+    fileprivate func refreshTabLiner(strLength: Int){
+        // TODO: - debug this!!
+        tabLinerWidth.constant = getLabelWidth(strLength: strLength)
+    }
+    
+    
 }
 
 // MARK: - ScrollView Delegation
 extension Tab2ViewController : UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = scrollView.currentPage
-        // Do something with your page update
-        print("scrollViewDidEndDecelerating: \(currentPage)")
         stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
-        tabLinerWidth.constant = getLabelWidth(strLength: steps[currentPage].count)
+        refreshTabLiner(strLength: steps[currentPage].count)
     }
 
 }
