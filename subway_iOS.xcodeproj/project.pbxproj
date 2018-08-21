@@ -33,6 +33,8 @@
 		911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */; };
 		913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913725B12116BA12000B1D95 /* RecipeStepCell.xib */; };
 		913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913725B32116BA7A000B1D95 /* RecipeStepCell.swift */; };
+		9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */; };
+		9145C00A212CCB7B004381E7 /* Step1SandwichSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9145C009212CCB7B004381E7 /* Step1SandwichSelectView.xib */; };
 		91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */; };
 		9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9151307A20C3B5E600DEE0B2 /* Auth.storyboard */; };
 		9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */; };
@@ -107,6 +109,8 @@
 		911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreBtnSection.swift; sourceTree = "<group>"; };
 		913725B12116BA12000B1D95 /* RecipeStepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStepCell.xib; sourceTree = "<group>"; };
 		913725B32116BA7A000B1D95 /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
+		9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1SandwichSelectView.swift; sourceTree = "<group>"; };
+		9145C009212CCB7B004381E7 /* Step1SandwichSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Step1SandwichSelectView.xib; sourceTree = "<group>"; };
 		91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab4ViewController.swift; sourceTree = "<group>"; };
 		9151307A20C3B5E600DEE0B2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				913725B32116BA7A000B1D95 /* RecipeStepCell.swift */,
 				913725B12116BA12000B1D95 /* RecipeStepCell.xib */,
 				911EAE5820F1EABE002E132F /* SearchedWordCell.swift */,
+				9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */,
+				9145C009212CCB7B004381E7 /* Step1SandwichSelectView.xib */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -449,6 +455,7 @@
 				3F95350B210E060A00FDE107 /* Assets.xcassets in Resources */,
 				3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */,
 				9154275520B14A0700C6E12A /* LaunchScreen.storyboard in Resources */,
+				9145C00A212CCB7B004381E7 /* Step1SandwichSelectView.xib in Resources */,
 				9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */,
 				9154275020B14A0300C6E12A /* Main.storyboard in Resources */,
 				9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */,
@@ -588,6 +595,7 @@
 				911EAE4920E89B56002E132F /* FilterButtonCell.swift in Sources */,
 				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
+				9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
 				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
 				3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */,

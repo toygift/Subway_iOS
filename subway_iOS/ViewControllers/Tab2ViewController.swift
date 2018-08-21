@@ -18,7 +18,7 @@ class Tab2ViewController: UIViewController {
     
     let steps = ["", "샌드위치", "빵", "추가토핑", "치즈", "토스팅", "야채", "소스", "이름이름", ""]
     
-    let step1Sandwich = UITableView()
+    let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
