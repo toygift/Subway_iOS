@@ -37,7 +37,7 @@ class Step1SandwichSelectView: UIView {
     
 }
 
-extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDataSource {
+extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return category.count
     }
@@ -50,7 +50,21 @@ extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
-    // TODO: - duplicate logic for category collectionview
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = category[indexPath.item].name.count * 10 + 35
+        return CGSize(width: width, height: 30)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        for i in 0..<category.count {
+            category[i].clicked = indexPath.item != i ? false : true
+        }
+        collectionView.reloadData()
+    }
 }
 
 extension Step1SandwichSelectView : UITableViewDelegate, UITableViewDataSource {
