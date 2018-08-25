@@ -18,6 +18,8 @@ class Step1SandwichSelectView: UIView {
                     Filter(name: "프리미엄", clicked: false),
                     Filter(name: "아침메뉴", clicked: false)]
     
+    var sandwiches = [Sandwich]()
+    
     let filterButtonCell = "FilterButtonCell"
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,11 +31,33 @@ class Step1SandwichSelectView: UIView {
     }
     
     override func awakeFromNib() {
-        
         collectionView.register(UINib(nibName: filterButtonCell, bundle: nil), forCellWithReuseIdentifier: filterButtonCell)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        tableView.register(UINib(nibName: RecipeSandwichCell.cellId, bundle: nil), forCellReuseIdentifier: RecipeSandwichCell.cellId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        getSandwiches(category: "", page: 1)
     }
+    
+    fileprivate func getSandwiches(category: String, page : Int){
+        let parameters : [String : Any] = ["category" : category, "page" : page]
+        
+        GetSandWiches(method: .get, parameters: parameters).requestAPI { [weak self] (response) in
+            guard let statusCode = response.response?.statusCode, statusCode == 200 else {
+                print("ERROR GETTING SANDWICHES") // show error message
+                return
+            }
+            
+            if let value = response.value {
+                self?.sandwiches.append(contentsOf: value.results)
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
     
 }
 
@@ -69,11 +93,13 @@ extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDa
 
 extension Step1SandwichSelectView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return sandwiches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecipeSandwichCell.cellId) as! RecipeSandwichCell
+        cell.data = sandwiches[indexPath.item]
+        return cell
     }
 }
 

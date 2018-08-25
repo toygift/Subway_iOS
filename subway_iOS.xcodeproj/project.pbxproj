@@ -35,6 +35,8 @@
 		913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913725B32116BA7A000B1D95 /* RecipeStepCell.swift */; };
 		9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */; };
 		9145C00A212CCB7B004381E7 /* Step1SandwichSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9145C009212CCB7B004381E7 /* Step1SandwichSelectView.xib */; };
+		9145C00C2131A164004381E7 /* RecipeMakeRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145C00B2131A164004381E7 /* RecipeMakeRequests.swift */; };
+		9145C00E2131A1BE004381E7 /* RecipeMakeResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145C00D2131A1BE004381E7 /* RecipeMakeResponses.swift */; };
 		91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */; };
 		9151307B20C3B5E600DEE0B2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9151307A20C3B5E600DEE0B2 /* Auth.storyboard */; };
 		9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */; };
@@ -51,6 +53,8 @@
 		9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154278420B14F9C00C6E12A /* Tab3ViewController.swift */; };
 		916C23B820DF505200ECD746 /* Tab4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916C23B720DF505200ECD746 /* Tab4.storyboard */; };
 		916C23BA20DF521700ECD746 /* Tab2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916C23B920DF521700ECD746 /* Tab2.storyboard */; };
+		91722FA82131A7B8005AB417 /* RecipeSandwichCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91722FA72131A7B8005AB417 /* RecipeSandwichCell.xib */; };
+		91722FAA2131AA2B005AB417 /* RecipeSandwichCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FA92131AA2B005AB417 /* RecipeSandwichCell.swift */; };
 		D92722EE36136A5C7C6ACD29 /* Pods_subway_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */; };
 		E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */; };
 		EEACFA45274BAFF53DCCE87D /* Pods_subway_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */; };
@@ -111,6 +115,8 @@
 		913725B32116BA7A000B1D95 /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
 		9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1SandwichSelectView.swift; sourceTree = "<group>"; };
 		9145C009212CCB7B004381E7 /* Step1SandwichSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Step1SandwichSelectView.xib; sourceTree = "<group>"; };
+		9145C00B2131A164004381E7 /* RecipeMakeRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMakeRequests.swift; sourceTree = "<group>"; };
+		9145C00D2131A1BE004381E7 /* RecipeMakeResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMakeResponses.swift; sourceTree = "<group>"; };
 		91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab4ViewController.swift; sourceTree = "<group>"; };
 		9151307A20C3B5E600DEE0B2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +140,8 @@
 		9154278420B14F9C00C6E12A /* Tab3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3ViewController.swift; sourceTree = "<group>"; };
 		916C23B720DF505200ECD746 /* Tab4.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab4.storyboard; sourceTree = "<group>"; };
 		916C23B920DF521700ECD746 /* Tab2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab2.storyboard; sourceTree = "<group>"; };
+		91722FA72131A7B8005AB417 /* RecipeSandwichCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeSandwichCell.xib; sourceTree = "<group>"; };
+		91722FA92131AA2B005AB417 /* RecipeSandwichCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSandwichCell.swift; sourceTree = "<group>"; };
 		E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +198,8 @@
 				911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */,
 				3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */,
 				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
+				91722FA92131AA2B005AB417 /* RecipeSandwichCell.swift */,
+				91722FA72131A7B8005AB417 /* RecipeSandwichCell.xib */,
 				913725B32116BA7A000B1D95 /* RecipeStepCell.swift */,
 				913725B12116BA12000B1D95 /* RecipeStepCell.xib */,
 				911EAE5820F1EABE002E132F /* SearchedWordCell.swift */,
@@ -204,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				3F87D9DC20BA6B410098542F /* JSExtension.swift */,
+				9145C00B2131A164004381E7 /* RecipeMakeRequests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -215,6 +226,7 @@
 				911EAE4E20EBBE3F002E132F /* FilterProduct.swift */,
 				3FD9811820DF637000BE3509 /* Ranking.swift */,
 				910B93032104391C002DF782 /* RecentSearchWord.swift */,
+				9145C00D2131A1BE004381E7 /* RecipeMakeResponses.swift */,
 			);
 			name = Models;
 			path = Models/Models;
@@ -445,6 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91722FA82131A7B8005AB417 /* RecipeSandwichCell.xib in Resources */,
 				9154277E20B14E0600C6E12A /* Tab3.storyboard in Resources */,
 				913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */,
 				911EAE4720E898C6002E132F /* FilterButtonCell.xib in Resources */,
@@ -595,8 +608,10 @@
 				911EAE4920E89B56002E132F /* FilterButtonCell.swift in Sources */,
 				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
+				91722FAA2131AA2B005AB417 /* RecipeSandwichCell.swift in Sources */,
 				9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
+				9145C00E2131A1BE004381E7 /* RecipeMakeResponses.swift in Sources */,
 				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
 				3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
@@ -604,6 +619,7 @@
 				913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */,
 				911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */,
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,
+				9145C00C2131A164004381E7 /* RecipeMakeRequests.swift in Sources */,
 				911EAE5920F1EABE002E132F /* SearchedWordCell.swift in Sources */,
 				9154278320B14F9200C6E12A /* Tab2ViewController.swift in Sources */,
 				E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */,
