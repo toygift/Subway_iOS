@@ -16,6 +16,8 @@
 		3F89A95820F1CB5D0005ABA8 /* IngredientCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */; };
 		3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */; };
 		3F95350B210E060A00FDE107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F95350A210E060A00FDE107 /* Assets.xcassets */; };
+		3FBB918A21325DC500481DBE /* RecipeSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB918921325DC500481DBE /* RecipeSearchRequest.swift */; };
+		3FBB918C21325E4D00481DBE /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB918B21325E4D00481DBE /* SearchResult.swift */; };
 		3FD9811920DF637000BE3509 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD9811820DF637000BE3509 /* Ranking.swift */; };
 		3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */; };
 		6F4081D76BF5FCA5D3FB7F1D /* Pods_subway_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A1AE2CE974418C6CE05B58 /* Pods_subway_iOS.framework */; };
@@ -91,6 +93,8 @@
 		3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionCell.swift; sourceTree = "<group>"; };
 		3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionCell.xib; sourceTree = "<group>"; };
 		3F95350A210E060A00FDE107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FBB918921325DC500481DBE /* RecipeSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchRequest.swift; sourceTree = "<group>"; };
+		3FBB918B21325E4D00481DBE /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		3FD9811820DF637000BE3509 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEvenCell.swift; sourceTree = "<group>"; };
 		48C95255AF1E27553BDF8E69 /* Pods-subway_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subway_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-subway_iOS/Pods-subway_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 			children = (
 				3F87D9DC20BA6B410098542F /* JSExtension.swift */,
 				9145C00B2131A164004381E7 /* RecipeMakeRequests.swift */,
+				3FBB918921325DC500481DBE /* RecipeSearchRequest.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				3FD9811820DF637000BE3509 /* Ranking.swift */,
 				910B93032104391C002DF782 /* RecentSearchWord.swift */,
 				9145C00D2131A1BE004381E7 /* RecipeMakeResponses.swift */,
+				3FBB918B21325E4D00481DBE /* SearchResult.swift */,
 			);
 			name = Models;
 			path = Models/Models;
@@ -602,6 +608,7 @@
 				911EAE5720F1DD5F002E132F /* SearchViewController.swift in Sources */,
 				3F89A95820F1CB5D0005ABA8 /* IngredientCollectionCell.swift in Sources */,
 				911EAE4D20EA7A5D002E132F /* FilterProductCell.swift in Sources */,
+				3FBB918C21325E4D00481DBE /* SearchResult.swift in Sources */,
 				9154278520B14F9C00C6E12A /* Tab3ViewController.swift in Sources */,
 				911EAE4F20EBBE3F002E132F /* FilterProduct.swift in Sources */,
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
@@ -617,6 +624,7 @@
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
 				913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */,
+				3FBB918A21325DC500481DBE /* RecipeSearchRequest.swift in Sources */,
 				911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */,
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,
 				9145C00C2131A164004381E7 /* RecipeMakeRequests.swift in Sources */,

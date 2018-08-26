@@ -9,7 +9,13 @@
 import UIKit
 import RealmSwift
 
+protocol SearchViewDelegate: class {
+    func searchSandwich(_ name: String)
+}
+
 class SearchViewController: UIViewController {
+    
+    weak var delegate: SearchViewDelegate?
     
     @IBAction func closeBtnClicked(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -130,9 +136,21 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     
     @objc fileprivate func deleteItem(sender : UIButton){
         print(sender.tag)
+        
+        let realm = try! Realm()
+        try! realm.write {
+//            let delete = RecentSearchWord()
+//            delete.user = "rr"
+//            delete.word = self.searchedWords[sender.tag].word
+//            delete.date = Date()
+//            
+//
+            realm.delete(realm.objects(RecentSearchWord.self).filter("word=%@",searchedWords[sender.tag].word))
+        }
+        self.searchedWords.remove(at: sender.tag)
         // TODO: - hello world
         //dummyData.remove(at: sender.tag)
-        //searchedWordCollectionView.reloadData()
+        searchedWordCollectionView.reloadData()
     }
     
     fileprivate func getRowCount(page : Int) -> Int{
@@ -164,12 +182,28 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
 // MARK: - textfield implementation
 extension SearchViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ tf: UITextField) -> Bool {
-        
+        var q: String = ""
         if tf == textField {
-            if let empty = tf.text?.isEmpty, !empty, let q = tf.text {
+            if let empty = tf.text?.isEmpty, !empty {
+                if let qt = tf.text {
+                    q = qt
+                }
                 print("Q: ", q)
+                let realm = try! Realm()
+                try! realm.write {
+                    let save = RecentSearchWord()
+                    // user 수정해야함
+                    save.user = "rr"
+                    save.word = q
+                    save.date = Date()
+                    realm.add(save)
+                }
             }
-            tf.resignFirstResponder()
+            self.dismiss(animated: true) {
+                tf.resignFirstResponder()
+                tf.text = ""
+                self.delegate?.searchSandwich(q)
+            }
             return false
         }
         return true

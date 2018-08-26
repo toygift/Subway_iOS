@@ -14,14 +14,16 @@ class Tab1ViewController: UIViewController {
 //    var rankingList = [Ranking]() {
     
     @IBAction func searchBar(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController")
-        present(vc, animated: true, completion: nil)
+        if let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
+           vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     
     @IBAction func filter(_ sender: UIBarButtonItem) {
         if let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateInitialViewController() {
-            present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -134,5 +136,39 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+extension Tab1ViewController: SearchViewDelegate {
+    func searchSandwich(_ name: String) {
+        let api = "recipe/?ordering=\(name)"
+        let search = GetSearchResult(api: api, method: .get, parameters: [:])
+        search.requestAPIa { (response) in
+            print("ㅋ",response)
+            if let result = response.result.value?.results {
+                self.rankingList.removeAll()
+                print("123",response)
+                for data in result {
+                    var ingri = [[Bread]]()
+                    var name: Name!
+                    var image: Sandwich!
+                    ingri.append(data.sandwich.mainIngredient)
+                    ingri.append([data.bread])
+                    ingri.append(data.toppings)
+                    ingri.append([data.cheese])
+                    ingri.append([data.toasting])
+                    ingri.append(data.vegetables)
+                    ingri.append(data.sauces)
+                    print(data.sandwich.mainIngredient.count)
+                    print(data.toppings.count)
+                    print(data.vegetables.count)
+                    print(data.sauces.count)
+                    name = data.name
+                    image = data.sandwich
+                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
+                    self.rankingList.append(tt)
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 }

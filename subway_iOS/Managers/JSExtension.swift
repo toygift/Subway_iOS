@@ -23,6 +23,11 @@ extension APIRequest {
         //Alamofire.request(url).responseDecodable(completionHandler: completionHandler)
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
+    func requestAPIa(completionHandler: @escaping (DataResponse<T>) -> Void) {
+        let url = "\(serviceURL)/\(api)"
+        let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        Alamofire.request(URL(string: encoded!)!, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
+    }
 }
 
 // MARK: - Alamofire response handlers
@@ -49,7 +54,6 @@ extension DataRequest {
 //
 
 struct FbLogin: APIRequest {
-
     typealias T = LoginResponse
     let api = "user/facebook-login"
     var method: HTTPMethod = .post
