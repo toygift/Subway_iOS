@@ -22,23 +22,11 @@ class Tab2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabLiner.layer.cornerRadius = 5
         setupCollectionView()
         setupScrollView()
     }
 
-    // MARK: - 현재 안 쓰고 있음.. tabLiner.bounds에 따라서 BezierPath가 정해지는데 width constant만 바꾸면 path가 왔다갔다하는 상황이 있기 때문에 이건 좀 봐야됨..
-    fileprivate func roundTabLiner(){
-        
-        // tabliner corner radius 설정
-        let path = UIBezierPath(roundedRect:tabLiner.bounds,
-                                byRoundingCorners:[.topRight, .topLeft],
-                                cornerRadii: CGSize(width: 8, height:  8))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        tabLiner.layer.mask = maskLayer
-    }
-    
-    
     fileprivate func setupCollectionView(){
         stepCollectionView.register(UINib(nibName: "RecipeStepCell", bundle: nil), forCellWithReuseIdentifier: RecipeStepCell.cellId)
         stepCollectionView.delegate = self

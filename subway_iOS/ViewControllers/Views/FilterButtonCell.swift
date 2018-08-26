@@ -37,7 +37,7 @@ class FilterButtonCell: UICollectionViewCell {
         willSet {
             if newValue {
                 label.textColor = UIColor.white
-                label.backgroundColor = UIColor.yellowForEnabledFilter
+                label.backgroundColor = UIColor.yellowSelected
                 shadow.backgroundColor = UIColor.grayForShadow
             } else {
                 label.textColor = UIColor.grayForDisabledFilter

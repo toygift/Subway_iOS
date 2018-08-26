@@ -42,6 +42,7 @@ class Step1SandwichSelectView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         
+        
         getSandwiches(category: "", page: page)
     }
     
@@ -110,8 +111,16 @@ extension Step1SandwichSelectView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeSandwichCell.cellId) as! RecipeSandwichCell
         cell.data = sandwiches[indexPath.item]
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hello", indexPath)
+        
+        // TODO: - toggle background
+    }
+    
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         // UITableView only moves in one direction, y axis
