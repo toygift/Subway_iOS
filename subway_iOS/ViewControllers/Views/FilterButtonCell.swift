@@ -16,6 +16,15 @@ class Filter {
         self.name = name
         self.clicked = clicked
     }
+    
+    func getQueryString() -> String{
+        if self.name == "모두" {
+            return ""
+        } else if self.name == "프레쉬&라이트" {
+            return "프레쉬 & 라이트"
+        }
+        return self.name
+    }
 }
 
 class FilterButtonCell: UICollectionViewCell {

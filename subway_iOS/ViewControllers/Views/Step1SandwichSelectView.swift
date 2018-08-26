@@ -20,6 +20,9 @@ class Step1SandwichSelectView: UIView {
     
     var sandwiches = [Sandwich]()
     
+    var page = 1
+    var hasNextPage = false
+    
     let filterButtonCell = "FilterButtonCell"
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -39,7 +42,7 @@ class Step1SandwichSelectView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         
-        getSandwiches(category: "", page: 1)
+        getSandwiches(category: "", page: page)
     }
     
     fileprivate func getSandwiches(category: String, page : Int){
@@ -51,13 +54,17 @@ class Step1SandwichSelectView: UIView {
                 return
             }
             
+            if page == 1 {
+                self?.sandwiches.removeAll()
+            }
+            
             if let value = response.value {
+                self?.hasNextPage = (value.next != nil)
                 self?.sandwiches.append(contentsOf: value.results)
                 self?.tableView.reloadData()
             }
         }
     }
-    
     
 }
 
@@ -88,6 +95,10 @@ extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDa
             category[i].clicked = indexPath.item != i ? false : true
         }
         collectionView.reloadData()
+
+        let querystring = category[indexPath.item].getQueryString()
+        page = 1
+        getSandwiches(category: querystring, page: page)
     }
 }
 
@@ -100,6 +111,23 @@ extension Step1SandwichSelectView : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeSandwichCell.cellId) as! RecipeSandwichCell
         cell.data = sandwiches[indexPath.item]
         return cell
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // UITableView only moves in one direction, y axis
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        // Change 10.0 to adjust the distance from bottom
+        if maximumOffset - currentOffset <= 10.0 {
+            if hasNextPage {
+                page = page + 1
+                let filter = category.filter { $0.clicked }.first
+                if let c = filter {
+                    getSandwiches(category: c.getQueryString(), page: page)
+                }
+            }
+        }
     }
 }
 
