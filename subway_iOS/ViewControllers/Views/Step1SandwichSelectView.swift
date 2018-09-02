@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct SandwichInstance {
+    var sandwich : Sandwich?
+    var clicked = false
+}
+
+protocol Step1CompleteDelegate {
+    func step1Completed(sandwich : Sandwich)
+}
+
 class Step1SandwichSelectView: UIView {
     
     var category = [Filter(name: "모두", clicked: true),
@@ -18,12 +27,15 @@ class Step1SandwichSelectView: UIView {
                     Filter(name: "프리미엄", clicked: false),
                     Filter(name: "아침메뉴", clicked: false)]
     
-    var sandwiches = [Sandwich]()
+    var list = [SandwichInstance]()
     
     var page = 1
     var hasNextPage = false
     
+    var delegate : Step1CompleteDelegate?
+    
     let filterButtonCell = "FilterButtonCell"
+    let rowHeight : CGFloat = 231
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -42,6 +54,9 @@ class Step1SandwichSelectView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         
+        // MARK: - prevent jumpy scrolling when reload data
+        tableView.rowHeight = rowHeight
+        tableView.estimatedRowHeight = rowHeight
         
         getSandwiches(category: "", page: page)
     }
@@ -56,12 +71,13 @@ class Step1SandwichSelectView: UIView {
             }
             
             if page == 1 {
-                self?.sandwiches.removeAll()
+                self?.list.removeAll()
             }
             
             if let value = response.value {
                 self?.hasNextPage = (value.next != nil)
-                self?.sandwiches.append(contentsOf: value.results)
+                self?.list.append(contentsOf: value.results.map({SandwichInstance(sandwich: $0, clicked: false)
+                }))
                 self?.tableView.reloadData()
             }
         }
@@ -105,23 +121,34 @@ extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDa
 
 extension Step1SandwichSelectView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sandwiches.count
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeSandwichCell.cellId) as! RecipeSandwichCell
-        cell.data = sandwiches[indexPath.item]
+        cell.data = list[indexPath.item]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello", indexPath)
+        if list[indexPath.row].clicked {
+            return
+        }
         
-        // TODO: - toggle background
+        for i in 0..<list.count {
+            list[i].clicked = false
+        }
+        list[indexPath.item].clicked = true
+        
+        tableView.reloadData()
+        
+        if let data = list[indexPath.item].sandwich {
+            delegate?.step1Completed(sandwich: data)
+        }
     }
     
-    
+    // load more 로직
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         // UITableView only moves in one direction, y axis
         let currentOffset = scrollView.contentOffset.y

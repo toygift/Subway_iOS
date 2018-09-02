@@ -20,7 +20,7 @@ class RecipeSandwichCell: UITableViewCell {
     
     static let cellId = "RecipeSandwichCell"
     
-    var data : Sandwich? {
+    var data : SandwichInstance? {
         didSet {
             updateUI()
         }
@@ -53,7 +53,6 @@ class RecipeSandwichCell: UITableViewCell {
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         selectedFlagBackground.layer.mask = maskLayer
-        selectedFlagBackground.backgroundColor = UIColor.yellowSelected
         
         infoButton.addTarget(self, action: #selector(showDetail), for: .touchUpInside)
     }
@@ -66,7 +65,7 @@ class RecipeSandwichCell: UITableViewCell {
         let vc = UIStoryboard(name: "Tab2", bundle: nil).instantiateViewController(withIdentifier: NutrientInfoPopupViewController.identifier) as! NutrientInfoPopupViewController
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
-        vc.data = d
+        vc.data = d.sandwich
         UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
     }
     
@@ -77,12 +76,15 @@ class RecipeSandwichCell: UITableViewCell {
     }
     
     fileprivate func updateUI(){
-        guard let d = data else{
+        guard let d = data?.sandwich, let clicked = data?.clicked else{
             fatalError("data is not set!!")
         }
+        
         sandwichImageView.kf.setImage(with: URL(string: d.imageRight))
         nameLabel.text = d.name
         caloriesLabel.text = "\(d.calories) Kcal"
+        
+        selectedFlagBackground.backgroundColor = clicked ? UIColor.yellowSelected : UIColor.clear
     }
 
 }
