@@ -52,6 +52,10 @@ class NutrientInfoPopupViewController: UIViewController {
         
         titleLabel.text = d.name
         
+        mainIngredientCV.delegate = self
+        mainIngredientCV.dataSource = self
+        
+        
     }
     
 
@@ -59,4 +63,39 @@ class NutrientInfoPopupViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+
+
+extension NutrientInfoPopupViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        guard let d = data else {
+            fatalError("data not set")
+        }
+        
+        if collectionView == mainIngredientCV {
+            return d.mainIngredient.count
+        }
+        
+        return 0 // TODO: - add logic for this!!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let d = data else {
+            fatalError("data not set")
+        }
+        
+        if collectionView == mainIngredientCV {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainIngredientCell.cellId, for: indexPath)
+             as! MainIngredientCell
+            cell.data = d.mainIngredient[indexPath.item]
+            return cell
+        }
+        
+        
+        return UICollectionViewCell()
+    }
+    
 }
