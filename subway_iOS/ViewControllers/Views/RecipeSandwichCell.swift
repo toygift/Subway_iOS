@@ -63,7 +63,7 @@ class RecipeSandwichCell: UITableViewCell {
             fatalError("data is not set!!")
         }
         
-        let vc = UIStoryboard(name: "Tab2", bundle: nil).instantiateViewController(withIdentifier: NutrientInfoPopupViewController.identified) as! NutrientInfoPopupViewController
+        let vc = UIStoryboard(name: "Tab2", bundle: nil).instantiateViewController(withIdentifier: NutrientInfoPopupViewController.identifier) as! NutrientInfoPopupViewController
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         vc.data = d

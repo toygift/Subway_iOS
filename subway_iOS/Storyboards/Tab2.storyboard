@@ -122,7 +122,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Jt2-PG-cMf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -168,30 +168,69 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="SZ5-tK-rxh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ARV-pS-myP">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ARV-pS-myP">
                                         <rect key="frame" x="10" y="164.5" width="315" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cYX-0Q-JZf"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PGK-ew-Rxo">
-                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="itemSize" width="70" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VTA-J0-Ap3">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NutrientIndexCell" id="VTA-J0-Ap3" customClass="NutrientIndexCell" customModule="subway_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qi2-ZH-FrF">
+                                                            <rect key="frame" x="0.0" y="24.5" width="70" height="1"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="HVW-59-8qZ"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포화지방(g)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuv-Kx-ic2">
+                                                            <rect key="frame" x="0.0" y="1.5" width="70" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="B6l-5a-MoC"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5D-6Y-szg">
+                                                            <rect key="frame" x="0.0" y="31.5" width="70" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="Qi2-ZH-FrF" firstAttribute="top" secondItem="Nuv-Kx-ic2" secondAttribute="bottom" constant="2" id="1QN-Jo-JIp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="P5D-6Y-szg" secondAttribute="trailing" id="8J3-Zu-Jkm"/>
+                                                    <constraint firstItem="P5D-6Y-szg" firstAttribute="top" secondItem="Qi2-ZH-FrF" secondAttribute="bottom" constant="6" id="AzD-ij-cJc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qi2-ZH-FrF" secondAttribute="trailing" id="DfU-tz-2Z0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Nuv-Kx-ic2" secondAttribute="trailing" id="Flr-tI-pwk"/>
+                                                    <constraint firstItem="P5D-6Y-szg" firstAttribute="leading" secondItem="VTA-J0-Ap3" secondAttribute="leading" id="QBP-Ky-5Le"/>
+                                                    <constraint firstItem="Qi2-ZH-FrF" firstAttribute="centerY" secondItem="VTA-J0-Ap3" secondAttribute="centerY" id="dRJ-Z9-dOv"/>
+                                                    <constraint firstItem="Nuv-Kx-ic2" firstAttribute="leading" secondItem="VTA-J0-Ap3" secondAttribute="leading" id="e9h-ff-N1a"/>
+                                                    <constraint firstItem="Qi2-ZH-FrF" firstAttribute="leading" secondItem="VTA-J0-Ap3" secondAttribute="leading" id="hdz-7E-fY1"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="figureLabel" destination="P5D-6Y-szg" id="iex-oB-A4C"/>
+                                                    <outlet property="titleLabel" destination="Nuv-Kx-ic2" id="XlJ-Uz-i8C"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -276,6 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7Z-gy-HJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="594" y="-536"/>
         </scene>
     </scenes>
     <resources>

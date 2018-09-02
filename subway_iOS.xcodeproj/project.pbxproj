@@ -60,6 +60,7 @@
 		91722FAC2132BC9A005AB417 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FAB2132BC9A005AB417 /* UIViewExtension.swift */; };
 		91722FAE2132C360005AB417 /* NutrientInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FAD2132C360005AB417 /* NutrientInfoPopupViewController.swift */; };
 		91722FB2213B877C005AB417 /* MainIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FB1213B877C005AB417 /* MainIngredientCell.swift */; };
+		91722FB4213B8D10005AB417 /* NutrientIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */; };
 		D92722EE36136A5C7C6ACD29 /* Pods_subway_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */; };
 		E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */; };
 		EEACFA45274BAFF53DCCE87D /* Pods_subway_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */; };
@@ -152,6 +153,7 @@
 		91722FAB2132BC9A005AB417 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		91722FAD2132C360005AB417 /* NutrientInfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientInfoPopupViewController.swift; sourceTree = "<group>"; };
 		91722FB1213B877C005AB417 /* MainIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIngredientCell.swift; sourceTree = "<group>"; };
+		91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientIndexCell.swift; sourceTree = "<group>"; };
 		E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,7 +208,9 @@
 				3F89A95320F1CA0E0005ABA8 /* IngredientCell.xib */,
 				3F89A95620F1CB5D0005ABA8 /* IngredientCollectionCell.swift */,
 				3F89A95720F1CB5D0005ABA8 /* IngredientCollectionCell.xib */,
+				91722FB1213B877C005AB417 /* MainIngredientCell.swift */,
 				911EAE5C20FB1F75002E132F /* MoreBtnSection.swift */,
+				91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */,
 				3FDDD5AE21062A3B007A31D0 /* RankingEvenCell.swift */,
 				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
 				91722FA92131AA2B005AB417 /* RecipeSandwichCell.swift */,
@@ -216,7 +220,6 @@
 				911EAE5820F1EABE002E132F /* SearchedWordCell.swift */,
 				9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */,
 				9145C009212CCB7B004381E7 /* Step1SandwichSelectView.xib */,
-				91722FB1213B877C005AB417 /* MainIngredientCell.swift */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -633,6 +636,7 @@
 				91722FB2213B877C005AB417 /* MainIngredientCell.swift in Sources */,
 				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
 				3FDDD5AF21062A3B007A31D0 /* RankingEvenCell.swift in Sources */,
+				91722FB4213B8D10005AB417 /* NutrientIndexCell.swift in Sources */,
 				3F87D9DD20BA6B410098542F /* JSExtension.swift in Sources */,
 				9154274B20B14A0300C6E12A /* AppDelegate.swift in Sources */,
 				913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */,
