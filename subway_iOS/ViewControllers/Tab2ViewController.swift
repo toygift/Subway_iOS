@@ -54,7 +54,8 @@ class Tab2ViewController: UIViewController {
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
     let step3Topping = Step3ToppingSelectView.initializeFromNib()
-    let step4Cheese = Step4CheeseSelectView()
+    let step4Cheese = Step4Or5SelectView()
+    let step5Toasting = Step4Or5SelectView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,8 @@ class Tab2ViewController: UIViewController {
         step2Bread.completeDelegate = self
         step3Topping.completeDelegate = self
         step4Cheese.completeDelegate = self
+        step5Toasting.completeDelegate = self
+        
     }
     
     fileprivate func setupCollectionView(){
@@ -99,8 +102,14 @@ class Tab2ViewController: UIViewController {
                 scrollView.addSubview(step3Topping)
             } else if i == 3 {
                 step4Cheese.frame = innerScrollFrame
+                step4Cheese.step = 4
                 scrollView.addSubview(step4Cheese)
                 step4Cheese.setupTableView()
+            } else if i == 4 {
+                step5Toasting.frame = innerScrollFrame
+                step5Toasting.step = 5
+                scrollView.addSubview(step5Toasting)
+                step5Toasting.setupTableView()
             } else {
                 let label = UILabel(frame: innerScrollFrame)
                 label.text = item.title
@@ -235,17 +244,26 @@ extension Tab2ViewController : Step3CompleteDelegate {
     }
 }
 
-extension Tab2ViewController : Step4CompleteDelegate {
-    func step4Completed(cheese: Bread) {
-        steps[5].accessible = true
+extension Tab2ViewController : Step4Or5CompleteDelegate {
+    func step4Or5Completed(ingredient: Bread, nextStep: Int) {
+        steps[nextStep].accessible = true
         
         // 6단계에 아직 가본 상태가 아니라면 5단계까지 갈 수 있도록
-        if !steps[6].accessible {
-            scrollView.contentSize = CGSize(width: view.frame.width * 5, height: scrollView.bounds.size.height)
+        if !steps[nextStep + 1].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
         }
         
-        recipe["cheese"] = cheese
-        // TODO: - fetch data
-        goTo(stepIndex: 5)
+        
+        
+        // MARK: - fetch data
+        if nextStep == 5 {
+            recipe["cheese"] = ingredient
+            step5Toasting.fetchData()
+        } else if nextStep == 6 {
+            recipe["toasting"] = ingredient
+            
+        }
+        
+        goTo(stepIndex: nextStep)
     }
 }

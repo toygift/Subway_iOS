@@ -17,7 +17,7 @@ class RecipeCheeseCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
     
-    var data: CheeseInstance? {
+    var data: SingleOptionInstance? {
         didSet {
             updateUI()
         }
@@ -47,7 +47,7 @@ class RecipeCheeseCell: UITableViewCell {
     }
     
     fileprivate func updateUI(){
-        guard let d = data?.cheese, let clicked = data?.clicked else {
+        guard let d = data?.ingredient, let clicked = data?.clicked else {
             fatalError("data is not set - bread")
         }
         

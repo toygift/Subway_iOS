@@ -14,20 +14,7 @@ struct Sandwiches: Codable {
     let results: [Sandwich]
 }
 
-// TODO: - refactor these to another name
-struct Breads: Codable {
-    let count: Int
-    let next, previous: String?
-    let results: [Bread]
-}
-
-struct Toppings : Codable {
-    let count: Int
-    let next, previous: String?
-    let results: [Bread]
-}
-
-struct Cheeses: Codable {
+struct Ingredients: Codable {
     let count: Int
     let next, previous: String?
     let results: [Bread]

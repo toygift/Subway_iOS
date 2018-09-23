@@ -17,22 +17,29 @@ struct GetSandWiches: APIRequest {
 }
 
 struct GetBreads: APIRequest {
-    typealias T = Breads
+    typealias T = Ingredients
     let api = "ingredients/bread"
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
 
 struct GetToppings: APIRequest {
-    typealias T = Toppings
+    typealias T = Ingredients
     let api = "ingredients/toppings"
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
 
 struct GetCheeses: APIRequest {
-    typealias T = Cheeses
+    typealias T = Ingredients
     let api = "ingredients/cheese"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}
+
+struct GetToastings: APIRequest {
+    typealias T = Ingredients
+    let api = "ingredients/toasting"
     var method: HTTPMethod = .get
     var parameters: Parameters
 }

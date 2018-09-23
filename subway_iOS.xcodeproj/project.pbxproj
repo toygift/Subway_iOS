@@ -40,9 +40,10 @@
 		9131FE052157696F001B21A0 /* Step3ToppingSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9131FE042157696F001B21A0 /* Step3ToppingSelectView.xib */; };
 		9131FE0821576C92001B21A0 /* RecipeToppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0621576C92001B21A0 /* RecipeToppingCell.swift */; };
 		9131FE0921576C92001B21A0 /* RecipeToppingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9131FE0721576C92001B21A0 /* RecipeToppingCell.xib */; };
-		9131FE0B21577B3C001B21A0 /* Step4CheeseSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0A21577B3C001B21A0 /* Step4CheeseSelectView.swift */; };
+		9131FE0B21577B3C001B21A0 /* Step4Or5SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */; };
 		9131FE0E21577C3B001B21A0 /* RecipeCheeseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0C21577C3B001B21A0 /* RecipeCheeseCell.swift */; };
 		9131FE0F21577C3B001B21A0 /* RecipeCheeseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9131FE0D21577C3B001B21A0 /* RecipeCheeseCell.xib */; };
+		9131FE112157A929001B21A0 /* Step5ToastingSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE102157A929001B21A0 /* Step5ToastingSelectView.swift */; };
 		913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913725B12116BA12000B1D95 /* RecipeStepCell.xib */; };
 		913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913725B32116BA7A000B1D95 /* RecipeStepCell.swift */; };
 		9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */; };
@@ -136,9 +137,10 @@
 		9131FE042157696F001B21A0 /* Step3ToppingSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Step3ToppingSelectView.xib; sourceTree = "<group>"; };
 		9131FE0621576C92001B21A0 /* RecipeToppingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeToppingCell.swift; sourceTree = "<group>"; };
 		9131FE0721576C92001B21A0 /* RecipeToppingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeToppingCell.xib; sourceTree = "<group>"; };
-		9131FE0A21577B3C001B21A0 /* Step4CheeseSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step4CheeseSelectView.swift; sourceTree = "<group>"; };
+		9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step4Or5SelectView.swift; sourceTree = "<group>"; };
 		9131FE0C21577C3B001B21A0 /* RecipeCheeseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCheeseCell.swift; sourceTree = "<group>"; };
 		9131FE0D21577C3B001B21A0 /* RecipeCheeseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCheeseCell.xib; sourceTree = "<group>"; };
+		9131FE102157A929001B21A0 /* Step5ToastingSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step5ToastingSelectView.swift; sourceTree = "<group>"; };
 		913725B12116BA12000B1D95 /* RecipeStepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStepCell.xib; sourceTree = "<group>"; };
 		913725B32116BA7A000B1D95 /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
 		9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1SandwichSelectView.swift; sourceTree = "<group>"; };
@@ -249,7 +251,8 @@
 				9131FDF621573AE7001B21A0 /* Step2BreadSelectView.swift */,
 				9131FE0221576961001B21A0 /* Step3ToppingSelectView.swift */,
 				9131FE042157696F001B21A0 /* Step3ToppingSelectView.xib */,
-				9131FE0A21577B3C001B21A0 /* Step4CheeseSelectView.swift */,
+				9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */,
+				9131FE102157A929001B21A0 /* Step5ToastingSelectView.swift */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -647,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */,
+				9131FE112157A929001B21A0 /* Step5ToastingSelectView.swift in Sources */,
 				911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */,
 				910B93042104391C002DF782 /* RecentSearchWord.swift in Sources */,
 				3F89A95420F1CA0E0005ABA8 /* IngredientCell.swift in Sources */,
@@ -669,7 +673,7 @@
 				91722FAA2131AA2B005AB417 /* RecipeSandwichCell.swift in Sources */,
 				9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */,
 				3F50483A20D6201800DAB8D8 /* RankingOddCell.swift in Sources */,
-				9131FE0B21577B3C001B21A0 /* Step4CheeseSelectView.swift in Sources */,
+				9131FE0B21577B3C001B21A0 /* Step4Or5SelectView.swift in Sources */,
 				9145C00E2131A1BE004381E7 /* RecipeMakeResponses.swift in Sources */,
 				91722FB2213B877C005AB417 /* MainIngredientCell.swift in Sources */,
 				911EAE4120E8839E002E132F /* FilterViewController.swift in Sources */,
