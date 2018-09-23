@@ -19,3 +19,9 @@ struct Breads: Codable {
     let next, previous: String?
     let results: [Bread]
 }
+
+struct Toppings : Codable {
+    let count: Int
+    let next, previous: String?
+    let results: [Bread]
+}

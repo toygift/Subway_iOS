@@ -45,12 +45,14 @@ class Tab2ViewController: UIViewController {
     
     var recipe : [String : Any] = [:] {
         didSet {
-            print(recipe)
+//            print("========== RECIPE =========")
+//            print(recipe)
         }
     }
     
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
+    let step3Topping = Step3ToppingSelectView.initializeFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,7 @@ class Tab2ViewController: UIViewController {
     fileprivate func setupDataCollection(){
         step1Sandwich.completeDelegate = self
         step2Bread.completeDelegate = self
+        step3Topping.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -84,12 +87,13 @@ class Tab2ViewController: UIViewController {
             if i == 0 {
                 step1Sandwich.frame = innerScrollFrame
                 scrollView.addSubview(step1Sandwich)
-                
             } else if i == 1 {
                 step2Bread.frame = innerScrollFrame
                 scrollView.addSubview(step2Bread)
-                step2Bread.setupTableView()
-                
+                step2Bread.setupTableView() // TODO: - 이거 나중에 리팩토링 가능한지?? init안에 넣고 싶음
+            } else if i == 2 {
+                step3Topping.frame = innerScrollFrame
+                scrollView.addSubview(step3Topping)
             } else {
                 let label = UILabel(frame: innerScrollFrame)
                 label.text = item.title
@@ -204,6 +208,22 @@ extension Tab2ViewController : Step2CompleteDelegate {
         }
         
         recipe["bread"] = bread
+        step3Topping.fetchData()
         goTo(stepIndex: 3)
+    }
+}
+
+extension Tab2ViewController : Step3CompleteDelegate {
+    func step3Completed(toppings: [Bread]) {
+        steps[4].accessible = true
+        
+        // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
+        if !steps[5].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * 4, height: scrollView.bounds.size.height)
+        }
+        
+        recipe["toppings"] = toppings
+        // TODO: - fetch Data
+        goTo(stepIndex: 4)
     }
 }

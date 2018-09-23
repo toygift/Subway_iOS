@@ -38,6 +38,10 @@ class Step2BreadSelectView: UITableView {
     
     func fetchData(){
         
+        guard list.isEmpty else {
+            return
+        }
+        
         GetBreads(method: .get, parameters: [:]).requestAPI {
             [weak self]
             (response) in
