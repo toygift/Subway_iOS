@@ -45,14 +45,16 @@ class Tab2ViewController: UIViewController {
     
     var recipe : [String : Any] = [:] {
         didSet {
-//            print("========== RECIPE =========")
-//            print(recipe)
+            print("========== RECIPE =========")
+            print(recipe)
         }
     }
     
+    // MARK: - subviews
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
     let step3Topping = Step3ToppingSelectView.initializeFromNib()
+    let step4Cheese = Step4CheeseSelectView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,7 @@ class Tab2ViewController: UIViewController {
         step1Sandwich.completeDelegate = self
         step2Bread.completeDelegate = self
         step3Topping.completeDelegate = self
+        step4Cheese.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -94,6 +97,10 @@ class Tab2ViewController: UIViewController {
             } else if i == 2 {
                 step3Topping.frame = innerScrollFrame
                 scrollView.addSubview(step3Topping)
+            } else if i == 3 {
+                step4Cheese.frame = innerScrollFrame
+                scrollView.addSubview(step4Cheese)
+                step4Cheese.setupTableView()
             } else {
                 let label = UILabel(frame: innerScrollFrame)
                 label.text = item.title
@@ -223,7 +230,22 @@ extension Tab2ViewController : Step3CompleteDelegate {
         }
         
         recipe["toppings"] = toppings
-        // TODO: - fetch Data
+        step4Cheese.fetchData()
         goTo(stepIndex: 4)
+    }
+}
+
+extension Tab2ViewController : Step4CompleteDelegate {
+    func step4Completed(cheese: Bread) {
+        steps[5].accessible = true
+        
+        // 6단계에 아직 가본 상태가 아니라면 5단계까지 갈 수 있도록
+        if !steps[6].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * 5, height: scrollView.bounds.size.height)
+        }
+        
+        recipe["cheese"] = cheese
+        // TODO: - fetch data
+        goTo(stepIndex: 5)
     }
 }

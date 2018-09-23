@@ -1,5 +1,5 @@
 //
-//  RecipeBreadCell.swift
+//  RecipeCheeseCell.swift
 //  subway_iOS
 //
 //  Created by khpark on 2018. 9. 23..
@@ -8,23 +8,21 @@
 
 import UIKit
 
-class RecipeBreadCell: UITableViewCell {
-    
-    static let cellId = "RecipeBreadCell"
+class RecipeCheeseCell: UITableViewCell {
+
+    static let cellId = "RecipeCheeseCell"
     
     @IBOutlet weak var selectedFlagBackground: UIView!
-    @IBOutlet weak var breadImageView: UIImageView!
-    
+    @IBOutlet weak var cheeseIV: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
     
-    
-    var data : BreadInstance? {
+    var data: CheeseInstance? {
         didSet {
             updateUI()
         }
     }
-
+    
     var clicked = false {
         willSet {
             if newValue {
@@ -40,34 +38,24 @@ class RecipeBreadCell: UITableViewCell {
         // Initialization code
         setupViews()
     }
-
+    
     fileprivate func setupViews(){
         selectionStyle = .none
         
-        let path = UIBezierPath(roundedRect:selectedFlagBackground.bounds,
-                                byRoundingCorners:[.topLeft, .bottomLeft],
-                                cornerRadii: CGSize(width: 15, height:  15))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        selectedFlagBackground.layer.mask = maskLayer
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        selectedFlagBackground.clipsToBounds = true
+        selectedFlagBackground.layer.cornerRadius = 10
     }
     
     fileprivate func updateUI(){
-        guard let d = data?.bread, let clicked = data?.clicked else {
+        guard let d = data?.cheese, let clicked = data?.clicked else {
             fatalError("data is not set - bread")
         }
         
-        breadImageView.kf.setImage(with: URL(string: d.image3X))
-       
+        cheeseIV.kf.setImage(with: URL(string: d.image3X))
+        
         nameLabel.text = d.name
         selectedFlagBackground.backgroundColor = clicked ? UIColor.yellowSelected : UIColor.clear
     }
+    
     
 }

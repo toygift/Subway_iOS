@@ -29,3 +29,10 @@ struct GetToppings: APIRequest {
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
+
+struct GetCheeses: APIRequest {
+    typealias T = Cheeses
+    let api = "ingredients/cheese"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}
