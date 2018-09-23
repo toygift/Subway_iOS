@@ -32,7 +32,7 @@ class Step1SandwichSelectView: UIView {
     var page = 1
     var hasNextPage = false
     
-    var delegate : Step1CompleteDelegate?
+    var completeDelegate : Step1CompleteDelegate?
     
     let filterButtonCell = "FilterButtonCell"
     let rowHeight : CGFloat = 231
@@ -144,7 +144,7 @@ extension Step1SandwichSelectView : UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
         
         if let data = list[indexPath.item].sandwich {
-            delegate?.step1Completed(sandwich: data)
+            completeDelegate?.step1Completed(sandwich: data)
         }
     }
     

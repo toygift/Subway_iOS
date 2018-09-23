@@ -13,3 +13,9 @@ struct Sandwiches: Codable {
     let next, previous: String?
     let results: [Sandwich]
 }
+
+struct Breads: Codable {
+    let count: Int
+    let next, previous: String?
+    let results: [Bread]
+}

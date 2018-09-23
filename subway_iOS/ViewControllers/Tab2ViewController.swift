@@ -43,7 +43,14 @@ class Tab2ViewController: UIViewController {
          Step()
     ]
     
+    var recipe : [String : Any] = [:] {
+        didSet {
+            print(recipe)
+        }
+    }
+    
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
+    let step2Bread = Step2BreadSelectView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +61,8 @@ class Tab2ViewController: UIViewController {
     }
 
     fileprivate func setupDataCollection(){
-        step1Sandwich.delegate = self
+        step1Sandwich.completeDelegate = self
+        step2Bread.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -76,6 +84,12 @@ class Tab2ViewController: UIViewController {
             if i == 0 {
                 step1Sandwich.frame = innerScrollFrame
                 scrollView.addSubview(step1Sandwich)
+                
+            } else if i == 1 {
+                step2Bread.frame = innerScrollFrame
+                scrollView.addSubview(step2Bread)
+                step2Bread.setupTableView()
+                
             } else {
                 let label = UILabel(frame: innerScrollFrame)
                 label.text = item.title
@@ -172,8 +186,24 @@ extension Tab2ViewController : Step1CompleteDelegate {
         if !steps[3].accessible {
             scrollView.contentSize = CGSize(width: view.frame.width * 2, height: scrollView.bounds.size.height)
         }
+        
+        recipe["sandwich"] = sandwich
+        step2Bread.fetchData()
         goTo(stepIndex: 2)
     }
     
 }
 
+extension Tab2ViewController : Step2CompleteDelegate {
+    func step2Completed(bread: Bread) {
+        steps[3].accessible = true
+        
+        // 4단계에 아직 가본 상태가 아니라면 3단계까지 갈 수 있도록
+        if !steps[4].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * 3, height: scrollView.bounds.size.height)
+        }
+        
+        recipe["bread"] = bread
+        goTo(stepIndex: 3)
+    }
+}

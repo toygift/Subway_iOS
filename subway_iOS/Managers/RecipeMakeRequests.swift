@@ -15,3 +15,10 @@ struct GetSandWiches: APIRequest {
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
+
+struct GetBreads: APIRequest {
+    typealias T = Breads
+    let api = "ingredients/bread"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}

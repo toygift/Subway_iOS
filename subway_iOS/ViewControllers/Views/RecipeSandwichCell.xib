@@ -33,7 +33,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Nf-a6-clE">
                         <rect key="frame" x="54" y="10" width="321" height="160"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="160" id="V8r-Vh-zsn"/>
+                            <constraint firstAttribute="height" priority="750" constant="160" id="V8r-Vh-zsn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aa" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rob-Q2-JK9">
