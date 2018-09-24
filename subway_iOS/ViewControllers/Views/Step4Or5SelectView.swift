@@ -29,7 +29,7 @@ class Step4Or5SelectView: UITableView {
     
     func setupTableView(){
         separatorStyle = .none
-        register(UINib(nibName: RecipeCheeseCell.cellId, bundle: nil), forCellReuseIdentifier: RecipeCheeseCell.cellId)
+        register(UINib(nibName: RecipeSingleOptionCell.cellId, bundle: nil), forCellReuseIdentifier: RecipeSingleOptionCell.cellId)
         delegate = self
         dataSource = self
         
@@ -76,8 +76,12 @@ extension Step4Or5SelectView : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: RecipeCheeseCell.cellId, for: indexPath) as! RecipeCheeseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecipeSingleOptionCell.cellId, for: indexPath) as! RecipeSingleOptionCell
+        
         cell.data = list[indexPath.row]
+        if step == 5 {
+            cell.ivWidth.constant = 250
+        }
         return cell
     }
     

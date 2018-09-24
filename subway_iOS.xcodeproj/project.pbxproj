@@ -41,9 +41,8 @@
 		9131FE0821576C92001B21A0 /* RecipeToppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0621576C92001B21A0 /* RecipeToppingCell.swift */; };
 		9131FE0921576C92001B21A0 /* RecipeToppingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9131FE0721576C92001B21A0 /* RecipeToppingCell.xib */; };
 		9131FE0B21577B3C001B21A0 /* Step4Or5SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */; };
-		9131FE0E21577C3B001B21A0 /* RecipeCheeseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0C21577C3B001B21A0 /* RecipeCheeseCell.swift */; };
-		9131FE0F21577C3B001B21A0 /* RecipeCheeseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9131FE0D21577C3B001B21A0 /* RecipeCheeseCell.xib */; };
-		9131FE112157A929001B21A0 /* Step5ToastingSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE102157A929001B21A0 /* Step5ToastingSelectView.swift */; };
+		9131FE0E21577C3B001B21A0 /* RecipeSingleOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FE0C21577C3B001B21A0 /* RecipeSingleOptionCell.swift */; };
+		9131FE0F21577C3B001B21A0 /* RecipeSingleOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9131FE0D21577C3B001B21A0 /* RecipeSingleOptionCell.xib */; };
 		913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 913725B12116BA12000B1D95 /* RecipeStepCell.xib */; };
 		913725B42116BA7A000B1D95 /* RecipeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913725B32116BA7A000B1D95 /* RecipeStepCell.swift */; };
 		9145C008212B8533004381E7 /* Step1SandwichSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */; };
@@ -138,9 +137,8 @@
 		9131FE0621576C92001B21A0 /* RecipeToppingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeToppingCell.swift; sourceTree = "<group>"; };
 		9131FE0721576C92001B21A0 /* RecipeToppingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeToppingCell.xib; sourceTree = "<group>"; };
 		9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step4Or5SelectView.swift; sourceTree = "<group>"; };
-		9131FE0C21577C3B001B21A0 /* RecipeCheeseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCheeseCell.swift; sourceTree = "<group>"; };
-		9131FE0D21577C3B001B21A0 /* RecipeCheeseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCheeseCell.xib; sourceTree = "<group>"; };
-		9131FE102157A929001B21A0 /* Step5ToastingSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step5ToastingSelectView.swift; sourceTree = "<group>"; };
+		9131FE0C21577C3B001B21A0 /* RecipeSingleOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSingleOptionCell.swift; sourceTree = "<group>"; };
+		9131FE0D21577C3B001B21A0 /* RecipeSingleOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeSingleOptionCell.xib; sourceTree = "<group>"; };
 		913725B12116BA12000B1D95 /* RecipeStepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeStepCell.xib; sourceTree = "<group>"; };
 		913725B32116BA7A000B1D95 /* RecipeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCell.swift; sourceTree = "<group>"; };
 		9145C007212B8533004381E7 /* Step1SandwichSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1SandwichSelectView.swift; sourceTree = "<group>"; };
@@ -237,8 +235,8 @@
 				3F50483920D6201800DAB8D8 /* RankingOddCell.swift */,
 				9131FDFE2157517C001B21A0 /* RecipeBreadCell.swift */,
 				9131FDFF2157517C001B21A0 /* RecipeBreadCell.xib */,
-				9131FE0C21577C3B001B21A0 /* RecipeCheeseCell.swift */,
-				9131FE0D21577C3B001B21A0 /* RecipeCheeseCell.xib */,
+				9131FE0C21577C3B001B21A0 /* RecipeSingleOptionCell.swift */,
+				9131FE0D21577C3B001B21A0 /* RecipeSingleOptionCell.xib */,
 				91722FA92131AA2B005AB417 /* RecipeSandwichCell.swift */,
 				91722FA72131A7B8005AB417 /* RecipeSandwichCell.xib */,
 				913725B32116BA7A000B1D95 /* RecipeStepCell.swift */,
@@ -252,7 +250,6 @@
 				9131FE0221576961001B21A0 /* Step3ToppingSelectView.swift */,
 				9131FE042157696F001B21A0 /* Step3ToppingSelectView.xib */,
 				9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */,
-				9131FE102157A929001B21A0 /* Step5ToastingSelectView.swift */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -522,7 +519,7 @@
 				3F89A95920F1CB5D0005ABA8 /* IngredientCollectionCell.xib in Resources */,
 				9154275520B14A0700C6E12A /* LaunchScreen.storyboard in Resources */,
 				9131FE052157696F001B21A0 /* Step3ToppingSelectView.xib in Resources */,
-				9131FE0F21577C3B001B21A0 /* RecipeCheeseCell.xib in Resources */,
+				9131FE0F21577C3B001B21A0 /* RecipeSingleOptionCell.xib in Resources */,
 				9145C00A212CCB7B004381E7 /* Step1SandwichSelectView.xib in Resources */,
 				9154277920B14D6800C6E12A /* Tab1.storyboard in Resources */,
 				9154275020B14A0300C6E12A /* Main.storyboard in Resources */,
@@ -650,7 +647,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9151307F20C3B81B00DEE0B2 /* TokenAuth.swift in Sources */,
-				9131FE112157A929001B21A0 /* Step5ToastingSelectView.swift in Sources */,
 				911EAE4520E89479002E132F /* UIColorExtension.swift in Sources */,
 				910B93042104391C002DF782 /* RecentSearchWord.swift in Sources */,
 				3F89A95420F1CA0E0005ABA8 /* IngredientCell.swift in Sources */,
@@ -666,7 +662,7 @@
 				911EAE4F20EBBE3F002E132F /* FilterProduct.swift in Sources */,
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
 				911EAE4920E89B56002E132F /* FilterButtonCell.swift in Sources */,
-				9131FE0E21577C3B001B21A0 /* RecipeCheeseCell.swift in Sources */,
+				9131FE0E21577C3B001B21A0 /* RecipeSingleOptionCell.swift in Sources */,
 				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				9131FDF721573AE7001B21A0 /* Step2BreadSelectView.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,

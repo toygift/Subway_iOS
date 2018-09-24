@@ -14,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="271" id="KGk-i7-Jjw" customClass="RecipeCheeseCell" customModule="subway_iOS" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="271" id="KGk-i7-Jjw" customClass="RecipeSingleOptionCell" customModule="subway_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -63,7 +63,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="caloriesLabel" destination="KTG-OT-EXj" id="IeX-sc-n42"/>
-                <outlet property="cheeseIV" destination="FJQ-F2-iVl" id="hYI-Zg-hBR"/>
+                <outlet property="ingredientIV" destination="FJQ-F2-iVl" id="hYI-Zg-hBR"/>
+                <outlet property="ivWidth" destination="iU4-DO-7DE" id="egA-ha-1Tq"/>
                 <outlet property="nameLabel" destination="xse-VK-gC8" id="ZNk-hG-kma"/>
                 <outlet property="selectedFlagBackground" destination="eYQ-gK-oiU" id="PAQ-rj-73K"/>
             </connections>
