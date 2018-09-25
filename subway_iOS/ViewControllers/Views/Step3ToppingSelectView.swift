@@ -48,7 +48,6 @@ class Step3ToppingSelectView: UIView {
         }
         
         GetToppings(method: .get, parameters: [:]).requestAPI { [weak self] (response) in
-            print(response)
             guard let statusCode = response.response?.statusCode, statusCode == 200 else {
                 print("ERROR GETTING TOPPINGS") // show error message
                 return

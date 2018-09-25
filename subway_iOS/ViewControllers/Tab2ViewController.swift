@@ -39,7 +39,7 @@ class Tab2ViewController: UIViewController {
          Step(title: "샌드위치", accessible: true), Step(title: "빵"),
          Step(title: "추가토핑"), Step(title: "치즈"),
          Step(title: "토스팅"), Step(title: "야채"),
-         Step(title: "소스"), Step(title: "이름이름"),
+         Step(title: "소스"), Step(title: "이름 정하기"),
          Step()
     ]
     
@@ -56,6 +56,7 @@ class Tab2ViewController: UIViewController {
     let step3Topping = Step3ToppingSelectView.initializeFromNib()
     let step4Cheese = Step4Or5SelectView()
     let step5Toasting = Step4Or5SelectView()
+    let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +90,7 @@ class Tab2ViewController: UIViewController {
         var i = 0
         for item in realSteps {
             
-            // TODO: - 여기서부터 각 단계별로 뷰 그리기
+            // TODO: - 이 로직을 다이나믹하게 넣는 방식으로도 할 수 있겠다
             if i == 0 {
                 step1Sandwich.frame = innerScrollFrame
                 scrollView.addSubview(step1Sandwich)
@@ -110,6 +111,9 @@ class Tab2ViewController: UIViewController {
                 step5Toasting.step = 5
                 scrollView.addSubview(step5Toasting)
                 step5Toasting.setupTableView()
+            } else if i == 5 {
+                step6Vegetable.frame = innerScrollFrame
+                scrollView.addSubview(step6Vegetable)
             } else {
                 let label = UILabel(frame: innerScrollFrame)
                 label.text = item.title
@@ -261,7 +265,7 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
             step5Toasting.fetchData()
         } else if nextStep == 6 {
             recipe["toasting"] = ingredient
-            
+            step6Vegetable.fetchData()
         }
         
         goTo(stepIndex: nextStep)

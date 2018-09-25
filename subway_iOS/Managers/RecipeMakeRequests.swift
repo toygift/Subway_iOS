@@ -43,3 +43,11 @@ struct GetToastings: APIRequest {
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
+
+struct GetVegetables: APIRequest {
+    typealias T = Ingredients
+    let api = "ingredients/vegetables"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}
+

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="110" id="KGk-i7-Jjw" customClass="RecipeVegetableCell" customModule="subway_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMX-K0-R84">
+                        <rect key="frame" x="8" y="6" width="306" height="99.5"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1s-mr-7RW">
+                        <rect key="frame" x="6" y="4" width="306" height="99.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_pulledPork" translatesAutoresizingMaskIntoConstraints="NO" id="7r2-oQ-8Tf">
+                                <rect key="frame" x="15" y="15" width="80" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="2Pf-S2-VU5"/>
+                                    <constraint firstAttribute="width" constant="80" id="Rax-mJ-I0l"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9e-Lg-HTN">
+                                <rect key="frame" x="15" y="72" width="80" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Dpg-h0-Ovk">
+                                <rect key="frame" x="110" y="35" width="181" height="28"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsL-J6-5n5" customClass="ToggleButton" customModule="subway_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="36" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="d3K-vA-0Gi"/>
+                                            <constraint firstAttribute="width" constant="36" id="xVe-eg-3ks"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="빼">
+                                            <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYn-5r-AE5" customClass="ToggleButton" customModule="subway_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="36.5" y="0.0" width="48" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="PBp-iE-cXd"/>
+                                            <constraint firstAttribute="height" constant="28" id="rfx-Xh-2Ma"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="적게">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Du-iO-0up" customClass="ToggleButton" customModule="subway_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="84.5" y="0.0" width="48" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="do7-UB-hxK"/>
+                                            <constraint firstAttribute="height" constant="28" id="hF6-P2-Ejk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="기본">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rZ-oT-TLC" customClass="ToggleButton" customModule="subway_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="133" y="0.0" width="48" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="0Sm-f4-TFW"/>
+                                            <constraint firstAttribute="height" constant="28" id="5eE-ok-oJw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="많이">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dpg-h0-Ovk" firstAttribute="centerY" secondItem="g1s-mr-7RW" secondAttribute="centerY" id="71x-BO-Zmo"/>
+                            <constraint firstItem="m9e-Lg-HTN" firstAttribute="centerX" secondItem="7r2-oQ-8Tf" secondAttribute="centerX" id="7bX-ky-qAr"/>
+                            <constraint firstItem="7r2-oQ-8Tf" firstAttribute="leading" secondItem="g1s-mr-7RW" secondAttribute="leading" constant="15" id="SU5-DZ-eED"/>
+                            <constraint firstItem="m9e-Lg-HTN" firstAttribute="top" secondItem="7r2-oQ-8Tf" secondAttribute="bottom" constant="2" id="U0j-1A-qh7"/>
+                            <constraint firstAttribute="trailing" secondItem="Dpg-h0-Ovk" secondAttribute="trailing" priority="750" constant="15" id="Z6G-tU-u0B"/>
+                            <constraint firstAttribute="height" constant="99.5" id="els-DY-vuC"/>
+                            <constraint firstItem="7r2-oQ-8Tf" firstAttribute="top" secondItem="g1s-mr-7RW" secondAttribute="top" constant="15" id="j98-xx-2zh"/>
+                            <constraint firstItem="Dpg-h0-Ovk" firstAttribute="leading" secondItem="7r2-oQ-8Tf" secondAttribute="trailing" constant="15" id="mKP-0m-Bqs"/>
+                            <constraint firstItem="m9e-Lg-HTN" firstAttribute="width" secondItem="7r2-oQ-8Tf" secondAttribute="width" id="vHp-9F-JXr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uMX-K0-R84" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="2ro-sh-u8O"/>
+                    <constraint firstAttribute="bottom" secondItem="uMX-K0-R84" secondAttribute="bottom" constant="4" id="Exr-h5-jSn"/>
+                    <constraint firstItem="uMX-K0-R84" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="SXN-SA-Z9Y"/>
+                    <constraint firstAttribute="trailing" secondItem="uMX-K0-R84" secondAttribute="trailing" constant="6" id="TVa-kN-k4I"/>
+                    <constraint firstAttribute="trailing" secondItem="g1s-mr-7RW" secondAttribute="trailing" constant="8" id="dLY-2Z-p8n"/>
+                    <constraint firstAttribute="bottom" secondItem="g1s-mr-7RW" secondAttribute="bottom" constant="6" id="dhJ-xm-rrQ"/>
+                    <constraint firstItem="g1s-mr-7RW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="ggh-sP-jKs"/>
+                    <constraint firstItem="g1s-mr-7RW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="oj5-kb-f6b"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentViewBackground" destination="g1s-mr-7RW" id="2pT-PT-820"/>
+                <outlet property="defaultButton" destination="5Du-iO-0up" id="BQP-wn-vJH"/>
+                <outlet property="littleButton" destination="BYn-5r-AE5" id="esA-IW-cKN"/>
+                <outlet property="muchButton" destination="7rZ-oT-TLC" id="IP3-Da-Krb"/>
+                <outlet property="noButton" destination="jsL-J6-5n5" id="HRy-X2-3HC"/>
+                <outlet property="optionIV" destination="7r2-oQ-8Tf" id="gRh-ai-nQD"/>
+                <outlet property="optionLabel" destination="m9e-Lg-HTN" id="a8U-Is-CQ6"/>
+                <outlet property="shadowBackground" destination="uMX-K0-R84" id="eGL-E7-9bF"/>
+            </connections>
+            <point key="canvasLocation" x="79" y="137"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="product_pulledPork" width="110" height="50"/>
+    </resources>
+</document>
