@@ -53,10 +53,11 @@ class Tab2ViewController: UIViewController {
     // MARK: - subviews
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
-    let step3Topping = Step3ToppingSelectView.initializeFromNib()
+    let step3Topping = Step3Or7SelectView.initializeFromNib()
     let step4Cheese = Step4Or5SelectView()
     let step5Toasting = Step4Or5SelectView()
     let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
+    let step7Sauce = Step3Or7SelectView.initializeFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,8 @@ class Tab2ViewController: UIViewController {
         step3Topping.completeDelegate = self
         step4Cheese.completeDelegate = self
         step5Toasting.completeDelegate = self
-        
+        step6Vegetable.completeDelegate = self
+        step7Sauce.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -101,6 +103,7 @@ class Tab2ViewController: UIViewController {
             } else if i == 2 {
                 step3Topping.frame = innerScrollFrame
                 scrollView.addSubview(step3Topping)
+                step3Topping.step = 3
             } else if i == 3 {
                 step4Cheese.frame = innerScrollFrame
                 step4Cheese.step = 4
@@ -114,6 +117,10 @@ class Tab2ViewController: UIViewController {
             } else if i == 5 {
                 step6Vegetable.frame = innerScrollFrame
                 scrollView.addSubview(step6Vegetable)
+            } else if i == 6 {
+                step7Sauce.frame = innerScrollFrame
+                scrollView.addSubview(step7Sauce)
+                step7Sauce.step = 7
             } else {
                 let label = UILabel(frame: innerScrollFrame)
                 label.text = item.title
@@ -233,18 +240,24 @@ extension Tab2ViewController : Step2CompleteDelegate {
     }
 }
 
-extension Tab2ViewController : Step3CompleteDelegate {
-    func step3Completed(toppings: [Bread]) {
-        steps[4].accessible = true
+extension Tab2ViewController : Step3Or7CompleteDelegate {
+    
+    func step3Or7Completed(ingredients: [Bread], nextStep: Int) {
+        steps[nextStep].accessible = true
         
-        // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
-        if !steps[5].accessible {
-            scrollView.contentSize = CGSize(width: view.frame.width * 4, height: scrollView.bounds.size.height)
+        if !steps[nextStep + 1].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
         }
         
-        recipe["toppings"] = toppings
-        step4Cheese.fetchData()
-        goTo(stepIndex: 4)
+        if nextStep == 4 {
+            recipe["toppings"] = ingredients
+            step4Cheese.fetchData()
+        } else if nextStep == 8 {
+            recipe["sauces"] = ingredients
+            // TODO: - fetch data
+        }
+        
+        goTo(stepIndex: nextStep)
     }
 }
 
@@ -252,12 +265,9 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
     func step4Or5Completed(ingredient: Bread, nextStep: Int) {
         steps[nextStep].accessible = true
         
-        // 6단계에 아직 가본 상태가 아니라면 5단계까지 갈 수 있도록
         if !steps[nextStep + 1].accessible {
             scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
         }
-        
-        
         
         // MARK: - fetch data
         if nextStep == 5 {
@@ -269,5 +279,20 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
         }
         
         goTo(stepIndex: nextStep)
+    }
+}
+
+extension Tab2ViewController: Step6CompleteDelegate {
+    func step6Completed(vegetableSelection: [String : String]) {
+        steps[7].accessible = true
+        
+        // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
+        if !steps[8].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * 7, height: scrollView.bounds.size.height)
+        }
+        
+        recipe["vegetable"] = vegetableSelection
+        step7Sauce.fetchData()
+        goTo(stepIndex: 7)
     }
 }
