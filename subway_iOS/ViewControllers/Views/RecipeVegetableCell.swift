@@ -59,7 +59,7 @@ class RecipeVegetableCell: UITableViewCell {
         }
     }
     
-    var selectedOption = [false, false, true, false]
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,39 +74,16 @@ class RecipeVegetableCell: UITableViewCell {
         shadowBackground.layer.cornerRadius = 2
         shadowBackground.clipsToBounds = true
         
-        noButton.addTarget(self, action: #selector(toggleNo), for: .touchUpInside)
-        littleButton.addTarget(self, action: #selector(toggleLittle), for: .touchUpInside)
-        defaultButton.addTarget(self, action: #selector(toggleDefault), for: .touchUpInside)
-        muchButton.addTarget(self, action: #selector(toggleMuch), for: .touchUpInside)
-        
-        toggleButtons()
-    }
-    
-    @objc fileprivate func toggleNo(){
-        selectedOption = [true, false, false, false]
-        toggleButtons()
-    }
-    
-    @objc fileprivate func toggleLittle(){
-        selectedOption = [false, true, false, false]
-        toggleButtons()
-    }
-    
-    @objc fileprivate func toggleDefault(){
-        selectedOption = [false, false, true, false]
-        toggleButtons()
-    }
-    
-    @objc fileprivate func toggleMuch(){
-        selectedOption = [false, false, false, true]
-        toggleButtons()
     }
     
     fileprivate func toggleButtons(){
-        noButton.toggle(on: selectedOption[0])
-        littleButton.toggle(on: selectedOption[1])
-        defaultButton.toggle(on: selectedOption[2])
-        muchButton.toggle(on: selectedOption[3])
+        guard let d = data else {
+            fatalError("data is not set!!!")
+        }
+        noButton.toggle(on: d.selectedOption[0])
+        littleButton.toggle(on: d.selectedOption[1])
+        defaultButton.toggle(on: d.selectedOption[2])
+        muchButton.toggle(on: d.selectedOption[3])
     }
     
     fileprivate func updateUI(){
@@ -116,6 +93,7 @@ class RecipeVegetableCell: UITableViewCell {
         
         optionIV.kf.setImage(with: URL(string: d.image))
         optionLabel.text = d.name
+        toggleButtons()
     }
     
     

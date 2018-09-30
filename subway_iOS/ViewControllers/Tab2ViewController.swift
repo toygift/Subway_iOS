@@ -72,7 +72,7 @@ class Tab2ViewController: UIViewController {
         step3Topping.completeDelegate = self
         step4Cheese.completeDelegate = self
         step5Toasting.completeDelegate = self
-        
+        step6Vegetable.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -257,8 +257,6 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
             scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
         }
         
-        
-        
         // MARK: - fetch data
         if nextStep == 5 {
             recipe["cheese"] = ingredient
@@ -269,5 +267,19 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
         }
         
         goTo(stepIndex: nextStep)
+    }
+}
+
+extension Tab2ViewController: Step6CompleteDelegate {
+    func step6Completed(vegetableSelection: [String : String]) {
+        steps[7].accessible = true
+        
+        // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
+        if !steps[8].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * 7, height: scrollView.bounds.size.height)
+        }
+        
+        recipe["vegetable"] = vegetableSelection
+        
     }
 }
