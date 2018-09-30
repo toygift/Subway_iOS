@@ -14,10 +14,11 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="nX6-zD-aTe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y4P-BW-IkA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="y4P-BW-IkA">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="w21-hi-4YQ" kind="relationship" relationship="viewControllers" id="oOI-cG-gVR"/>
@@ -34,7 +35,7 @@
         <scene sceneID="mfk-bh-i4K">
             <objects>
                 <viewControllerPlaceholder storyboardName="Tab1" id="w21-hi-4YQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Se3-Gl-1Sm"/>
+                    <tabBarItem key="tabBarItem" title="순위" image="award" selectedImage="iconRankingColour" id="Se3-Gl-1Sm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICS-KM-kcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +45,7 @@
         <scene sceneID="XSk-FV-Oee">
             <objects>
                 <viewControllerPlaceholder storyboardName="Tab2" id="SsB-K6-6Je" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2z2-0g-Fmp"/>
+                    <tabBarItem key="tabBarItem" title="레시피만들기" image="book" selectedImage="iconRecipeColour" id="2z2-0g-Fmp"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFH-Xl-HLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,4 +72,10 @@
             <point key="canvasLocation" x="1062" y="327"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="award" width="24" height="24"/>
+        <image name="book" width="24" height="24"/>
+        <image name="iconRankingColour" width="16" height="24"/>
+        <image name="iconRecipeColour" width="22" height="22"/>
+    </resources>
 </document>

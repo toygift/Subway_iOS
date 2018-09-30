@@ -31,7 +31,7 @@ class FilterProductCell: UICollectionViewCell {
         productLabel.text = d.name
         
         if d.clicked {
-            yellowBackground.backgroundColor = UIColor.yellowForEnabledFilter
+            yellowBackground.backgroundColor = UIColor.yellowSelected
             shadow.backgroundColor = UIColor.grayForShadow
             productLabel.textColor = UIColor.white
             

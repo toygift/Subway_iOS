@@ -21,7 +21,7 @@ extension UIColor {
         return UIColor(red: 113/255, green: 113/255, blue: 113/255, alpha: 0.3)
     }
     
-    static var yellowForEnabledFilter : UIColor {
+    static var yellowSelected : UIColor {
         return UIColor(red: 255/255, green: 205/255, blue: 0, alpha: 1.0)
     }
 }

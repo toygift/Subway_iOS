@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2Qp-ri-aey" customClass="Step1SandwichSelectView" customModule="subway_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="451"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9Sx-f7-Qrc">
+                    <rect key="frame" x="15" y="5" width="345" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="c9X-Xh-lSD"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fFd-02-JjG">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uY4-Rl-anu">
+                    <rect key="frame" x="0.0" y="40" width="375" height="411"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="9Sx-f7-Qrc" firstAttribute="top" secondItem="2Qp-ri-aey" secondAttribute="top" constant="5" id="978-VM-eae"/>
+                <constraint firstItem="uY4-Rl-anu" firstAttribute="leading" secondItem="4rj-g6-NSG" secondAttribute="leading" id="AtG-LT-GMf"/>
+                <constraint firstItem="4rj-g6-NSG" firstAttribute="bottom" secondItem="uY4-Rl-anu" secondAttribute="bottom" id="Bo5-fT-89c"/>
+                <constraint firstItem="4rj-g6-NSG" firstAttribute="trailing" secondItem="uY4-Rl-anu" secondAttribute="trailing" id="Hl5-Lv-arP"/>
+                <constraint firstItem="9Sx-f7-Qrc" firstAttribute="leading" secondItem="4rj-g6-NSG" secondAttribute="leading" constant="15" id="O6U-v8-yST"/>
+                <constraint firstItem="4rj-g6-NSG" firstAttribute="trailing" secondItem="9Sx-f7-Qrc" secondAttribute="trailing" constant="15" id="ULt-U3-HYy"/>
+                <constraint firstItem="uY4-Rl-anu" firstAttribute="top" secondItem="9Sx-f7-Qrc" secondAttribute="bottom" constant="5" id="sp9-05-JoS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="4rj-g6-NSG"/>
+            <connections>
+                <outlet property="collectionView" destination="9Sx-f7-Qrc" id="r35-U2-EEQ"/>
+                <outlet property="tableView" destination="uY4-Rl-anu" id="9Ht-Y2-Sty"/>
+            </connections>
+            <point key="canvasLocation" x="-63.5" y="203.5"/>
+        </view>
+    </objects>
+</document>

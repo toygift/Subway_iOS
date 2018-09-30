@@ -16,6 +16,15 @@ class Filter {
         self.name = name
         self.clicked = clicked
     }
+    
+    func getQueryString() -> String{
+        if self.name == "모두" {
+            return ""
+        } else if self.name == "프레쉬&라이트" {
+            return "프레쉬 & 라이트"
+        }
+        return self.name
+    }
 }
 
 class FilterButtonCell: UICollectionViewCell {
@@ -28,7 +37,7 @@ class FilterButtonCell: UICollectionViewCell {
         willSet {
             if newValue {
                 label.textColor = UIColor.white
-                label.backgroundColor = UIColor.yellowForEnabledFilter
+                label.backgroundColor = UIColor.yellowSelected
                 shadow.backgroundColor = UIColor.grayForShadow
             } else {
                 label.textColor = UIColor.grayForDisabledFilter
