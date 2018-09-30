@@ -1,5 +1,5 @@
 //
-//  Step3ToppingSelectView.swift
+//  Step3Or7SelectView.swift
 //  subway_iOS
 //
 //  Created by khpark on 2018. 9. 23..
@@ -13,20 +13,20 @@ struct ToppingInstance {
     var clicked = false
 }
 
-protocol Step3CompleteDelegate {
-    func step3Completed(toppings : [Bread])
+protocol Step3Or7CompleteDelegate {
+    func step3Or7Completed(ingredients : [Bread])
 }
 
-class Step3ToppingSelectView: UIView {
+class Step3Or7SelectView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     
     var list = [ToppingInstance]()
-    var completeDelegate : Step3CompleteDelegate?
+    var completeDelegate : Step3Or7CompleteDelegate?
     
-    class func initializeFromNib() -> Step3ToppingSelectView {
-        return UINib(nibName: "Step3ToppingSelectView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Step3ToppingSelectView
+    class func initializeFromNib() -> Step3Or7SelectView {
+        return UINib(nibName: "Step3Or7SelectView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Step3Or7SelectView
     }
     
     override func awakeFromNib() {
@@ -64,12 +64,12 @@ class Step3ToppingSelectView: UIView {
     
     @objc fileprivate func goNextStep(){
         let selectedToppings = list.filter { $0.clicked }.compactMap{ $0.topping }
-        completeDelegate?.step3Completed(toppings: selectedToppings)
+        completeDelegate?.step3Or7Completed(ingredients: selectedToppings)
     }
     
 }
 
-extension Step3ToppingSelectView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension Step3Or7SelectView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeToppingCell.cellId, for: indexPath) as! RecipeToppingCell
         cell.data = list[indexPath.item]

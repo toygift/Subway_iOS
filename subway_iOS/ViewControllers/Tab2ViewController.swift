@@ -53,10 +53,11 @@ class Tab2ViewController: UIViewController {
     // MARK: - subviews
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
-    let step3Topping = Step3ToppingSelectView.initializeFromNib()
+    let step3Topping = Step3Or7SelectView.initializeFromNib()
     let step4Cheese = Step4Or5SelectView()
     let step5Toasting = Step4Or5SelectView()
     let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
+    let step7Sauce = Step3Or7SelectView.initializeFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -233,8 +234,8 @@ extension Tab2ViewController : Step2CompleteDelegate {
     }
 }
 
-extension Tab2ViewController : Step3CompleteDelegate {
-    func step3Completed(toppings: [Bread]) {
+extension Tab2ViewController : Step3Or7CompleteDelegate {
+    func step3Or7Completed(ingredients: [Bread]) {
         steps[4].accessible = true
         
         // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
@@ -242,7 +243,7 @@ extension Tab2ViewController : Step3CompleteDelegate {
             scrollView.contentSize = CGSize(width: view.frame.width * 4, height: scrollView.bounds.size.height)
         }
         
-        recipe["toppings"] = toppings
+        recipe["toppings"] = ingredients
         step4Cheese.fetchData()
         goTo(stepIndex: 4)
     }
