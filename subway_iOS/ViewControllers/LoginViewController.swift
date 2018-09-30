@@ -81,6 +81,7 @@ class LoginViewController: UIViewController {
     fileprivate func requestFBLogin(accessToken : String){
         let fbLogin = FbLogin(method: .post, parameters: ["access_token":accessToken])
         fbLogin.requestAPI { [weak self] (response) in
+            print("facebook",response.result.value)
             if let result = response.result.value, let token = result.token {
                 TokenAuth.save(serviceName, account: TokenAuth.SERVER_TOKEN, value: token)
                 self?.goToMain()

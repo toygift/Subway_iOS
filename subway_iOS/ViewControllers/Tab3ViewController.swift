@@ -8,8 +8,30 @@
 
 import UIKit
 
+
+class SavedCollectionViewCell : UICollectionViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+}
+
 class Tab3ViewController: UIViewController {
 
+    
+    var collectionList = ["모두"]
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBAction func addRecipe(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "새로운 컬렉션", message: "컬렉션 이름을 만들어 주세요.", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "컬렉션 이름"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { (action) in
+            let textField = alert.textFields![0]
+            self.collectionList.append(textField.text ?? "")
+            self.collectionView.reloadData()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func showFilter(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateInitialViewController() {
             present(vc, animated: true, completion: nil)
@@ -24,24 +46,23 @@ class Tab3ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("tab3")
-        // Do any additional setup after loading the view.
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.collectionList.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedRecipe", for: indexPath) as? SavedCollectionViewCell {
+            cell.titleLabel.text = self.collectionList[indexPath.row]
+            return cell
+        }
+        return UICollectionViewCell()
     }
-    */
-
+    
+    
+    
 }
