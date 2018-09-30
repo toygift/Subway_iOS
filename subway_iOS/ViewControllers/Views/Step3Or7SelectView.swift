@@ -7,14 +7,10 @@
 //
 
 import UIKit
-
-struct ToppingInstance {
-    var topping : Bread?
-    var clicked = false
-}
+import Alamofire
 
 protocol Step3Or7CompleteDelegate {
-    func step3Or7Completed(ingredients : [Bread])
+    func step3Or7Completed(ingredients : [Bread], nextStep: Int)
 }
 
 class Step3Or7SelectView: UIView {
@@ -22,8 +18,9 @@ class Step3Or7SelectView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     
-    var list = [ToppingInstance]()
+    var list = [IngredientInstance]()
     var completeDelegate : Step3Or7CompleteDelegate?
+    var step = 0
     
     class func initializeFromNib() -> Step3Or7SelectView {
         return UINib(nibName: "Step3Or7SelectView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Step3Or7SelectView
@@ -47,24 +44,35 @@ class Step3Or7SelectView: UIView {
             return
         }
         
-        GetToppings(method: .get, parameters: [:]).requestAPI { [weak self] (response) in
-            guard let statusCode = response.response?.statusCode, statusCode == 200 else {
-                print("ERROR GETTING TOPPINGS") // show error message
-                return
+        if step == 3 {
+            GetToppings(method: .get, parameters: [:]).requestAPI { [weak self] in
+                self?.bindData(response: $0)
             }
-            
-            if let value = response.value {
-                self?.list.append(contentsOf: value.results.map({
-                    ToppingInstance(topping: $0, clicked: false)
-                }))
-                self?.collectionView.reloadData()
+        } else if step == 7 {
+            GetSauces(method: .get, parameters: [:]).requestAPI { [weak self] in
+                self?.bindData(response: $0)
             }
         }
     }
     
+    fileprivate func bindData(response: DataResponse<Ingredients>){
+        
+        guard let statusCode = response.response?.statusCode, statusCode == 200 else {
+            print("ERROR GETTING TOPPING OR SAUCE") // show error message
+            return
+        }
+        
+        if let value = response.value {
+            list.append(contentsOf: value.results.map({
+                IngredientInstance(ingredient: $0, clicked: false)
+            }))
+            collectionView.reloadData()
+        }
+    }
+    
     @objc fileprivate func goNextStep(){
-        let selectedToppings = list.filter { $0.clicked }.compactMap{ $0.topping }
-        completeDelegate?.step3Or7Completed(ingredients: selectedToppings)
+        let selectedToppings = list.filter { $0.clicked }.compactMap{ $0.ingredient }
+        completeDelegate?.step3Or7Completed(ingredients: selectedToppings, nextStep: step + 1)
     }
     
 }

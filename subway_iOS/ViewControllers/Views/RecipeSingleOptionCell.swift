@@ -18,7 +18,7 @@ class RecipeSingleOptionCell: UITableViewCell {
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var ivWidth: NSLayoutConstraint!
     
-    var data: SingleOptionInstance? {
+    var data: IngredientInstance? {
         didSet {
             updateUI()
         }
