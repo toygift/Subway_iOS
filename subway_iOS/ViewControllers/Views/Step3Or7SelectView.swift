@@ -22,6 +22,8 @@ class Step3Or7SelectView: UIView {
     var completeDelegate : Step3Or7CompleteDelegate?
     var step = 0
     
+    let footer = "footer"
+    
     class func initializeFromNib() -> Step3Or7SelectView {
         return UINib(nibName: "Step3Or7SelectView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Step3Or7SelectView
     }
@@ -29,9 +31,12 @@ class Step3Or7SelectView: UIView {
     override func awakeFromNib() {
         
         collectionView.register(UINib(nibName: "RecipeToppingCell", bundle: nil), forCellWithReuseIdentifier: RecipeToppingCell.cellId)
+//        collectionView.register(UIView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footer)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsetsMake(15, 15, 15, 15)
+        
+        
         
         nextButton.clipsToBounds = true
         nextButton.layer.cornerRadius = 10
@@ -101,6 +106,19 @@ extension Step3Or7SelectView : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         list[indexPath.item].clicked = !list[indexPath.item].clicked
         collectionView.reloadItems(at: [indexPath])
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//
+//        let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footer, for: indexPath)
+//
+////        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 64))
+//        footerView.backgroundColor = .yellow
+//        return footerView
+//    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
 }

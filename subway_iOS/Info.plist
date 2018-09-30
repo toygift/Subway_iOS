@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb137974037063672</string>
+				<string>fb1339491562817675</string>
 			</array>
 		</dict>
 		<dict>
@@ -40,7 +40,7 @@
 	<key>CurrentBuildSetting</key>
 	<string>$(CURRENT_BUILD_SETTING)</string>
 	<key>FacebookAppID</key>
-	<string>137974037063672</string>
+	<string>1339491562817675</string>
 	<key>FacebookDisplayName</key>
 	<string>subway</string>
 	<key>KAKAO_APP_KEY</key>

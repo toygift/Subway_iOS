@@ -27,6 +27,8 @@ class Step6VegetableSelectView: UIView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
     
+    
+    
     var list = [VegetableInstance]()
     var completeDelegate: Step6CompleteDelegate?
     
@@ -40,6 +42,10 @@ class Step6VegetableSelectView: UIView {
         tableView.register(UINib(nibName: RecipeVegetableCell.cellId, bundle: nil), forCellReuseIdentifier: RecipeVegetableCell.cellId)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 64))
+        tableView.tableFooterView = tableFooterView
+        
         nextButton.addTarget(self, action: #selector(goNextStep), for: .touchUpInside)
     }
     

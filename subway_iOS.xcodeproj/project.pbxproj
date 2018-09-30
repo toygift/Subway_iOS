@@ -75,6 +75,8 @@
 		91722FB4213B8D10005AB417 /* NutrientIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */; };
 		919C4891215A4050007467CD /* RecipeVegetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C488F215A4050007467CD /* RecipeVegetableCell.swift */; };
 		919C4892215A4050007467CD /* RecipeVegetableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919C4890215A4050007467CD /* RecipeVegetableCell.xib */; };
+		91E3218B2160AE05003C57A2 /* Step8NameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3218A2160AE05003C57A2 /* Step8NameSelectView.swift */; };
+		91E3218D2160AE14003C57A2 /* Step8NameSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E3218C2160AE14003C57A2 /* Step8NameSelectView.xib */; };
 		D92722EE36136A5C7C6ACD29 /* Pods_subway_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */; };
 		E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */; };
 		EEACFA45274BAFF53DCCE87D /* Pods_subway_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DD3FD11A2AE8E0D9DE16D3 /* Pods_subway_iOSUITests.framework */; };
@@ -182,6 +184,8 @@
 		91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientIndexCell.swift; sourceTree = "<group>"; };
 		919C488F215A4050007467CD /* RecipeVegetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVegetableCell.swift; sourceTree = "<group>"; };
 		919C4890215A4050007467CD /* RecipeVegetableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeVegetableCell.xib; sourceTree = "<group>"; };
+		91E3218A2160AE05003C57A2 /* Step8NameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step8NameSelectView.swift; sourceTree = "<group>"; };
+		91E3218C2160AE14003C57A2 /* Step8NameSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Step8NameSelectView.xib; sourceTree = "<group>"; };
 		E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +266,8 @@
 				9131FE0A21577B3C001B21A0 /* Step4Or5SelectView.swift */,
 				9131FE1221592548001B21A0 /* Step6VegetableSelectView.swift */,
 				9131FE142159255B001B21A0 /* Step6VegetableSelectView.xib */,
+				91E3218A2160AE05003C57A2 /* Step8NameSelectView.swift */,
+				91E3218C2160AE14003C57A2 /* Step8NameSelectView.xib */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -525,6 +531,7 @@
 				913725B22116BA12000B1D95 /* RecipeStepCell.xib in Resources */,
 				911EAE4720E898C6002E132F /* FilterButtonCell.xib in Resources */,
 				916C23B820DF505200ECD746 /* Tab4.storyboard in Resources */,
+				91E3218D2160AE14003C57A2 /* Step8NameSelectView.xib in Resources */,
 				911EAE4B20EA7A3C002E132F /* FilterProductCell.xib in Resources */,
 				3F89A95520F1CA0E0005ABA8 /* IngredientCell.xib in Resources */,
 				911EAE3F20E88004002E132F /* Filter.storyboard in Resources */,
@@ -700,6 +707,7 @@
 				911EAE5D20FB1F75002E132F /* MoreBtnSection.swift in Sources */,
 				91475DB120CCD8AA003F89EC /* Tab4ViewController.swift in Sources */,
 				9145C00C2131A164004381E7 /* RecipeMakeRequests.swift in Sources */,
+				91E3218B2160AE05003C57A2 /* Step8NameSelectView.swift in Sources */,
 				911EAE5920F1EABE002E132F /* SearchedWordCell.swift in Sources */,
 				9154278320B14F9200C6E12A /* Tab2ViewController.swift in Sources */,
 				E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */,
