@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class Tab1ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -114,7 +113,7 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.collectionView.reloadData()
-            cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
+            cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height + 60
             return cell
         }
     }

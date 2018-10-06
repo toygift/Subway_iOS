@@ -35,4 +35,16 @@ struct LoginResponse : Codable {
         case token = "token"
     }
 }
-
+struct BookmarkResponse: Codable {
+    let id: Int?
+    let username: String?
+    let email: String?
+    let token: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case username = "username"
+        case email = "email"
+        case token = "token"
+    }
+}

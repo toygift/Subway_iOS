@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2mQ-9i-7ow">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2mQ-9i-7ow">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,6 +68,7 @@
                                             <constraints>
                                                 <constraint firstItem="cte-Yh-y8j" firstAttribute="top" secondItem="FTM-EG-Z93" secondAttribute="top" constant="20" id="3dl-Mp-RbJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="cte-Yh-y8j" secondAttribute="trailing" id="76d-bG-0Xn"/>
+                                                <constraint firstItem="pe4-37-cNl" firstAttribute="top" secondItem="cte-Yh-y8j" secondAttribute="bottom" constant="-52.5" id="9zi-Tn-6CJ"/>
                                                 <constraint firstItem="nzM-oL-H8P" firstAttribute="leading" secondItem="FTM-EG-Z93" secondAttribute="leading" constant="61" id="DlF-sf-W0l"/>
                                                 <constraint firstAttribute="bottom" secondItem="pe4-37-cNl" secondAttribute="bottom" id="MaK-CW-NAR"/>
                                                 <constraint firstItem="NvF-ud-IJd" firstAttribute="centerY" secondItem="nzM-oL-H8P" secondAttribute="centerY" id="Oh9-eg-HP1"/>
@@ -131,6 +132,14 @@
                                                         <constraint firstAttribute="height" constant="4" id="vRS-JG-ah9"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOW-OZ-DQM">
+                                                    <rect key="frame" x="332" y="54" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="iconSave"/>
+                                                    <connections>
+                                                        <action selector="checkBookmark:" destination="jeV-UJ-jPN" eventType="touchUpInside" id="YKF-cI-A63"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="ly5-aG-Qri" secondAttribute="trailing" constant="55" id="00H-fG-Tnj"/>
@@ -146,20 +155,22 @@
                                                 <constraint firstAttribute="trailing" secondItem="n5g-zQ-dEN" secondAttribute="trailing" constant="61" id="mvb-l5-PBF"/>
                                                 <constraint firstAttribute="trailing" secondItem="afg-Td-DVj" secondAttribute="trailing" id="qw8-WN-QiL"/>
                                                 <constraint firstItem="K10-aq-k9Q" firstAttribute="leading" secondItem="6wy-TM-sfn" secondAttribute="leading" constant="10" id="sbf-wb-Ss3"/>
+                                                <constraint firstItem="afg-Td-DVj" firstAttribute="top" secondItem="ly5-aG-Qri" secondAttribute="bottom" constant="-52.5" id="ys3-X2-cIk"/>
                                                 <constraint firstAttribute="bottom" secondItem="afg-Td-DVj" secondAttribute="bottom" id="z5F-DE-rda"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mainImageView" destination="ly5-aG-Qri" id="pwx-d2-I6p"/>
+                                            <outlet property="mainLikeButton" destination="pOW-OZ-DQM" id="fGw-ke-Lcp"/>
                                             <outlet property="mainNumberLabel" destination="K10-aq-k9Q" id="GqM-5Y-Ogx"/>
                                             <outlet property="mainTitleLabel" destination="n5g-zQ-dEN" id="Arb-ei-4MX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="opened" rowHeight="238" id="5tR-Hh-RQ6" customClass="RankingOddDetailCell" customModule="subway_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="494" width="375" height="238"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="opened" rowHeight="284" id="5tR-Hh-RQ6" customClass="RankingOddDetailCell" customModule="subway_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="494" width="375" height="284"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5tR-Hh-RQ6" id="W3C-i4-xhb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="284"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fuN-BU-Oce">
@@ -235,13 +246,34 @@
                                                         </connections>
                                                     </collectionReusableView>
                                                 </collectionView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frP-2h-etm">
+                                                    <rect key="frame" x="0.0" y="237.5" width="375" height="46.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZN-BW-VAg">
+                                                            <rect key="frame" x="295" y="9" width="28" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="iconShare"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xx-Hr-ywj">
+                                                            <rect key="frame" x="124" y="11" width="78" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button" image="iconHeartLine">
+                                                                <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="fuN-BU-Oce" firstAttribute="top" secondItem="W3C-i4-xhb" secondAttribute="top" id="H8f-Pd-5Nw"/>
                                                 <constraint firstAttribute="trailing" secondItem="fuN-BU-Oce" secondAttribute="trailing" constant="20" id="IDO-hu-7mn"/>
-                                                <constraint firstAttribute="bottom" secondItem="fuN-BU-Oce" secondAttribute="bottom" id="K2z-gm-Xxp"/>
                                                 <constraint firstItem="fuN-BU-Oce" firstAttribute="leading" secondItem="W3C-i4-xhb" secondAttribute="leading" constant="20" id="MTf-pX-8RE"/>
+                                                <constraint firstAttribute="trailing" secondItem="frP-2h-etm" secondAttribute="trailing" id="Mbk-ma-i6C"/>
+                                                <constraint firstItem="frP-2h-etm" firstAttribute="leading" secondItem="W3C-i4-xhb" secondAttribute="leading" id="TRN-F6-CH8"/>
+                                                <constraint firstAttribute="bottom" secondItem="frP-2h-etm" secondAttribute="bottom" id="kBn-db-Y0K"/>
+                                                <constraint firstItem="frP-2h-etm" firstAttribute="top" secondItem="fuN-BU-Oce" secondAttribute="bottom" id="l15-uj-Q3g"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -312,7 +344,10 @@
     <resources>
         <image name="award" width="24" height="24"/>
         <image name="iconFilterGreen" width="24" height="24"/>
+        <image name="iconHeartLine" width="24" height="24"/>
         <image name="iconRankingColour" width="16" height="24"/>
+        <image name="iconSave" width="28" height="28"/>
+        <image name="iconShare" width="28" height="28"/>
         <image name="searchBarHome" width="321" height="24"/>
     </resources>
 </document>

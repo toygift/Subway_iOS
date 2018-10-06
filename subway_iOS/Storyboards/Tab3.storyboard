@@ -168,7 +168,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ka9-Fh-JKb">
-                                                            <rect key="frame" x="10" y="42.5" width="315" height="1"/>
+                                                            <rect key="frame" x="10" y="43" width="315" height="1"/>
                                                             <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="5Na-Af-d7v"/>
@@ -255,10 +255,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhV-Yc-b6g">
-                                <rect key="frame" x="20" y="250" width="335" height="195"/>
+                                <rect key="frame" x="20" y="250" width="331" height="195"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyFaceEmojiCopy" translatesAutoresizingMaskIntoConstraints="NO" id="Fgr-vs-pac">
-                                        <rect key="frame" x="143.5" y="14" width="48" height="50"/>
+                                        <rect key="frame" x="141.5" y="14" width="48" height="50"/>
                                     </imageView>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycO-qC-fI0">
                                         <rect key="frame" x="168" y="150" width="153" height="30"/>
@@ -281,13 +281,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 컬렉션의 이름을 만들어주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZm-nF-lNB">
-                                        <rect key="frame" x="103" y="69" width="129" height="40"/>
+                                        <rect key="frame" x="103" y="69" width="125" height="40"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="컬렉션 이름" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmw-Dg-wgI">
-                                        <rect key="frame" x="10" y="116" width="315" height="25"/>
+                                        <rect key="frame" x="10" y="116" width="311" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="luK-rk-Khs"/>
                                         </constraints>
@@ -338,7 +338,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.19638270547945205" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NhV-Yc-b6g" firstAttribute="top" secondItem="u9K-C1-LFw" secondAttribute="top" constant="250" id="D0p-rL-zoR"/>
-                            <constraint firstAttribute="trailing" secondItem="NhV-Yc-b6g" secondAttribute="trailing" constant="20" id="dVE-1O-V0q"/>
                             <constraint firstItem="NhV-Yc-b6g" firstAttribute="leading" secondItem="u9K-C1-LFw" secondAttribute="leading" constant="20" id="hfD-DC-6XQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WQy-bT-Fny"/>

@@ -19,7 +19,7 @@ extension APIRequest {
     
     func requestAPI(completionHandler: @escaping (DataResponse<T>) -> Void) {
         let url = "\(serviceURL)/\(api)/"
-        print("ff",url)
+        print("요청 URL",url)
         //Alamofire.request(url).responseDecodable(completionHandler: completionHandler)
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
@@ -27,6 +27,12 @@ extension APIRequest {
         let url = "\(serviceURL)/\(api)"
         let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         Alamofire.request(URL(string: encoded!)!, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
+    }
+    func requestAPIb(completionHandler: @escaping (DataResponse<T>) -> Void) {
+        let url = "\(serviceURL)/\(api)/"
+        let headers: HTTPHeaders = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
+        print("요청 URL",url)
+        Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseDecodable(completionHandler: completionHandler)
     }
 }
 
@@ -71,7 +77,12 @@ struct GetRanking: APIRequest {
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
-
+struct CheckBookmarks: APIRequest {
+    typealias T = BookmarkResponse
+    let api = "recipe/1/bookmark"
+    var method: HTTPMethod = .post
+    var parameters: Parameters
+}
 
 // MARK: - UIView
 extension UIView {
