@@ -31,6 +31,7 @@ class Tab2ViewController: UIViewController {
     
     @IBOutlet weak var tabLiner: UIView!
     @IBOutlet weak var tabLinerWidth: NSLayoutConstraint!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     var scrollableBounds = CGRect.zero
     
@@ -59,6 +60,20 @@ class Tab2ViewController: UIViewController {
     let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
     let step7Sauce = Step3Or7SelectView.initializeFromNib()
     let step8Name = Step8NameSelectView.initializeFromNib()
+    
+    @IBAction func refreshButtonClicked(_ sender: UIBarButtonItem) {
+        
+        // TODO: - add alert view
+        goTo(stepIndex: 1)
+        step1Sandwich.initializeSelection()
+        step2Bread.initializeSelection()
+        step3Topping.initializeSelection()
+        step4Cheese.initializeSelection()
+        step5Toasting.initializeSelection()
+        step6Vegetable.initializeSelection()
+        step7Sauce.initializeSelection()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,9 +106,8 @@ class Tab2ViewController: UIViewController {
         
         var innerScrollFrame = scrollView.bounds
         var i = 0
-        for item in realSteps {
+        for _ in realSteps {
             
-            // TODO: - 이 로직을 다이나믹하게 넣는 방식으로도 할 수 있겠다
             if i == 0 {
                 step1Sandwich.frame = innerScrollFrame
                 scrollView.addSubview(step1Sandwich)
@@ -147,6 +161,10 @@ class Tab2ViewController: UIViewController {
         scrollView.scrollRectToVisible(rect, animated: true)
         refreshTabLiner(strLength: steps[stepIndex].title.count)
         stepCollectionView.scrollToItem(at: IndexPath(item: stepIndex, section: 0), at: .centeredHorizontally, animated: true)
+        
+        if stepIndex == 8 {
+            refreshButton.tintColor = .clear
+        }
     }
 }
 

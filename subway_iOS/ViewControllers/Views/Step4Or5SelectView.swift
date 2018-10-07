@@ -55,6 +55,17 @@ class Step4Or5SelectView: UITableView {
         }
     }
     
+    func initializeSelection(){
+        for i in 0..<list.count {
+            if list[i].clicked {
+                list[i].clicked = false
+                let indexPath = IndexPath(row: i, section: 0)
+                reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    
     fileprivate func bindData(response: DataResponse<Ingredients>){
         guard let statusCode = response.response?.statusCode, statusCode == 200 else {
             print("ERROR GETTING CHEESE OR TOASTING")
