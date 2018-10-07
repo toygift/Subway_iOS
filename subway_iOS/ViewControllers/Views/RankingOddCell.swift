@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import Alamofire
+import SwiftyJSON
 
 // MARK: - 메인 테이블뷰 셀
 class RankingOddCell: UITableViewCell {
@@ -31,10 +32,11 @@ class RankingOddCell: UITableViewCell {
 
     }
     func alamo() {
-        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/recipe/1/bookmark/"
+        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/12/bookmark/"
         let headers = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
-        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
-            print("리스폰스",response)
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
+            let json = JSON(response.result.value)
+            print(json)
         }
     }
     func setData(_ data: [String:Any], type: String) {

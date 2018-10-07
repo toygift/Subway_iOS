@@ -123,11 +123,11 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
             if isOpened == true {
                 self.rankingList[indexPath.section]["isOpened"] = false
                 let section = IndexSet.init(integer: indexPath.section)
-                self.tableView.reloadSections(section, with: .automatic)
+                self.tableView.reloadSections(section, with: .none)
             } else {
                 self.rankingList[indexPath.section]["isOpened"] = true
                 let section = IndexSet.init(integer: indexPath.section)
-                self.tableView.reloadSections(section, with: .automatic)
+                self.tableView.reloadSections(section, with: .none)
             }
         }
         //        self.tableView.layoutIfNeeded()
