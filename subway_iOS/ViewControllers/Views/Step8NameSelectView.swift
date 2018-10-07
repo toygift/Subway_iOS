@@ -9,13 +9,17 @@
 import UIKit
 
 class Step8NameSelectView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    static let identifier = ""
+    
+    @IBOutlet weak var circleView: UIView!
+    
+    class func initializeFromNib() -> Step8NameSelectView{
+        return UINib(nibName: "Step8NameSelectView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Step8NameSelectView
     }
-    */
-
+    
+    override func awakeFromNib() {
+        circleView.layer.cornerRadius = circleView.frame.width / 2
+        circleView.clipsToBounds = true
+    }
 }

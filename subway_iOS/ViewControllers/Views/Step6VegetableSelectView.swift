@@ -69,6 +69,17 @@ class Step6VegetableSelectView: UIView {
         }
     }
     
+    func initializeSelection(){
+        for i in 0..<list.count {
+            if !list[i].selectedOption[2] {
+                list[i].selectedOption = [false, false, true, false]
+                let indexPath = IndexPath(row: i, section: 0)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    
     @objc fileprivate func goNextStep(){
         var selectedOptions = [String : String]()
         for row in list {

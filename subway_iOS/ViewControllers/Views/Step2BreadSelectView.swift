@@ -58,6 +58,15 @@ class Step2BreadSelectView: UITableView {
         }
     }
     
+    func initializeSelection(){
+        for i in 0..<list.count {
+            if list[i].clicked {
+                list[i].clicked = false
+                let indexPath = IndexPath(row: i, section: 0)
+                reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
     
     
 }

@@ -31,12 +31,9 @@ class Step3Or7SelectView: UIView {
     override func awakeFromNib() {
         
         collectionView.register(UINib(nibName: "RecipeToppingCell", bundle: nil), forCellWithReuseIdentifier: RecipeToppingCell.cellId)
-//        collectionView.register(UIView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footer)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsetsMake(15, 15, 15, 15)
-        
-        
         
         nextButton.clipsToBounds = true
         nextButton.layer.cornerRadius = 10
@@ -56,6 +53,16 @@ class Step3Or7SelectView: UIView {
         } else if step == 7 {
             GetSauces(method: .get, parameters: [:]).requestAPI { [weak self] in
                 self?.bindData(response: $0)
+            }
+        }
+    }
+    
+    func initializeSelection(){
+        for i in 0..<list.count {
+            if list[i].clicked {
+                list[i].clicked = false
+                let indexPath = IndexPath(item: i, section: 0)
+                collectionView.reloadItems(at: [indexPath])
             }
         }
     }

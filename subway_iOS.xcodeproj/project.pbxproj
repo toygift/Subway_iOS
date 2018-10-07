@@ -78,6 +78,7 @@
 		91722FB4213B8D10005AB417 /* NutrientIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */; };
 		919C4891215A4050007467CD /* RecipeVegetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C488F215A4050007467CD /* RecipeVegetableCell.swift */; };
 		919C4892215A4050007467CD /* RecipeVegetableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919C4890215A4050007467CD /* RecipeVegetableCell.xib */; };
+		91CE64C62169FB8E005D17F1 /* AlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE64C52169FB8E005D17F1 /* AlertPopupViewController.swift */; };
 		91E3218B2160AE05003C57A2 /* Step8NameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3218A2160AE05003C57A2 /* Step8NameSelectView.swift */; };
 		91E3218D2160AE14003C57A2 /* Step8NameSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E3218C2160AE14003C57A2 /* Step8NameSelectView.xib */; };
 		D92722EE36136A5C7C6ACD29 /* Pods_subway_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D5A57A77AC09A091546C25 /* Pods_subway_iOSTests.framework */; };
@@ -190,6 +191,7 @@
 		91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientIndexCell.swift; sourceTree = "<group>"; };
 		919C488F215A4050007467CD /* RecipeVegetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVegetableCell.swift; sourceTree = "<group>"; };
 		919C4890215A4050007467CD /* RecipeVegetableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeVegetableCell.xib; sourceTree = "<group>"; };
+		91CE64C52169FB8E005D17F1 /* AlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopupViewController.swift; sourceTree = "<group>"; };
 		91E3218A2160AE05003C57A2 /* Step8NameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step8NameSelectView.swift; sourceTree = "<group>"; };
 		91E3218C2160AE14003C57A2 /* Step8NameSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Step8NameSelectView.xib; sourceTree = "<group>"; };
 		E066AF68D8110A78AD189C15 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
@@ -365,16 +367,17 @@
 		9154277F20B14F5D00C6E12A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				91CE64C52169FB8E005D17F1 /* AlertPopupViewController.swift */,
+				911EAE4020E8839E002E132F /* FilterViewController.swift */,
 				9154278020B14F7300C6E12A /* LoginViewController.swift */,
+				3F71035D2168951300289289 /* MakeCollectionViewController.swift */,
+				3F7103612168C67400289289 /* MovetoCollectionViewController.swift */,
+				91722FAD2132C360005AB417 /* NutrientInfoPopupViewController.swift */,
+				911EAE5620F1DD5F002E132F /* SearchViewController.swift */,
 				9151307C20C3B6A100DEE0B2 /* Tab1ViewController.swift */,
 				9154278220B14F9200C6E12A /* Tab2ViewController.swift */,
 				9154278420B14F9C00C6E12A /* Tab3ViewController.swift */,
 				91475DB020CCD8AA003F89EC /* Tab4ViewController.swift */,
-				911EAE4020E8839E002E132F /* FilterViewController.swift */,
-				911EAE5620F1DD5F002E132F /* SearchViewController.swift */,
-				91722FAD2132C360005AB417 /* NutrientInfoPopupViewController.swift */,
-				3F71035D2168951300289289 /* MakeCollectionViewController.swift */,
-				3F7103612168C67400289289 /* MovetoCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				9151307D20C3B6A100DEE0B2 /* Tab1ViewController.swift in Sources */,
 				911EAE4920E89B56002E132F /* FilterButtonCell.swift in Sources */,
 				9131FE0E21577C3B001B21A0 /* RecipeSingleOptionCell.swift in Sources */,
+				91CE64C62169FB8E005D17F1 /* AlertPopupViewController.swift in Sources */,
 				3FD9811920DF637000BE3509 /* Ranking.swift in Sources */,
 				9131FDF721573AE7001B21A0 /* Step2BreadSelectView.swift in Sources */,
 				3F87D9DF20BA7A100098542F /* User.swift in Sources */,
@@ -901,7 +905,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FNEH2787UY;
+				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -951,7 +955,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = subway_iOS/subway_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FNEH2787UY;
+				DEVELOPMENT_TEAM = 9MBM4TGHFP;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

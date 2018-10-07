@@ -31,6 +31,7 @@ class Tab2ViewController: UIViewController {
     
     @IBOutlet weak var tabLiner: UIView!
     @IBOutlet weak var tabLinerWidth: NSLayoutConstraint!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     var scrollableBounds = CGRect.zero
     
@@ -50,6 +51,8 @@ class Tab2ViewController: UIViewController {
         }
     }
     
+    var step7Cache = [Bread]()
+    
     // MARK: - subviews
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
@@ -58,6 +61,11 @@ class Tab2ViewController: UIViewController {
     let step5Toasting = Step4Or5SelectView()
     let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
     let step7Sauce = Step3Or7SelectView.initializeFromNib()
+    let step8Name = Step8NameSelectView.initializeFromNib()
+    
+    @IBAction func refreshButtonClicked(_ sender: UIBarButtonItem) {
+        showAlertPopup(alertType: .refresh)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,9 +98,8 @@ class Tab2ViewController: UIViewController {
         
         var innerScrollFrame = scrollView.bounds
         var i = 0
-        for item in realSteps {
+        for _ in realSteps {
             
-            // TODO: - 이 로직을 다이나믹하게 넣는 방식으로도 할 수 있겠다
             if i == 0 {
                 step1Sandwich.frame = innerScrollFrame
                 scrollView.addSubview(step1Sandwich)
@@ -122,10 +129,8 @@ class Tab2ViewController: UIViewController {
                 scrollView.addSubview(step7Sauce)
                 step7Sauce.step = 7
             } else {
-                let label = UILabel(frame: innerScrollFrame)
-                label.text = item.title
-                label.textAlignment = .center
-                scrollView.addSubview(label)
+                step8Name.frame = innerScrollFrame
+                scrollView.addSubview(step8Name)
             }
             
             if i < realSteps.count-1{
@@ -148,6 +153,10 @@ class Tab2ViewController: UIViewController {
         scrollView.scrollRectToVisible(rect, animated: true)
         refreshTabLiner(strLength: steps[stepIndex].title.count)
         stepCollectionView.scrollToItem(at: IndexPath(item: stepIndex, section: 0), at: .centeredHorizontally, animated: true)
+        
+        if stepIndex == 8 {
+            refreshButton.tintColor = .clear
+        }
     }
 }
 
@@ -170,10 +179,9 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
         
         if !steps[indexPath.item].accessible {
-            print("cannot accessible!!")
+            print("cannot accessible!! indexPath.item:", indexPath.item)
             return
         }
         
@@ -197,6 +205,29 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         // TODO: - debug this!!
         tabLinerWidth.constant = getLabelWidth(strLength: strLength)
     }
+    
+    @objc fileprivate func refreshSelections(){
+        goTo(stepIndex: 1)
+        step1Sandwich.initializeSelection()
+        step2Bread.initializeSelection()
+        step3Topping.initializeSelection()
+        step4Cheese.initializeSelection()
+        step5Toasting.initializeSelection()
+        step6Vegetable.initializeSelection()
+        step7Sauce.initializeSelection()
+        
+    }
+    
+    fileprivate func showAlertPopup(alertType: AlertType){
+        let alert = UIStoryboard(name: "Tab2", bundle: nil).instantiateViewController(withIdentifier: AlertPopupViewController.identifier) as! AlertPopupViewController
+        alert.modalPresentationStyle = .overCurrentContext
+        alert.modalTransitionStyle = .crossDissolve
+        alert.alertType = alertType
+        alert.delegate = self
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - ScrollView Delegation
@@ -208,6 +239,30 @@ extension Tab2ViewController : UIScrollViewDelegate {
     }
     
 }
+
+extension Tab2ViewController: AlertPopupDelegate {
+    func positiveButtonSelected(alertType: AlertType) {
+        if alertType == .refresh {
+            refreshSelections()
+        } else if alertType == .irreversible {
+            steps[8].accessible = true
+
+            if !steps[9].accessible {
+                scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(8), height: scrollView.bounds.size.height)
+            }
+            
+            recipe["toppings"] = step7Cache
+            goTo(stepIndex: 8)
+            
+            // scroll 기능 해제!
+            scrollView.isScrollEnabled = false
+            for i in 0..<steps.count {
+                steps[i].accessible = false
+            }
+        }
+    }
+}
+
 
 extension Tab2ViewController : Step1CompleteDelegate {
     func step1Completed(sandwich: Sandwich) {
@@ -243,21 +298,21 @@ extension Tab2ViewController : Step2CompleteDelegate {
 extension Tab2ViewController : Step3Or7CompleteDelegate {
     
     func step3Or7Completed(ingredients: [Bread], nextStep: Int) {
-        steps[nextStep].accessible = true
-        
-        if !steps[nextStep + 1].accessible {
-            scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
-        }
         
         if nextStep == 4 {
+            steps[nextStep].accessible = true
+            
+            if !steps[nextStep + 1].accessible {
+                scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
+            }
+            
             recipe["toppings"] = ingredients
             step4Cheese.fetchData()
+            goTo(stepIndex: nextStep)
         } else if nextStep == 8 {
-            recipe["sauces"] = ingredients
-            // TODO: - fetch data
+            step7Cache = ingredients
+            showAlertPopup(alertType: .irreversible)
         }
-        
-        goTo(stepIndex: nextStep)
     }
 }
 
