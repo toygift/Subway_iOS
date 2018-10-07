@@ -58,6 +58,7 @@ class Tab2ViewController: UIViewController {
     let step5Toasting = Step4Or5SelectView()
     let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
     let step7Sauce = Step3Or7SelectView.initializeFromNib()
+    let step8Name = Step8NameSelectView.initializeFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,10 +123,8 @@ class Tab2ViewController: UIViewController {
                 scrollView.addSubview(step7Sauce)
                 step7Sauce.step = 7
             } else {
-                let label = UILabel(frame: innerScrollFrame)
-                label.text = item.title
-                label.textAlignment = .center
-                scrollView.addSubview(label)
+                step8Name.frame = innerScrollFrame
+                scrollView.addSubview(step8Name)
             }
             
             if i < realSteps.count-1{
