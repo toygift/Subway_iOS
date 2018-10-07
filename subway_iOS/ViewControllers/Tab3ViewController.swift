@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 
 class SavedCollectionViewCell : UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
@@ -31,6 +32,10 @@ class SavedCollectionViewCell : UICollectionViewCell {
         self.titleLabel.layer.cornerRadius = 10
         self.titleLabel.clipsToBounds = true
     }
+    func setCollectionCell(_ data: Filter) {
+        self.titleLabel.text = data.name
+        self.cellSelected = data.clicked
+    }
 }
 
 class Tab3ViewController: UIViewController {
@@ -41,11 +46,18 @@ class Tab3ViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    var rankingList: [[String:Any]] = [[String:Any]]() {
+        didSet {
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func addRecipe(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: MAKECOLLECTION, sender: nil)
     }
-    @IBAction func text(_ sender: UIButton) {
+    @IBAction func text(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: MOVETOCOLLECTION, sender: self.collectionList)
     }
    
@@ -68,8 +80,39 @@ class Tab3ViewController: UIViewController {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.collectionView.reloadData()
         
+        let getRankings = GetRanking(method: .get, parameters: [:])
+        getRankings.requestAPI { [weak self] (response) in
+            if let result = response.result.value?.results {
+                //                result.map({ (ranking) in
+                //                    ranking.sandwich.mainIngredient
+                //                })
+                for data in result {
+                    var ingri = [[Bread]]()
+                    var name: Name!
+                    var image: Sandwich!
+                    ingri.append(data.sandwich.mainIngredient)
+                    ingri.append([data.bread])
+                    ingri.append(data.toppings)
+                    ingri.append([data.cheese])
+                    ingri.append([data.toasting])
+                    ingri.append(data.vegetables)
+                    ingri.append(data.sauces)
+                    print(data.sandwich.mainIngredient.count)
+                    print(data.toppings.count)
+                    print(data.vegetables.count)
+                    print(data.sauces.count)
+                    name = data.name
+                    image = data.sandwich
+                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
+                    self?.rankingList.append(tt)
+                }
+                self?.tableView.reloadData()
+            }
+        }
     }
     fileprivate func getLabelWidth(strLength : Int) -> CGFloat{
         var width : CGFloat = 0
@@ -82,6 +125,71 @@ class Tab3ViewController: UIViewController {
         return width
     }
 }
+extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("ttt",self.rankingList.count)
+        //        print("ranking",self.rankingList.count)
+        return self.rankingList.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let isOpened = self.rankingList[section]["isOpened"] as? Bool else { return 1 }
+        if isOpened == true {
+            return 2
+        } else {
+            return 1
+        }
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let id = self.rankingList[indexPath.section]["name"] as! Name
+            if id.id % 2 == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "evens", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
+                cell.setData(self.rankingList[indexPath.section], type: "evens")
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "odds", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
+                cell.setData(self.rankingList[indexPath.section], type: "odds")
+                return cell
+            }
+            
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "opened", for: indexPath) as? RankingOddDetailCell else { return UITableViewCell() }
+            guard let ing = self.rankingList[indexPath.section]["main"] as? [[Bread]] else { return UITableViewCell() }
+            
+            cell.frame = tableView.bounds
+            cell.layoutIfNeeded()
+            let id = self.rankingList[indexPath.section]["name"] as! Name
+            if id.id % 2 == 0 {
+                cell.setData(ing, type: "evens")
+            } else {
+                cell.setData(ing, type: "odds")
+            }
+            
+            cell.collectionView.reloadData()
+            cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height + 60
+            return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let isOpened = self.rankingList[indexPath.section]["isOpened"] as? Bool else { return  }
+        if indexPath.row == 0 {
+            if isOpened == true {
+                self.rankingList[indexPath.section]["isOpened"] = false
+                let section = IndexSet.init(integer: indexPath.section)
+                self.tableView.reloadSections(section, with: .none)
+            } else {
+                self.rankingList[indexPath.section]["isOpened"] = true
+                let section = IndexSet.init(integer: indexPath.section)
+                self.tableView.reloadSections(section, with: .none)
+            }
+        }
+        //        self.tableView.layoutIfNeeded()
+        //        self.tableView.layoutSubviews()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+}
 extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.collectionList.count
@@ -89,9 +197,7 @@ extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedRecipe", for: indexPath) as? SavedCollectionViewCell {
-            cell.titleLabel.text = self.collectionList[indexPath.row].name
-            cell.cellSelected = self.collectionList[indexPath.row].clicked
-            print("name",self.collectionList[indexPath.row].name)
+            cell.setCollectionCell(self.collectionList[indexPath.item])
             return cell
         }
         return UICollectionViewCell()
@@ -113,6 +219,19 @@ extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 extension Tab3ViewController: MakeCollectionDelegate {
     func setCollectionName(is input: String) {
-        self.collectionList.append(Filter(name: input, clicked: false))
+        self.collectionList.append(Filter(name: input, clicked: false))// 요건 추후 삭제
+        self.alamo(input)
+    }
+    func alamo(_ name: String) {
+        //USER의 id 저장해서 URL에 뿔리기
+        //        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/\(User.id)/collection/"
+        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/12/collection/"
+        let headers: HTTPHeaders = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
+        let parameters: Parameters = ["name": name, "bookmarked_recipe": 2]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
+            let json = JSON(response.result.value)
+            // 리스폰스 받아서 컬렉션 뷰에 추가 (Filter)
+            print("djdj",response.result.value)
+        }
     }
 }

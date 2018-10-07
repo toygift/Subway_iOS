@@ -18,8 +18,9 @@ enum MemuList: String {
     static func getLists() -> [MemuList] {
         return [.name, .setting]
     }
-    
 }
+
+
 class Tab4ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -61,6 +62,8 @@ extension Tab4ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+
 class SettingTableViewCell: UITableViewCell {
     static let identifier = "MENUCELL"
     

@@ -13,6 +13,9 @@ class MovetoCollectionViewController: UIViewController {
     var moveToCollection: [Filter] = []
 
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func cancelMoveCollection(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func stopMove(_ sender: UIButton) {
         self.dismiss(animated: true) {
             print("디스미스")
