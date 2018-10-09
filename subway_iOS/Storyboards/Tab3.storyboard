@@ -69,6 +69,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KPP-d6-c3G">
                                 <rect key="frame" x="0.0" y="114" width="375" height="1386"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="4fc-ci-eNn">
+                                    <rect key="frame" x="0.0" y="778" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="odds" rowHeight="233" id="eGG-lT-Raw" customClass="RankingOddCell" customModule="subway_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="233"/>
@@ -498,21 +503,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWn-D0-kK0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <connections>
-                                    <action selector="cancelMoveCollection:" destination="E5H-Mw-Qbg" eventType="touchUpInside" id="q0a-5g-dKh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.19640946061643835" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0YR-P5-f3F" secondAttribute="trailing" constant="10" id="5GD-ux-KwT"/>
-                            <constraint firstItem="MWn-D0-kK0" firstAttribute="leading" secondItem="OQ3-Dp-GPj" secondAttribute="leading" id="5k1-yj-DMD"/>
-                            <constraint firstAttribute="bottom" secondItem="MWn-D0-kK0" secondAttribute="bottom" id="HXw-di-40Z"/>
-                            <constraint firstAttribute="trailing" secondItem="MWn-D0-kK0" secondAttribute="trailing" id="IEN-n7-yqP"/>
-                            <constraint firstItem="MWn-D0-kK0" firstAttribute="top" secondItem="OQ3-Dp-GPj" secondAttribute="top" id="MVv-F9-J03"/>
                             <constraint firstAttribute="bottom" secondItem="0YR-P5-f3F" secondAttribute="bottom" constant="90" id="tZA-jZ-uFG"/>
                             <constraint firstItem="0YR-P5-f3F" firstAttribute="leading" secondItem="OQ3-Dp-GPj" secondAttribute="leading" constant="10" id="uwP-ny-Nq7"/>
                         </constraints>

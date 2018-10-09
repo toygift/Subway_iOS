@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class MovetoCollectionViewController: UIViewController {
     
-    var moveToCollection: [Filter] = []
+    var moveToCollection: [BookmarkFilter] = []
 
     @IBOutlet weak var tableView: UITableView!
     @IBAction func cancelMoveCollection(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func stopMove(_ sender: UIButton) {
         self.dismiss(animated: true) {
@@ -39,6 +40,37 @@ extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSo
             return cell
         }
         return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let parameters: Parameters = ["bookmarked_recipe":self.moveToCollection[indexPath.item].id]
+        let getCollection = GetCollection(api: "user/12/collection/\(self.moveToCollection[indexPath.item].id)",method: .patch, parameters: parameters)
+        getCollection.requestAPIb { (response) in
+            print(response)
+            if let results = response.result.value {
+                for data in results.bookmarkedRecipe {
+                    print("ㅇㅇㅇㅇㅇ",data)
+                    var ingri = [[Bread]]()
+                    var name: Name!
+                    var image: Sandwich!
+                    ingri.append(data.sandwich.mainIngredient)
+                    ingri.append([data.bread])
+                    ingri.append(data.toppings)
+                    ingri.append([data.cheese])
+                    ingri.append([data.toasting])
+                    ingri.append(data.vegetables)
+                    ingri.append(data.sauces)
+                    print(data.sandwich.mainIngredient.count)
+                    print(data.toppings.count)
+                    print(data.vegetables.count)
+                    print(data.sauces.count)
+                    name = data.name
+                    image = data.sandwich
+//                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
+//                    self.moveToCollection.append(tt)
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 class MovetoCollectionCell: UITableViewCell {

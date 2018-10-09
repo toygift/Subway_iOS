@@ -68,7 +68,7 @@ class Tab3ViewController: UIViewController {
             }
         } else  if segue.identifier == MOVETOCOLLECTION {
             if let nextViewController = segue.destination as? MovetoCollectionViewController {
-                if let nextView = sender as? [Filter] {
+                if let nextView = sender as? [BookmarkFilter] {
                     nextViewController.moveToCollection = nextView
                 }
 //                nextViewController.delegate = self
@@ -240,7 +240,7 @@ extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
         }
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
