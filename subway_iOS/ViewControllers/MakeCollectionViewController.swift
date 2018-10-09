@@ -28,7 +28,6 @@ class MakeCollectionViewController: UIViewController {
             if sender.tag == 0 {
                 print("캔슬")
             } else {
-                
                 guard let collectionName = self.collectionTextField.text else { return }
                 self.delegate?.setCollectionName(is: collectionName)
             }

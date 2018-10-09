@@ -8,6 +8,17 @@
 
 import UIKit
 
+class BookmarkFilter {
+    var id = 0
+    var name = ""
+    var clicked = false
+    
+    init(id: Int, name : String, clicked : Bool) {
+        self.id = id
+        self.name = name
+        self.clicked = clicked
+    }
+}
 class Filter {
     var name = ""
     var clicked = false
