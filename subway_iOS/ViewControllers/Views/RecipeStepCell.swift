@@ -23,7 +23,7 @@ class RecipeStepCell: UICollectionViewCell {
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
-    var data : String? {
+    var data : Step? {
         didSet {
             updateUI()
         }
@@ -33,7 +33,16 @@ class RecipeStepCell: UICollectionViewCell {
         guard let d = data else {
             fatalError("data is not fetched")
         }
-        label.text = d
+        label.text = d.title
+        if d.selected {
+            label.textColor = UIColor.greenForSelectedOnes
+        } else if d.completed {
+            label.textColor = UIColor.black
+        } else if !d.completed {
+            label.textColor = UIColor.grayForShadow
+        }
+        
+        
     }
     
 }

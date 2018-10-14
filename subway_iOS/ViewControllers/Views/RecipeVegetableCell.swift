@@ -91,7 +91,8 @@ class RecipeVegetableCell: UITableViewCell {
             fatalError("data is not set!!!")
         }
         
-        optionIV.kf.setImage(with: URL(string: d.image))
+        let placeholder = UIImage(named: "placeholder")
+        optionIV.kf.setImage(with: URL(string: d.image), placeholder: placeholder)
         optionLabel.text = d.name
         toggleButtons()
     }

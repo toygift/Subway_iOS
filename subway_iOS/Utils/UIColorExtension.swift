@@ -24,4 +24,8 @@ extension UIColor {
     static var yellowSelected : UIColor {
         return UIColor(red: 255/255, green: 205/255, blue: 0, alpha: 1.0)
     }
+    
+    static var greenForSelectedOnes : UIColor {
+        return UIColor(red: 0/255, green: 153/255, blue: 69/255, alpha: 1.0)
+    }
 }

@@ -11,6 +11,8 @@ import UIKit
 struct Step {
     var title = ""
     var accessible = false
+    var selected = false
+    var completed = false
     
     init(){ /* do nothing */ }
     
@@ -21,6 +23,7 @@ struct Step {
     init(title : String, accessible : Bool) {
         self.title = title
         self.accessible = accessible
+        self.selected = true
     }
 }
 
@@ -148,6 +151,18 @@ class Tab2ViewController: UIViewController {
     }
     
     fileprivate func goTo(stepIndex : Int){
+        guard stepIndex > 0 else {
+            print("no way!!")
+            return
+        }
+        
+        // step collectionview
+        steps[stepIndex].selected = true
+        steps[stepIndex - 1].selected = false
+        steps[stepIndex - 1].completed = true
+        stepCollectionView.reloadData()
+        
+        // scrollview
         let x : CGFloat = (CGFloat(stepIndex) - 1) * view.frame.width
         let rect = CGRect(x: x, y: 0, width: view.frame.width, height: scrollView.frame.height)
         scrollView.scrollRectToVisible(rect, animated: true)
@@ -164,7 +179,7 @@ class Tab2ViewController: UIViewController {
 extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeStepCell.cellId, for: indexPath) as! RecipeStepCell
-        cell.data = steps[indexPath.item].title
+        cell.data = steps[indexPath.item]
         
         return cell
     }
@@ -186,6 +201,14 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
         if indexPath.item != 0, indexPath.item != steps.count - 1 {
+            
+//            steps[indexPath.item - 1].selected = false
+//            steps[indexPath.item - 1].completed = true
+//            steps[indexPath.item].selected = true
+//
+//            stepCollectionView.reloadItems(at: [IndexPath(item: indexPath.item - 1, section: 0), indexPath])
+            
+            
             goTo(stepIndex: indexPath.item)
         }
     }
@@ -207,6 +230,13 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     @objc fileprivate func refreshSelections(){
+        
+        for i in 0..<steps.count {
+            steps[i].completed = false
+            if i != 1 {
+                steps[i].accessible = false
+            }
+        }
         goTo(stepIndex: 1)
         step1Sandwich.initializeSelection()
         step2Bread.initializeSelection()
@@ -234,6 +264,18 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
 extension Tab2ViewController : UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = scrollView.currentPage
+        
+        for i in 0..<steps.count {
+            if i > 0 && i < steps.count - 1 {
+                if i == currentPage {
+                    steps[i].selected = true
+                } else {
+                    steps[i].selected = false
+                }
+            }
+        }
+        stepCollectionView.reloadData()
+        
         stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
         refreshTabLiner(strLength: steps[currentPage].title.count)
     }
