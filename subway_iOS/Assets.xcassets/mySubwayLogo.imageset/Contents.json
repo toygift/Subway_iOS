@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "subwayCi.png",
+      "filename" : "mySubwayLogo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "subwayCi@2x.png",
+      "filename" : "mySubwayLogo@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "subwayCi@3x.png",
+      "filename" : "mySubwayLogo@3x.png",
       "scale" : "3x"
     }
   ],
