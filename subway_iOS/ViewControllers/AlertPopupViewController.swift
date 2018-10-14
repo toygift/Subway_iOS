@@ -9,7 +9,7 @@
 import UIKit
 
 enum AlertType {
-    case refresh, irreversible, samerecipe, watchad
+    case refresh, irreversible, samerecipe, watchad, nosauce
 }
 
 protocol AlertPopupDelegate {
@@ -54,6 +54,9 @@ class AlertPopupViewController: UIViewController {
             break
         case .watchad:
             messageLabel.text = "마음에 드는 이름이 없으면\n광고를 시청 후 3번의 기회를 줄게요. \n어때요?"
+            break
+        case .nosauce:
+            messageLabel.text = "아직 소스를 선택하지 않았어요.\n정말 다음 단계로 넘어 가시겠어요?"
             break
         }
     }

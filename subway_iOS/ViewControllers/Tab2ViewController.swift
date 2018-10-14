@@ -244,14 +244,14 @@ extension Tab2ViewController: AlertPopupDelegate {
     func positiveButtonSelected(alertType: AlertType) {
         if alertType == .refresh {
             refreshSelections()
-        } else if alertType == .irreversible {
+        } else if alertType == .irreversible || alertType == .nosauce {
             steps[8].accessible = true
 
             if !steps[9].accessible {
                 scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(8), height: scrollView.bounds.size.height)
             }
             
-            recipe["toppings"] = step7Cache
+            recipe["sauce"] = step7Cache
             goTo(stepIndex: 8)
             
             // scroll 기능 해제!
@@ -311,7 +311,11 @@ extension Tab2ViewController : Step3Or7CompleteDelegate {
             goTo(stepIndex: nextStep)
         } else if nextStep == 8 {
             step7Cache = ingredients
-            showAlertPopup(alertType: .irreversible)
+            if ingredients.count > 0 {
+                showAlertPopup(alertType: .irreversible)
+            } else {
+                showAlertPopup(alertType: .nosauce)
+            }
         }
     }
 }
