@@ -201,14 +201,6 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
         if indexPath.item != 0, indexPath.item != steps.count - 1 {
-            
-//            steps[indexPath.item - 1].selected = false
-//            steps[indexPath.item - 1].completed = true
-//            steps[indexPath.item].selected = true
-//
-//            stepCollectionView.reloadItems(at: [IndexPath(item: indexPath.item - 1, section: 0), indexPath])
-            
-            
             goTo(stepIndex: indexPath.item)
         }
     }
