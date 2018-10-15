@@ -193,6 +193,14 @@
                                                         <action selector="checkBookmark:" destination="HPx-Og-okD" eventType="touchUpInside" id="EVl-VK-8PA"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Old-ZC-pBa">
+                                                    <rect key="frame" x="322" y="87" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="이동"/>
+                                                    <connections>
+                                                        <action selector="movingCollection:" destination="HPx-Og-okD" eventType="touchUpInside" id="ptL-69-47I"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="0x0-aU-2f0" secondAttribute="trailing" constant="55" id="3Qr-ZN-xyv"/>
@@ -352,11 +360,6 @@
                         <viewLayoutGuide key="safeArea" id="Dwz-Qd-rcO"/>
                     </view>
                     <navigationItem key="navigationItem" title="저장된 레시피" id="4Bz-fr-ohp">
-                        <barButtonItem key="leftBarButtonItem" title="이동" id="bmh-pp-7KG">
-                            <connections>
-                                <action selector="text:" destination="SRv-2F-jO2" id="osS-w2-euy"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" id="sYo-cq-vZz">
                             <color key="tintColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>

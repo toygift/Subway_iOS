@@ -12,7 +12,7 @@ import Alamofire
 class MovetoCollectionViewController: UIViewController {
     
     var moveToCollection: [BookmarkFilter] = []
-
+    var moveToRecipeId: Int!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func cancelMoveCollection(_ sender: UIButton) {
 //        self.dismiss(animated: true, completion: nil)
@@ -27,6 +27,8 @@ class MovetoCollectionViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.moveToCollection.remove(at: 0)
+        print("aaaaa",moveToCollection)
+        print("bbbbb",moveToRecipeId)
     }
 }
 extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSource {
@@ -42,16 +44,17 @@ extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSo
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parameters: Parameters = ["bookmarked_recipe":self.moveToCollection[indexPath.item].id]
+        print("didSelect")
+        let parameters: Parameters = ["bookmarked_recipe":self.moveToRecipeId]
         let getCollection = GetCollection(api: "user/12/collection/\(self.moveToCollection[indexPath.item].id)",method: .patch, parameters: parameters)
         getCollection.requestAPIb { (response) in
-            print(response)
+            print("아아",response)
             if let results = response.result.value {
                 for data in results.bookmarkedRecipe {
                     print("ㅇㅇㅇㅇㅇ",data)
                     var ingri = [[Bread]]()
-                    var name: Name!
-                    var image: Sandwich!
+                    let name = data.name
+                    let image = data.sandwich
                     ingri.append(data.sandwich.mainIngredient)
                     ingri.append([data.bread])
                     ingri.append(data.toppings)
@@ -59,12 +62,6 @@ extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSo
                     ingri.append([data.toasting])
                     ingri.append(data.vegetables)
                     ingri.append(data.sauces)
-                    print(data.sandwich.mainIngredient.count)
-                    print(data.toppings.count)
-                    print(data.vegetables.count)
-                    print(data.sauces.count)
-                    name = data.name
-                    image = data.sandwich
 //                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
 //                    self.moveToCollection.append(tt)
                 }

@@ -66,10 +66,11 @@ class Tab3ViewController: UIViewController {
             if let nextViewController = segue.destination as? MakeCollectionViewController {
                 nextViewController.delegate = self
             }
-        } else  if segue.identifier == MOVETOCOLLECTION {
+        } else if segue.identifier == MOVETOCOLLECTION {
             if let nextViewController = segue.destination as? MovetoCollectionViewController {
-                if let nextView = sender as? [BookmarkFilter] {
-                    nextViewController.moveToCollection = nextView
+                if let nextView = sender as? [String: Any] {
+                    nextViewController.moveToCollection = nextView["list"] as! [BookmarkFilter]
+                    nextViewController.moveToRecipeId = nextView["recipe"] as! Int
                 }
 //                nextViewController.delegate = self
             }
@@ -77,23 +78,30 @@ class Tab3ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.collectionView.reloadData()
+        
         
         let getCollection = GetCollections(method: .get, parameters: [:])
         getCollection.requestAPIb { (response) in
             print(response)
             if let results = response.result.value?.results {
+                print("****************************************************")
+                print("results",results)
+                print("****************************************************")
                 for co in results {
                     self.collectionList.append(BookmarkFilter(id: co.id, name: co.name, clicked: false))
                     //젤 먼저 만든 컬렉션먼저 받기
                     for data in co.bookmarkedRecipe {
+//                        data.id  // 레시피 id
                         var ingri = [[Bread]]()
-                        var name: Name!
-                        var image: Sandwich!
+                        let recipeId = data.id
+                        let name = data.name
+                        let image = data.sandwich
+                        
                         ingri.append(data.sandwich.mainIngredient)
                         ingri.append([data.bread])
                         ingri.append(data.toppings)
@@ -101,18 +109,14 @@ class Tab3ViewController: UIViewController {
                         ingri.append([data.toasting])
                         ingri.append(data.vegetables)
                         ingri.append(data.sauces)
-                        print(data.sandwich.mainIngredient.count)
-                        print(data.toppings.count)
-                        print(data.vegetables.count)
-                        print(data.sauces.count)
-                        name = data.name
-                        image = data.sandwich
-                        let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
+                        
+                        let tt: [String : Any] = ["recipeId":recipeId, "main":ingri,"name":name,"image":image,"isOpened":false]
                         self.bookmarkList.append(tt)
                         
                     }
                 }
                 self.tableView.reloadData()
+                self.collectionView.reloadData()
             }
         }
     }
@@ -147,10 +151,12 @@ extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
             if id.id % 2 == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "evens", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
                 cell.setData(self.bookmarkList[indexPath.section], type: "evens")
+                cell.delegate = self
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "odds", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
                 cell.setData(self.bookmarkList[indexPath.section], type: "odds")
+                cell.delegate = self
                 return cell
             }
             
@@ -240,7 +246,7 @@ extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
         }
-//        self.collectionView.reloadData()
+        self.collectionView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -298,5 +304,11 @@ extension Tab3ViewController: MakeCollectionDelegate {
                 }
             }
         }
+    }
+}
+extension Tab3ViewController: MoveTOCollectionDelegate {
+    func moveToCollection(recipe id: Int) {
+        print("오오오오오오옹",id)
+        self.performSegue(withIdentifier: MOVETOCOLLECTION, sender: ["list":self.collectionList,"recipe":id])
     }
 }

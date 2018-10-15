@@ -12,13 +12,18 @@ import Alamofire
 import SwiftyJSON
 
 // MARK: - 메인 테이블뷰 셀
+protocol MoveTOCollectionDelegate: class {
+    func moveToCollection(recipe id: Int)
+}
 class RankingOddCell: UITableViewCell {
+    
+    weak var delegate: MoveTOCollectionDelegate?
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainNumberLabel: UILabel!
     
-    
+    var recipeId: Int!
     @IBOutlet weak var mainLikeButton: UIButton!
     @IBOutlet weak var mainBookmarkButton: UIButton!
     @IBOutlet weak var mainShareButton: UIButton!
@@ -27,6 +32,9 @@ class RankingOddCell: UITableViewCell {
        alamo()
     }
     
+    @IBAction func movingCollection(_ sender: Any) {
+        self.delegate?.moveToCollection(recipe: self.recipeId)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -40,6 +48,11 @@ class RankingOddCell: UITableViewCell {
         }
     }
     func setData(_ data: [String:Any], type: String) {
+        print("cellData",data)
+        if let recipeId = data["recipeId"] as? Int {
+            self.recipeId = recipeId
+        }
+
         let aa = data["image"] as! Sandwich
         let name = data["name"] as! Name
         print(name)
