@@ -80,7 +80,8 @@ class RecipeSandwichCell: UITableViewCell {
             fatalError("data is not set!!")
         }
         
-        sandwichImageView.kf.setImage(with: URL(string: d.imageRight))
+        let placeholder = UIImage(named: "placeholderSandwichRight")
+        sandwichImageView.kf.setImage(with: URL(string: d.imageRight), placeholder: placeholder)
         nameLabel.text = d.name
         caloriesLabel.text = "\(d.calories) Kcal"
         

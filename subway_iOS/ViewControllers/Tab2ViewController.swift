@@ -11,6 +11,8 @@ import UIKit
 struct Step {
     var title = ""
     var accessible = false
+    var selected = false
+    var completed = false
     
     init(){ /* do nothing */ }
     
@@ -21,6 +23,7 @@ struct Step {
     init(title : String, accessible : Bool) {
         self.title = title
         self.accessible = accessible
+        self.selected = true
     }
 }
 
@@ -148,6 +151,18 @@ class Tab2ViewController: UIViewController {
     }
     
     fileprivate func goTo(stepIndex : Int){
+        guard stepIndex > 0 else {
+            print("no way!!")
+            return
+        }
+        
+        // step collectionview
+        steps[stepIndex].selected = true
+        steps[stepIndex - 1].selected = false
+        steps[stepIndex - 1].completed = true
+        stepCollectionView.reloadData()
+        
+        // scrollview
         let x : CGFloat = (CGFloat(stepIndex) - 1) * view.frame.width
         let rect = CGRect(x: x, y: 0, width: view.frame.width, height: scrollView.frame.height)
         scrollView.scrollRectToVisible(rect, animated: true)
@@ -164,7 +179,7 @@ class Tab2ViewController: UIViewController {
 extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeStepCell.cellId, for: indexPath) as! RecipeStepCell
-        cell.data = steps[indexPath.item].title
+        cell.data = steps[indexPath.item]
         
         return cell
     }
@@ -207,6 +222,13 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     @objc fileprivate func refreshSelections(){
+        
+        for i in 0..<steps.count {
+            steps[i].completed = false
+            if i != 1 {
+                steps[i].accessible = false
+            }
+        }
         goTo(stepIndex: 1)
         step1Sandwich.initializeSelection()
         step2Bread.initializeSelection()
@@ -234,6 +256,18 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
 extension Tab2ViewController : UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = scrollView.currentPage
+        
+        for i in 0..<steps.count {
+            if i > 0 && i < steps.count - 1 {
+                if i == currentPage {
+                    steps[i].selected = true
+                } else {
+                    steps[i].selected = false
+                }
+            }
+        }
+        stepCollectionView.reloadData()
+        
         stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
         refreshTabLiner(strLength: steps[currentPage].title.count)
     }
@@ -244,14 +278,14 @@ extension Tab2ViewController: AlertPopupDelegate {
     func positiveButtonSelected(alertType: AlertType) {
         if alertType == .refresh {
             refreshSelections()
-        } else if alertType == .irreversible {
+        } else if alertType == .irreversible || alertType == .nosauce {
             steps[8].accessible = true
 
             if !steps[9].accessible {
                 scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(8), height: scrollView.bounds.size.height)
             }
             
-            recipe["toppings"] = step7Cache
+            recipe["sauce"] = step7Cache
             goTo(stepIndex: 8)
             
             // scroll 기능 해제!
@@ -311,7 +345,11 @@ extension Tab2ViewController : Step3Or7CompleteDelegate {
             goTo(stepIndex: nextStep)
         } else if nextStep == 8 {
             step7Cache = ingredients
-            showAlertPopup(alertType: .irreversible)
+            if ingredients.count > 0 {
+                showAlertPopup(alertType: .irreversible)
+            } else {
+                showAlertPopup(alertType: .nosauce)
+            }
         }
     }
 }

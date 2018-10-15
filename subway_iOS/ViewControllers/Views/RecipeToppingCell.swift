@@ -34,7 +34,8 @@ class RecipeToppingCell: UICollectionViewCell {
             fatalError("data is not set!!")
         }
         
-        imageView.kf.setImage(with: URL(string: d.image))
+        let placeholder = UIImage(named: "placeholder")
+        imageView.kf.setImage(with: URL(string: d.image), placeholder: placeholder)
         nameLabel.text = d.name
         
         nameLabel.textColor = clicked ? UIColor.white : UIColor.grayForDisabledFilter

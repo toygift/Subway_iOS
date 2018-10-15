@@ -64,7 +64,8 @@ class RecipeBreadCell: UITableViewCell {
             fatalError("data is not set - bread")
         }
         
-        breadImageView.kf.setImage(with: URL(string: d.image3X))
+        let placeholder = UIImage(named: "placeholderSandwichRight")
+        breadImageView.kf.setImage(with: URL(string: d.image3X), placeholder: placeholder)
        
         nameLabel.text = d.name
         selectedFlagBackground.backgroundColor = clicked ? UIColor.yellowSelected : UIColor.clear
