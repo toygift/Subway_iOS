@@ -250,6 +250,10 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         present(alert, animated: true, completion: nil)
     }
     
+    fileprivate func createRecipe(){
+        
+    }
+    
 }
 
 // MARK: - ScrollView Delegation
@@ -286,6 +290,10 @@ extension Tab2ViewController: AlertPopupDelegate {
             }
             
             recipe["sauce"] = step7Cache
+            
+            // TODO: - add logic for create recipe
+            
+            
             goTo(stepIndex: 8)
             
             // scroll 기능 해제!
