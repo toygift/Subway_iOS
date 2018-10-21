@@ -72,11 +72,35 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="o8l-sP-2Ed" id="Ues-0N-vZ3"/>
+                        <segue destination="XM6-BM-BVi" kind="show" identifier="ToCountryOfOrigin" id="62m-bj-fbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2w-if-lmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1132" y="241.52923538230885"/>
+        </scene>
+        <!--원산지 정보-->
+        <scene sceneID="0cP-ip-eDW">
+            <objects>
+                <viewController id="XM6-BM-BVi" customClass="CountryOfOriginViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="83W-eL-l29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7Am-xd-nbP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="원산지 정보" id="0Sq-Aq-ODz">
+                        <barButtonItem key="leftBarButtonItem" image="chevronLeft" id="HCH-pT-ZQq">
+                            <inset key="imageInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <connections>
+                                <action selector="back:" destination="XM6-BM-BVi" id="wnp-cx-TEw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YT3-ka-Rd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1926" y="156"/>
         </scene>
         <!--메뉴-->
         <scene sceneID="Qo1-eG-S7y">
@@ -87,6 +111,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="38Z-ce-KYT">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -99,6 +124,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevronLeft" width="36" height="36"/>
         <image name="iconMenuColour" width="24" height="18"/>
         <image name="menu" width="24" height="24"/>
     </resources>

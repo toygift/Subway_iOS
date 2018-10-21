@@ -78,7 +78,7 @@ extension Tab4ViewController: UITableViewDelegate, UITableViewDataSource {
             
             break
         case .origin:
-            
+            performSegue(withIdentifier: "ToCountryOfOrigin", sender: self)
             break
         case .allergy:
             
