@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HVn-sF-5D8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HVn-sF-5D8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,11 +49,11 @@
                                     <constraint firstAttribute="width" secondItem="Uby-LD-1yJ" secondAttribute="height" multiplier="75:26" id="Ljk-ZO-WmB"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subwayCi" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-1P-8Mt">
-                                <rect key="frame" x="62.5" y="120" width="250" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mySubwayLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-1P-8Mt">
+                                <rect key="frame" x="43" y="120" width="289" height="50"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="289" id="OaC-j9-uNP"/>
                                     <constraint firstAttribute="height" constant="50" id="dgT-V0-aty"/>
-                                    <constraint firstAttribute="width" constant="250" id="iii-ek-0ca"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-h9-5xa">
@@ -95,7 +94,7 @@
         <image name="facebook" width="234" height="44"/>
         <image name="iconSkipGrey" width="24" height="24"/>
         <image name="kakaoTalk" width="234" height="44"/>
+        <image name="mySubwayLogo" width="289" height="48"/>
         <image name="sandwichBg1" width="375" height="130"/>
-        <image name="subwayCi" width="254" height="53"/>
     </resources>
 </document>

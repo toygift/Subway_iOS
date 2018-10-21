@@ -8,26 +8,51 @@
 
 import UIKit
 import Kingfisher
+import Alamofire
+import SwiftyJSON
 
 // MARK: - 메인 테이블뷰 셀
+protocol MoveTOCollectionDelegate: class {
+    func moveToCollection(recipe id: Int)
+}
 class RankingOddCell: UITableViewCell {
+    
+    weak var delegate: MoveTOCollectionDelegate?
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainNumberLabel: UILabel!
     
-    
+    var recipeId: Int!
     @IBOutlet weak var mainLikeButton: UIButton!
     @IBOutlet weak var mainBookmarkButton: UIButton!
     @IBOutlet weak var mainShareButton: UIButton!
+    @IBAction func checkBookmark(_ sender: UIButton) {
+        print("check")
+       alamo()
+    }
     
-    
+    @IBAction func movingCollection(_ sender: Any) {
+        self.delegate?.moveToCollection(recipe: self.recipeId)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
 
     }
-    
+    func alamo() {
+        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/12/bookmark/"
+        let headers = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
+            let json = JSON(response.result.value)
+            print(json)
+        }
+    }
     func setData(_ data: [String:Any], type: String) {
+        print("cellData",data)
+        if let recipeId = data["recipeId"] as? Int {
+            self.recipeId = recipeId
+        }
+
         let aa = data["image"] as! Sandwich
         let name = data["name"] as! Name
         print(name)
@@ -45,8 +70,10 @@ class RankingOddDetailCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var left: NSLayoutConstraint!
     @IBOutlet weak var right: NSLayoutConstraint!
-    
     @IBOutlet weak var collHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var bookmakrButton: UIButton!
+   
     var ingrediendTitle = ["메인 재료","빵 선택", "치즈 선택","추가 선택", "토스팅 여부","야채 선택","소스 선택"]
     var ingrediendData = [[Bread]]() {
         didSet {

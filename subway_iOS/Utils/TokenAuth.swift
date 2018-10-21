@@ -75,8 +75,6 @@ class TokenAuth {
     
     static func getAuthHeaders() -> HTTPHeaders? {
         if let accessToken = self.load(serviceName, account: SERVER_TOKEN) {
-            print("토큰",accessToken)
-            print("Token \(accessToken)")
             return ["Authorization" : "Token\(accessToken)"] as HTTPHeaders
         } else {
             return nil

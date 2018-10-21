@@ -10,7 +10,7 @@
 import UIKit
 import Alamofire
 
-struct SingleOptionInstance {
+struct IngredientInstance {
     var ingredient : Bread?
     var clicked = false
 }
@@ -23,7 +23,7 @@ class Step4Or5SelectView: UITableView {
 
     let cellHeight : CGFloat = 270
     
-    var list = [SingleOptionInstance]()
+    var list = [IngredientInstance]()
     var completeDelegate : Step4Or5CompleteDelegate?
     var step = 0
     
@@ -55,14 +55,25 @@ class Step4Or5SelectView: UITableView {
         }
     }
     
+    func initializeSelection(){
+        for i in 0..<list.count {
+            if list[i].clicked {
+                list[i].clicked = false
+                let indexPath = IndexPath(row: i, section: 0)
+                reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    
     fileprivate func bindData(response: DataResponse<Ingredients>){
         guard let statusCode = response.response?.statusCode, statusCode == 200 else {
-            print("ERROR GETTING CHEESES")
+            print("ERROR GETTING CHEESE OR TOASTING")
             return
         }
         
         if let value = response.value {
-            list.append(contentsOf: value.results.map({SingleOptionInstance(ingredient: $0, clicked: false)}))
+            list.append(contentsOf: value.results.map({IngredientInstance(ingredient: $0, clicked: false)}))
             reloadData()
         }
     }

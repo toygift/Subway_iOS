@@ -83,6 +83,16 @@ class Step1SandwichSelectView: UIView {
         }
     }
     
+    func initializeSelection(){
+        for i in 0..<list.count {
+            if list[i].clicked {
+                list[i].clicked = false
+                let indexPath = IndexPath(row: i, section: 0)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
 }
 
 extension Step1SandwichSelectView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

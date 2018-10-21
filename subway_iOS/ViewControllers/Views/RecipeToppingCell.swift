@@ -16,7 +16,7 @@ class RecipeToppingCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var data : ToppingInstance? {
+    var data : IngredientInstance? {
         didSet {
             updateUI()
         }
@@ -30,11 +30,12 @@ class RecipeToppingCell: UICollectionViewCell {
     }
 
     fileprivate func updateUI(){
-        guard let d = data?.topping, let clicked = data?.clicked else{
+        guard let d = data?.ingredient, let clicked = data?.clicked else{
             fatalError("data is not set!!")
         }
         
-        imageView.kf.setImage(with: URL(string: d.image))
+        let placeholder = UIImage(named: "placeholder")
+        imageView.kf.setImage(with: URL(string: d.image), placeholder: placeholder)
         nameLabel.text = d.name
         
         nameLabel.textColor = clicked ? UIColor.white : UIColor.grayForDisabledFilter

@@ -9,10 +9,13 @@ target 'subway_iOS' do
 
  pod 'Alamofire', '~> 4.7'
  pod 'SwiftyJSON', '~> 4.0'
- pod 'FacebookCore'
- pod 'FacebookLogin'
- pod 'FacebookShare'
+ pod 'FacebookCore', :git => 'https://github.com/facebook/facebook-sdk-swift', :branch => 'master'
+
+ pod 'FacebookLogin', :git => 'https://github.com/facebook/facebook-sdk-swift', :branch => 'master'
+
+ pod 'FacebookShare', :git => 'https://github.com/facebook/facebook-sdk-swift', :branch => 'master' 
  pod 'Kingfisher', '~> 4.0'
+
  pod ‘RealmSwift’
 
   target 'subway_iOSTests' do

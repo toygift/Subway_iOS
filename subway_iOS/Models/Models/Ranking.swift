@@ -7,17 +7,51 @@
 //
 
 import Foundation
+
 ////////
 // To parse the JSON, add this file to your project and do:
 //
 //   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
-
+struct BookmarkCollections: Codable {
+    let count: Int
+//    let next, previous: JSONNull?
+    let results: [BookmarkCollection]
+}
+struct BookmarkCollection: Codable {
+    let id: Int
+    let user: User
+    let name: String
+    let bookmarkedRecipe: [RankingCollection]
+    
+    enum CodingKeys: String, CodingKey {
+        case id, user, name
+        case bookmarkedRecipe = "bookmarked_recipe"
+    }
+}
 struct Rankings: Codable {
     let count: Int
     let next, previous: JSONNull?
     let results: [Ranking]
 }
-
+struct RankingCollection: Codable {
+    let id: Int
+    let name: Name
+    let sandwich: Sandwich
+    let bread: Bread
+    let toppings: [Bread]
+    let cheese, toasting: Bread
+    let vegetables, sauces: [Bread]
+    let inventor: Inventor
+    let authUserLikeState, authUserBookmarkState: JSONNull?
+    let createdDate: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, sandwich, bread, toppings, cheese, toasting, vegetables, sauces, inventor
+        case authUserLikeState = "auth_user_like_state"
+        case authUserBookmarkState = "auth_user_bookmark_state"
+        case createdDate = "created_date"
+    }
+}
 struct Ranking: Codable {
     let id: Int
     let name: Name
@@ -27,7 +61,7 @@ struct Ranking: Codable {
     let cheese, toasting: Bread
     let vegetables, sauces: [Bread]
     let inventor: Inventor
-    let authUserLikeState, authUserBookmarkState: String
+    let authUserLikeState, authUserBookmarkState: String?
     let likeCount, bookmarkCount, likeBookmarkCount: Int
     let createdDate: String
     
@@ -96,8 +130,16 @@ struct Category: Codable {
 }
 
 // MARK: Encode/decode helpers
-
-class JSONNull: Codable {
+class JSONNull: Codable, Hashable {
+    
+    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+        return true
+    }
+    
+    public var hashValue: Int {
+        return 0
+    }
+    
     public init() {}
     
     public required init(from decoder: Decoder) throws {
@@ -113,6 +155,38 @@ class JSONNull: Codable {
     }
 }
 
+func newJSONDecoder() -> JSONDecoder {
+    let decoder = JSONDecoder()
+    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
+        decoder.dateDecodingStrategy = .iso8601
+    }
+    return decoder
+}
+
+func newJSONEncoder() -> JSONEncoder {
+    let encoder = JSONEncoder()
+    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
+        encoder.dateEncodingStrategy = .iso8601
+    }
+    return encoder
+}
+//
+//class JSONNull: Codable {
+//    public init() {}
+//
+//    public required init(from decoder: Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        if !container.decodeNil() {
+//            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+//        }
+//    }
+//
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        try container.encodeNil()
+//    }
+//}
+//
 
 //struct Rankings: Codable {
 //    let count: Int

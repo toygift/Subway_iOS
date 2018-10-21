@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SearchedWordCell: UICollectionViewCell {
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var deleteBtn: UIButton!
+class SearchedWordCell: UITableViewCell {
     
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var deleteBtn: UIButton!
     var data : String? {
         didSet {
             updateUI()
@@ -19,16 +19,13 @@ class SearchedWordCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
-        layer.borderWidth = 0.5
-        layer.borderColor = UIColor.gray.cgColor
-        layer.cornerRadius = 15
+        selectionStyle = .none
     }
     
     fileprivate func updateUI(){
         guard let d = data else {
             fatalError("the data is not set")
         }
-        
-        textLabel.text = d
+        label.text = d
     }
 }

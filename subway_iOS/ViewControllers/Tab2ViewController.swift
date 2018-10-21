@@ -11,6 +11,8 @@ import UIKit
 struct Step {
     var title = ""
     var accessible = false
+    var selected = false
+    var completed = false
     
     init(){ /* do nothing */ }
     
@@ -21,6 +23,7 @@ struct Step {
     init(title : String, accessible : Bool) {
         self.title = title
         self.accessible = accessible
+        self.selected = true
     }
 }
 
@@ -31,6 +34,7 @@ class Tab2ViewController: UIViewController {
     
     @IBOutlet weak var tabLiner: UIView!
     @IBOutlet weak var tabLinerWidth: NSLayoutConstraint!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     var scrollableBounds = CGRect.zero
     
@@ -50,13 +54,21 @@ class Tab2ViewController: UIViewController {
         }
     }
     
+    var step7Cache = [Bread]()
+    
     // MARK: - subviews
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
     let step2Bread = Step2BreadSelectView()
-    let step3Topping = Step3ToppingSelectView.initializeFromNib()
+    let step3Topping = Step3Or7SelectView.initializeFromNib()
     let step4Cheese = Step4Or5SelectView()
     let step5Toasting = Step4Or5SelectView()
     let step6Vegetable = Step6VegetableSelectView.initializeFromNib()
+    let step7Sauce = Step3Or7SelectView.initializeFromNib()
+    let step8Name = Step8NameSelectView.initializeFromNib()
+    
+    @IBAction func refreshButtonClicked(_ sender: UIBarButtonItem) {
+        showAlertPopup(alertType: .refresh)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +84,8 @@ class Tab2ViewController: UIViewController {
         step3Topping.completeDelegate = self
         step4Cheese.completeDelegate = self
         step5Toasting.completeDelegate = self
-        
+        step6Vegetable.completeDelegate = self
+        step7Sauce.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -88,9 +101,8 @@ class Tab2ViewController: UIViewController {
         
         var innerScrollFrame = scrollView.bounds
         var i = 0
-        for item in realSteps {
+        for _ in realSteps {
             
-            // TODO: - 이 로직을 다이나믹하게 넣는 방식으로도 할 수 있겠다
             if i == 0 {
                 step1Sandwich.frame = innerScrollFrame
                 scrollView.addSubview(step1Sandwich)
@@ -101,6 +113,7 @@ class Tab2ViewController: UIViewController {
             } else if i == 2 {
                 step3Topping.frame = innerScrollFrame
                 scrollView.addSubview(step3Topping)
+                step3Topping.step = 3
             } else if i == 3 {
                 step4Cheese.frame = innerScrollFrame
                 step4Cheese.step = 4
@@ -114,11 +127,13 @@ class Tab2ViewController: UIViewController {
             } else if i == 5 {
                 step6Vegetable.frame = innerScrollFrame
                 scrollView.addSubview(step6Vegetable)
+            } else if i == 6 {
+                step7Sauce.frame = innerScrollFrame
+                scrollView.addSubview(step7Sauce)
+                step7Sauce.step = 7
             } else {
-                let label = UILabel(frame: innerScrollFrame)
-                label.text = item.title
-                label.textAlignment = .center
-                scrollView.addSubview(label)
+                step8Name.frame = innerScrollFrame
+                scrollView.addSubview(step8Name)
             }
             
             if i < realSteps.count-1{
@@ -136,11 +151,27 @@ class Tab2ViewController: UIViewController {
     }
     
     fileprivate func goTo(stepIndex : Int){
+        guard stepIndex > 0 else {
+            print("no way!!")
+            return
+        }
+        
+        // step collectionview
+        steps[stepIndex].selected = true
+        steps[stepIndex - 1].selected = false
+        steps[stepIndex - 1].completed = true
+        stepCollectionView.reloadData()
+        
+        // scrollview
         let x : CGFloat = (CGFloat(stepIndex) - 1) * view.frame.width
         let rect = CGRect(x: x, y: 0, width: view.frame.width, height: scrollView.frame.height)
         scrollView.scrollRectToVisible(rect, animated: true)
         refreshTabLiner(strLength: steps[stepIndex].title.count)
         stepCollectionView.scrollToItem(at: IndexPath(item: stepIndex, section: 0), at: .centeredHorizontally, animated: true)
+        
+        if stepIndex == 8 {
+            refreshButton.tintColor = .clear
+        }
     }
 }
 
@@ -148,7 +179,7 @@ class Tab2ViewController: UIViewController {
 extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeStepCell.cellId, for: indexPath) as! RecipeStepCell
-        cell.data = steps[indexPath.item].title
+        cell.data = steps[indexPath.item]
         
         return cell
     }
@@ -163,10 +194,9 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
         
         if !steps[indexPath.item].accessible {
-            print("cannot accessible!!")
+            print("cannot accessible!! indexPath.item:", indexPath.item)
             return
         }
         
@@ -190,17 +220,91 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         // TODO: - debug this!!
         tabLinerWidth.constant = getLabelWidth(strLength: strLength)
     }
+    
+    @objc fileprivate func refreshSelections(){
+        
+        for i in 0..<steps.count {
+            steps[i].completed = false
+            if i != 1 {
+                steps[i].accessible = false
+            }
+        }
+        goTo(stepIndex: 1)
+        step1Sandwich.initializeSelection()
+        step2Bread.initializeSelection()
+        step3Topping.initializeSelection()
+        step4Cheese.initializeSelection()
+        step5Toasting.initializeSelection()
+        step6Vegetable.initializeSelection()
+        step7Sauce.initializeSelection()
+        
+    }
+    
+    fileprivate func showAlertPopup(alertType: AlertType){
+        let alert = UIStoryboard(name: "Tab2", bundle: nil).instantiateViewController(withIdentifier: AlertPopupViewController.identifier) as! AlertPopupViewController
+        alert.modalPresentationStyle = .overCurrentContext
+        alert.modalTransitionStyle = .crossDissolve
+        alert.alertType = alertType
+        alert.delegate = self
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func createRecipe(){
+        
+    }
+    
 }
 
 // MARK: - ScrollView Delegation
 extension Tab2ViewController : UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = scrollView.currentPage
+        
+        for i in 0..<steps.count {
+            if i > 0 && i < steps.count - 1 {
+                if i == currentPage {
+                    steps[i].selected = true
+                } else {
+                    steps[i].selected = false
+                }
+            }
+        }
+        stepCollectionView.reloadData()
+        
         stepCollectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
         refreshTabLiner(strLength: steps[currentPage].title.count)
     }
     
 }
+
+extension Tab2ViewController: AlertPopupDelegate {
+    func positiveButtonSelected(alertType: AlertType) {
+        if alertType == .refresh {
+            refreshSelections()
+        } else if alertType == .irreversible || alertType == .nosauce {
+            steps[8].accessible = true
+
+            if !steps[9].accessible {
+                scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(8), height: scrollView.bounds.size.height)
+            }
+            
+            recipe["sauce"] = step7Cache
+            
+            // TODO: - add logic for create recipe
+            
+            
+            goTo(stepIndex: 8)
+            
+            // scroll 기능 해제!
+            scrollView.isScrollEnabled = false
+            for i in 0..<steps.count {
+                steps[i].accessible = false
+            }
+        }
+    }
+}
+
 
 extension Tab2ViewController : Step1CompleteDelegate {
     func step1Completed(sandwich: Sandwich) {
@@ -233,18 +337,28 @@ extension Tab2ViewController : Step2CompleteDelegate {
     }
 }
 
-extension Tab2ViewController : Step3CompleteDelegate {
-    func step3Completed(toppings: [Bread]) {
-        steps[4].accessible = true
+extension Tab2ViewController : Step3Or7CompleteDelegate {
+    
+    func step3Or7Completed(ingredients: [Bread], nextStep: Int) {
         
-        // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
-        if !steps[5].accessible {
-            scrollView.contentSize = CGSize(width: view.frame.width * 4, height: scrollView.bounds.size.height)
+        if nextStep == 4 {
+            steps[nextStep].accessible = true
+            
+            if !steps[nextStep + 1].accessible {
+                scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
+            }
+            
+            recipe["toppings"] = ingredients
+            step4Cheese.fetchData()
+            goTo(stepIndex: nextStep)
+        } else if nextStep == 8 {
+            step7Cache = ingredients
+            if ingredients.count > 0 {
+                showAlertPopup(alertType: .irreversible)
+            } else {
+                showAlertPopup(alertType: .nosauce)
+            }
         }
-        
-        recipe["toppings"] = toppings
-        step4Cheese.fetchData()
-        goTo(stepIndex: 4)
     }
 }
 
@@ -252,12 +366,9 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
     func step4Or5Completed(ingredient: Bread, nextStep: Int) {
         steps[nextStep].accessible = true
         
-        // 6단계에 아직 가본 상태가 아니라면 5단계까지 갈 수 있도록
         if !steps[nextStep + 1].accessible {
             scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
         }
-        
-        
         
         // MARK: - fetch data
         if nextStep == 5 {
@@ -269,5 +380,20 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
         }
         
         goTo(stepIndex: nextStep)
+    }
+}
+
+extension Tab2ViewController: Step6CompleteDelegate {
+    func step6Completed(vegetableSelection: [String : String]) {
+        steps[7].accessible = true
+        
+        // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록
+        if !steps[8].accessible {
+            scrollView.contentSize = CGSize(width: view.frame.width * 7, height: scrollView.bounds.size.height)
+        }
+        
+        recipe["vegetable"] = vegetableSelection
+        step7Sauce.fetchData()
+        goTo(stepIndex: 7)
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class Tab1ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -114,7 +113,7 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.collectionView.reloadData()
-            cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
+            cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height + 60
             return cell
         }
     }
@@ -124,11 +123,11 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
             if isOpened == true {
                 self.rankingList[indexPath.section]["isOpened"] = false
                 let section = IndexSet.init(integer: indexPath.section)
-                self.tableView.reloadSections(section, with: .automatic)
+                self.tableView.reloadSections(section, with: .none)
             } else {
                 self.rankingList[indexPath.section]["isOpened"] = true
                 let section = IndexSet.init(integer: indexPath.section)
-                self.tableView.reloadSections(section, with: .automatic)
+                self.tableView.reloadSections(section, with: .none)
             }
         }
         //        self.tableView.layoutIfNeeded()
@@ -141,7 +140,7 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension Tab1ViewController: SearchViewDelegate {
     func searchSandwich(_ name: String) {
-        let api = "recipe/?ordering=\(name)"
+        let api = "recipe/?search=\(name)"
         let search = GetSearchResult(api: api, method: .get, parameters: [:])
         search.requestAPIa { (response) in
             print("ㅋ",response)

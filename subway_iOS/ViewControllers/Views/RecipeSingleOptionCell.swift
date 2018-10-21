@@ -18,7 +18,7 @@ class RecipeSingleOptionCell: UITableViewCell {
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var ivWidth: NSLayoutConstraint!
     
-    var data: SingleOptionInstance? {
+    var data: IngredientInstance? {
         didSet {
             updateUI()
         }
@@ -52,7 +52,8 @@ class RecipeSingleOptionCell: UITableViewCell {
             fatalError("data is not set - bread")
         }
         
-        ingredientIV.kf.setImage(with: URL(string: d.image3X))
+        let placeholder = UIImage(named: "placeholder")
+        ingredientIV.kf.setImage(with: URL(string: d.image3X), placeholder: placeholder)
         
         nameLabel.text = getNameLabelText(source: d.name)
         caloriesLabel.text = getDescLabelText(source: d.name)
