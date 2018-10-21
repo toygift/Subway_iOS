@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab4 View Controller-->
+        <!--메뉴-->
         <scene sceneID="msD-50-4z5">
             <objects>
                 <viewController id="XOB-Cv-frO" customClass="Tab4ViewController" customModule="subway_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8l-sP-2Ed">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8l-sP-2Ed">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="vP2-zA-ES4">
@@ -27,23 +27,37 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MENUCELL" id="tvc-CB-RVc" customClass="SettingTableViewCell" customModule="subway_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MENUCELL" id="tvc-CB-RVc" customClass="SettingTableViewCell" customModule="subway_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tvc-CB-RVc" id="DvR-vb-mBo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38K-T6-1vJ">
-                                                    <rect key="frame" x="48" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vxq-v9-eYk">
+                                                    <rect key="frame" x="10" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="dIk-nJ-CGn"/>
+                                                        <constraint firstAttribute="height" constant="30" id="xNh-7T-Dpe"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38K-T6-1vJ">
+                                                    <rect key="frame" x="52" y="11.5" width="311" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vxq-v9-eYk" firstAttribute="centerY" secondItem="DvR-vb-mBo" secondAttribute="centerY" id="1TO-3Y-5Jj"/>
+                                                <constraint firstItem="vxq-v9-eYk" firstAttribute="leading" secondItem="DvR-vb-mBo" secondAttribute="leading" constant="10" id="9ys-Ox-2Yb"/>
+                                                <constraint firstAttribute="trailing" secondItem="38K-T6-1vJ" secondAttribute="trailing" constant="12" id="jM1-dZ-6La"/>
+                                                <constraint firstItem="38K-T6-1vJ" firstAttribute="centerY" secondItem="DvR-vb-mBo" secondAttribute="centerY" id="kzc-LE-0AL"/>
+                                                <constraint firstItem="38K-T6-1vJ" firstAttribute="leading" secondItem="vxq-v9-eYk" secondAttribute="trailing" constant="12" id="nT4-oD-xV9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="logoIV" destination="vxq-v9-eYk" id="Qga-al-j02"/>
                                             <outlet property="titleLabel" destination="38K-T6-1vJ" id="3cD-XM-RfI"/>
                                         </connections>
                                     </tableViewCell>
@@ -59,18 +73,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tCi-o9-ypv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ecG-3Y-ftl">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fh4-tg-w4s">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8DG-KT-szI">
-                                <rect key="frame" x="315" y="7" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="logout"/>
-                            </button>
-                            <connections>
-                                <action selector="logout:" destination="XOB-Cv-frO" id="qD1-Kq-AQM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="메뉴" id="ecG-3Y-ftl"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="o8l-sP-2Ed" id="Ues-0N-vZ3"/>
@@ -78,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2w-if-lmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="242"/>
+            <point key="canvasLocation" x="1132" y="241.52923538230885"/>
         </scene>
         <!--메뉴-->
         <scene sceneID="Qo1-eG-S7y">
