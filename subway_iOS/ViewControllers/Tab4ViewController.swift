@@ -8,24 +8,28 @@
 
 import UIKit
 
+enum SettingType: String {
+    case notice   = "공지사항"
+    case origin   = "원산지 정보"
+    case allergy  = "알레르기 정보"
+    case logout   = "로그아웃"
+    case withdraw = "회원탈퇴"
+}
+
 struct Setting {
-    var title = ""
+    var title : SettingType = .notice
     var imageName = ""
 }
 
 class Tab4ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-//    @IBAction func logout(_ sender: UIBarButtonItem) {
-//        TokenAuth.delete(serviceName, account: TokenAuth.SERVER_TOKEN)
-//        goToAuth()
-//    }
     
-    var settingList = [Setting(title: "공지사항", imageName: "clipboard"),
-                       Setting(title: "원산지 정보", imageName: "compass"),
-                       Setting(title: "알레르기 정보", imageName: "pill"),
-                       Setting(title: "로그아웃", imageName: "logOut"),
-                       Setting(title: "회원탈퇴", imageName: "userX")]
+    var settingList = [Setting(title: .notice,   imageName: "clipboard"),
+                       Setting(title: .origin,   imageName: "compass"),
+                       Setting(title: .allergy,  imageName: "pill"),
+                       Setting(title: .logout,   imageName: "logOut"),
+                       Setting(title: .withdraw, imageName: "userX")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,9 @@ class Tab4ViewController: UIViewController {
         tableView.rowHeight = 55
     }
     
-    fileprivate func goToAuth(){
+    // MARK: - cell selection handling
+    fileprivate func logout(){
+        TokenAuth.delete(serviceName, account: TokenAuth.SERVER_TOKEN)
         let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.window?.rootViewController = vc
@@ -54,8 +60,25 @@ extension Tab4ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = settingList[indexPath.row].title
-        print(title)
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch title {
+        case .notice:
+            
+            break
+        case .origin:
+            
+            break
+        case .allergy:
+            
+            break
+        case .logout:
+            logout()
+            break
+        case .withdraw:
+            
+            break
+        }
     }
     
 }
@@ -68,7 +91,7 @@ class SettingTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func setting(with data: Setting) {
-        self.titleLabel.text = data.title
+        self.titleLabel.text = data.title.rawValue
         self.logoIV.image = UIImage(named: data.imageName)
     }
 }
