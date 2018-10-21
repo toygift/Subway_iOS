@@ -9,7 +9,7 @@
 import UIKit
 
 enum AlertType {
-    case refresh, irreversible, samerecipe, watchad, nosauce
+    case refresh, irreversible, samerecipe, watchad, nosauce, logout
 }
 
 protocol AlertPopupDelegate {
@@ -57,6 +57,9 @@ class AlertPopupViewController: UIViewController {
             break
         case .nosauce:
             messageLabel.text = "아직 소스를 선택하지 않았어요.\n정말 다음 단계로 넘어 가시겠어요?"
+            break
+        case .logout:
+            messageLabel.text = "로그아웃 하시겠어요?"
             break
         }
     }

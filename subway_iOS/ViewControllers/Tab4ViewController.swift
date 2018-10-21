@@ -38,6 +38,17 @@ class Tab4ViewController: UIViewController {
         tableView.rowHeight = 55
     }
     
+    fileprivate func showAlertPopup(alertType: AlertType){
+        let alert = UIStoryboard(name: "Tab2", bundle: nil).instantiateViewController(withIdentifier: AlertPopupViewController.identifier) as! AlertPopupViewController
+        alert.modalPresentationStyle = .overCurrentContext
+        alert.modalTransitionStyle = .crossDissolve
+        alert.alertType = alertType
+        alert.delegate = self
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - cell selection handling
     fileprivate func logout(){
         TokenAuth.delete(serviceName, account: TokenAuth.SERVER_TOKEN)
@@ -73,7 +84,8 @@ extension Tab4ViewController: UITableViewDelegate, UITableViewDataSource {
             
             break
         case .logout:
-            logout()
+            // TODO: - 로그아웃 스킵한 유저에 대해서 어떻게 할 것인지??
+            showAlertPopup(alertType: .logout)
             break
         case .withdraw:
             
@@ -83,6 +95,13 @@ extension Tab4ViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+extension Tab4ViewController: AlertPopupDelegate {
+    func positiveButtonSelected(alertType: AlertType) {
+        if alertType == .logout {
+            logout()
+        }
+    }
+}
 
 class SettingTableViewCell: UITableViewCell {
     static let identifier = "MENUCELL"
