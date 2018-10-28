@@ -86,7 +86,19 @@
                     <view key="view" contentMode="scaleToFill" id="83W-eL-l29">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ofY-yS-Lda">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Am-xd-nbP" firstAttribute="bottom" secondItem="ofY-yS-Lda" secondAttribute="bottom" id="HeT-ZP-gsJ"/>
+                            <constraint firstItem="7Am-xd-nbP" firstAttribute="trailing" secondItem="ofY-yS-Lda" secondAttribute="trailing" id="KD1-g5-6gn"/>
+                            <constraint firstItem="ofY-yS-Lda" firstAttribute="leading" secondItem="7Am-xd-nbP" secondAttribute="leading" id="dy2-L8-Mr5"/>
+                            <constraint firstItem="ofY-yS-Lda" firstAttribute="top" secondItem="7Am-xd-nbP" secondAttribute="top" id="qqA-Ub-jh9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7Am-xd-nbP"/>
                     </view>
                     <navigationItem key="navigationItem" title="원산지 정보" id="0Sq-Aq-ODz">
@@ -97,6 +109,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ofY-yS-Lda" id="H9S-5J-rFx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YT3-ka-Rd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,7 +139,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevronLeft" width="36" height="36"/>
+        <image name="chevronLeft" width="24" height="24"/>
         <image name="iconMenuColour" width="24" height="18"/>
         <image name="menu" width="24" height="24"/>
     </resources>

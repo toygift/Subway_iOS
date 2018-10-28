@@ -77,6 +77,8 @@
 		91722FAE2132C360005AB417 /* NutrientInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FAD2132C360005AB417 /* NutrientInfoPopupViewController.swift */; };
 		91722FB2213B877C005AB417 /* MainIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FB1213B877C005AB417 /* MainIngredientCell.swift */; };
 		91722FB4213B8D10005AB417 /* NutrientIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */; };
+		919114732185612400F73679 /* CountryOfOriginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919114712185612400F73679 /* CountryOfOriginCell.swift */; };
+		919114742185612400F73679 /* CountryOfOriginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919114722185612400F73679 /* CountryOfOriginCell.xib */; };
 		919C4891215A4050007467CD /* RecipeVegetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C488F215A4050007467CD /* RecipeVegetableCell.swift */; };
 		919C4892215A4050007467CD /* RecipeVegetableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919C4890215A4050007467CD /* RecipeVegetableCell.xib */; };
 		91CE64C62169FB8E005D17F1 /* AlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE64C52169FB8E005D17F1 /* AlertPopupViewController.swift */; };
@@ -191,6 +193,8 @@
 		91722FAD2132C360005AB417 /* NutrientInfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientInfoPopupViewController.swift; sourceTree = "<group>"; };
 		91722FB1213B877C005AB417 /* MainIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIngredientCell.swift; sourceTree = "<group>"; };
 		91722FB3213B8D10005AB417 /* NutrientIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientIndexCell.swift; sourceTree = "<group>"; };
+		919114712185612400F73679 /* CountryOfOriginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryOfOriginCell.swift; sourceTree = "<group>"; };
+		919114722185612400F73679 /* CountryOfOriginCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryOfOriginCell.xib; sourceTree = "<group>"; };
 		919C488F215A4050007467CD /* RecipeVegetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVegetableCell.swift; sourceTree = "<group>"; };
 		919C4890215A4050007467CD /* RecipeVegetableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeVegetableCell.xib; sourceTree = "<group>"; };
 		91CE64C52169FB8E005D17F1 /* AlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopupViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				9131FE142159255B001B21A0 /* Step6VegetableSelectView.xib */,
 				91E3218A2160AE05003C57A2 /* Step8NameSelectView.swift */,
 				91E3218C2160AE14003C57A2 /* Step8NameSelectView.xib */,
+				919114712185612400F73679 /* CountryOfOriginCell.swift */,
+				919114722185612400F73679 /* CountryOfOriginCell.xib */,
 			);
 			name = Views;
 			path = ViewControllers/Views;
@@ -539,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9131FE0921576C92001B21A0 /* RecipeToppingCell.xib in Resources */,
+				919114742185612400F73679 /* CountryOfOriginCell.xib in Resources */,
 				9131FE152159255B001B21A0 /* Step6VegetableSelectView.xib in Resources */,
 				91722FA82131A7B8005AB417 /* RecipeSandwichCell.xib in Resources */,
 				9131FE012157517C001B21A0 /* RecipeBreadCell.xib in Resources */,
@@ -729,6 +736,7 @@
 				9145C00C2131A164004381E7 /* RecipeMakeRequests.swift in Sources */,
 				91E3218B2160AE05003C57A2 /* Step8NameSelectView.swift in Sources */,
 				911EAE5920F1EABE002E132F /* SearchedWordCell.swift in Sources */,
+				919114732185612400F73679 /* CountryOfOriginCell.swift in Sources */,
 				9154278320B14F9200C6E12A /* Tab2ViewController.swift in Sources */,
 				E066ADACAB9168C4184AEBCD /* UIScrollViewExtension.swift in Sources */,
 			);
