@@ -86,6 +86,7 @@ class Tab2ViewController: UIViewController {
         step5Toasting.completeDelegate = self
         step6Vegetable.completeDelegate = self
         step7Sauce.completeDelegate = self
+        step8Name.completeDelegate = self
     }
     
     fileprivate func setupCollectionView(){
@@ -349,6 +350,7 @@ extension Tab2ViewController : Step2CompleteDelegate {
         
         recipe["bread"] = ["name" : bread.name]
         step3Topping.fetchData()
+        step8Name.setSandwichName(with: bread.name)
         goTo(stepIndex: 3)
     }
 }
@@ -411,5 +413,11 @@ extension Tab2ViewController: Step6CompleteDelegate {
         recipe["vegetable"] = vegetableSelection
         step7Sauce.fetchData()
         goTo(stepIndex: 7)
+    }
+}
+
+extension Tab2ViewController: Step8CompleteDelegate {
+    func step8Completed(name: String) {
+        recipe["name"] = ["name" : name]
     }
 }

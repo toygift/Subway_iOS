@@ -64,3 +64,10 @@ struct RecipeCreateValidation: APIRequest {
     var method: HTTPMethod = .post
     var parameters: Parameters
 }
+
+struct GetRecipeNameChoicesList: APIRequest {
+    typealias T = RecipeNameChoicesList
+    let api = "recipe/name/choices"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}
