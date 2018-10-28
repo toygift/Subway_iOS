@@ -19,3 +19,8 @@ struct Ingredients: Codable {
     let next, previous: String?
     let results: [Bread]
 }
+
+struct MessageResponse: Codable {
+    let detail: String
+    let pk : Int?
+}

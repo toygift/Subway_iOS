@@ -251,7 +251,31 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     fileprivate func createRecipe(){
-        
+        recipe["name"] = ["name": "타노스가 먹다가 들킨"]
+        RecipeCreateValidation(method: .post, parameters: recipe).requestAPI { [weak self] (response) in
+            guard let statusCode = response.response?.statusCode else {
+                print("cannot get status code")
+                return
+            }
+            
+            if statusCode == 200 {
+                // good to go
+                self?.goTo(stepIndex: 8)
+                self?.disableScroll()
+            } else if statusCode == 400 {
+                if let pk = response.value?.pk {
+                    print("hello \(pk)")
+                }
+            }
+        }
+    }
+    
+    fileprivate func disableScroll(){
+        // scroll 기능 해제!
+        scrollView.isScrollEnabled = false
+        for i in 0..<steps.count {
+            steps[i].accessible = false
+        }
     }
     
 }
@@ -289,18 +313,10 @@ extension Tab2ViewController: AlertPopupDelegate {
                 scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(8), height: scrollView.bounds.size.height)
             }
             
-            recipe["sauce"] = step7Cache
-            
+            recipe["sauces"] = step7Cache.map{ ["name": $0.name] }
             // TODO: - add logic for create recipe
+            createRecipe()
             
-            
-            goTo(stepIndex: 8)
-            
-            // scroll 기능 해제!
-            scrollView.isScrollEnabled = false
-            for i in 0..<steps.count {
-                steps[i].accessible = false
-            }
         }
     }
 }
@@ -315,7 +331,7 @@ extension Tab2ViewController : Step1CompleteDelegate {
             scrollView.contentSize = CGSize(width: view.frame.width * 2, height: scrollView.bounds.size.height)
         }
         
-        recipe["sandwich"] = sandwich
+        recipe["sandwich"] = ["name" : sandwich.name]
         step2Bread.fetchData()
         goTo(stepIndex: 2)
     }
@@ -331,7 +347,7 @@ extension Tab2ViewController : Step2CompleteDelegate {
             scrollView.contentSize = CGSize(width: view.frame.width * 3, height: scrollView.bounds.size.height)
         }
         
-        recipe["bread"] = bread
+        recipe["bread"] = ["name" : bread.name]
         step3Topping.fetchData()
         goTo(stepIndex: 3)
     }
@@ -348,7 +364,7 @@ extension Tab2ViewController : Step3Or7CompleteDelegate {
                 scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(nextStep), height: scrollView.bounds.size.height)
             }
             
-            recipe["toppings"] = ingredients
+            recipe["toppings"] = ingredients.map{ ["name": $0.name] }
             step4Cheese.fetchData()
             goTo(stepIndex: nextStep)
         } else if nextStep == 8 {
@@ -372,10 +388,10 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
         
         // MARK: - fetch data
         if nextStep == 5 {
-            recipe["cheese"] = ingredient
+            recipe["cheese"] = ["name" : ingredient.name]
             step5Toasting.fetchData()
         } else if nextStep == 6 {
-            recipe["toasting"] = ingredient
+            recipe["toasting"] = ["name" : ingredient.name]
             step6Vegetable.fetchData()
         }
         
@@ -384,7 +400,7 @@ extension Tab2ViewController : Step4Or5CompleteDelegate {
 }
 
 extension Tab2ViewController: Step6CompleteDelegate {
-    func step6Completed(vegetableSelection: [String : String]) {
+    func step6Completed(vegetableSelection: [Vegetable]) {
         steps[7].accessible = true
         
         // 5단계에 아직 가본 상태가 아니라면 4단계까지 갈 수 있도록

@@ -18,8 +18,13 @@ struct VegetableInstance {
     }
 }
 
+struct Vegetable {
+    var name = ""
+    var quantity = ""
+}
+
 protocol Step6CompleteDelegate {
-    func step6Completed(vegetableSelection: [String: String])
+    func step6Completed(vegetableSelection: [Vegetable])
 }
 
 class Step6VegetableSelectView: UIView {
@@ -81,10 +86,12 @@ class Step6VegetableSelectView: UIView {
     
     
     @objc fileprivate func goNextStep(){
-        var selectedOptions = [String : String]()
+        var selectedOptions = [Vegetable]()
         for row in list {
             if let name = row.vegetable?.name {
-                selectedOptions[name] = getSelectedOptionString(options: row.selectedOption)
+                let v = Vegetable(name: name, quantity: getSelectedOptionString(options: row.selectedOption))
+                selectedOptions.append(v)
+                //selectedOptions[name] = getSelectedOptionString(options: row.selectedOption)
             }
         }
         completeDelegate?.step6Completed(vegetableSelection: selectedOptions)
