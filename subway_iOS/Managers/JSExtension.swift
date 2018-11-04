@@ -24,7 +24,7 @@ extension APIRequest {
         Alamofire.request(url, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
     func requestAPIa(completionHandler: @escaping (DataResponse<T>) -> Void) {
-        let url = "\(serviceURL)/\(api)"
+        let url = "\(serviceURL)/\(api)/"
         let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         Alamofire.request(URL(string: encoded!)!, method: method, parameters: parameters).responseDecodable(completionHandler: completionHandler)
     }
@@ -33,6 +33,10 @@ extension APIRequest {
         let headers: HTTPHeaders = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
         print("요청BBB URL",url)
         Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseDecodable(completionHandler: completionHandler)
+    }
+    func requestAPIencoded(completionHandler: @escaping (DataResponse<T>) -> Void) {
+        let url = "\(serviceURL)/\(api)/"
+        Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default).responseDecodable(completionHandler: completionHandler)
     }
 }
 

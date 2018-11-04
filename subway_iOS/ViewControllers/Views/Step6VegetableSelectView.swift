@@ -105,9 +105,9 @@ class Step6VegetableSelectView: UIView {
         if options[0] {
             return "빼"
         } else if options[1] {
-            return "적게"
+            return "조금"
         } else if options[2] {
-            return "기본"
+            return "보통"
         } else if options[3] {
             return "많이"
         }

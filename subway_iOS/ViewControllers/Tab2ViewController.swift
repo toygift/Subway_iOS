@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 struct Step {
     var title = ""
     var accessible = false
@@ -252,8 +251,8 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     fileprivate func createRecipe(){
-        recipe["name"] = ["name": "타노스가 먹다가 들킨"]
-        RecipeCreateValidation(method: .post, parameters: recipe).requestAPI { [weak self] (response) in
+        RecipeCreateValidation(method: .post, parameters: recipe).requestAPIencoded { [weak self] (response) in
+            
             guard let statusCode = response.response?.statusCode else {
                 print("cannot get status code")
                 return
@@ -410,7 +409,7 @@ extension Tab2ViewController: Step6CompleteDelegate {
             scrollView.contentSize = CGSize(width: view.frame.width * 7, height: scrollView.bounds.size.height)
         }
         
-        recipe["vegetable"] = vegetableSelection
+        recipe["vegetables"] = vegetableSelection .map{ ["name":$0.name, "quantity":$0.quantity] }
         step7Sauce.fetchData()
         goTo(stepIndex: 7)
     }
@@ -418,6 +417,9 @@ extension Tab2ViewController: Step6CompleteDelegate {
 
 extension Tab2ViewController: Step8CompleteDelegate {
     func step8Completed(name: String) {
-        recipe["name"] = ["name" : name]
+        recipe["name"] = name
+        
+        // TODO: - call make recipe request
+        
     }
 }
