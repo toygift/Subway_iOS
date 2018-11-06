@@ -22,26 +22,9 @@ class SearchViewController: UIViewController {
     }
     
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var searchedWordCollectionView: UICollectionView!
-    
-    var dummyData = [
-        "hello", "world", "abc", "lorem ipsum", "dolor sit amet", "consectetur",
-        "subway", "delicious", "fast five", "beer", "coffee", "sandwich",
-        "apple", "mango", "banana", "grapefruit", "Apink", "red velvet", "twice",
-        "lorem ipsum dolor sit amet consectetur asdlkj asdlfkjasdf"
-    ]
+    @IBOutlet weak var tableView: UITableView!
     
     var searchedWords = [RecentSearchWord]()
-    
-    
-    let lineSpacing : CGFloat = 5
-    let collectionViewLeftInset : CGFloat = 20
-    let cellPadding : CGFloat = 50 // X button 과 나머지 inset
-    
-    var originXCache : CGFloat = 0
-    var originYCache : CGFloat = -1 // 0부터 시작하기 때문에 -1으로 초기화
-    var page = 1
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +44,8 @@ class SearchViewController: UIViewController {
         icon.centerXAnchor.constraint(equalTo: leftView.centerXAnchor, constant: 4).isActive = true
         icon.centerYAnchor.constraint(equalTo: leftView.centerYAnchor).isActive = true
         
-        searchedWordCollectionView.delegate = self
-        searchedWordCollectionView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
         textField.delegate = self
     }
@@ -72,109 +55,39 @@ class SearchViewController: UIViewController {
         for w in realm.objects(RecentSearchWord.self) {
             searchedWords.append(w)
         }
-        searchedWordCollectionView.reloadData()
+        tableView.reloadData()
     }
 
 }
 
-
-// MARK: - collectionview implementation
-extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return getRowCount(page: page)
+extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchedWords.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchedWordCell", for: indexPath) as! SearchedWordCell
-        cell.data = searchedWords[indexPath.item].word //dummyData[indexPath.item]
-        if originYCache != cell.frame.origin.y { // 새로운 row로 진입했을 때
-            originXCache = collectionViewLeftInset
-            cell.frame.origin.x = collectionViewLeftInset
-            originYCache = cell.frame.origin.y
-        } else {
-            cell.frame.origin.x = originXCache + lineSpacing
-        }
-        originXCache += lineSpacing + cell.frame.width
-        
-        cell.deleteBtn.tag = indexPath.item
-        cell.deleteBtn.addTarget(self, action: #selector(deleteItem(sender:)), for: .touchUpInside)
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchedWordCell") as! SearchedWordCell
+        cell.data = searchedWords[indexPath.row].word
+        cell.deleteBtn.tag = indexPath.row
+        cell.deleteBtn.addTarget(self, action: #selector(deleteSearchedWord(sender:)), for: .touchUpInside)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = NSString(string: dummyData[indexPath.item]).size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17)]).width + cellPadding
-        return CGSize(width: width, height: 30)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: collectionViewLeftInset, bottom: 0, right: collectionViewLeftInset)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        if kind == UICollectionElementKindSectionFooter {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "MoreBtnSection", for: indexPath) as! MoreBtnSection
-            
-            let tap = UITapGestureRecognizer(target: self, action: #selector(tapFooter))
-            footer.clickArea.addGestureRecognizer(tap)
-            return footer
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let name = searchedWords[indexPath.row].word
+        dismiss(animated: true) {
+            [weak self] in
+            self?.delegate?.searchSandwich(name)
         }
-        return UICollectionReusableView()
     }
     
-    @objc fileprivate func tapFooter(){
-        page += 1
-        searchedWordCollectionView.reloadData()
-    }
-    
-    @objc fileprivate func deleteItem(sender : UIButton){
-        print(sender.tag)
-        
+    @objc fileprivate func deleteSearchedWord(sender: UIButton){
+        let searchedWord = searchedWords.remove(at: sender.tag)
         let realm = try! Realm()
         try! realm.write {
-//            let delete = RecentSearchWord()
-//            delete.user = "rr"
-//            delete.word = self.searchedWords[sender.tag].word
-//            delete.date = Date()
-//            
-//
-            realm.delete(realm.objects(RecentSearchWord.self).filter("word=%@",searchedWords[sender.tag].word))
+            realm.delete(searchedWord)
         }
-        self.searchedWords.remove(at: sender.tag)
-        // TODO: - hello world
-        //dummyData.remove(at: sender.tag)
-        searchedWordCollectionView.reloadData()
-    }
-    
-    fileprivate func getRowCount(page : Int) -> Int{
-        var row = 1 // initial data
-        var viewCount = 0
-        
-        let viewWidth = view.frame.width
-        var maxXCache : CGFloat = collectionViewLeftInset
-        
-        for item in searchedWords {
-            let width = NSString(string: item.word).size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17)]).width + cellPadding
-            maxXCache += width + lineSpacing
-            
-            if maxXCache + collectionViewLeftInset > viewWidth {
-                row += 1
-                maxXCache = collectionViewLeftInset + width + lineSpacing
-            }
-            
-            if row > page * 3 {
-                break
-            }
-            viewCount += 1
-        }
-        return viewCount
+        tableView.reloadData()
     }
     
 }
@@ -200,9 +113,10 @@ extension SearchViewController : UITextFieldDelegate {
                 }
             }
             self.dismiss(animated: true) {
+                [weak self] in
                 tf.resignFirstResponder()
                 tf.text = ""
-                self.delegate?.searchSandwich(q)
+                self?.delegate?.searchSandwich(q)
             }
             return false
         }

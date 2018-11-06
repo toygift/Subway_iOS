@@ -28,4 +28,8 @@ extension UIColor {
     static var greenForSelectedOnes : UIColor {
         return UIColor(red: 0/255, green: 153/255, blue: 69/255, alpha: 1.0)
     }
+    
+    static var grayForSandwichName : UIColor {
+        return UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
+    }
 }

@@ -139,7 +139,7 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension Tab1ViewController: SearchViewDelegate {
     func searchSandwich(_ name: String) {
-        let api = "recipe/?ordering=\(name)"
+        let api = "recipe/?search=\(name)"
         let search = GetSearchResult(api: api, method: .get, parameters: [:])
         search.requestAPIa { (response) in
             print("ㅋ",response)

@@ -19,3 +19,12 @@ struct Ingredients: Codable {
     let next, previous: String?
     let results: [Bread]
 }
+
+struct MessageResponse: Codable {
+    let detail: String
+    let pk : Int?
+}
+
+struct RecipeNameChoicesList: Codable {
+    let recipe_name_choices_list: [String]
+}

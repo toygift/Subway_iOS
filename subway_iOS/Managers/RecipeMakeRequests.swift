@@ -58,4 +58,16 @@ struct GetSauces: APIRequest {
     var parameters: Parameters
 }
 
+struct RecipeCreateValidation: APIRequest {
+    typealias T = MessageResponse
+    let api = "recipe/validation"
+    var method: HTTPMethod = .post
+    var parameters: Parameters
+}
 
+struct GetRecipeNameChoicesList: APIRequest {
+    typealias T = RecipeNameChoicesList
+    let api = "recipe/name-choices"
+    var method: HTTPMethod = .get
+    var parameters: Parameters
+}
