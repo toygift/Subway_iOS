@@ -21,58 +21,61 @@ struct BookmarkCollection: Codable {
     let id: Int
     let user: User
     let name: String
-    let bookmarkedRecipe: [RankingCollection]
+    let bookmarkedRecipe: [Bookmark]
     
     enum CodingKeys: String, CodingKey {
         case id, user, name
         case bookmarkedRecipe = "bookmarked_recipe"
     }
 }
-struct Rankings: Codable {
+class Rankings: Codable {
     let count: Int
     let next, previous: JSONNull?
-    let results: [Ranking]
-}
-struct RankingCollection: Codable {
-    let id: Int
-    let name: String
-    let sandwich: Sandwich
-    let bread: Ingredient
-    let toppings: [Ingredient]
-    let cheese, toasting: Ingredient
-    let vegetables, sauces: [Ingredient]
-    let inventor: Inventor
-    let authUserLikeState, authUserBookmarkState: JSONNull?
-    let createdDate: String
+    let results: [Recipe]
     
-    enum CodingKeys: String, CodingKey {
+}
+class RankingCollection: Recipe {
+    
+}
+
+
+
+class Recipe : Codable {
+    
+    let id: Int!
+    let name: String!
+    let sandwich: Sandwich!
+    let bread: Ingredient!
+    let toppings: [Ingredient]!
+    let cheese, toasting: Ingredient!
+    let vegetables, sauces: [Ingredient]!
+    let inventor: Inventor!
+    let authUserLikeState, authUserBookmarkState: JSONNull?
+    let createdDate: String!
+    
+    private enum CodingKeys: String, CodingKey {
         case id, name, sandwich, bread, toppings, cheese, toasting, vegetables, sauces, inventor
         case authUserLikeState = "auth_user_like_state"
         case authUserBookmarkState = "auth_user_bookmark_state"
         case createdDate = "created_date"
     }
 }
-struct Ranking: Codable {
-    let id: Int
-    let name: String
-    let sandwich: Sandwich
-    let bread: Ingredient
-    let toppings: [Ingredient]
-    let cheese, toasting: Ingredient
-    let vegetables, sauces: [Ingredient]
-    let inventor: Inventor
-    let authUserLikeState, authUserBookmarkState: String?
-    let likeCount, bookmarkCount, likeBookmarkCount: Int
-    let createdDate: String
+
+class Bookmark: Recipe {
+    let likeCount, bookmarkCount, likeBookmarkCount: Int!
     
-    enum CodingKeys: String, CodingKey {
-        case id, name, sandwich, bread, toppings, cheese, toasting, vegetables, sauces, inventor
-        case authUserLikeState = "auth_user_like_state"
-        case authUserBookmarkState = "auth_user_bookmark_state"
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.likeCount = try container.decode(Int.self, forKey: .likeCount)
+        self.bookmarkCount = try container.decode(Int.self, forKey: .bookmarkCount)
+        self.likeBookmarkCount = try container.decode(Int.self, forKey: .likeBookmarkCount)
+        try super.init(from: decoder)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
         case likeCount = "like_count"
         case bookmarkCount = "bookmark_count"
         case likeBookmarkCount = "like_bookmark_count"
-        case createdDate = "created_date"
     }
 }
 

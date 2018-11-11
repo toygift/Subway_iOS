@@ -11,7 +11,7 @@ import Security
 import SwiftyJSON
 import Alamofire
 
-let serviceURL = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com"
+let serviceURL = "https://api.my-subway.com"
 let serviceName = "com.teamsubway.subway-iOS"
 
 class TokenAuth {

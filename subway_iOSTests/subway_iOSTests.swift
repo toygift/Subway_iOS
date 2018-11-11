@@ -29,7 +29,7 @@ class subway_iOSTests: XCTestCase {
     func testAPI(){
         let promise = expectation(description : "status code : 200")
         
-        let url = URL(string : "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/recipe/")!
+        let url = URL(string : "https://api.my-subway.com/recipe/")!
         var request = URLRequest(url: url)
         //request.addValue("Token4fc45b17143710f9f22352358a9b6c4d8fc69ffd", forHTTPHeaderField: "Authorization")
         

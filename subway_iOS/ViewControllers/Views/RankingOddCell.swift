@@ -40,7 +40,7 @@ class RankingOddCell: UITableViewCell {
 
     }
     func alamo() {
-        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/12/bookmark/"
+        let url = "https://api.my-subway.com/user/12/bookmark/"
         let headers = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
             let json = JSON(response.result.value)

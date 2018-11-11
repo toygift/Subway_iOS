@@ -9,10 +9,10 @@
 import UIKit
 
 struct RankingInstance {
-    var recipe : Ranking!
+    var recipe : Recipe!
     var isOpened : Bool = false
     
-    init(recipe: Ranking) {
+    init(recipe: Recipe) {
         self.recipe = recipe
     }
     

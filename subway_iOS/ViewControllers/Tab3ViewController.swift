@@ -10,6 +10,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+//struct BookmarkInstance {
+//    var recipe : Recipe
+//    var isOpened = false
+//
+//    init(recipe : Recipe) {
+//        self.recipe = recipe
+//    }
+//}
+
+
 class SavedCollectionViewCell : UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
 //    @IBOutlet weak var backView: UIView!
@@ -95,7 +105,7 @@ class Tab3ViewController: UIViewController {
                 for co in results {
                     self.collectionList.append(BookmarkFilter(id: co.id, name: co.name, clicked: false))
                     //젤 먼저 만든 컬렉션먼저 받기
-                    for data in co.bookmarkedRecipe {
+                    for data in co.bookmarkedRecipe.sorted(by: {$0.id < $1.id}) {
 //                        data.id  // 레시피 id
 //                        var ingri = [[Ingredient]]()
 //                        let recipeId = data.id
@@ -112,7 +122,7 @@ class Tab3ViewController: UIViewController {
 //
 //                        let tt: [String : Any] = ["recipeId":recipeId, "main":ingri,"name":name,"image":image,"isOpened":false]
 //                        self.bookmarkList.append(RankingInstance(recipe: data))
-                        
+                        self.bookmarkList.append(RankingInstance(recipe: data))
                     }
                 }
                 self.tableView.reloadData()
@@ -134,11 +144,10 @@ class Tab3ViewController: UIViewController {
 extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         print("ttt",self.bookmarkList.count)
-        //        print("ranking",self.rankingList.count)
         return self.bookmarkList.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let isOpened = self.bookmarkList[section].isOpened as? Bool else { return 1 }
+        let isOpened = self.bookmarkList[section].isOpened
         if isOpened == true {
             return 2
         } else {
@@ -190,8 +199,6 @@ extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
                 self.tableView.reloadSections(section, with: .none)
             }
         }
-        //        self.tableView.layoutIfNeeded()
-        //        self.tableView.layoutSubviews()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -264,7 +271,7 @@ extension Tab3ViewController: MakeCollectionDelegate {
     func alamo(_ name: String) {
         //USER의 id 저장해서 URL에 뿔리기
         //        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/\(User.id)/collection/"
-        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/12/collection/"
+        let url = "https://api.my-subway.com/user/12/collection/"
         let headers: HTTPHeaders = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
         let parameters: Parameters = ["name": name]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in

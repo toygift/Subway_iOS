@@ -28,7 +28,7 @@ class IngredientCell: UITableViewCell, UITableViewDelegate, UITableViewDataSourc
 
         // Configure the view for the selected state
     }
-    func setData(_ data: Ranking) {
+    func setData(_ data: Recipe) {
     }
 }
 

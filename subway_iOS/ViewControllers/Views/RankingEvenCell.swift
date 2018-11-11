@@ -47,7 +47,7 @@ class RankingEvenCell: UITableViewCell, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-    func setData(_ data: Ranking) {
+    func setData(_ data: Recipe) {
         //        print("cellDATA입니다",data)
         let url = URL(string: data.sandwich.imageRight)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
         self.mainImageView.kf.setImage(with: url)
