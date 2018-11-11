@@ -102,10 +102,13 @@ class Tab3ViewController: UIViewController {
                 print("****************************************************")
                 print("results",results)
                 print("****************************************************")
-                for co in results {
-                    self.collectionList.append(BookmarkFilter(id: co.id, name: co.name, clicked: false))
+//                for co in results {
+//                    self.collectionList.append(BookmarkFilter(id: co.id, name: co.name, clicked: false))
                     //젤 먼저 만든 컬렉션먼저 받기
-                    for data in co.bookmarkedRecipe.sorted(by: {$0.id < $1.id}) {
+                    
+                    for data in results.sorted(by: {$0.id < $1.id}) {
+                        print("레이디나나",data.sandwich)
+                        self.collectionList.append(BookmarkFilter(id: data.id, name: data.name, clicked: false))
 //                        data.id  // 레시피 id
 //                        var ingri = [[Ingredient]]()
 //                        let recipeId = data.id
@@ -124,7 +127,7 @@ class Tab3ViewController: UIViewController {
 //                        self.bookmarkList.append(RankingInstance(recipe: data))
                         self.bookmarkList.append(RankingInstance(recipe: data))
                     }
-                }
+//                }
                 self.tableView.reloadData()
                 self.collectionView.reloadData()
             }
@@ -223,7 +226,7 @@ extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.item == 0 {
             print("모두")
         } else {
-            let getCollection = GetCollection(api: "user/12/collection/\(self.collectionList[indexPath.item].id)",method: .get, parameters: [:])
+            let getCollection = GetCollection(api: "user/7/collection/\(self.collectionList[indexPath.item].id)",method: .get, parameters: [:])
             getCollection.requestAPIb { (response) in
                 if let results = response.result.value {
                     self.bookmarkList.removeAll()
@@ -271,8 +274,8 @@ extension Tab3ViewController: MakeCollectionDelegate {
     func alamo(_ name: String) {
         //USER의 id 저장해서 URL에 뿔리기
         //        let url = "http://subway-eb.ap-northeast-2.elasticbeanstalk.com/user/\(User.id)/collection/"
-        let url = "https://api.my-subway.com/user/12/collection/"
-        let headers: HTTPHeaders = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
+        let url = "https://api.my-subway.com/user/7/collection/"
+        let headers: HTTPHeaders = ["Authorization":"Token b5dd7a7e9b23670dfc64383351ca87f4a3fc8139"]
         let parameters: Parameters = ["name": name]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
             // 리스폰스 받아서 컬렉션 뷰에 추가 (Filter)
@@ -281,30 +284,50 @@ extension Tab3ViewController: MakeCollectionDelegate {
                 print(response)
 //                self.bookmarkList.removeAll()
                 if let results = response.result.value?.results {
-                    print("ㄲㄱ",results)
-                    for co in results {
-                        for data in co.bookmarkedRecipe {
-//                            print("포문",data)
-//                            var ingri = [[Ingredient]]()
-//                            var name: String!
-//                            var image: Sandwich!
-//                            ingri.append(data.sandwich.mainIngredient)
-//                            ingri.append([data.bread])
-//                            ingri.append(data.toppings)
-//                            ingri.append([data.cheese])
-//                            ingri.append([data.toasting])
-//                            ingri.append(data.vegetables)
-//                            ingri.append(data.sauces)
-//                            print(data.sandwich.mainIngredient.count)
-//                            print(data.toppings.count)
-//                            print(data.vegetables.count)
-//                            print(data.sauces.count)
-//                            name = data.name
-//                            image = data.sandwich
-//                            let bookmark: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
-//                            self.bookmarkList.append(RankingInstance(recipe: data))
-                            
-                        }
+//                    print("ㄲㄱ",results)
+//                    for co in results {
+//                        for data in co.bookmarkedRecipe {
+////                            print("포문",data)
+////                            var ingri = [[Ingredient]]()
+////                            var name: String!
+////                            var image: Sandwich!
+////                            ingri.append(data.sandwich.mainIngredient)
+////                            ingri.append([data.bread])
+////                            ingri.append(data.toppings)
+////                            ingri.append([data.cheese])
+////                            ingri.append([data.toasting])
+////                            ingri.append(data.vegetables)
+////                            ingri.append(data.sauces)
+////                            print(data.sandwich.mainIngredient.count)
+////                            print(data.toppings.count)
+////                            print(data.vegetables.count)
+////                            print(data.sauces.count)
+////                            name = data.name
+////                            image = data.sandwich
+////                            let bookmark: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
+////                            self.bookmarkList.append(RankingInstance(recipe: data))
+//
+//                        }
+//                    }
+                    for data in results.sorted(by: {$0.id < $1.id}) {
+                        self.collectionList.append(BookmarkFilter(id: data.id, name: data.name, clicked: false))
+                        //                        data.id  // 레시피 id
+                        //                        var ingri = [[Ingredient]]()
+                        //                        let recipeId = data.id
+                        //                        let name = data.name
+                        //                        let image = data.sandwich
+                        //
+                        //                        ingri.append(data.sandwich.mainIngredient)
+                        //                        ingri.append([data.bread])
+                        //                        ingri.append(data.toppings)
+                        //                        ingri.append([data.cheese])
+                        //                        ingri.append([data.toasting])
+                        //                        ingri.append(data.vegetables)
+                        //                        ingri.append(data.sauces)
+                        //
+                        //                        let tt: [String : Any] = ["recipeId":recipeId, "main":ingri,"name":name,"image":image,"isOpened":false]
+                        //                        self.bookmarkList.append(RankingInstance(recipe: data))
+                        self.bookmarkList.append(RankingInstance(recipe: data))
                     }
                     self.tableView.reloadData()
                 }

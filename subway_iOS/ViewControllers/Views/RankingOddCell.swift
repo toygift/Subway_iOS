@@ -40,8 +40,8 @@ class RankingOddCell: UITableViewCell {
 
     }
     func alamo() {
-        let url = "https://api.my-subway.com/user/12/bookmark/"
-        let headers = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
+        let url = "https://api.my-subway.com/user/7/bookmark/"
+        let headers = ["Authorization":"Token b5dd7a7e9b23670dfc64383351ca87f4a3fc8139"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default , headers: headers).responseJSON { (response) in
             let json = JSON(response.result.value)
             print(json)
@@ -49,10 +49,13 @@ class RankingOddCell: UITableViewCell {
     }
     func setData(_ data: RankingInstance, type: String) {
         self.recipeId = data.recipe.id
+        print("레이디가가가가가",data.recipe.sandwich)
         if type == "evens" {
             self.mainImageView.kf.setImage(with: URL(string: data.recipe.sandwich.image3XLeft))
-        } else {
+        } else if type == "odds" {
             self.mainImageView.kf.setImage(with: URL(string: data.recipe.sandwich.image3XRight))
+        } else {
+            self.mainImageView.kf.setImage(with: URL(string: data.recipe.sandwich.imageFull))
         }
         
         self.mainTitleLabel.text = data.recipe.name

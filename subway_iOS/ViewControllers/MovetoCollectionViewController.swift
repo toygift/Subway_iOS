@@ -46,7 +46,7 @@ extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect")
         let parameters: Parameters = ["bookmarked_recipe":self.moveToRecipeId]
-        let getCollection = GetCollection(api: "user/12/collection/\(self.moveToCollection[indexPath.item].id)",method: .patch, parameters: parameters)
+        let getCollection = GetCollection(api: "user/7/collection/\(self.moveToCollection[indexPath.item].id)",method: .patch, parameters: parameters)
         getCollection.requestAPIb { (response) in
             print("아아",response)
             if let results = response.result.value {

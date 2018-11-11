@@ -30,7 +30,7 @@ extension APIRequest {
     }
     func requestAPIb(completionHandler: @escaping (DataResponse<T>) -> Void) {
         let url = "\(serviceURL)/\(api)/"
-        let headers: HTTPHeaders = ["Authorization":"Token 08df49014bb9055fb6911484a183deb67c76cbd7"]
+        let headers: HTTPHeaders = ["Authorization":"Token b5dd7a7e9b23670dfc64383351ca87f4a3fc8139"]
         print("요청BBB URL",url)
         Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseDecodable(completionHandler: completionHandler)
     }
@@ -88,8 +88,8 @@ struct CheckBookmarks: APIRequest {
     var parameters: Parameters
 }
 struct GetCollections: APIRequest {
-    typealias T = BookmarkCollections
-    let api = "user/12/collection"
+    typealias T = Rankings
+    let api = "user/7/collection"
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
