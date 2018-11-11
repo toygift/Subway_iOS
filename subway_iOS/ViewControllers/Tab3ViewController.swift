@@ -128,7 +128,7 @@ class Tab3ViewController: UIViewController {
                         self.bookmarkList.append(RankingInstance(recipe: data))
                     }
 //                }
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
                 self.collectionView.reloadData()
             }
         }
