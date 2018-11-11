@@ -12,7 +12,7 @@ class MainIngredientCell: UICollectionViewCell {
     static let cellId = "MainIngredientCell"
     @IBOutlet weak var imageView: UIImageView!
     
-    var data : Bread? {
+    var data : Ingredient? {
         didSet {
             let resource = URL(string: (data?.image)!)
             imageView.kf.setImage(with: resource)

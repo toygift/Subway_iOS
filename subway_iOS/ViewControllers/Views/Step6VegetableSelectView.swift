@@ -9,11 +9,11 @@
 import UIKit
 
 struct VegetableInstance {
-    var vegetable: Bread?
+    var vegetable: Ingredient?
     var clicked = false
     var selectedOption = [false, false, true, false]
     
-    init(vegetable: Bread) {
+    init(vegetable: Ingredient) {
         self.vegetable = vegetable
     }
 }

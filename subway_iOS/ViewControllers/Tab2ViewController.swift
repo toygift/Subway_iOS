@@ -53,7 +53,7 @@ class Tab2ViewController: UIViewController {
         }
     }
     
-    var step7Cache = [Bread]()
+    var step7Cache = [Ingredient]()
     
     // MARK: - subviews
     let step1Sandwich = Step1SandwichSelectView.initializeFromNib()
@@ -339,7 +339,7 @@ extension Tab2ViewController : Step1CompleteDelegate {
 }
 
 extension Tab2ViewController : Step2CompleteDelegate {
-    func step2Completed(bread: Bread) {
+    func step2Completed(bread: Ingredient) {
         steps[3].accessible = true
         
         // 4단계에 아직 가본 상태가 아니라면 3단계까지 갈 수 있도록
@@ -356,7 +356,7 @@ extension Tab2ViewController : Step2CompleteDelegate {
 
 extension Tab2ViewController : Step3Or7CompleteDelegate {
     
-    func step3Or7Completed(ingredients: [Bread], nextStep: Int) {
+    func step3Or7Completed(ingredients: [Ingredient], nextStep: Int) {
         
         if nextStep == 4 {
             steps[nextStep].accessible = true
@@ -380,7 +380,7 @@ extension Tab2ViewController : Step3Or7CompleteDelegate {
 }
 
 extension Tab2ViewController : Step4Or5CompleteDelegate {
-    func step4Or5Completed(ingredient: Bread, nextStep: Int) {
+    func step4Or5Completed(ingredient: Ingredient, nextStep: Int) {
         steps[nextStep].accessible = true
         
         if !steps[nextStep + 1].accessible {

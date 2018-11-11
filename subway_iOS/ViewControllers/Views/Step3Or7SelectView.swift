@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 protocol Step3Or7CompleteDelegate {
-    func step3Or7Completed(ingredients : [Bread], nextStep: Int)
+    func step3Or7Completed(ingredients : [Ingredient], nextStep: Int)
 }
 
 class Step3Or7SelectView: UIView {

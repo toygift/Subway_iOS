@@ -11,12 +11,12 @@ import UIKit
 import Alamofire
 
 struct IngredientInstance {
-    var ingredient : Bread?
+    var ingredient : Ingredient?
     var clicked = false
 }
 
 protocol Step4Or5CompleteDelegate {
-    func step4Or5Completed(ingredient : Bread, nextStep: Int)
+    func step4Or5Completed(ingredient : Ingredient, nextStep: Int)
 }
 
 class Step4Or5SelectView: UITableView {

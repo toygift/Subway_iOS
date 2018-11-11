@@ -20,7 +20,7 @@ class RankingEvenCell: UITableViewCell, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var ingreTableView: UITableView!
     
     var ingrediendTitle = ["메인 재료","빵 선택", "치즈 선택","추가 선택", "토스팅 여부","야채 선택","소스 선택"]
-    var ingrediendData = [[Bread]]() {
+    var ingrediendData = [[Ingredient]]() {
         didSet {
             self.ingreTableView.delegate = self
             self.ingreTableView.dataSource = self
@@ -51,7 +51,7 @@ class RankingEvenCell: UITableViewCell, UITableViewDelegate, UITableViewDataSour
         //        print("cellDATA입니다",data)
         let url = URL(string: data.sandwich.imageRight)// 이미지가 옵셔널? 일 이유가 있나요..? 무조건 이미지는 있을거 같은뎅..
         self.mainImageView.kf.setImage(with: url)
-        self.mainTitleLabel.text = data.name.name
+        self.mainTitleLabel.text = data.name
         self.mainNumberLabel.text = String(data.id)
         
         self.ingrediendData.append(data.sandwich.mainIngredient)
@@ -90,13 +90,13 @@ class RankingEvenCellDetail: UITableViewCell, UICollectionViewDelegate, UICollec
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var collDataCell = [Bread]() {
+    var collDataCell = [Ingredient]() {
         didSet {
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
         }
     }
-    func setData(_ data: [Bread], title: String) {
+    func setData(_ data: [Ingredient], title: String) {
         self.collDataCell = data
         self.titleLabel.text = title
     }
@@ -125,7 +125,7 @@ class RankingEvenCollectionCell: UICollectionViewCell {
     @IBOutlet weak var imgaeView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
-    func setData(_ data: Bread) {
+    func setData(_ data: Ingredient) {
         self.imgaeView.kf.setImage(with: URL(string: data.image))
         self.label.text = data.name
     }

@@ -45,7 +45,7 @@ class Tab3ViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-    var bookmarkList: [[String:Any]] = [[String:Any]]() {
+    var bookmarkList: [RankingInstance] = [RankingInstance]() {
         didSet {
             self.tableView.delegate = self
             self.tableView.dataSource = self
@@ -97,21 +97,21 @@ class Tab3ViewController: UIViewController {
                     //젤 먼저 만든 컬렉션먼저 받기
                     for data in co.bookmarkedRecipe {
 //                        data.id  // 레시피 id
-                        var ingri = [[Bread]]()
-                        let recipeId = data.id
-                        let name = data.name
-                        let image = data.sandwich
-                        
-                        ingri.append(data.sandwich.mainIngredient)
-                        ingri.append([data.bread])
-                        ingri.append(data.toppings)
-                        ingri.append([data.cheese])
-                        ingri.append([data.toasting])
-                        ingri.append(data.vegetables)
-                        ingri.append(data.sauces)
-                        
-                        let tt: [String : Any] = ["recipeId":recipeId, "main":ingri,"name":name,"image":image,"isOpened":false]
-                        self.bookmarkList.append(tt)
+//                        var ingri = [[Ingredient]]()
+//                        let recipeId = data.id
+//                        let name = data.name
+//                        let image = data.sandwich
+//
+//                        ingri.append(data.sandwich.mainIngredient)
+//                        ingri.append([data.bread])
+//                        ingri.append(data.toppings)
+//                        ingri.append([data.cheese])
+//                        ingri.append([data.toasting])
+//                        ingri.append(data.vegetables)
+//                        ingri.append(data.sauces)
+//
+//                        let tt: [String : Any] = ["recipeId":recipeId, "main":ingri,"name":name,"image":image,"isOpened":false]
+//                        self.bookmarkList.append(RankingInstance(recipe: data))
                         
                     }
                 }
@@ -138,7 +138,7 @@ extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
         return self.bookmarkList.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let isOpened = self.bookmarkList[section]["isOpened"] as? Bool else { return 1 }
+        guard let isOpened = self.bookmarkList[section].isOpened as? Bool else { return 1 }
         if isOpened == true {
             return 2
         } else {
@@ -146,9 +146,9 @@ extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let id = self.bookmarkList[indexPath.section].recipe.id as! Int
         if indexPath.row == 0 {
-            let id = self.bookmarkList[indexPath.section]["name"] as! Name
-            if id.id % 2 == 0 {
+            if id % 2 == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "evens", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
                 cell.setData(self.bookmarkList[indexPath.section], type: "evens")
                 cell.delegate = self
@@ -162,16 +162,15 @@ extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "opened", for: indexPath) as? RankingOddDetailCell else { return UITableViewCell() }
-            guard let ing = self.bookmarkList[indexPath.section]["main"] as? [[Bread]] else { return UITableViewCell() }
+//            guard let ing = self.bookmarkList[indexPath.section] else { return UITableViewCell() }
             
-            cell.frame = tableView.bounds
-            cell.layoutIfNeeded()
-            let id = self.bookmarkList[indexPath.section]["name"] as! Name
-            if id.id % 2 == 0 {
-                cell.setData(ing, type: "evens")
-            } else {
-                cell.setData(ing, type: "odds")
-            }
+//            cell.frame = tableView.bounds
+//            cell.layoutIfNeeded()
+//            if id % 2 == 0 {
+//                cell.setData(ing, type: "evens")
+//            } else {
+//                cell.setData(ing, type: "odds")
+//            }
             
             cell.collectionView.reloadData()
             cell.collHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height + 60
@@ -179,14 +178,14 @@ extension Tab3ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let isOpened = self.bookmarkList[indexPath.section]["isOpened"] as? Bool else { return  }
+        guard let isOpened = self.bookmarkList[indexPath.section].isOpened as? Bool else { return  }
         if indexPath.row == 0 {
             if isOpened == true {
-                self.bookmarkList[indexPath.section]["isOpened"] = false
+                self.bookmarkList[indexPath.section].isOpened = false
                 let section = IndexSet.init(integer: indexPath.section)
                 self.tableView.reloadSections(section, with: .none)
             } else {
-                self.bookmarkList[indexPath.section]["isOpened"] = true
+                self.bookmarkList[indexPath.section].isOpened = true
                 let section = IndexSet.init(integer: indexPath.section)
                 self.tableView.reloadSections(section, with: .none)
             }
@@ -222,25 +221,25 @@ extension Tab3ViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 if let results = response.result.value {
                     self.bookmarkList.removeAll()
                     for data in results.bookmarkedRecipe {
-                        print("ㅇㅇㅇㅇㅇ",data)
-                            var ingri = [[Bread]]()
-                            var name: Name!
-                            var image: Sandwich!
-                            ingri.append(data.sandwich.mainIngredient)
-                            ingri.append([data.bread])
-                            ingri.append(data.toppings)
-                            ingri.append([data.cheese])
-                            ingri.append([data.toasting])
-                            ingri.append(data.vegetables)
-                            ingri.append(data.sauces)
-                            print(data.sandwich.mainIngredient.count)
-                            print(data.toppings.count)
-                            print(data.vegetables.count)
-                            print(data.sauces.count)
-                            name = data.name
-                            image = data.sandwich
-                            let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
-                            self.bookmarkList.append(tt)
+//                        print("ㅇㅇㅇㅇㅇ",data)
+//                            var ingri = [[Ingredient]]()
+//                            var name: String!
+//                            var image: Sandwich!
+//                            ingri.append(data.sandwich.mainIngredient)
+//                            ingri.append([data.bread])
+//                            ingri.append(data.toppings)
+//                            ingri.append([data.cheese])
+//                            ingri.append([data.toasting])
+//                            ingri.append(data.vegetables)
+//                            ingri.append(data.sauces)
+//                            print(data.sandwich.mainIngredient.count)
+//                            print(data.toppings.count)
+//                            print(data.vegetables.count)
+//                            print(data.sauces.count)
+//                            name = data.name
+//                            image = data.sandwich
+//                        let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false, "id":data.id]
+//                            self.bookmarkList.append(RankingInstance(recipe: data))
                     }
                     self.tableView.reloadData()
                 }
@@ -278,25 +277,25 @@ extension Tab3ViewController: MakeCollectionDelegate {
                     print("ㄲㄱ",results)
                     for co in results {
                         for data in co.bookmarkedRecipe {
-                            print("포문",data)
-                            var ingri = [[Bread]]()
-                            var name: Name!
-                            var image: Sandwich!
-                            ingri.append(data.sandwich.mainIngredient)
-                            ingri.append([data.bread])
-                            ingri.append(data.toppings)
-                            ingri.append([data.cheese])
-                            ingri.append([data.toasting])
-                            ingri.append(data.vegetables)
-                            ingri.append(data.sauces)
-                            print(data.sandwich.mainIngredient.count)
-                            print(data.toppings.count)
-                            print(data.vegetables.count)
-                            print(data.sauces.count)
-                            name = data.name
-                            image = data.sandwich
-                            let bookmark: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
-                            self.bookmarkList.append(bookmark)
+//                            print("포문",data)
+//                            var ingri = [[Ingredient]]()
+//                            var name: String!
+//                            var image: Sandwich!
+//                            ingri.append(data.sandwich.mainIngredient)
+//                            ingri.append([data.bread])
+//                            ingri.append(data.toppings)
+//                            ingri.append([data.cheese])
+//                            ingri.append([data.toasting])
+//                            ingri.append(data.vegetables)
+//                            ingri.append(data.sauces)
+//                            print(data.sandwich.mainIngredient.count)
+//                            print(data.toppings.count)
+//                            print(data.vegetables.count)
+//                            print(data.sauces.count)
+//                            name = data.name
+//                            image = data.sandwich
+//                            let bookmark: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
+//                            self.bookmarkList.append(RankingInstance(recipe: data))
                             
                         }
                     }

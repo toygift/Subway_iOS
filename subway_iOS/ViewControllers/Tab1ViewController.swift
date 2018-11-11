@@ -7,14 +7,24 @@
 //
 
 import UIKit
+
+struct RankingInstance {
+    var recipe : Ranking!
+    var isOpened : Bool = false
+    
+    init(recipe: Ranking) {
+        self.recipe = recipe
+    }
+    
+}
+
 class Tab1ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-//    var rankingList = [Ranking]() {
     
     @IBAction func searchBar(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
-           vc.delegate = self
+            vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -26,7 +36,7 @@ class Tab1ViewController: UIViewController {
         }
     }
     
-    var rankingList: [[String:Any]] = [[String:Any]]() {
+    var rankingList: [RankingInstance] = [RankingInstance]() {
         didSet {
             self.tableView.delegate = self
             self.tableView.dataSource = self
@@ -43,28 +53,8 @@ class Tab1ViewController: UIViewController {
         let getRankings = GetRanking(method: .get, parameters: [:])
         getRankings.requestAPI { [weak self] (response) in
             if let result = response.result.value?.results {
-//                result.map({ (ranking) in
-//                    ranking.sandwich.mainIngredient
-//                })
-                for data in result {
-                    var ingri = [[Bread]]()
-                    var name: Name!
-                    var image: Sandwich!
-                    ingri.append(data.sandwich.mainIngredient)
-                    ingri.append([data.bread])
-                    ingri.append(data.toppings)
-                    ingri.append([data.cheese])
-                    ingri.append([data.toasting])
-                    ingri.append(data.vegetables)
-                    ingri.append(data.sauces)
-                    print(data.sandwich.mainIngredient.count)
-                    print(data.toppings.count)
-                    print(data.vegetables.count)
-                    print(data.sauces.count)
-                    name = data.name
-                    image = data.sandwich
-                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
-                    self?.rankingList.append(tt)
+                for data in result.sorted(by: { $0.id < $1.id }) {
+                    self?.rankingList.append(RankingInstance(recipe: data))
                 }
                 self?.tableView.reloadData()
             }
@@ -73,13 +63,11 @@ class Tab1ViewController: UIViewController {
 }
 extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        print("ttt",self.rankingList.count)
-//        print("ranking",self.rankingList.count)
         return self.rankingList.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        guard let isOpened = self.rankingList[section]["isOpened"] as? Bool else { return 1 }
+        guard let isOpened = self.rankingList[section].isOpened as? Bool else { return 1 }
         if isOpened == true {
             return 2
         } else {
@@ -88,8 +76,7 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let id = self.rankingList[indexPath.section]["name"] as! Name
-            if id.id % 2 == 0 {
+            if indexPath.section % 2 == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "evens", for: indexPath) as? RankingOddCell else { return UITableViewCell() }
                 cell.setData(self.rankingList[indexPath.section], type: "evens")
                 return cell
@@ -101,15 +88,15 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "opened", for: indexPath) as? RankingOddDetailCell else { return UITableViewCell() }
-            guard let ing = self.rankingList[indexPath.section]["main"] as? [[Bread]] else { return UITableViewCell() }
+            
+            let data = self.rankingList[indexPath.section]
             
             cell.frame = tableView.bounds
             cell.layoutIfNeeded()
-            let id = self.rankingList[indexPath.section]["name"] as! Name
-            if id.id % 2 == 0 {
-                cell.setData(ing, type: "evens")
+            if indexPath.section % 2 == 0 {
+                cell.setData(data, type: "evens")
             } else {
-                cell.setData(ing, type: "odds")
+                cell.setData(data, type: "odds")
             }
             
             cell.collectionView.reloadData()
@@ -118,14 +105,14 @@ extension Tab1ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let isOpened = self.rankingList[indexPath.section]["isOpened"] as? Bool else { return  }
+        let isOpened = rankingList[indexPath.section].isOpened
         if indexPath.row == 0 {
-            if isOpened == true {
-                self.rankingList[indexPath.section]["isOpened"] = false
+            if isOpened {
+                self.rankingList[indexPath.section].isOpened = false
                 let section = IndexSet.init(integer: indexPath.section)
                 self.tableView.reloadSections(section, with: .none)
             } else {
-                self.rankingList[indexPath.section]["isOpened"] = true
+                self.rankingList[indexPath.section].isOpened = true
                 let section = IndexSet.init(integer: indexPath.section)
                 self.tableView.reloadSections(section, with: .none)
             }
@@ -147,24 +134,7 @@ extension Tab1ViewController: SearchViewDelegate {
                 self.rankingList.removeAll()
                 print("123",response)
                 for data in result {
-                    var ingri = [[Bread]]()
-                    var name: Name!
-                    var image: Sandwich!
-                    ingri.append(data.sandwich.mainIngredient)
-                    ingri.append([data.bread])
-                    ingri.append(data.toppings)
-                    ingri.append([data.cheese])
-                    ingri.append([data.toasting])
-                    ingri.append(data.vegetables)
-                    ingri.append(data.sauces)
-                    print(data.sandwich.mainIngredient.count)
-                    print(data.toppings.count)
-                    print(data.vegetables.count)
-                    print(data.sauces.count)
-                    name = data.name
-                    image = data.sandwich
-                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
-                    self.rankingList.append(tt)
+                    self.rankingList.append(RankingInstance(recipe: data))
                 }
                 self.tableView.reloadData()
             }

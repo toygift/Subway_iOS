@@ -17,7 +17,7 @@ struct Sandwiches: Codable {
 struct Ingredients: Codable {
     let count: Int
     let next, previous: String?
-    let results: [Bread]
+    let results: [Ingredient]
 }
 
 struct MessageResponse: Codable {

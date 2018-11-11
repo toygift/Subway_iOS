@@ -29,7 +29,7 @@ class RankingOddCell: UITableViewCell {
     @IBOutlet weak var mainShareButton: UIButton!
     @IBAction func checkBookmark(_ sender: UIButton) {
         print("check")
-       alamo()
+        alamo()
     }
     
     @IBAction func movingCollection(_ sender: Any) {
@@ -47,23 +47,17 @@ class RankingOddCell: UITableViewCell {
             print(json)
         }
     }
-    func setData(_ data: [String:Any], type: String) {
-        print("cellData",data)
-        if let recipeId = data["recipeId"] as? Int {
-            self.recipeId = recipeId
-        }
-
-        let aa = data["image"] as! Sandwich
-        let name = data["name"] as! Name
-        print(name)
+    func setData(_ data: RankingInstance, type: String) {
+        self.recipeId = data.recipe.id
         if type == "evens" {
-            self.mainImageView.kf.setImage(with: URL(string: aa.image3XLeft))
+            self.mainImageView.kf.setImage(with: URL(string: data.recipe.sandwich.image3XLeft))
         } else {
-            self.mainImageView.kf.setImage(with: URL(string: aa.image3XRight))
+            self.mainImageView.kf.setImage(with: URL(string: data.recipe.sandwich.image3XRight))
         }
         
-        self.mainTitleLabel.text = name.name
-        self.mainNumberLabel.text = String(name.id)
+        self.mainTitleLabel.text = data.recipe.name
+        
+        self.mainNumberLabel.text = recipeId! > 9 ? "\(recipeId!)" : "0\(recipeId!)"
     }
 }
 class RankingOddDetailCell: UITableViewCell {
@@ -74,44 +68,55 @@ class RankingOddDetailCell: UITableViewCell {
     
     @IBOutlet weak var bookmakrButton: UIButton!
    
-    var ingrediendTitle = ["메인 재료","빵 선택", "치즈 선택","추가 선택", "토스팅 여부","야채 선택","소스 선택"]
-    var ingrediendData = [[Bread]]() {
+    var ingredientTitle = ["메인 재료","빵 선택", "치즈 선택","추가 선택", "토스팅 여부","야채 선택","소스 선택"]
+    var ingredientData : RankingInstance? {
         didSet {
+            convertData()
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
             self.collectionView.reloadData()
         }
     }
     
-    func setData(_ data: [[Bread]], type: String) {
-        self.ingrediendData = data
-        if type == "odds" {
-//            self.left.constant = 20
-//            self.right.constant = 0
-        } else {
-//            self.right.constant = 20
-//            self.left.constant = 0
+    var ingredientArray = [[Ingredient]]()
+    
+    fileprivate func convertData(){
+        guard let data = ingredientData?.recipe else {
+            fatalError("data has not been set")
         }
+        ingredientArray.removeAll()
+        ingredientArray.append(data.sandwich.mainIngredient)
+        ingredientArray.append([data.bread])
+        ingredientArray.append(data.toppings)
+        ingredientArray.append([data.cheese])
+        ingredientArray.append([data.toasting])
+        ingredientArray.append(data.vegetables)
+        ingredientArray.append(data.sauces)
+        
+    }
+    
+    func setData(_ data: RankingInstance, type: String) {
+        self.ingredientData = data
     }
 }
 extension RankingOddDetailCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.ingrediendData.count
+        return self.ingredientArray.count
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.ingrediendData[section].count
+        return self.ingredientArray[section].count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailCells", for: indexPath) as! RankingOddCollectionCell
-        cell.setData(self.ingrediendData[indexPath.section][indexPath.item])
+        cell.setData(self.ingredientArray[indexPath.section][indexPath.item])
         
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader {
-            sectionHeader.sectionTitle.text = ingrediendTitle[indexPath.section]
-            print(ingrediendTitle[indexPath.section])
+            sectionHeader.sectionTitle.text = ingredientTitle[indexPath.section]
+            print(ingredientTitle[indexPath.section])
             return sectionHeader
         }
         return UICollectionReusableView()
@@ -126,7 +131,7 @@ class RankingOddCollectionCell: UICollectionViewCell {
     @IBOutlet weak var imgaeView: UIImageView!
     @IBOutlet weak var label: UILabel!
 
-    func setData(_ data: Bread) {
+    func setData(_ data: Ingredient) {
         self.imgaeView.kf.setImage(with: URL(string: data.image3X))
         self.label.text = data.name
         self.contentView.setNeedsLayout()

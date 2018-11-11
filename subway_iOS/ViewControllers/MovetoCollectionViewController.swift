@@ -52,7 +52,7 @@ extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSo
             if let results = response.result.value {
                 for data in results.bookmarkedRecipe {
                     print("ㅇㅇㅇㅇㅇ",data)
-                    var ingri = [[Bread]]()
+                    var ingri = [[Ingredient]]()
                     let name = data.name
                     let image = data.sandwich
                     ingri.append(data.sandwich.mainIngredient)

@@ -12,7 +12,7 @@ import Kingfisher
 class IngredientCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var ingredientTableView: UITableView!
-    var inggg: [[Bread]]! {
+    var inggg: [[Ingredient]]! {
         didSet {
             ingredientTableView.delegate = self
             ingredientTableView.dataSource = self
@@ -50,7 +50,7 @@ extension IngredientCell {
 class IngredientTabCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    var data: [Bread]!
+    var data: [Ingredient]!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,7 +74,7 @@ class IngredientColCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func setData(_ data: Bread) {
+    func setData(_ data: Ingredient) {
 //        print("IngredientColCell",data)
         self.titleLabel.text = data.name
         let url = data.image3X

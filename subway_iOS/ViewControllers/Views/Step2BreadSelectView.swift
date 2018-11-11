@@ -9,12 +9,12 @@
 import UIKit
 
 struct BreadInstance {
-    var bread : Bread?
+    var bread : Ingredient?
     var clicked = false
 }
 
 protocol Step2CompleteDelegate {
-    func step2Completed(bread : Bread)
+    func step2Completed(bread : Ingredient)
 }
 
 class Step2BreadSelectView: UITableView {
