@@ -20,9 +20,9 @@ struct Ingredients: Codable {
     let results: [Ingredient]
 }
 
-struct MessageResponse: Codable {
+struct RecipeMakeResponse: Codable {
     let detail: String
-    let pk : Int?
+    let duplicate_recipe_pk : Int?
 }
 
 struct RecipeNameChoicesList: Codable {

@@ -62,6 +62,15 @@ class Step8NameSelectView: UIView {
         sandwichName = name
     }
     
+    func initialize(){
+        retryButton.isHidden = true
+        centerLabel.isHidden = true
+        circleView.isHidden = false
+        confirmButton.isHidden = true
+        
+        resultBackground.transform = CGAffineTransform(scaleX: 1, y: 1)
+    }
+    
     // MARK: - setting up views
     fileprivate func setupCircleView(){
         circleView.layer.cornerRadius = circleView.frame.width / 2
@@ -119,7 +128,9 @@ class Step8NameSelectView: UIView {
             self?.resultBackground.transform = CGAffineTransform(scaleX: scaleX, y: scaleX)
         })
         
+        centerLabel.isHidden = false
         GetRecipeNameChoicesList(method: .get, parameters:[:]).requestAPI { [weak self] (response) in
+            self?.choicesList.removeAll()
             if let value = response.value {
                 self?.choicesList.append(contentsOf: value.recipe_name_choices_list)
                 let choice = self?.choicesList.removeFirst()

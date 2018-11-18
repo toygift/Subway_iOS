@@ -36,7 +36,9 @@ extension APIRequest {
     }
     func requestAPIencoded(completionHandler: @escaping (DataResponse<T>) -> Void) {
         let url = "\(serviceURL)/\(api)/"
-        Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default).responseDecodable(completionHandler: completionHandler)
+        if let headers = TokenAuth.getAuthHeaders() {
+            Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(completionHandler: completionHandler)
+        }
     }
 }
 

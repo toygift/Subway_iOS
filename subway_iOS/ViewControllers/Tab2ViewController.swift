@@ -237,7 +237,7 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
         step5Toasting.initializeSelection()
         step6Vegetable.initializeSelection()
         step7Sauce.initializeSelection()
-        
+        step8Name.initialize()
     }
     
     fileprivate func showAlertPopup(alertType: AlertType){
@@ -263,8 +263,13 @@ extension Tab2ViewController : UICollectionViewDelegate, UICollectionViewDataSou
                 self?.goTo(stepIndex: 8)
                 self?.disableScroll()
             } else if statusCode == 400 {
-                if let pk = response.value?.pk {
+                // TODO: - 레시피 저장.. & 만들기 초기화
+                if let pk = response.value?.duplicate_recipe_pk {
                     print("hello \(pk)")
+                }
+                
+                if let message = response.value?.detail {
+                    print("message: \(message)")
                 }
             }
         }
@@ -333,6 +338,7 @@ extension Tab2ViewController : Step1CompleteDelegate {
         
         recipe["sandwich"] = ["name" : sandwich.name]
         step2Bread.fetchData()
+        step8Name.setSandwichName(with: sandwich.name)
         goTo(stepIndex: 2)
     }
     
@@ -349,7 +355,6 @@ extension Tab2ViewController : Step2CompleteDelegate {
         
         recipe["bread"] = ["name" : bread.name]
         step3Topping.fetchData()
-        step8Name.setSandwichName(with: bread.name)
         goTo(stepIndex: 3)
     }
 }
@@ -409,7 +414,7 @@ extension Tab2ViewController: Step6CompleteDelegate {
             scrollView.contentSize = CGSize(width: view.frame.width * 7, height: scrollView.bounds.size.height)
         }
         
-        recipe["vegetables"] = vegetableSelection .map{ ["name":$0.name, "quantity":$0.quantity] }
+        recipe["vegetables"] = vegetableSelection.map{ ["name":$0.name, "quantity":$0.quantity] }
         step7Sauce.fetchData()
         goTo(stepIndex: 7)
     }
@@ -419,7 +424,19 @@ extension Tab2ViewController: Step8CompleteDelegate {
     func step8Completed(name: String) {
         recipe["name"] = name
         
-        // TODO: - call make recipe request
-        
+        RecipeCreate(method: .post, parameters: recipe).requestAPIencoded { [weak self] (response) in
+            
+            if let statusCode = response.response?.statusCode {
+                if statusCode == 201 {
+                    print("completed!!")
+                    self?.refreshSelections()
+                } else {
+                    
+                }
+            }
+            print(response)
+            print(response.data)
+            print(response.error)
+        }
     }
 }

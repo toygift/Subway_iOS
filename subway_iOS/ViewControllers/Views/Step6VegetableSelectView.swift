@@ -90,8 +90,9 @@ class Step6VegetableSelectView: UIView {
         for row in list {
             if let name = row.vegetable?.name {
                 let v = Vegetable(name: name, quantity: getSelectedOptionString(options: row.selectedOption))
-                selectedOptions.append(v)
-                //selectedOptions[name] = getSelectedOptionString(options: row.selectedOption)
+                if v.quantity != "빼" {
+                    selectedOptions.append(v)
+                }
             }
         }
         completeDelegate?.step6Completed(vegetableSelection: selectedOptions)

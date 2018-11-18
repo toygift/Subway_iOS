@@ -14,7 +14,7 @@ import Foundation
 //   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 struct BookmarkCollections: Codable {
     let count: Int
-    let next, previous: JSONNull?
+    let next, previous: String?
     let results: [BookmarkCollection]
 }
 struct BookmarkCollection: Codable {
@@ -25,7 +25,7 @@ struct BookmarkCollection: Codable {
 }
 class Rankings: Codable {
     let count: Int
-    let next, previous: JSONNull?
+    let next, previous: String?
     let results: [Recipe]
     
 }
