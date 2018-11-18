@@ -14,19 +14,14 @@ import Foundation
 //   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 struct BookmarkCollections: Codable {
     let count: Int
-//    let next, previous: JSONNull?
+    let next, previous: JSONNull?
     let results: [BookmarkCollection]
 }
 struct BookmarkCollection: Codable {
     let id: Int
     let user: User
     let name: String
-    let bookmarkedRecipe: [Bookmark]
-    
-    enum CodingKeys: String, CodingKey {
-        case id, user, name
-        case bookmarkedRecipe = "bookmarked_recipe"
-    }
+    let bookmarks: [Bookmark]
 }
 class Rankings: Codable {
     let count: Int
@@ -50,7 +45,7 @@ class Recipe : Codable {
     let cheese, toasting: Ingredient!
     let vegetables, sauces: [Ingredient]!
     let inventor: Inventor!
-    let authUserLikeState, authUserBookmarkState: JSONNull?
+    let authUserLikeState, authUserBookmarkState: Bool?
     let createdDate: String!
     
     private enum CodingKeys: String, CodingKey {
@@ -61,22 +56,28 @@ class Recipe : Codable {
     }
 }
 
-class Bookmark: Recipe {
-    let likeCount, bookmarkCount, likeBookmarkCount: Int!
+class Bookmark: Codable {
     
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.likeCount = try container.decode(Int.self, forKey: .likeCount)
-        self.bookmarkCount = try container.decode(Int.self, forKey: .bookmarkCount)
-        self.likeBookmarkCount = try container.decode(Int.self, forKey: .likeBookmarkCount)
-        try super.init(from: decoder)
-    }
+    let id: Int
+    let recipe: Recipe
+    let collection: Int?
+    let created_date: String
     
-    private enum CodingKeys: String, CodingKey {
-        case likeCount = "like_count"
-        case bookmarkCount = "bookmark_count"
-        case likeBookmarkCount = "like_bookmark_count"
-    }
+//    let likeCount, bookmarkCount, likeBookmarkCount: Int!
+//
+//    required init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.likeCount = try container.decode(Int.self, forKey: .likeCount)
+//        self.bookmarkCount = try container.decode(Int.self, forKey: .bookmarkCount)
+//        self.likeBookmarkCount = try container.decode(Int.self, forKey: .likeBookmarkCount)
+//        try super.init(from: decoder)
+//    }
+//
+//    private enum CodingKeys: String, CodingKey {
+//        case likeCount = "like_count"
+//        case bookmarkCount = "bookmark_count"
+//        case likeBookmarkCount = "like_bookmark_count"
+//    }
 }
 
 struct Ingredient: Codable {

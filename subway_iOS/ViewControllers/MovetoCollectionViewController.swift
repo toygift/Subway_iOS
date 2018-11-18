@@ -50,21 +50,21 @@ extension MovetoCollectionViewController: UITableViewDelegate, UITableViewDataSo
         getCollection.requestAPIb { (response) in
             print("아아",response)
             if let results = response.result.value {
-                for data in results.bookmarkedRecipe {
-                    print("ㅇㅇㅇㅇㅇ",data)
-                    var ingri = [[Ingredient]]()
-                    let name = data.name
-                    let image = data.sandwich
-                    ingri.append(data.sandwich.mainIngredient)
-                    ingri.append([data.bread])
-                    ingri.append(data.toppings)
-                    ingri.append([data.cheese])
-                    ingri.append([data.toasting])
-                    ingri.append(data.vegetables)
-                    ingri.append(data.sauces)
+//                for data in results.bookmarkedRecipe {
+//                    print("ㅇㅇㅇㅇㅇ",data)
+//                    var ingri = [[Ingredient]]()
+//                    let name = data.name
+//                    let image = data.sandwich
+//                    ingri.append(data.sandwich.mainIngredient)
+//                    ingri.append([data.bread])
+//                    ingri.append(data.toppings)
+//                    ingri.append([data.cheese])
+//                    ingri.append([data.toasting])
+//                    ingri.append(data.vegetables)
+//                    ingri.append(data.sauces)
 //                    let tt: [String : Any] = ["main":ingri,"name":name,"image":image,"isOpened":false]
 //                    self.moveToCollection.append(tt)
-                }
+//                }
                 self.tableView.reloadData()
             }
         }

@@ -88,8 +88,8 @@ struct CheckBookmarks: APIRequest {
     var parameters: Parameters
 }
 struct GetCollections: APIRequest {
-    typealias T = Rankings
-    let api = "user/7/collection"
+    typealias T = BookmarkCollections
+    let api : String
     var method: HTTPMethod = .get
     var parameters: Parameters
 }
